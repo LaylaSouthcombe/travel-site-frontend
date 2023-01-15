@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
-import { NavBar } from '../../layout'
+import { SecondSideNavBar } from '../../layout'
 const About = () => {
-    const [bodyBlur, setBodyBlur] = useState("none")
-  const [zIndex, setzIndex] = useState("0")
+    const [selectedListTitle, setSelectedListTitle] = useState('Destination');
+
+
+    
     return(
-        <NavBar setBodyBlur={setBodyBlur} setzIndex={setzIndex}/>
+        <SecondSideNavBar listTitle={selectedListTitle}/>
     )
 }
 
