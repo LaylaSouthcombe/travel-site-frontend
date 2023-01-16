@@ -6,6 +6,12 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
+import { faUmbrellaBeach } from '@fortawesome/free-solid-svg-icons'
+import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
+import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
+import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
+
+
 import { useNavigate } from 'react-router-dom';
 
 const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedListTitle, secondNavBarDisplay, setSecondNavBarDisplay}) => {
@@ -17,30 +23,28 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
         },
         {
             "name": "Trip Styles",
-            "icon": faEarthAmericas
+            "icon": faUmbrellaBeach
         },
         {
             "name": "Climates",
-            "icon": faEarthAmericas
+            "icon": faSnowflake
         },
         {
             "name": "Popular",
-            "icon": faEarthAmericas,
+            "icon": faArrowTrendUp,
             "url": "/popular"
         },
         {
             "name": "Tips & Tricks",
-            "icon": faEarthAmericas,
+            "icon": faLightbulb,
             "url": "/tips-and-tricks"
         }
     ]
     const changeSecondNavBarVisibility = (name) => {
-        if(secondNavBarDisplay === 'hidden'){
-            setListData(fullListData[name])
-            setSecondNavBarDisplay('showing')
-        } else {
-            setSecondNavBarDisplay('hidden')
+        if(listData.length){
             setListData([])
+        } else {
+            setListData(fullListData[name])
         }
     }
 
@@ -225,32 +229,33 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
         changeSecondNavBarVisibility(name)
     };
   
-
-
-const renderedMenuItems = titleListData.map((item,i )=> {
+    const renderedMenuItems = titleListData.map((item,i )=> {
+        return (
+                <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
+                    {item.name !== "Popular" && item.name !== "Tips & Tricks" ? 
+                    <ListItemButton onClick={() => handleClick(item.name)}>
+                        <FontAwesomeIcon icon={item.icon} />
+                        <ListItemText primary={item.name} />
+                    </ListItemButton>
+                    : <ListItemButton onClick={() => navigate(item.url)}>
+                        <FontAwesomeIcon icon={item.icon} />
+                        <ListItemText primary={item.name} />
+                    </ListItemButton>
+                }
+                </div>
+            )
+        }
+    )
+    
     return (
-            <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
-                {item.name !== "Popular" && item.name !== "Tips & Tricks" ? 
-                <ListItemButton onClick={() => handleClick(item.name)}>
-                    <FontAwesomeIcon icon={item.icon} />
-                    <ListItemText primary={item.name} />
-                </ListItemButton>
-                : <ListItemButton onClick={() => navigate(item.url)}>
-                    <FontAwesomeIcon icon={item.icon} />
-                    <ListItemText primary={item.name} />
-                </ListItemButton>
-            }
-            </div>
-        )
-    }
-)
-    return (
+        <div id="firstSideNavMenu">
             <List
                 sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
                 component="nav"
                 aria-labelledby="nested-list-subheader">
                 {renderedMenuItems}
             </List>
+        </div>
     )
 }
 

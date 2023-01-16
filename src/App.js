@@ -1,7 +1,9 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 import {Home} from './pages'
-import './App.css';
+
+import './layout/FirstSideNavBar/style.css'
+
 
 function App() {
   return (
