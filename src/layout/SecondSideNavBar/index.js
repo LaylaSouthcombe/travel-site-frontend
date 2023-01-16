@@ -10,10 +10,10 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-const SecondSideNavBar = ({listData, setListData, selectedListTitle, setSelectedListTitle, secondNavBarDisplay}) => {
+const SecondSideNavBar = ({listData, setListData, selectedListTitle, setSelectedListTitle, secondNavBarDisplay, setSecondNavBarDisplay}) => {
     let navigate = useNavigate();
     const [openList, setOpenList] = useState([]);
 
@@ -27,7 +27,10 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, setSelected
         listData[i].openState = !listData[i].openState
         setListData(listData)
   };
-
+  const closeSideNavBar = () => {
+    setSecondNavBarDisplay('hidden')
+    setListData([])
+  }
 const renderedMenuItems = listData.map((heading,i )=> {
     return (
             <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
@@ -61,8 +64,12 @@ const renderedMenuItems = listData.map((heading,i )=> {
         )
     }
 )
+
     return (
         <div className={"secondNavBar " + secondNavBarDisplay}>
+            <div className="backArrow" onClick={() => closeSideNavBar()}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+            </div>
             <List
                 sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
                 component="nav"
