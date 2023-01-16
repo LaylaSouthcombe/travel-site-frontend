@@ -1,5 +1,4 @@
 import React from 'react'
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 
 import ListItemButton from '@mui/material/ListItemButton';
@@ -35,16 +34,13 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
             "url": "/tips-and-tricks"
         }
     ]
-    // const [openList, setOpenList] = useState([]);
     const changeSecondNavBarVisibility = (name) => {
         if(secondNavBarDisplay === 'hidden'){
             setListData(fullListData[name])
-            console.log(listData)
             setSecondNavBarDisplay('showing')
         } else {
             setSecondNavBarDisplay('hidden')
             setListData([])
-            console.log(listData)
         }
     }
 
@@ -55,16 +51,36 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
                     "icon": "SendIcon",
                     "children": [
                         {
-                          "name": "Explore Europe",
+                          "name": "Explore more in Europe",
                           "url": "/europe"
                         },
                         {
-                          "name": "United Kingdom",
-                          "url": "/unitedkingdom"
+                          "name": "Bulgaria",
+                          "url": "/bulgaria"
+                        },
+                        {
+                          "name": "Denmark",
+                          "url": "/denmark"
                         },
                         {
                           "name": "France",
                           "url": "/france"
+                        },
+                        {
+                          "name": "Germany",
+                          "url": "/germany"
+                        },
+                        {
+                          "name": "Greece",
+                          "url": "/greece"
+                        },
+                        {
+                          "name": "Spain",
+                          "url": "/spain"
+                        },
+                        {
+                          "name": "United Kingdom",
+                          "url": "/unitedkingdom"
                         }
                       ],
                       "openState": false
@@ -73,11 +89,110 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
                   "name": "Africa",
                   "children": [
                     {
-                      "name": "Explore Africa",
+                      "name": "Explore more in Africa",
                       "url": "/africa"
-                    }],
+                    },
+                    {
+                        "name": "Botswana",
+                        "url": "/botswana"
+                    },
+                    {
+                        "name": "Egypt",
+                        "url": "/egypt"
+                    }
+                ],
                     "openState": false
-                }
+                },
+                {
+                    "name": "Asia",
+                    "children": [
+                      {
+                        "name": "Explore more in Asia",
+                        "url": "/asia"
+                      },
+                      {
+                          "name": "Botswana",
+                          "url": "/botswana"
+                      },
+                      {
+                          "name": "Egypt",
+                          "url": "/egypt"
+                      }
+                  ],
+                      "openState": false
+                  },
+                  {
+                    "name": "Oceania",
+                    "children": [
+                      {
+                        "name": "Explore more in Africa",
+                        "url": "/africa"
+                      },
+                      {
+                          "name": "Botswana",
+                          "url": "/botswana"
+                      },
+                      {
+                          "name": "Egypt",
+                          "url": "/egypt"
+                      }
+                  ],
+                      "openState": false
+                  },
+                  {
+                    "name": "North America",
+                    "children": [
+                      {
+                        "name": "Explore more in Africa",
+                        "url": "/africa"
+                      },
+                      {
+                          "name": "Botswana",
+                          "url": "/botswana"
+                      },
+                      {
+                          "name": "Egypt",
+                          "url": "/egypt"
+                      }
+                  ],
+                      "openState": false
+                  },
+                  {
+                    "name": "Central America",
+                    "children": [
+                      {
+                        "name": "Explore more in Africa",
+                        "url": "/africa"
+                      },
+                      {
+                          "name": "Botswana",
+                          "url": "/botswana"
+                      },
+                      {
+                          "name": "Egypt",
+                          "url": "/egypt"
+                      }
+                  ],
+                      "openState": false
+                  },
+                  {
+                    "name": "South America",
+                    "children": [
+                      {
+                        "name": "Explore more in Africa",
+                        "url": "/africa"
+                      },
+                      {
+                          "name": "Botswana",
+                          "url": "/botswana"
+                      },
+                      {
+                          "name": "Egypt",
+                          "url": "/egypt"
+                      }
+                  ],
+                      "openState": false
+                  }
             ],
             "Trip Styles": [
                 {
@@ -86,7 +201,7 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
                     "url": "/adventure"
                 },
                 {
-                  "name": "Relaxing",
+                  "name": "Relaxation",
                   "icon": "SendIcon",
                   "url": "/relaxing"
                 }
