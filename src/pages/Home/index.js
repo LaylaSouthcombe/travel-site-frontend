@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
-import { SecondSideNavBar } from '../../layout'
+import { FirstSideNavBar, SecondSideNavBar } from '../../layout'
 const About = () => {
-    const [selectedListTitle, setSelectedListTitle] = useState('Destination');
-
-
+    const [selectedListTitle, setSelectedListTitle] = useState();
+    const [secondNavBarDisplay, setSecondNavBarDisplay] = useState('hidden')
+    const [listData, setListData] = useState([])
     
     return(
-        <SecondSideNavBar listTitle={selectedListTitle}/>
+        <>
+            <FirstSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} setSelectedListTitle={setSelectedListTitle} secondNavBarDisplay={secondNavBarDisplay} setSecondNavBarDisplay={setSecondNavBarDisplay}/>
+            {listData.length ? <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} setSelectedListTitle={setSelectedListTitle}secondNavBarDisplay={secondNavBarDisplay}/> : null}
+        </>
     )
 }
 

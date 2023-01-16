@@ -8,6 +8,8 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Home/>}/>
+      {/* <Route path="/desert" element={<Category renderTerm={desert}/>}/> */}
+      {/* Have routes pass in prop to page component to render page */}
     </Routes>
     </>
   );
