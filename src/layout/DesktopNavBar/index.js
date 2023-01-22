@@ -42,11 +42,11 @@ const DesktopNavBar = ({titleListData, fullListData}) => {
             )
         }
     }
-    const renderMenu = titleListData.map(item => {
+    const renderMenu = titleListData.map((item, i) => {
         if(item.name !== "Popular" && item.name !== "Tips & Tricks" ){
             return (
                 windowSize < 1024 ? 
-                <div className="menuItem" >
+                <div className="menuItem" key={i}>
                     <p onClick={(e) => clickOpenCloseMenu(e, item.name)}>{item.name}</p>
                     {dropdownMenuOpen && dropdownMenuName === item.name ? renderSubMenu(item.name) : null}
                 </div> : 
@@ -57,7 +57,7 @@ const DesktopNavBar = ({titleListData, fullListData}) => {
             )
         } else {
             return (
-                <div className="menuItem">
+                <div className="menuItem" key={i}>
                     <p onClick={() => navigate(fullListData[item.name].url)}>{item.name}</p>
                 </div>
             )

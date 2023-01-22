@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState} from 'react'
 import { FirstSideNavBar, SecondSideNavBar, DesktopNavBar } from '../'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +12,6 @@ import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = ({country}) => {
     const [selectedListTitle, setSelectedListTitle] = useState();
-    const [secondNavBarDisplay, setSecondNavBarDisplay] = useState('hidden')
     const [listData, setListData] = useState([])
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
     const [menuIcon, setMenuIcon] = useState(faBars)
@@ -56,8 +55,7 @@ const NavBar = ({country}) => {
                           "name": "United Kingdom",
                           "url": "/unitedkingdom"
                         }
-                      ],
-                      "openState": false
+                      ]
                 },
                 {
                   "name": "Africa",
@@ -74,8 +72,7 @@ const NavBar = ({country}) => {
                         "name": "Egypt",
                         "url": "/egypt"
                     }
-                ],
-                    "openState": false
+                ]
                 },
                 {
                     "name": "Asia",
@@ -92,8 +89,7 @@ const NavBar = ({country}) => {
                           "name": "Egypt",
                           "url": "/egypt"
                       }
-                  ],
-                      "openState": false
+                  ]
                   },
                   {
                     "name": "Oceania",
@@ -110,8 +106,7 @@ const NavBar = ({country}) => {
                           "name": "Egypt",
                           "url": "/egypt"
                       }
-                  ],
-                      "openState": false
+                  ]
                   },
                   {
                     "name": "North America",
@@ -128,8 +123,7 @@ const NavBar = ({country}) => {
                           "name": "Egypt",
                           "url": "/egypt"
                       }
-                  ],
-                      "openState": false
+                  ]
                   },
                   {
                     "name": "Central America",
@@ -146,8 +140,7 @@ const NavBar = ({country}) => {
                           "name": "Egypt",
                           "url": "/egypt"
                       }
-                  ],
-                      "openState": false
+                  ]
                   },
                   {
                     "name": "South America",
@@ -164,8 +157,7 @@ const NavBar = ({country}) => {
                           "name": "Egypt",
                           "url": "/egypt"
                       }
-                  ],
-                      "openState": false
+                  ]
                   }
             ],
             "Trip Styles": [
