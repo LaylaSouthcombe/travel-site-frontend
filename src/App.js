@@ -3,6 +3,8 @@ import {Routes, Route} from 'react-router-dom'
 import {Home} from './pages'
 
 import './layout/FirstSideNavBar/style.css'
+import './layout/DesktopNavBar/style.css'
+
 
 
 function App() {

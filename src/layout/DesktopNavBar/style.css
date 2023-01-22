@@ -1,0 +1,23 @@
+
+.menuItems{
+    display: flex;
+    border: 2px solid black;
+    position: relative;
+}
+.menuItem {
+    padding: 10px;
+}
+.destinationsDropdown{
+    border: 2px solid black;
+    display: block;
+    position: absolute;
+}
+@media screen and (min-width: 1024px){
+    .destinationsDropdown{
+        border: 2px solid black;
+        display: none;
+        position: absolute;
+    }
+    .menuItem:hover .destinationsDropdown {display: block;}
+    #DestinationsNavBtn:hover .menuItem {background-color: #3e8e41;}
+}

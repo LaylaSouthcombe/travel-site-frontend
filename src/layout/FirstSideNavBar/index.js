@@ -5,41 +5,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
-import { faUmbrellaBeach } from '@fortawesome/free-solid-svg-icons'
-import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
-import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 
 
 import { useNavigate } from 'react-router-dom';
 
-const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedListTitle, secondNavBarDisplay, setSecondNavBarDisplay}) => {
+const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, selectedListTitle, setSelectedListTitle, secondNavBarDisplay, setSecondNavBarDisplay}) => {
     let navigate = useNavigate();
-    const titleListData = [
-        {
-            "name": "Destinations",
-            "icon": faEarthAmericas
-        },
-        {
-            "name": "Trip Styles",
-            "icon": faUmbrellaBeach
-        },
-        {
-            "name": "Climates",
-            "icon": faSnowflake
-        },
-        {
-            "name": "Popular",
-            "icon": faArrowTrendUp,
-            "url": "/popular"
-        },
-        {
-            "name": "Tips & Tricks",
-            "icon": faLightbulb,
-            "url": "/tips-and-tricks"
-        }
-    ]
+    
     const changeSecondNavBarVisibility = (name) => {
         if(listData.length){
             setListData([])
@@ -48,188 +20,14 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
         }
     }
 
-    const fullListData = {
-        "Destinations": [
-                {
-                    "name": "Europe",
-                    "icon": "SendIcon",
-                    "children": [
-                        {
-                          "name": "Explore more in Europe",
-                          "url": "/europe"
-                        },
-                        {
-                          "name": "Bulgaria",
-                          "url": "/bulgaria"
-                        },
-                        {
-                          "name": "Denmark",
-                          "url": "/denmark"
-                        },
-                        {
-                          "name": "France",
-                          "url": "/france"
-                        },
-                        {
-                          "name": "Germany",
-                          "url": "/germany"
-                        },
-                        {
-                          "name": "Greece",
-                          "url": "/greece"
-                        },
-                        {
-                          "name": "Spain",
-                          "url": "/spain"
-                        },
-                        {
-                          "name": "United Kingdom",
-                          "url": "/unitedkingdom"
-                        }
-                      ],
-                      "openState": false
-                },
-                {
-                  "name": "Africa",
-                  "children": [
-                    {
-                      "name": "Explore more in Africa",
-                      "url": "/africa"
-                    },
-                    {
-                        "name": "Botswana",
-                        "url": "/botswana"
-                    },
-                    {
-                        "name": "Egypt",
-                        "url": "/egypt"
-                    }
-                ],
-                    "openState": false
-                },
-                {
-                    "name": "Asia",
-                    "children": [
-                      {
-                        "name": "Explore more in Asia",
-                        "url": "/asia"
-                      },
-                      {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ],
-                      "openState": false
-                  },
-                  {
-                    "name": "Oceania",
-                    "children": [
-                      {
-                        "name": "Explore more in Africa",
-                        "url": "/africa"
-                      },
-                      {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ],
-                      "openState": false
-                  },
-                  {
-                    "name": "North America",
-                    "children": [
-                      {
-                        "name": "Explore more in Africa",
-                        "url": "/africa"
-                      },
-                      {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ],
-                      "openState": false
-                  },
-                  {
-                    "name": "Central America",
-                    "children": [
-                      {
-                        "name": "Explore more in Africa",
-                        "url": "/africa"
-                      },
-                      {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ],
-                      "openState": false
-                  },
-                  {
-                    "name": "South America",
-                    "children": [
-                      {
-                        "name": "Explore more in Africa",
-                        "url": "/africa"
-                      },
-                      {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ],
-                      "openState": false
-                  }
-            ],
-            "Trip Styles": [
-                {
-                    "name": "Adventure",
-                    "icon": "SendIcon",
-                    "url": "/adventure"
-                },
-                {
-                  "name": "Relaxation",
-                  "icon": "SendIcon",
-                  "url": "/relaxing"
-                }
-            ],
-            "Climates": [
-                {
-                    "name": "Countryside",
-                    "icon": "SendIcon",
-                    "url": "/countryside"
-                },
-                {
-                  "name": "Desert",
-                  "icon": "SendIcon",
-                  "url": "/desert"
-                }
-            ]
-    }
+    
 
     const handleClick = (name) => {
         setSelectedListTitle(name)
         changeSecondNavBarVisibility(name)
     };
   
-    const renderedMenuItems = titleListData.map((item,i )=> {
+    const renderedMenuItems = titleListData.map((item,i ) => {
         return (
                 <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
                     {item.name !== "Popular" && item.name !== "Tips & Tricks" ? 
@@ -246,7 +44,7 @@ const FirstSideNavBar = ({listData, setListData, selectedListTitle, setSelectedL
             )
         }
     )
-    
+
     return (
         <div id="firstSideNavMenu">
             <List
