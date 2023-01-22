@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-const DestinationsDropMenu = ({titleListData, fullListData}) => {
-    console.log("hi")
+const DestinationsDropMenu = ({fullListData}) => {
     const renderDestinationsDropDown = fullListData['Destinations'].map(continent => {
         return(
                 <p>{continent.name}</p>
@@ -10,8 +9,8 @@ const DestinationsDropMenu = ({titleListData, fullListData}) => {
 
     return(
         <>
-            <div className="destinationsDropdown">
-            {renderDestinationsDropDown}
+            <div className="navDropdown" id='destinationsDropdown'>
+                {renderDestinationsDropDown}
             </div>
         </>
     )

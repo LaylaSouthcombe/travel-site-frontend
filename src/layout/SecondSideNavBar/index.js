@@ -13,7 +13,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-const SecondSideNavBar = ({listData, setListData, selectedListTitle, setSelectedListTitle, secondNavBarDisplay, setSecondNavBarDisplay}) => {
+const SecondSideNavBar = ({listData, setListData, selectedListTitle}) => {
     let navigate = useNavigate();
     const [openList, setOpenList] = useState([]);
 
@@ -67,14 +67,11 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, setSelected
     )
 
     return (
-        <div className={"secondNavBar "}>
+        <div className={"secondNavBar"}>
             <div className="backArrow" onClick={() => closeSideNavBar()}>
                 <FontAwesomeIcon icon={faArrowLeft} />
             </div>
             <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-                component="nav"
-                aria-labelledby="nested-list-subheader"
                 subheader={
                 <ListSubheader component="div" id="nested-list-subheader">
                 {selectedListTitle}

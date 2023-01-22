@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import {DestinationsDropMenu} from '../../layout'
+import { useNavigate } from 'react-router-dom';
+import {DestinationsDropMenu, NoNestDropMenu} from '../../layout'
 
 const DesktopNavBar = ({titleListData, fullListData}) => {
-
+    let navigate = useNavigate();
     const [windowSize, setWindowSize] = useState(window.innerWidth)
-    // const [subMenuItems, setSubMenuItems] = useState()
     const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
     const [dropdownMenuName, setDropdownMenuName] = useState('Destinations')
     const handleResize = () => {
@@ -28,24 +28,40 @@ const DesktopNavBar = ({titleListData, fullListData}) => {
     }
 
     const renderSubMenu = (item) => {
-        // if(item === 'Destinations'){
+        if(item === 'Destinations'){
             return (
                 <DestinationsDropMenu fullListData={fullListData}/>
             )
-        // }
+        } else if (item === 'Trip Styles'){
+            return (
+                <NoNestDropMenu fullListData={fullListData} itemTitle={item}/>
+            )
+        } else if (item === 'Climates'){
+            return (
+                <NoNestDropMenu fullListData={fullListData} itemTitle={item}/>
+            )
+        }
     }
     const renderMenu = titleListData.map(item => {
-        return (
-            windowSize < 1024 ? 
-            <div className="menuItem" >
-                <p onClick={(e) => clickOpenCloseMenu(e, item.name)}>{item.name}</p>
-                {dropdownMenuOpen && dropdownMenuName === item.name ? renderSubMenu(item.name) : null}
-            </div> : 
-            <div className="menuItem">
-                <p>{item.name}</p>
-                {renderSubMenu(item.name)}
-            </div>
-        )
+        if(item.name !== "Popular" && item.name !== "Tips & Tricks" ){
+            return (
+                windowSize < 1024 ? 
+                <div className="menuItem" >
+                    <p onClick={(e) => clickOpenCloseMenu(e, item.name)}>{item.name}</p>
+                    {dropdownMenuOpen && dropdownMenuName === item.name ? renderSubMenu(item.name) : null}
+                </div> : 
+                <div className="menuItem">
+                    <p>{item.name}</p>
+                    {renderSubMenu(item.name)}
+                </div>
+            )
+        } else {
+            return (
+                <div className="menuItem">
+                    <p onClick={() => navigate(fullListData[item.name].url)}>{item.name}</p>
+                </div>
+            )
+        }
     })
 
     return(

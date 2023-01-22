@@ -7,17 +7,16 @@
 .menuItem {
     padding: 10px;
 }
-.destinationsDropdown{
+.navDropdown{
     border: 2px solid black;
     display: block;
     position: absolute;
 }
 @media screen and (min-width: 1024px){
-    .destinationsDropdown{
+    .navDropdown{
         border: 2px solid black;
         display: none;
         position: absolute;
     }
-    .menuItem:hover .destinationsDropdown {display: block;}
-    #DestinationsNavBtn:hover .menuItem {background-color: #3e8e41;}
+    .menuItem:hover .navDropdown {display: block;}
 }

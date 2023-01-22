@@ -171,28 +171,37 @@ const NavBar = ({country}) => {
             "Trip Styles": [
                 {
                     "name": "Adventure",
-                    "icon": "SendIcon",
+                    "icon": faSnowflake,
                     "url": "/adventure"
                 },
                 {
                   "name": "Relaxation",
-                  "icon": "SendIcon",
+                  "icon": faSnowflake,
                   "url": "/relaxing"
                 }
             ],
             "Climates": [
                 {
                     "name": "Countryside",
-                    "icon": "SendIcon",
+                    "icon": faSnowflake,
                     "url": "/countryside"
                 },
                 {
                   "name": "Desert",
-                  "icon": "SendIcon",
+                  "icon": faSnowflake,
                   "url": "/desert"
                 }
-            ]
+            ],
+            "Popular": {
+              "icon": faArrowTrendUp,
+              "url": "/popular"
+            },
+          "Tips & Tricks": {
+              "icon": faLightbulb,
+              "url": "/tips-and-tricks"
+          }
     }
+    
     const titleListData = [
       {
           "name": "Destinations",
@@ -219,7 +228,7 @@ const NavBar = ({country}) => {
   ]
     const handleResize = () => {
         setWindowSize(window.innerWidth)
-        if(window.innerWidth > 680){
+        if(window.innerWidth > 768){
             setSideMenuOpen(false)
             setMenuIcon(faBars)
         }
@@ -229,6 +238,7 @@ const NavBar = ({country}) => {
     const openCloseSideMenu = () => {
         if(sideMenuOpen){
             setSideMenuOpen(false)
+            setListData([])
             setMenuIcon(faBars)
         } else if(!sideMenuOpen){
             setSideMenuOpen(true)
@@ -238,19 +248,23 @@ const NavBar = ({country}) => {
 
     return(
         <>
-            {windowSize < 680 ?
+            {windowSize < 768 ?
              <div className="mainMobileNavBar">
                 {country !== undefined ? <div>{country}</div>: null}  
                 <div><p>Travel</p></div>
                 <div className="sideMenuButton" onClick={(e) => openCloseSideMenu()}>
                     <FontAwesomeIcon icon={menuIcon} />
                 </div>
-                {sideMenuOpen ? <div>
-                    <FirstSideNavBar titleListData={titleListData} fullListData={fullListData} listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} setSelectedListTitle={setSelectedListTitle} secondNavBarDisplay={secondNavBarDisplay} setSecondNavBarDisplay={setSecondNavBarDisplay}/>
-                    {listData.length ? <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} setSelectedListTitle={setSelectedListTitle} secondNavBarDisplay={secondNavBarDisplay} setSecondNavBarDisplay={setSecondNavBarDisplay}/> : null}
-                </div> 
+                {sideMenuOpen ? 
+                  <div>
+                    {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData}    setSelectedListTitle={setSelectedListTitle}/> : null}
+                    {listData.length ?
+                      <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle}/> 
+                    : null}
+                  </div> 
                 : null}
-                <div>Search</div>
+                {!sideMenuOpen ? <div>Search</div> : null}
+                
             </div> : 
             <>
                 <div className="mainDesktopNavBar">
@@ -261,8 +275,6 @@ const NavBar = ({country}) => {
                 <DesktopNavBar titleListData={titleListData} fullListData={fullListData}/>
             </>
             }
-            
-            
         </>
     )
 }

@@ -6,10 +6,9 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-
 import { useNavigate } from 'react-router-dom';
 
-const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, selectedListTitle, setSelectedListTitle, secondNavBarDisplay, setSecondNavBarDisplay}) => {
+const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle}) => {
     let navigate = useNavigate();
     
     const changeSecondNavBarVisibility = (name) => {
@@ -19,8 +18,6 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
             setListData(fullListData[name])
         }
     }
-
-    
 
     const handleClick = (name) => {
         setSelectedListTitle(name)
@@ -48,7 +45,7 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
     return (
         <div id="firstSideNavMenu">
             <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
                 component="nav"
                 aria-labelledby="nested-list-subheader">
                 {renderedMenuItems}
