@@ -5,7 +5,6 @@ import './style.css'
 
 const BottomMenu = () => {
     let navigate = useNavigate();
-    console.log(typeof window.location.pathname)
     return(
         <div className="bottomMenu">
             {window.location.pathname === '/' ? 
@@ -20,7 +19,7 @@ const BottomMenu = () => {
                     <p>Africa</p>
                     <p>North America</p>
                     <p>South America</p>
-                    <p>Australia/Oceania</p>
+                    {window.innerWidth < 440 ? <p>Australia/ Oceania</p> : <p>Australia/Oceania</p>}
                 </div>
                 <div className="bottomMenuSegment">
                     <p>London</p>

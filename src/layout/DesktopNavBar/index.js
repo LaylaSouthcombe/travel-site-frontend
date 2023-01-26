@@ -2,28 +2,38 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import {DestinationsDropMenu, NoNestDropMenu} from '../../layout'
 
-const DesktopNavBar = ({titleListData, fullListData}) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+
+
+const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdownMenuOpen}) => {
     let navigate = useNavigate();
     const [windowSize, setWindowSize] = useState(window.innerWidth)
-    const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
     const [dropdownMenuName, setDropdownMenuName] = useState('Destinations')
+    const [menuItemClassName, setMenuItemClassName] = useState(['menuItem', 'menuItem', 'menuItem'])
+
     const handleResize = () => {
         setWindowSize(window.innerWidth)
+        setDropdownMenuOpen(false)
+        setMenuItemClassName(['menuItem', 'menuItem', 'menuItem'])
     }
 
     window.addEventListener('resize', handleResize)
 
-    const clickOpenCloseMenu = (item) => {
-        console.log(dropdownMenuName)
-        console.log(item)
+    const clickOpenCloseMenu = (item, i) => {
         let currentOpenState = dropdownMenuOpen
         if(dropdownMenuName !== item){
+            setMenuItemClassName(['menuItem', 'menuItem', 'menuItem'])
             currentOpenState = false
             setDropdownMenuName(item)
         }
         if(currentOpenState){
             setDropdownMenuOpen(false)
+            setMenuItemClassName(['menuItem', 'menuItem', 'menuItem'])
         } else {
+            let activeMenuColor = ['menuItem', 'menuItem', 'menuItem']
+            activeMenuColor[i] = 'menuItem activeMenuItem'
+            setMenuItemClassName(activeMenuColor)
             setDropdownMenuName(item)
             setDropdownMenuOpen(true)
         }
@@ -49,12 +59,12 @@ const DesktopNavBar = ({titleListData, fullListData}) => {
         if(item.name !== "Popular" && item.name !== "Tips & Tricks" ){
             return (
                 windowSize < 1024 ? 
-                <div className="menuItem" key={i}>
-                    <p onClick={() => clickOpenCloseMenu(item.name)}>{item.name}</p>
+                <div className={menuItemClassName[i]} key={i}>
+                    <p onClick={() => clickOpenCloseMenu(item.name, i)}>{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
                     {dropdownMenuOpen && dropdownMenuName === item.name ? renderSubMenu(item.name) : null}
                 </div> : 
                 <div className="menuItem">
-                    <p>{item.name}</p>
+                    <p>{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
                     {renderSubMenu(item.name)}
                 </div>
             )

@@ -6,12 +6,20 @@
 .menuItems{
     display: flex;
     align-items: center;
-    border: 2px solid black;
+    margin-left: 30px;
     position: relative;
 }
 
 .menuItem {
     padding: 10px;
+}
+
+.activeMenuItem {
+    background-color: var(--main-button-color);
+}
+
+.menuItem > p > svg {
+    margin-left: 5px;
 }
 
 .navDropdown {
@@ -21,15 +29,35 @@
 }
 
 @media screen and (min-width: 768px){
+    .menuItem > p {
+        font-size: 14px;
+    }
+
     .navDropdown {
         display: flex;
     }
+    
+    .menuItem:active {
+        background-color: var(--main-button-color);
+    }
 }
+
 @media screen and (min-width: 1024px){
     .navDropdown{
         border: 2px solid black;
         display: none;
         position: absolute;
     }
-    .menuItem:hover .navDropdown {display: flex;}
+
+    .menuItem:hover .navDropdown {
+        display: flex;
+    }
+
+    .menuItem:hover {
+        background-color: var(--main-button-color);
+    }
+
+    .menuItem > p {
+        font-size: 16px;
+    }
 }

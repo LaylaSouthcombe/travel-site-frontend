@@ -78,7 +78,7 @@
 }
 
 .tripStyles > div {
-    width: 40%;
+    width: 35%;
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -98,6 +98,22 @@
 
 .tripStyles > div > div > img {
     width: 100%;
+}
+
+.MuiAccordionDetails-root {
+    background-color: var(--light-green) !important;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    background-color: var(--purple) !important;
+}
+
+.MuiTypography-root {
+   color: var(--moon-green) !important; 
+}
+
+.destinationsTable {
+    color: var(--purple) !important;
 }
 
 @media (min-width: 768px) {

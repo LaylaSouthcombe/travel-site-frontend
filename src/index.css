@@ -6,6 +6,7 @@
   font-family: 'Poppins',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    color: var(--purple)
 }
 
 body {
@@ -21,4 +22,8 @@ code {
 :root {
   --main-button-color: #30c7b5ad;
   --divider-line: 1px solid grey;
+  --light-green: #F3F6F3;
+  --accent-color: #8cded4ad;
+  --purple: #3F3D56;
+  --moon-green: #EDF9F7;
 }

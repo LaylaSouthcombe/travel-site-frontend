@@ -18,8 +18,9 @@ const NavBar = ({country}) => {
     const [listData, setListData] = useState([])
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
     const [menuIcon, setMenuIcon] = useState(faBars)
-    const [windowSize, setWindowSize] = useState(window.innerWidth)
+    const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
 
+    const [windowSize, setWindowSize] = useState(window.innerWidth)
     const fullListData = {
         "Destinations": [
                 {
@@ -222,6 +223,7 @@ const NavBar = ({country}) => {
       }
   ]
     const handleResize = () => {
+      setWindowSize(window.innerWidth)
         setWindowSize(window.innerWidth)
         if(window.innerWidth > 768){
             setSideMenuOpen(false)
@@ -243,7 +245,7 @@ const NavBar = ({country}) => {
 
     return(
         <>
-        {windowSize < 440?
+        {windowSize < 440 ?
             <>
               <div className="mainMobileNavBar">
                   {country !== undefined ? <div>{country}</div>: null}  
@@ -298,7 +300,7 @@ const NavBar = ({country}) => {
                   </div>
                 <div className="mainDesktopNavBar">
                     {country !== undefined ? <div>{country}</div>: null}     
-                  <DesktopNavBar titleListData={titleListData} fullListData={fullListData}/>
+                  <DesktopNavBar titleListData={titleListData} fullListData={fullListData} dropdownMenuOpen={dropdownMenuOpen} setDropdownMenuOpen={setDropdownMenuOpen}/>
                   <div className="navSearchIcon">
                       <p>Search</p>
                       <FontAwesomeIcon icon={faMagnifyingGlass}/>
