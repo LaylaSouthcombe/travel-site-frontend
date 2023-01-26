@@ -9,6 +9,9 @@ import { faUmbrellaBeach } from '@fortawesome/free-solid-svg-icons'
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
 import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+
+import logo from '../../images/logo.png'
 
 const NavBar = ({country}) => {
     const [selectedListTitle, setSelectedListTitle] = useState();
@@ -240,33 +243,69 @@ const NavBar = ({country}) => {
 
     return(
         <>
-            {windowSize < 768 ?
-             <div className="mainMobileNavBar">
-                {country !== undefined ? <div>{country}</div>: null}  
-                <div><p>Travel</p></div>
-                <div className="sideMenuButton" onClick={(e) => openCloseSideMenu()}>
-                    <FontAwesomeIcon icon={menuIcon} />
-                </div>
-                {sideMenuOpen ? 
-                  <div>
-                    {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData}    setSelectedListTitle={setSelectedListTitle}/> : null}
-                    {listData.length ?
-                      <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle}/> 
-                    : null}
-                  </div> 
-                : null}
-                {!sideMenuOpen ? <div>Search</div> : null}
-                
-            </div> : 
+        {windowSize < 440?
             <>
+              <div className="mainMobileNavBar">
+                  {country !== undefined ? <div>{country}</div>: null}  
+                  <div class="navLogo">
+                    <img src={logo} alt="sojo travels logo"/>
+                  </div>
+                  <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
+                      <FontAwesomeIcon icon={menuIcon} />
+                  </div>
+              </div> 
+                  {sideMenuOpen ? 
+                    <div>
+                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize}/> : null}
+                      {listData.length ?
+                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle}/> 
+                      : null}
+                    </div> 
+                  : null}
+            </>
+            : null}
+            {windowSize < 768 && windowSize >= 440 ?
+            <>
+              <div className="mainMobileNavBar">
+                  {country !== undefined ? <div>{country}</div>: null}  
+                  <div class="navLogo">
+                    <img src={logo} alt="sojo travels logo"/>
+                  </div>
+                  {!sideMenuOpen ? 
+                    <div className="navSearchIcon">
+                      <p>Search</p>
+                      <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                    </div> 
+                  : null}
+                  <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
+                      <FontAwesomeIcon icon={menuIcon} />
+                  </div>
+              </div> 
+                  {sideMenuOpen ? 
+                    <div>
+                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize}/> : null}
+                      {listData.length ?
+                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle}/> 
+                      : null}
+                    </div> 
+                  : null}
+            </>
+            : null}
+            {windowSize >= 768 ?
+            <>
+                  <div class="navLogo">
+                    <img src={logo} alt="sojo travels logo"/>
+                  </div>
                 <div className="mainDesktopNavBar">
                     {country !== undefined ? <div>{country}</div>: null}     
+                  <DesktopNavBar titleListData={titleListData} fullListData={fullListData}/>
+                  <div className="navSearchIcon">
+                      <p>Search</p>
+                      <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                  </div>
                 </div>
-                <div><p>Travel</p></div>
-                <div>Search</div>
-                <DesktopNavBar titleListData={titleListData} fullListData={fullListData}/>
             </>
-            }
+            : null }
         </>
     )
 }

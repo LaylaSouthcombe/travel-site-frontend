@@ -1,16 +1,29 @@
+.mainDesktopNavBar {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
 
 .menuItems{
     display: flex;
+    align-items: center;
     border: 2px solid black;
     position: relative;
 }
 .menuItem {
     padding: 10px;
 }
-.navDropdown{
+
+.navDropdown {
     border: 2px solid black;
-    display: block;
+    display: none;
     position: absolute;
+}
+
+@media screen and (min-width: 768px){
+    .navDropdown {
+        display: flex;
+    }
 }
 @media screen and (min-width: 1024px){
     .navDropdown{
@@ -18,5 +31,5 @@
         display: none;
         position: absolute;
     }
-    .menuItem:hover .navDropdown {display: block;}
+    .menuItem:hover .navDropdown {display: flex;}
 }

@@ -13,7 +13,9 @@ const DesktopNavBar = ({titleListData, fullListData}) => {
 
     window.addEventListener('resize', handleResize)
 
-    const clickOpenCloseMenu = (e, item) => {
+    const clickOpenCloseMenu = (item) => {
+        console.log(dropdownMenuName)
+        console.log(item)
         let currentOpenState = dropdownMenuOpen
         if(dropdownMenuName !== item){
             currentOpenState = false
@@ -42,12 +44,13 @@ const DesktopNavBar = ({titleListData, fullListData}) => {
             )
         }
     }
+    
     const renderMenu = titleListData.map((item, i) => {
         if(item.name !== "Popular" && item.name !== "Tips & Tricks" ){
             return (
                 windowSize < 1024 ? 
                 <div className="menuItem" key={i}>
-                    <p onClick={(e) => clickOpenCloseMenu(e, item.name)}>{item.name}</p>
+                    <p onClick={() => clickOpenCloseMenu(item.name)}>{item.name}</p>
                     {dropdownMenuOpen && dropdownMenuName === item.name ? renderSubMenu(item.name) : null}
                 </div> : 
                 <div className="menuItem">

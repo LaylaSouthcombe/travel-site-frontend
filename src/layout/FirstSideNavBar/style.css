@@ -1,6 +1,34 @@
+:root {
+    --main-purple-color: purple;
+  }
+
 #firstSideNavMenu{
-    /* visibility: hidden */
+    position: absolute;
+    width: 86%;
+    right: 0;
+    top: 0;
+    height: 100%;
 }
+.sideNavMenuMainItem:first-child {
+    margin-top: 90px;
+}
+
+.sideNavMenuMainItem {
+     padding-left: 30px;
+     margin-top: 10px;
+}
+
+.sideNavMenuMainItem > div > svg {
+    margin-right: 10px;
+    width: 35px;
+    font-size: 1.5rem;
+    color: var(--main-purple-color);
+}
+
+.MuiTypography-root {
+    font-size: 1.25rem !important ;
+}
+
 @media (min-width: 360px){
 
 }

@@ -1,0 +1,7 @@
+.articleCardStyle1 > .cardImg {
+    width: 100%;
+}
+
+.articleCardStyle1 > .cardImg > img {
+    width: 90%;
+}

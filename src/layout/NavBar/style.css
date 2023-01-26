@@ -1,0 +1,72 @@
+.mainMobileNavBar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navLogo {
+    margin: 10px 10px 10px 30px;
+    max-width: 200px;
+    min-width: 30px;
+}
+
+.navLogo > img {
+    width: 100%;
+}
+
+.navSearchIcon {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    padding-left: 4%;
+}
+.navSearchIcon > svg {
+    width: 100%;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.sideMenuButton {
+    width: 15%;
+    z-index: 1;
+}
+
+.sideMenuButton > svg {
+    font-size: 1.25rem;
+}
+
+.mainDesktopNavBar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 75px;
+}
+
+@media (min-width: 475px) {
+    .sideMenuButton > svg {
+        font-size: 1.45rem;
+    }
+    .navSearchIcon {
+        padding-left: 16%;
+    }
+}
+@media (min-width: 575px) {
+    .sideMenuButton > svg {
+        font-size: 1.55rem;
+    }
+}
+@media (min-width: 675px) {
+    .sideMenuButton > svg {
+        font-size: 1.65rem;
+    }
+}
+@media (min-width: 768px) {
+    .navSearchIcon {
+        padding-left: 2%;
+    }
+    .navLogo {
+        margin: 10px auto;
+    }
+}
+

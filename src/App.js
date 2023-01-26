@@ -4,6 +4,14 @@ import {Home} from './pages'
 
 import './layout/FirstSideNavBar/style.css'
 import './layout/DesktopNavBar/style.css'
+import './layout/DestinationsDropMenu/style.css'
+import './layout/NavBar/style.css'
+import './pages/Home/style.css'
+
+import './components/ArticleGridStyle1/style.css'
+
+
+
 
 
 

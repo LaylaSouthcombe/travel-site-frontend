@@ -1,0 +1,6 @@
+.articleGridStyle1 {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0 auto;
+}

@@ -1,0 +1,16 @@
+#destinationsDropdown {
+    width: 80%;
+    max-width: 750px;
+}
+
+.dropDownContinent {
+    margin: 5px;
+}
+
+.dropDownContinent p:nth-child(1) {
+    font-weight: bold;
+}
+
+.dropDownContinent p:last-child{
+    color: blue;
+}

@@ -1,0 +1,11 @@
+.articleListCardStyle1 {
+    display: flex;
+}
+
+.articleListCardStyle1 > .cardImg {
+    width: 65%;
+}
+
+.articleListCardStyle1 > .cardImg > img{
+    width: 100%;
+}
