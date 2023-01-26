@@ -20,4 +20,5 @@ code {
 
 :root {
   --main-button-color: #30c7b5ad;
+  --divider-line: 1px solid grey;
 }

@@ -3,5 +3,25 @@
 }
 
 .articleCardStyle1 > .cardImg > img {
+    width: 100%;
+}
+
+.articleCardCategory {
+    font-size: 14px;
+    text-transform: capitalize;
+    margin: 5px 10px;
+    opacity: 80%;
+}
+
+.articleCardTitle {
+    margin: 5px;
     width: 90%;
+}
+
+.articleCardButton {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--main-button-color);
 }

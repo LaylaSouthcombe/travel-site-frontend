@@ -3,9 +3,19 @@
 }
 
 .articleListCardStyle1 > .cardImg {
-    width: 65%;
+    width: 70%;
+    margin: auto;
+    display: block;
 }
 
 .articleListCardStyle1 > .cardImg > img{
     width: 100%;
+}
+
+.articleCardMeta {
+    margin-left: 10px;
+}
+
+.articleListCardTitle {
+    font-size: 14px;
 }

@@ -1,0 +1,47 @@
+.bottomMenu > div > p {
+    width: 65%;
+    margin: 30px auto 0px auto;
+}
+
+.bottomMenuMainSegment {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.bottomMenuSegment:nth-child(2) {
+    border-right: var(--divider-line);
+    border-left: var(--divider-line);
+}
+
+.bottomMenuSegment {
+    padding: 10px;
+}
+
+.bottomMenuSegment > p {
+    padding: 4px;
+    font-size: 12px;
+}
+
+.bottomMenuDivider {
+    width: 77%;
+    margin: 0 auto;
+    padding-top: 20px;
+    margin-bottom: 60px;
+    border-bottom: var(--divider-line);
+    max-width: 1000px;
+}
+
+.copyrightPara {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 12px;
+}
+
+@media(min-width: 768px) {
+    .bottomMenuSegment > p {
+        font-size: 16px;
+    }
+}

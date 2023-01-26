@@ -3,14 +3,18 @@
     display: grid;
     grid-template-columns: 100%;
     margin: 0 auto;
+    max-width: 1000px;
+    
 }
 @media(min-width: 768px){
     .articleGridStyle2 {
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 47.5% 47.5%;
+        column-gap: 5%;
     }
 }
 @media(min-width: 900px){
     .articleGridStyle2 {
-        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-columns: 23.125% 23.125% 23.125% 23.125%;
+        column-gap: 2.5%;
     }
 }

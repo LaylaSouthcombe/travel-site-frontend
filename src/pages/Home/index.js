@@ -6,7 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import {NavBar} from '../../layout'
+import {NavBar, BottomMenu} from '../../layout'
 import leftHeroImage from '../../images/leftHeroImage.png'
 import rightHeroImage from '../../images/rightHeroImage.png'
 import adventure from '../../images/adventure.png'
@@ -19,7 +19,6 @@ import picturesque from '../../images/picturesque.png'
 import relaxing from '../../images/relaxing.png'
 
 
-
 import {ArticleGridStyle1, ArticleGridStyle2, GoogleAd} from '../../components'
 
 
@@ -30,11 +29,11 @@ const Home = () => {
             <NavBar/>
             <div className="heroSection">
                 <div className="heroSection1">
-                    <h3>Sojo Travels</h3>
-                    <h5>Find your next adventure here!</h5>
-                    <div className="heroImage heroImage1"><img src={leftHeroImage} alt="" /></div>
+                    <h2>Sojo travels</h2>
+                    <h4>Find your next adventure here!</h4>
+                    <div className="heroImage heroImage1"><img src={leftHeroImage} alt=""/></div>
                 </div>
-                <div className="heroImage heroImage2"><img src={rightHeroImage} alt="" /></div>
+                <div className="heroImage heroImage2"><img src={rightHeroImage} alt=""/></div>
             </div>
             <div>
                 <h2 className="seperatorTitle">Trending Articles</h2>
@@ -61,21 +60,23 @@ const Home = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <table className="destinationsTable">
-                            <tr>
-                                <td>United Kingdom</td>
-                                <td>France</td>
-                            </tr>
-                            <tr>
-                                <td>Italy</td>
-                                <td>Germany</td>
-                            </tr>
-                            <tr>
-                                <td>Spain</td>
-                                <td>Greece</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><button className="destinationsButton">Explore Europe</button></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>United Kingdom</td>
+                                    <td>France</td>
+                                </tr>
+                                <tr>
+                                    <td>Italy</td>
+                                    <td>Germany</td>
+                                </tr>
+                                <tr>
+                                    <td>Spain</td>
+                                    <td>Greece</td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2"><button className="generalButton">Explore Europe</button></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </AccordionDetails>
                     </Accordion>
@@ -89,21 +90,23 @@ const Home = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <table className="destinationsTable">
-                            <tr>
-                                <td>China</td>
-                                <td>Vietnam</td>
-                            </tr>
-                            <tr>
-                                <td>Cambodia</td>
-                                <td>Japan</td>
-                            </tr>
-                            <tr>
-                                <td>Thailand</td>
-                                <td>Philippines</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><button className="destinationsButton">Explore Asia</button></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>China</td>
+                                    <td>Vietnam</td>
+                                </tr>
+                                <tr>
+                                    <td>Cambodia</td>
+                                    <td>Japan</td>
+                                </tr>
+                                <tr>
+                                    <td>Thailand</td>
+                                    <td>Philippines</td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2"><button className="generalButton">Explore Asia</button></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </AccordionDetails>
                     </Accordion>
@@ -117,21 +120,23 @@ const Home = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <table className="destinationsTable">
-                            <tr>
-                                <td>Zimbabwe</td>
-                                <td>South Africa</td>
-                            </tr>
-                            <tr>
-                                <td>Kenya</td>
-                                <td>Uganda</td>
-                            </tr>
-                            <tr>
-                                <td>Morocco</td>
-                                <td>Egypt</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><button className="destinationsButton">Explore Africa</button></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>Zimbabwe</td>
+                                    <td>South Africa</td>
+                                </tr>
+                                <tr>
+                                    <td>Kenya</td>
+                                    <td>Uganda</td>
+                                </tr>
+                                <tr>
+                                    <td>Morocco</td>
+                                    <td>Egypt</td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2"><button className="generalButton">Explore Africa</button></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </AccordionDetails>
                     </Accordion>
@@ -147,21 +152,23 @@ const Home = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             <table className="destinationsTable">
-                                <tr>
-                                    <td>USA</td>
-                                    <td>Mexico</td>
-                                </tr>
-                                <tr>
-                                    <td>Bahamas</td>
-                                    <td>Canada</td>
-                                </tr>
-                                <tr>
-                                    <td>Costa Rica</td>
-                                    <td>Jamaica</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><button className="destinationsButton">Explore North America</button></td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>USA</td>
+                                        <td>Mexico</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bahamas</td>
+                                        <td>Canada</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Costa Rica</td>
+                                        <td>Jamaica</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan="2"><button className="generalButton">Explore North America</button></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </AccordionDetails>
                     </Accordion>
@@ -175,21 +182,23 @@ const Home = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             <table className="destinationsTable">
-                                <tr>
-                                    <td>Colombia</td>
-                                    <td>Brazil</td>
-                                </tr>
-                                <tr>
-                                    <td>Argentina</td>
-                                    <td>Peru</td>
-                                </tr>
-                                <tr>
-                                    <td>Chile</td>
-                                    <td>Venezuela</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><button className="destinationsButton">Explore South America</button></td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>Colombia</td>
+                                        <td>Brazil</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Argentina</td>
+                                        <td>Peru</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chile</td>
+                                        <td>Venezuela</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan="2"><button className="generalButton">Explore South America</button></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </AccordionDetails>
                     </Accordion>
@@ -203,17 +212,19 @@ const Home = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             <table className="destinationsTable">
-                                <tr>
-                                    <td>Australia</td>
-                                    <td>Fiji</td>
-                                </tr>
-                                <tr>
-                                    <td>New Zealand</td>
-                                    <td>Samoa</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><button className="destinationsButton">Explore Australia/Oceania</button></td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>Australia</td>
+                                        <td>Fiji</td>
+                                    </tr>
+                                    <tr>
+                                        <td>New Zealand</td>
+                                        <td>Samoa</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan="2"><button className="generalButton">Explore Australia/Oceania</button></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </AccordionDetails>
                     </Accordion>
@@ -274,7 +285,7 @@ const Home = () => {
                 </div>
             </div>
             <GoogleAd dataAdSlot={"1136657549"}/>
-
+            <BottomMenu/>
         </>
     )
 }

@@ -3,6 +3,13 @@
     display: grid;
     grid-template-columns: 100%;
     margin: 0 auto;
+    max-width: 1000px;
+}
+.style1column2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 @media(min-width: 768px){
@@ -12,5 +19,10 @@
 @media(min-width: 900px){
     .articleGridStyle1 {
         grid-template-columns: 50% 50%;
+    }
+    .style1column1 {
+        margin-right: 20px;
+        border-right: var(--divider-line);
+        padding-right: 20px;
     }
 }

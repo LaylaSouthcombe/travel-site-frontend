@@ -9,9 +9,10 @@ const ArticleListCardStyle1 = ({article}) => {
     return (
         <div className="articleListCardStyle1">
             <ArticleCardFeatureImg articleId={article.imageId}/>
-            <div className="articleMeta">
-                <p className="category">{article.trip_categories.split(",")[0]}</p>
-                <p className="title">{article.title}</p>
+            <div className="articleCardMeta">
+                <p className="articleCardCategory">{article.trip_categories.split(",")[0]}</p>
+                <p className="articleCardTitle articleListCardTitle">{article.title}</p>
+                <button className="articleCardButton">Read more</button>
             </div>
         </div>
     )
