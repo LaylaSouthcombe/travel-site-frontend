@@ -1,0 +1,16 @@
+.articleGridStyle2 {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 0 auto;
+}
+@media(min-width: 768px){
+    .articleGridStyle2 {
+        grid-template-columns: 50% 50%;
+    }
+}
+@media(min-width: 900px){
+    .articleGridStyle2 {
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+}

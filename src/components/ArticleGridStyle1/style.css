@@ -1,6 +1,16 @@
 .articleGridStyle1 {
     width: 80%;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
     margin: 0 auto;
+}
+
+@media(min-width: 768px){
+
+}
+
+@media(min-width: 900px){
+    .articleGridStyle1 {
+        grid-template-columns: 50% 50%;
+    }
 }

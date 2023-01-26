@@ -15,6 +15,69 @@
     text-align: center;
     padding: 20px;
 }
+
+.popularDestinationsSection {
+    display: grid;
+    grid-template-columns: 100%;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.popularDestinationsSection > div {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.MuiAccordion-root {
+    margin-bottom: 30px;
+}
+
+.destinationsTable {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.destinationsTable > tr > td {
+    padding: 8px;
+}
+
+.destinationsButton {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--main-button-color);
+}
+
+.tripStyles {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tripStyles > div {
+    width: 20%;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.tripStyles > div > p {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.tripStyles > div > div {
+    width: 80%;
+    margin: 0 auto;
+}
+.tripStyles > div > div > img {
+    width: 100%;
+}
+
 @media (min-width: 768px) {
     .heroSection {
         margin: 0 auto;
@@ -27,5 +90,13 @@
     }
     .heroImage2 > img{
         margin-left: 60px;
+    }
+
+    .popularDestinationsSection {
+        grid-template-columns: 50% 50%;
+    }
+    
+    .MuiAccordion-root {
+        margin-bottom: 20px;
     }
 }

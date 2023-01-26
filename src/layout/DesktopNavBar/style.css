@@ -3,13 +3,13 @@
     border-bottom: 1px solid grey;
 }
 
-
 .menuItems{
     display: flex;
     align-items: center;
     border: 2px solid black;
     position: relative;
 }
+
 .menuItem {
     padding: 10px;
 }

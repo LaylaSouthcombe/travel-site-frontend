@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 
-const HorizontalGoogleAd = (props) => {
-    // const { dataAdSlot } = props;  
+const GoogleAd = ({dataAdSlot}) => {
 
     useEffect(() => {
 
@@ -20,7 +19,7 @@ const HorizontalGoogleAd = (props) => {
             <ins className="adsbygoogle"
                 style={{ display: "block" }}
                 data-ad-client="ca-pub-5563364373682926"
-                data-ad-slot="1136657549"
+                data-ad-slot={dataAdSlot}
                 data-ad-format="auto"
                 data-full-width-responsive="true">
             </ins>
@@ -28,4 +27,4 @@ const HorizontalGoogleAd = (props) => {
     );
   }
 
-export default HorizontalGoogleAd;
+export default GoogleAd;
