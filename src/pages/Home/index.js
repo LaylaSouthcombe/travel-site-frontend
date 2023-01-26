@@ -3,7 +3,8 @@ import React from 'react'
 import {NavBar} from '../../layout'
 import leftHeroImage from '../../images/leftHeroImage.png'
 import rightHeroImage from '../../images/rightHeroImage.png'
-import {ArticleGridStyle1} from '../../components'
+import {ArticleGridStyle1, HorizontalGoogleAd} from '../../components'
+
 
 const Home = () => {
 
@@ -18,10 +19,11 @@ const Home = () => {
                 </div>
                 <div className="heroImage heroImage2"><img src={rightHeroImage} alt="" /></div>
             </div>
-            <div className="seperatorTitle">
-                <h2>Trending Articles</h2>
+            <div>
+                <h2 className="seperatorTitle">Trending Articles</h2>
             </div>
             <ArticleGridStyle1/>
+            <HorizontalGoogleAd/>
         </>
     )
 }

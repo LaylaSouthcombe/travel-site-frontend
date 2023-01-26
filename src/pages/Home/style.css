@@ -2,10 +2,6 @@
     display: grid;
     grid-template-columns: 100%;
 }
-/* .heroSection1 {
-    width: 50%;
-    display: flex;
-} */
 
 .heroImage1 > img{
     width: 75%;
@@ -15,6 +11,10 @@
     width: 75%;
 }
 
+.seperatorTitle {
+    text-align: center;
+    padding: 20px;
+}
 @media (min-width: 768px) {
     .heroSection {
         margin: 0 auto;

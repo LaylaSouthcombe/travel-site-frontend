@@ -247,7 +247,7 @@ const NavBar = ({country}) => {
             <>
               <div className="mainMobileNavBar">
                   {country !== undefined ? <div>{country}</div>: null}  
-                  <div class="navLogo">
+                  <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
                   <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
@@ -268,7 +268,7 @@ const NavBar = ({country}) => {
             <>
               <div className="mainMobileNavBar">
                   {country !== undefined ? <div>{country}</div>: null}  
-                  <div class="navLogo">
+                  <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
                   {!sideMenuOpen ? 
@@ -293,7 +293,7 @@ const NavBar = ({country}) => {
             : null}
             {windowSize >= 768 ?
             <>
-                  <div class="navLogo">
+                  <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
                 <div className="mainDesktopNavBar">
