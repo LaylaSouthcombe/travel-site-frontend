@@ -28,7 +28,7 @@ const NavBar = ({country}) => {
                     "icon": "SendIcon",
                     "children": [
                         {
-                          "name": "Explore more in Europe",
+                          "name": "Explore Europe",
                           "url": "/europe"
                         },
                         {
@@ -60,89 +60,75 @@ const NavBar = ({country}) => {
                           "url": "/unitedkingdom"
                         }
                       ]
-                },
+                },{
+                    "name": "Asia",
+                    "children": [
+                      {
+                        "name": "Explore Asia",
+                        "url": "/asia"
+                      },
+                      {
+                          "name": "China",
+                          "url": "/china"
+                      },
+                      {
+                          "name": "Cambodia",
+                          "url": "/cambodia"
+                      },
+                      {
+                          "name": "Thailand",
+                          "url": "/thailand"
+                      },
+                      {
+                          "name": "Vietnam",
+                          "url": "/vietnam"
+                      }
+                  ]
+                  },
                 {
                   "name": "Africa",
                   "children": [
                     {
-                      "name": "Explore more in Africa",
+                      "name": "Explore Africa",
                       "url": "/africa"
                     },
                     {
-                        "name": "Botswana",
-                        "url": "/botswana"
+                        "name": "Zimbabwe",
+                        "url": "/zimbabwe"
                     },
                     {
-                        "name": "Egypt",
-                        "url": "/egypt"
+                        "name": "Kenya",
+                        "url": "/kenya"
+                    },
+                    {
+                        "name": "Morocco",
+                        "url": "/morocco"
+                    },
+                    {
+                        "name": "Uganda",
+                        "url": "/uganda"
                     }
                 ]
                 },
-                {
-                    "name": "Asia",
-                    "children": [
-                      {
-                        "name": "Explore more in Asia",
-                        "url": "/asia"
-                      },
-                      {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ]
-                  },
-                  {
-                    "name": "Oceania",
-                    "children": [
-                      {
-                        "name": "Explore more in Africa",
-                        "url": "/africa"
-                      },
-                      {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ]
-                  },
+                  
                   {
                     "name": "North America",
                     "children": [
                       {
-                        "name": "Explore more in Africa",
+                        "name": "Explore Africa",
                         "url": "/africa"
                       },
                       {
-                          "name": "Botswana",
-                          "url": "/botswana"
+                          "name": "USA",
+                          "url": "/usa"
                       },
                       {
-                          "name": "Egypt",
-                          "url": "/egypt"
-                      }
-                  ]
-                  },
-                  {
-                    "name": "Central America",
-                    "children": [
-                      {
-                        "name": "Explore more in Africa",
-                        "url": "/africa"
+                          "name": "Bahamas",
+                          "url": "/bahamas"
                       },
                       {
-                          "name": "Botswana",
-                          "url": "/botswana"
-                      },
-                      {
-                          "name": "Egypt",
-                          "url": "/egypt"
+                          "name": "Costa Rica",
+                          "url": "/costarica"
                       }
                   ]
                   },
@@ -150,30 +136,84 @@ const NavBar = ({country}) => {
                     "name": "South America",
                     "children": [
                       {
-                        "name": "Explore more in Africa",
+                        "name": "Explore Africa",
                         "url": "/africa"
                       },
                       {
-                          "name": "Botswana",
-                          "url": "/botswana"
+                          "name": "Colombia",
+                          "url": "/colombia"
                       },
                       {
-                          "name": "Egypt",
-                          "url": "/egypt"
+                          "name": "Argentina",
+                          "url": "/argentina"
+                      },
+                      {
+                          "name": "Chile",
+                          "url": "/chile"
                       }
                   ]
-                  }
+                  },{
+                    "name": "Australia/ Oceania",
+                    "children": [
+                      {
+                        "name": "Explore Africa",
+                        "url": "/africa"
+                      },
+                      {
+                          "name": "Australia",
+                          "url": "/australia"
+                      },
+                      {
+                          "name": "New Zealand",
+                          "url": "/newzealand"
+                      },
+                      {
+                          "name": "Fiji",
+                          "url": "/fiji"
+                      }
+                  ]
+                  },
             ],
             "Trip Styles": [
-                {
-                    "name": "Adventure",
-                    "icon": faSnowflake,
-                    "url": "/adventure"
-                },
                 {
                   "name": "Relaxation",
                   "icon": faSnowflake,
                   "url": "/relaxing"
+                },
+                {
+                    "name": "Picturesque",
+                    "icon": faSnowflake,
+                    "url": "/picturesque"
+                },
+                {
+                    "name": "Nature",
+                    "icon": faSnowflake,
+                    "url": "/nature"
+                },
+                {
+                    "name": "Food",
+                    "icon": faSnowflake,
+                    "url": "/food"
+                },
+                {
+                    "name": "City Break",
+                    "icon": faSnowflake,
+                    "url": "/city-break"
+                },
+                {
+                    "name": "Budget Friendly",
+                    "icon": faSnowflake,
+                    "url": "/budget-friendly"
+                },
+                {
+                    "name": "Art & Culture",
+                    "icon": faSnowflake,
+                    "url": "/art-culture"
+                },
+                {
+                    "name": "Adventure",
+                    "icon": faSnowflake,
+                    "url": "/adventure"
                 }
             ],
             "Climates": [

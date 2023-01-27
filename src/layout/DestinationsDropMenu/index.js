@@ -7,14 +7,16 @@ const DestinationsDropMenu = ({fullListData}) => {
         return(
             <div className="dropDownContinent">
                 <p onClick={() => navigate(continent.name.toLowerCase())}>{continent.name}</p>
-                {continent.children.slice(1, 5).map((country, i) => {
-                    return (
-                        <>
-                            <p onClick={() => navigate(country.url)}>{country.name}</p>
-                        </>
-                    )
-                })}
-                <p onClick={() => navigate(continent.children[0].url)}>{continent.children[0].name}</p>
+                <div className="continentMenuCountries">
+                    {continent.children.slice(1, 5).map((country, i) => {
+                        return (
+                            <>
+                                <p onClick={() => navigate(country.url)}>{country.name}</p>
+                            </>
+                        )
+                    })}
+                <p onClick={() => navigate(continent.children[0].url)} className="exploreMoreMenuItem">{continent.children[0].name}</p>
+                </div>
             </div>
         )
     })

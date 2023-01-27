@@ -12,10 +12,12 @@
 
 .menuItem {
     padding: 10px;
+    border-radius: 5px;
 }
 
 .activeMenuItem {
     background-color: var(--main-button-color);
+    border-radius: 5px 5px 0px 0px;
 }
 
 .menuItem > p > svg {
@@ -23,9 +25,19 @@
 }
 
 .navDropdown {
-    border: 2px solid black;
     display: none;
     position: absolute;
+    background-color: var(--moon-green);
+    border-radius: 0px 5px 5px 5px;
+    top: 55px;
+}
+
+.dropDownContinent {
+    padding: 10px;
+}
+
+.dropDownContinent > p:first-child {
+    margin-bottom: 6px;
 }
 
 @media screen and (min-width: 768px){
@@ -34,7 +46,7 @@
     }
 
     .navDropdown {
-        display: flex;
+        display: grid;
     }
     
     .menuItem:active {
@@ -44,13 +56,12 @@
 
 @media screen and (min-width: 1024px){
     .navDropdown{
-        border: 2px solid black;
         display: none;
         position: absolute;
     }
 
     .menuItem:hover .navDropdown {
-        display: flex;
+        display: grid;
     }
 
     .menuItem:hover {

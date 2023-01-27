@@ -1,16 +1,25 @@
 #destinationsDropdown {
-    width: 80%;
-    max-width: 750px;
+    width: 120%;
+    max-width: 900px;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 5%;
+    left: 0px;
 }
 
 .dropDownContinent {
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.dropDownContinent p:nth-child(1) {
+.dropDownContinent > p {
     font-weight: bold;
 }
 
-.dropDownContinent p:last-child{
-    color: blue;
+
+.exploreMoreMenuItem{
+    color: var(--main-button-color);
+    font-weight: bold;
 }
+
