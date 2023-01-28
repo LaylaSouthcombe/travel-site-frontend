@@ -1,12 +1,18 @@
 import React, {useState} from 'react'
 import { FirstSideNavBar, SecondSideNavBar, DesktopNavBar } from '../'
-
+import TextField from '@mui/material/TextField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
+import { faCamera } from '@fortawesome/free-solid-svg-icons'
 import { faUmbrellaBeach } from '@fortawesome/free-solid-svg-icons'
-import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
+import { faLeaf } from '@fortawesome/free-solid-svg-icons'
+import { faUtensils } from '@fortawesome/free-solid-svg-icons'
+import { faCity } from '@fortawesome/free-solid-svg-icons'
+import { faSackDollar } from '@fortawesome/free-solid-svg-icons'
+import { faPalette } from '@fortawesome/free-solid-svg-icons'
+import { faPersonHiking } from '@fortawesome/free-solid-svg-icons'
 import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -115,7 +121,7 @@ const NavBar = ({country}) => {
                     "name": "North America",
                     "children": [
                       {
-                        "name": "Explore Africa",
+                        "name": "Explore North America",
                         "url": "/africa"
                       },
                       {
@@ -136,7 +142,7 @@ const NavBar = ({country}) => {
                     "name": "South America",
                     "children": [
                       {
-                        "name": "Explore Africa",
+                        "name": "Explore South America",
                         "url": "/africa"
                       },
                       {
@@ -153,10 +159,10 @@ const NavBar = ({country}) => {
                       }
                   ]
                   },{
-                    "name": "Australia/ Oceania",
+                    "name": "Australia/Oceania",
                     "children": [
                       {
-                        "name": "Explore Africa",
+                        "name": "Explore Australia/Oceania",
                         "url": "/africa"
                       },
                       {
@@ -177,55 +183,43 @@ const NavBar = ({country}) => {
             "Trip Styles": [
                 {
                   "name": "Relaxation",
-                  "icon": faSnowflake,
+                  "icon": faUmbrellaBeach,
                   "url": "/relaxing"
                 },
                 {
                     "name": "Picturesque",
-                    "icon": faSnowflake,
+                    "icon": faCamera,
                     "url": "/picturesque"
                 },
                 {
                     "name": "Nature",
-                    "icon": faSnowflake,
+                    "icon": faLeaf,
                     "url": "/nature"
                 },
                 {
                     "name": "Food",
-                    "icon": faSnowflake,
+                    "icon": faUtensils,
                     "url": "/food"
                 },
                 {
                     "name": "City Break",
-                    "icon": faSnowflake,
+                    "icon": faCity,
                     "url": "/city-break"
                 },
                 {
                     "name": "Budget Friendly",
-                    "icon": faSnowflake,
+                    "icon": faSackDollar,
                     "url": "/budget-friendly"
                 },
                 {
                     "name": "Art & Culture",
-                    "icon": faSnowflake,
+                    "icon": faPalette,
                     "url": "/art-culture"
                 },
                 {
                     "name": "Adventure",
-                    "icon": faSnowflake,
+                    "icon": faPersonHiking,
                     "url": "/adventure"
-                }
-            ],
-            "Climates": [
-                {
-                    "name": "Countryside",
-                    "icon": faSnowflake,
-                    "url": "/countryside"
-                },
-                {
-                  "name": "Desert",
-                  "icon": faSnowflake,
-                  "url": "/desert"
                 }
             ],
             "Popular": {
@@ -248,10 +242,6 @@ const NavBar = ({country}) => {
           "icon": faUmbrellaBeach
       },
       {
-          "name": "Climates",
-          "icon": faSnowflake
-      },
-      {
           "name": "Popular",
           "icon": faArrowTrendUp,
           "url": "/popular"
@@ -262,6 +252,7 @@ const NavBar = ({country}) => {
           "url": "/tips-and-tricks"
       }
   ]
+
     const handleResize = () => {
       setWindowSize(window.innerWidth)
         setWindowSize(window.innerWidth)
@@ -283,7 +274,7 @@ const NavBar = ({country}) => {
         }
     }
 
-    return(
+    return (
         <>
         {windowSize < 440 ?
             <>
@@ -313,12 +304,6 @@ const NavBar = ({country}) => {
                   <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
-                  {!sideMenuOpen ? 
-                    <div className="navSearchIcon">
-                      <p>Search</p>
-                      <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                    </div> 
-                  : null}
                   <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
                       <FontAwesomeIcon icon={menuIcon} />
                   </div>
@@ -338,14 +323,16 @@ const NavBar = ({country}) => {
                   <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
+                  <div className="mainDesktopNavBarContainer">
                 <div className="mainDesktopNavBar">
                     {country !== undefined ? <div>{country}</div>: null}     
                   <DesktopNavBar titleListData={titleListData} fullListData={fullListData} dropdownMenuOpen={dropdownMenuOpen} setDropdownMenuOpen={setDropdownMenuOpen}/>
                   <div className="navSearchIcon">
-                      <p>Search</p>
+                    <TextField id="outlined-basic" label="Search" variant="outlined" />
                       <FontAwesomeIcon icon={faMagnifyingGlass}/>
                   </div>
                 </div>
+                  </div>
             </>
             : null }
         </>

@@ -1,5 +1,5 @@
 .bottomMenu {
-    background-color: var(--purple);
+    background-color: var(--main-purple);
 }
 
 .bottomMenu > div > p {
@@ -51,5 +51,8 @@
 @media(min-width: 768px) {
     .bottomMenuSegment > p {
         font-size: 16px;
+    }
+    .bottomMenu > div > p {
+        font-size: 20px;
     }
 }

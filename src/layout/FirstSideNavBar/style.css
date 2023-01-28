@@ -1,40 +1,98 @@
-:root {
-    --main-purple-color: purple;
-  }
-
-#firstSideNavMenu{
+#firstSideNavMenu {
     position: absolute;
     width: 86%;
     right: 0;
     top: 0;
     height: 100%;
+    background-color: var(--light-grey);
+    border-left: 3px solid var(--main-purple);
 }
+
+.secondNavBar {
+    position: absolute;
+    width: 86%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--light-grey);
+    border-left: 3px solid var(--main-purple);
+}
+
+.secondNavBar > .backArrow {
+    font-size: 1.75rem;
+    margin: 30px;
+}
+
+.secondNavBar > .MuiList-subheader > .MuiListSubheader-root{
+    background-color: var(--light-grey);
+    font-size: 1.75rem;
+    color: var(--main-purple);
+    margin-left: 15px;
+}
+
+.sideNavMenuChildItem > div > div > span {
+    color: var(--main-purple);
+}
+
+.navSearchIconSideNav {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    align-items: center;
+    padding-left: 15%;
+    margin-right: 5%;
+    margin-top: 25%;
+}
+
+.navSearchIconSideNav > svg {
+    width: 100%;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
 .sideNavMenuMainItem:first-child {
-    margin-top: 90px;
+    margin-top: 30px;
+}
+
+.MuiList-root {
+    background-color: var(--light-grey) !important;
 }
 
 .sideNavMenuMainItem {
-     padding-left: 30px;
-     margin-top: 10px;
+    padding-left: 30px;
+    background-color: var(--light-grey);
+    width: 90%;
+}
+
+.sideNavMenuMainItem > div {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
 }
 
 .sideNavMenuMainItem > div > svg {
-    margin-right: 10px;
+    margin-right: 20px;
     width: 35px;
-    font-size: 1.5rem;
     color: var(--main-purple-color);
+    font-size: 2rem;
 }
 
-.MuiTypography-root {
-    font-size: 1.25rem !important ;
+.sideNavMenuMainItem > div > div > span {
+    font-size: 1.5rem;
 }
 
-@media (min-width: 360px){
-
+.sideNavMenuChildItem:first-child > div > div > span {
+    font-weight: bold;
 }
+
+.sideNavMenuChildItem > .MuiButtonBase-root {
+    border-radius: 5px;
+}
+
 @media (min-width: 768px) {
-
-}
-@media (min-width: 1024px) {
-
+    .navSearchIconSideNav {
+        width: 60%;
+        padding-left: 10%;
+        margin-top: 20%;
+    }
 }

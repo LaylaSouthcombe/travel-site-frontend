@@ -4,6 +4,8 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
+import TextField from '@mui/material/TextField';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
@@ -45,12 +47,10 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
 
     return (
         <div id="firstSideNavMenu">
-            { windowSize < 440 ? 
-                    <div className="navSearchIconSideNav">
-                      <p>Search</p>
-                      <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                    </div> 
-                  : null}
+            <div className="navSearchIconSideNav">
+                    <TextField id="outlined-basic" label="Search" variant="outlined" />
+                    <FontAwesomeIcon icon={faMagnifyingGlass}/>
+            </div>
             <List
                 sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
                 component="nav"

@@ -17,11 +17,14 @@
 }
 
 .navSearchIcon {
-    display: flex;
+    display: grid;
     align-items: center;
+    grid-template-columns: 90% 10%;
     width: 25%;
     padding-left: 4%;
+    margin-right: 5%;
 }
+
 .navSearchIcon > svg {
     width: 100%;
     font-size: 20px;
@@ -40,7 +43,6 @@
 .mainDesktopNavBar {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
     height: 75px;
 }
 
@@ -48,6 +50,7 @@
     .sideMenuButton > svg {
         font-size: 1.45rem;
     }
+
     .navSearchIcon {
         padding-left: 16%;
     }
@@ -66,8 +69,17 @@
     .navSearchIcon {
         padding-left: 2%;
     }
+
     .navLogo {
         margin: 10px auto;
+    }
+
+    .menuItem:hover {
+        cursor: pointer;
+    }
+
+    .navSearchIcon > .MuiTextField-root {
+        width: 100%;
     }
 }
 

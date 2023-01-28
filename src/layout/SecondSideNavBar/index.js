@@ -31,6 +31,7 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle}) => {
     const closeSideNavBar = () => {
         setListData([])
     }
+    console.log(listData)
 
     const renderedMenuItems = listData.map((heading,i )=> {
         return (

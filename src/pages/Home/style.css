@@ -31,7 +31,7 @@
     text-align: center;
     padding: 20px;
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 50px auto 20px auto;
 }
 
 .popularDestinationsSection {
@@ -72,7 +72,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
     justify-content: center;
     max-width: 1000px;
 }
@@ -105,15 +105,15 @@
 }
 
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
-    background-color: var(--purple) !important;
+    background-color: var(--main-purple) !important;
 }
 
-.MuiTypography-root {
+.popularDestinationsSection .MuiTypography-root {
    color: var(--moon-green) !important; 
 }
 
 .destinationsTable {
-    color: var(--purple) !important;
+    color: var(--main-purple) !important;
 }
 
 @media (min-width: 768px) {

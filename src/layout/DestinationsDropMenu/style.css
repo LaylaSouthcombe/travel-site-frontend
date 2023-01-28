@@ -1,5 +1,5 @@
 #destinationsDropdown {
-    width: 120%;
+    width: 160%;
     max-width: 900px;
     grid-template-columns: 30% 30% 30%;
     column-gap: 5%;
@@ -17,6 +17,16 @@
     font-weight: bold;
 }
 
+.dropDownContinent p {
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.dropDownContinent p:hover {
+    cursor: pointer;
+    background-color: var(--light-grey-overlay);
+}
 
 .exploreMoreMenuItem{
     color: var(--main-button-color);

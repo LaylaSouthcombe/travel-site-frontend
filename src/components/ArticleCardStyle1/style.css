@@ -1,3 +1,7 @@
+.articleCardStyle1 {
+    margin-bottom: 20px;
+}
+
 .articleCardStyle1 > .cardImg {
     width: 100%;
 }
