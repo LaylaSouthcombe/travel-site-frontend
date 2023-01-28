@@ -23,6 +23,8 @@
     "react-native-svg": "^13.7.0",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
+    "react-simple-maps": "^3.0.0",
+    "react-tooltip": "^5.7.1",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },

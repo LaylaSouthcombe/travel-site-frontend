@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home} from './pages'
+import {Home, ContinentCountry} from './pages'
 
 import './layout/FirstSideNavBar/style.css'
 import './layout/DesktopNavBar/style.css'
@@ -16,15 +16,15 @@ import './components/ArticleGridStyle1/style.css'
 
 
 function App() {
-  const continents = ['/europe', '/africa', '/asia', '/northamerica', '/southamerica', '/australiaoceania']
+  const continents = ['/europe', '/africa', '/asia', '/north-america', '/south-america', '/australia-oceania']
   return (
     <>
     <Routes>
       <Route path="/" element={<Home/>}/>
       {/* continent/country page */}
       {continents.map(continent => (
-        <Route path={continent} element={<Home/>}>
-          <Route path=":country" element={<Home />}>
+        <Route path={continent} element={<ContinentCountry/>}>
+          <Route path=":country" element={<ContinentCountry />}>
             <Route path=":city" element={<Home />} >
               <Route path=":articleid" element={<Home/>}/>
             </Route>

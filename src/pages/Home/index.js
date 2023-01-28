@@ -21,7 +21,7 @@ import relaxing from '../../images/relaxing.png'
 
 import {ArticleGridStyle1, ArticleGridStyle2, GoogleAd} from '../../components'
 
-
+//add in random country button
 const Home = () => {
 
     return(
