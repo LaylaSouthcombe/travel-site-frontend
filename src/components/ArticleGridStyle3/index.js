@@ -17,7 +17,7 @@ const article = {
     "continent": "south america",
     "trip_categories": "city, adventure, culture",
     "keywords": "Colombia, Ecuador, Brazil, Argentina"
-}
+    }
 
     return (
         <div className="articleGridStyle3">

@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.articleListCardStyle1 > .articleCardMeta > .articleCardCategory {
+    font-size: 12px;
+}
+
 .articleListCardStyle1 > .cardImg {
     width: 70%;
     margin: auto;

@@ -8,7 +8,7 @@ import backgroundWorld from '../../images/backgroundWorld.png'
 import {continentInfo} from '../../data/continentCountries'
 
 import {NavBar, BottomMenu, NoNestDropMenu} from '../../layout'
-import {ArticleGridStyle3, GoogleAd} from '../../components'
+import {ArticleGridStyle3, ArticleGridStyle4, ArticleGridStyle5, GoogleAd} from '../../components'
 
 const ContinentCountry = () => {
     const location = useLocation();
@@ -117,6 +117,11 @@ const ContinentCountry = () => {
             }
             <GoogleAd dataAdSlot={"1136657549"}/>
             <ArticleGridStyle3/>
+            <GoogleAd dataAdSlot={"1136657549"}/>
+            <ArticleGridStyle4/>
+            <GoogleAd dataAdSlot={"1136657549"}/>
+            <ArticleGridStyle5/>
+            <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>
         </>
     )
