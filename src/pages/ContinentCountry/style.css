@@ -1,3 +1,82 @@
 .rsm-geography:focus {
     outline: none !important;
 }
+
+.continentSummarySection {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 120px 0px;
+    overflow: hidden;
+}
+
+.continentSummary {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.continentSummary > p:first-child {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.continentSummary > p {
+    margin-left: 40px;
+}
+
+.backgroundWorld > img{
+    opacity: 80%;
+    width: 100%;
+    margin-left: 20%;
+}
+
+.topCitiesSection {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.topCities {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    row-gap: 35px;
+    column-gap: 35px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.topCity {
+    border-radius: 5px;
+    background-color: var(--main-button-color);
+}
+
+.topCity > p {
+    color: var(--main-purple);
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .continentSummarySection {
+        width: 90%;
+        grid-template-columns: 35% 65%;
+    }
+    
+    .continentSummary > p {
+        margin-left: 0px;
+    }
+
+    .topCities {
+        grid-template-columns: 20% 20% 20% 20%;
+        column-gap: 35px;
+        margin-bottom: 80px;
+    }
+}

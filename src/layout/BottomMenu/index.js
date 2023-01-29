@@ -7,11 +7,11 @@ const BottomMenu = () => {
     let navigate = useNavigate();
     return(
         <div className="bottomMenu">
-            {window.location.pathname === '/' ? 
             <div>
-                <p>Home</p>
+            <p>{window.location.pathname !== '/' ? 
+                "Home"
+                : null}</p>
             </div>
-            : null}
             <div className="bottomMenuMainSegment">
                 <div className="bottomMenuSegment">
                     <p onClick={() => navigate('/europe')}>Europe</p>
