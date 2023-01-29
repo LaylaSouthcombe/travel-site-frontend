@@ -5,7 +5,7 @@ import cityPage from '../../images/cityPage.png'
 
 import './style.css'
 
-import {ArticleGridStyle1, ArticleGridStyle4, ArticleGridStyle6, ArticleGridStyle7, GoogleAd} from '../../components'
+import {ArticleCardStyle1, ArticleGridStyle1, ArticleGridStyle4, ArticleGridStyle6, ArticleGridStyle7, ArticleGridStyle8, ArticleGridStyle9, ArticleTabSelectorList, ExploreMoreButton, GoogleAd} from '../../components'
 
 //add in random country button
 const City = () => {
@@ -20,6 +20,7 @@ const formatWord = (word) => {
     }
     return word
 }
+const tabHeadings = ["Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
 const {country, city, articleid} = useParams();
     return(
         <>
@@ -35,16 +36,46 @@ const {country, city, articleid} = useParams();
                 <h2 className="seperatorTitle">Trending Articles</h2>
             </div>
             <ArticleGridStyle4/>
+            <ExploreMoreButton endpoint={"/articles"}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             <div>
                 <h2 className="seperatorTitle">Popular Articles</h2>
             </div>
             <ArticleGridStyle6/>
+            <ExploreMoreButton endpoint={"/articles"}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             <div>
                 <h2 className="seperatorTitle">Must Sees in {city}</h2>
             </div>
             <ArticleGridStyle7/>
+            <ExploreMoreButton endpoint={"/articles"}/>
+            <GoogleAd dataAdSlot={"1136657549"}/>
+            <div>
+                <h2 className="seperatorTitle">Food to Try in {city}</h2>
+            </div>
+            <ArticleGridStyle8/>
+            <ExploreMoreButton endpoint={"/articles"}/>
+            <GoogleAd dataAdSlot={"1136657549"}/>
+            <div>
+                <h2 className="seperatorTitle">Attractions in {city}</h2>
+            </div>
+            <ArticleGridStyle4/>
+            <ExploreMoreButton endpoint={"/articles"}/>
+            <GoogleAd dataAdSlot={"1136657549"}/>
+            <div>
+                <h2 className="seperatorTitle">Nightlife in {city}</h2>
+            </div>
+            <div className="nightlifeSection">
+            <ArticleGridStyle9/>
+            </div>
+            <ExploreMoreButton endpoint={"/articles"}/>
+            <div>
+                <h2 className="seperatorTitle">Explore Trip Styles in {city}</h2>
+            </div>
+            <div className="cityCategoriesSection">
+                <ArticleTabSelectorList tabHeadings={tabHeadings}/>
+            </div>
+            <ExploreMoreButton endpoint={"/articles"}/>
             <BottomMenu/>
         </>
     )

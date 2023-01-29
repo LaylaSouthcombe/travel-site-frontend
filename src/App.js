@@ -29,20 +29,6 @@ function App() {
           <Route path={continent+'/:country/:city/:articleid'} element={<City/>}/>
         </>
       ))}
-
-
-      {/* <Route path="/africa" element={<Home/>}/>
-      <Route path="/asia" element={<Home/>}/>
-      <Route path="/northamerica" element={<Home/>}/>
-      <Route path="/southamerica" element={<Home/>}/>
-      <Route path="/australiaoceania" element={<Home/>}/> */}
-      {/* continent/country pages - one for each contient with dynamic countries*/}
-      {/* <Route path="/europe/:country" element={<Home/>}/>
-      <Route path="/africa/:country" element={<Home/>}/>
-      <Route path="/asia/:country" element={<Home/>}/>
-      <Route path="/northamerica/:country" element={<Home/>}/>
-      <Route path="/southamerica/:country" element={<Home/>}/>
-      <Route path="/australiaoceania/:country" element={<Home/>}/> */}
       {/* categories page */}
       <Route path="/trip-styles" element={<Home/>}>
         <Route path=":category" element={<Home/>}>
@@ -53,6 +39,8 @@ function App() {
       <Route path="/popular" element={<Home/>}/>
       {/* tips and tricks page */}
       <Route path="/tips-and-tricks" element={<Home/>}/>
+      {/* Article list that connects to explore more buttons, has filter list etc */}
+      <Route path="/articles" element={<Home/>}/>
     </Routes>
     </>
   );

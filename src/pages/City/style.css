@@ -19,6 +19,7 @@
 @media (min-width: 768px) {
     .cityPageHeroSection {
         grid-template-columns: 55% 45%;
+        margin-top: 30px;
     }
     
     .cityName {
@@ -30,6 +31,7 @@
 @media (min-width: 900px) {
     .cityPageHeroSection {
         grid-template-columns: 60% 40%;
+        margin-top: 60px;
     }
     
     .cityName {

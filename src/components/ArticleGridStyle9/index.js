@@ -6,7 +6,7 @@ import {ArticleCardStyle1, ArticleListCardStyle1} from '..'
 
 import './style.css'
 
-const ArticleGridStyle7 = () => {
+const ArticleGridStyle9= () => {
 
 const article = {
     "imageId": "452911",
@@ -20,18 +20,13 @@ const article = {
     }
 
     return (
-        <div className="articleGridStyle7">
-            <div className="style7column2">
-                <ArticleCardStyle1 article={article}/>
-            </div>
-            <div className="style7column1">
-                <ArticleListCardStyle1 article={article}/>
-                <ArticleListCardStyle1 article={article}/>
-                <ArticleListCardStyle1 article={article}/>
-                <ArticleListCardStyle1 article={article}/>
-            </div>
+        <div className="articleGridStyle9">
+            <ArticleCardStyle1 article={article}/>
+            <ArticleCardStyle1 article={article}/>
+            <ArticleCardStyle1 article={article}/>
+            <ArticleCardStyle1 article={article}/>
         </div>
     )
 }
 
-export default ArticleGridStyle7;
+export default ArticleGridStyle9;
