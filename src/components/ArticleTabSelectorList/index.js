@@ -97,9 +97,7 @@ const ArticleTabSelectorList = ({tabHeadings}) => {
       }));
     return (
         <div className="articleTabSelector">
-        <Box
-        sx={{  display: 'grid', gridTemplateColumns: "25% 75%"}}
-        >
+        <Box>
         <Tabs
             orientation="vertical"
             variant="scrollable"
@@ -121,6 +119,8 @@ const ArticleTabSelectorList = ({tabHeadings}) => {
             return (
                 <TabPanel value={value} index={i}>
                     <ArticleListCardStyle2 article={article}/>
+                    <ArticleListCardStyle2 article={article}/>
+
                 </TabPanel>
             )
         })}

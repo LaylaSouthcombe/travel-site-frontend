@@ -44,9 +44,11 @@ function App() {
       <Route path="/southamerica/:country" element={<Home/>}/>
       <Route path="/australiaoceania/:country" element={<Home/>}/> */}
       {/* categories page */}
-      <Route path="/tripstyles" element={<Home/>}/>
-      {/* category page - one page with dynamic categories*/}
-      <Route path="/tripstyles/:category" element={<Home/>}/>
+      <Route path="/trip-styles" element={<Home/>}>
+        <Route path=":category" element={<Home/>}>
+          <Route path=":location" element={<Home/>}/>
+        </Route>
+      </Route>
       {/* popular page */}
       <Route path="/popular" element={<Home/>}/>
       {/* tips and tricks page */}

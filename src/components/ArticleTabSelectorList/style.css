@@ -18,12 +18,20 @@ div[role="tabpanel"] > .css-19kzrtu {
     margin: 0 auto 30px auto;
 }
 
+.articleTabSelector > .MuiBox-root {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
 div[role="tabpanel"] > .css-19kzrtu > p > div{
     margin-bottom: 12px;
 }
 
 @media(min-width: 768px){
-
+    .articleTabSelector > .MuiBox-root {
+        display: grid;
+        grid-template-columns: 25% 75%;
+    }
 }
 
 @media(min-width: 900px){

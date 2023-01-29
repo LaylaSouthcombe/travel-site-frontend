@@ -8,7 +8,7 @@ import backgroundWorld from '../../images/backgroundWorld.png'
 import {continentInfo} from '../../data/continentCountries'
 
 import {NavBar, BottomMenu, NoNestDropMenu} from '../../layout'
-import {ArticleGridStyle3, ArticleGridStyle4, ArticleGridStyle5, ArticleTabSelectorList, GoogleAd} from '../../components'
+import {ArticleGridStyle3, ArticleGridStyle4, ArticleGridStyle5, ArticleTabSelectorList, ExploreMoreButton, GoogleAd} from '../../components'
 
 const ContinentCountry = () => {
     const location = useLocation();
@@ -32,6 +32,15 @@ const ContinentCountry = () => {
     }
     // let formattedCountry
     const {country, city, articleid} = useParams();
+
+    let currentWebLocation
+
+    if(country === undefined){
+        currentWebLocation = continent
+    } else {
+        currentWebLocation = country
+    }
+
     const formatWord = (word) => {
         if(word !== undefined){
         word = word.split('-').map((x, i) => {
@@ -42,9 +51,9 @@ const ContinentCountry = () => {
         }
         return word
     }
-    
-    const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
 
+    const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
+console.log(summaryInfo)
     const handleCountryClick = (country) => {
         if(continentInfo[continent].countries[country].popularCities.length){
             navigate(country)
@@ -78,12 +87,12 @@ const ContinentCountry = () => {
                                     key={geo.rsmKey}
                                     geography={geo}
                                     onMouseEnter={() => {
-                                        setSummaryInfo({name: continentInfo[continent].countries[geo.properties.geounit].name, summary: continentInfo[continent].countries[geo.properties.geounit].summary})
+                                        setSummaryInfo({name: continentInfo[continent].countries[geo.properties.geounit.toLowerCase()].name, summary: continentInfo[continent].countries[geo.properties.geounit.toLowerCase()].summary})
                                     }}
                                     onMouseLeave={() => {
                                         setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
                                     }}
-                                    onClick={() => handleCountryClick(geo.properties.geounit)}
+                                    onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}
                                     style={{
                                         default: {
                                         fill: "rgb(227, 227, 227)",
@@ -109,13 +118,13 @@ const ContinentCountry = () => {
                     </div>}
                 </div>
                 <div>
-                    <h2 className="seperatorTitle">Top Countries to Visit in {formatWord(continent)}</h2>
+                    <h2 className="seperatorTitle">Top Countries to Visit in {formatWord(currentWebLocation)}</h2>
                 </div>
                 <ArticleGridStyle3/>
             </>
             : 
             <div className="topCitiesSection">
-                <h2 className="seperatorTitle">Top cities to visit in {formatWord(country)}</h2>
+                <h2 className="seperatorTitle">Top cities to visit in {formatWord(currentWebLocation)}</h2>
                 <div className="topCities">
                     {continentInfo[continent].countries[country].popularCities.map(x => {
                         return(
@@ -129,19 +138,23 @@ const ContinentCountry = () => {
             }
             <GoogleAd dataAdSlot={"1136657549"}/>
             <div>
-                <h2 className="seperatorTitle">Cultural Experiences in {formatWord(continent)}</h2>
+                <h2 className="seperatorTitle">Cultural Experiences in {formatWord(currentWebLocation)}</h2>
             </div>
             <ArticleGridStyle4/>
+            <ExploreMoreButton endpoint={`/trip-styles/arts-and-culture/${currentWebLocation}`}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             <div>
-                <h2 className="seperatorTitle">Food and Drink to Try in {formatWord(continent)}</h2>
+                <h2 className="seperatorTitle">Food and Drink to Try in {formatWord(currentWebLocation)}</h2>
             </div>
             <ArticleGridStyle5/>
+            <ExploreMoreButton endpoint={`/trip-styles/food/${currentWebLocation}`}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             <div>
-                <h2 className="seperatorTitle">Explore Different Trip Styles in {formatWord(continent)}</h2>
+                <h2 className="seperatorTitle">Explore Different Trip Styles in {formatWord(currentWebLocation)}</h2>
             </div>
             <ArticleTabSelectorList tabHeadings={tabHeadings}/>
+            <ExploreMoreButton endpoint={`/trip-styles/all/${currentWebLocation}`}/>
+            <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>
         </>
     )
