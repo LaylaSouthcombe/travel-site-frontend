@@ -1,0 +1,50 @@
+.tripStyles {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto 40px auto;
+    justify-content: center;
+    max-width: 1000px;
+}
+
+.tripStyles > div {
+    width: 35%;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.tripStyles > div:hover {
+    cursor: pointer;
+}
+
+.tripStyles > div:focus {
+    cursor: pointer;
+}
+
+.tripStyles > div > p {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.tripStyles > div > div {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tripStyles > div > div > img {
+    width: 100%;
+}
+
+@media(min-width: 768px){
+    .tripStyles > div {
+        width: 20%;
+    }
+
+    .tripStyles {
+        width: 80%;
+    }
+}

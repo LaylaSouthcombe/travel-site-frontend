@@ -6,9 +6,8 @@ export {default as ArticleGridStyle5} from './ArticleGridStyle5'
 export {default as ArticleGridStyle6} from './ArticleGridStyle6'
 export {default as ArticleGridStyle7} from './ArticleGridStyle7'
 export {default as ArticleGridStyle8} from './ArticleGridStyle8'
-export {default as ArticleGridStyle9} from './ArticleGridStyle9'
 
-
+export {default as TripStylesGrid} from './TripStylesGrid'
 
 
 export {default as ArticleTabSelectorList} from './ArticleTabSelectorList'

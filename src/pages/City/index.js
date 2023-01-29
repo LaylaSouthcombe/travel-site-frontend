@@ -5,7 +5,7 @@ import cityPage from '../../images/cityPage.png'
 
 import './style.css'
 
-import {ArticleCardStyle1, ArticleGridStyle1, ArticleGridStyle4, ArticleGridStyle6, ArticleGridStyle7, ArticleGridStyle8, ArticleGridStyle9, ArticleTabSelectorList, ExploreMoreButton, GoogleAd} from '../../components'
+import {ArticleCardStyle1, ArticleGridStyle2, ArticleGridStyle4, ArticleGridStyle6, ArticleGridStyle7, ArticleGridStyle8, ArticleTabSelectorList, ExploreMoreButton, GoogleAd} from '../../components'
 
 //add in random country button
 const City = () => {
@@ -66,7 +66,7 @@ const {country, city, articleid} = useParams();
                 <h2 className="seperatorTitle">Nightlife in {city}</h2>
             </div>
             <div className="nightlifeSection">
-            <ArticleGridStyle9/>
+            <ArticleGridStyle2/>
             </div>
             <ExploreMoreButton endpoint={"/articles"}/>
             <div>

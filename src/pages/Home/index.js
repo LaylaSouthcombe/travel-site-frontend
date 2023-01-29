@@ -9,17 +9,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {NavBar, BottomMenu} from '../../layout'
 import leftHeroImage from '../../images/leftHeroImage.png'
 import rightHeroImage from '../../images/rightHeroImage.png'
-import adventure from '../../images/adventure.png'
-import art from '../../images/art.png'
-import budget from '../../images/budget.png'
-import city from '../../images/city.png'
-import food from '../../images/food.png'
-import nature from '../../images/nature.png'
-import luxury from '../../images/luxury.png'
-import relaxing from '../../images/relaxing.png'
 
-
-import {ArticleGridStyle1, ArticleGridStyle2, GoogleAd} from '../../components'
+import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd} from '../../components'
 
 //add in random country button
 const Home = () => {
@@ -234,56 +225,7 @@ const Home = () => {
             <div>
                 <h2 className="seperatorTitle">Explore Trip Styles</h2>
             </div>
-            <div className="tripStyles">
-                <div>
-                    <div>
-                        <img src={relaxing} alt="Person on beach illustration" />
-                    </div>
-                     <p>Relaxing</p>
-                </div>
-                <div>
-                    <div>
-                        <img src={luxury} alt="Camera with photographs illustration" />
-                    </div>
-                    <p>Luxury</p>
-                </div>
-                <div>
-                    <div>
-                       <img src={nature} alt="Leafs and nature illustration" /> 
-                    </div>
-                    <p>Nature</p>
-                </div>
-                <div>
-                    <div>
-                       <img src={food} alt="Couple eating dinner outside illustration" /> 
-                    </div>
-                    <p>Food</p>
-                </div>
-                <div>
-                    <div>
-                       <img src={city} alt="Cityscape illustration" /> 
-                    </div>
-                    <p>City Break</p>
-                </div>
-                <div>
-                    <div>
-                       <img src={budget} alt="Piggy bank illustration" /> 
-                    </div>
-                    <p>Budget Friendly</p>
-                </div>
-                <div>
-                    <div>
-                        <img src={art} alt="Person standing infront of art frame illustration" />
-                    </div>
-                    <p>Art & Culture</p>
-                </div>
-                <div>
-                    <div>
-                      <img src={adventure} alt="Woman standing by mountains illustration" />  
-                    </div>
-                    <p>Adventure</p>
-                </div>
-            </div>
+            <TripStylesGrid/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>
         </>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountry, City} from './pages'
+import {Home, ContinentCountry, City, Categories} from './pages'
 
 import './layout/FirstSideNavBar/style.css'
 import './layout/DesktopNavBar/style.css'
@@ -30,11 +30,7 @@ function App() {
         </>
       ))}
       {/* categories page */}
-      <Route path="/trip-styles" element={<Home/>}>
-        <Route path=":category" element={<Home/>}>
-          <Route path=":location" element={<Home/>}/>
-        </Route>
-      </Route>
+      <Route path="/trip-styles" element={<Categories/>}/>
       {/* popular page */}
       <Route path="/popular" element={<Home/>}/>
       {/* tips and tricks page */}

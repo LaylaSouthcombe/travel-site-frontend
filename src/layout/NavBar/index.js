@@ -182,9 +182,9 @@ const NavBar = ({country}) => {
             ],
             "Trip Styles": [
                 {
-                  "name": "Relaxation",
-                  "icon": faUmbrellaBeach,
-                  "url": "/relaxing"
+                  "name": "City Break",
+                  "icon": faCity,
+                  "url": "/city-break"
                 },
                 {
                     "name": "Luxury",
@@ -202,9 +202,9 @@ const NavBar = ({country}) => {
                     "url": "/food"
                 },
                 {
-                    "name": "City Break",
-                    "icon": faCity,
-                    "url": "/city-break"
+                  "name": "Relaxation",
+                  "icon": faUmbrellaBeach,
+                  "url": "/relaxing"
                 },
                 {
                     "name": "Budget Friendly",
