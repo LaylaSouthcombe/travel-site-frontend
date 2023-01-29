@@ -1,0 +1,17 @@
+.articleListCardStyle2 {
+    display: grid;
+    grid-template-columns: 22.5% 57.5% 20%;
+}
+
+.articleListCardStyle2 > .articleCardMeta > .articleCardCategory {
+    font-size: 12px;
+}
+
+.articleListCardStyle2 > .cardImg > img{
+    width: 100%;
+}
+
+.articleListCardStyle2 > .articleCardButton {
+    width: 90%;
+    margin: 30px auto;
+}

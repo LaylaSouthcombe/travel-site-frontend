@@ -31,7 +31,7 @@ const BottomMenu = () => {
                 </div>
                 <div className="bottomMenuSegment">
                     <p onClick={() => navigate('/category/relaxing')}>Relaxing</p>
-                    <p onClick={() => navigate('/category/picturesque')}>Picturesque</p>
+                    <p onClick={() => navigate('/category/luxury')}>Luxury</p>
                     <p onClick={() => navigate('/category/nature')}>Nature</p>
                     <p onClick={() => navigate('/category/citybreak')}>City Break</p>
                     <p onClick={() => navigate('/category/budgetfriendly')}>Budget Friendly</p>

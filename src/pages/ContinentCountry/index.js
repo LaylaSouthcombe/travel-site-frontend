@@ -8,7 +8,7 @@ import backgroundWorld from '../../images/backgroundWorld.png'
 import {continentInfo} from '../../data/continentCountries'
 
 import {NavBar, BottomMenu, NoNestDropMenu} from '../../layout'
-import {ArticleGridStyle3, ArticleGridStyle4, ArticleGridStyle5, GoogleAd} from '../../components'
+import {ArticleGridStyle3, ArticleGridStyle4, ArticleGridStyle5, ArticleTabSelectorList, GoogleAd} from '../../components'
 
 const ContinentCountry = () => {
     const location = useLocation();
@@ -30,15 +30,19 @@ const ContinentCountry = () => {
     } else {
         geoUrl =`https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${continent}.json`
     }
-    let formattedCountry
+    // let formattedCountry
     const {country, city, articleid} = useParams();
-    if(country !== undefined){
-        formattedCountry = country.split('-').map((x, i) => {
+    const formatWord = (word) => {
+        if(word !== undefined){
+        word = word.split('-').map((x, i) => {
             return (
                 x = x[0].toUpperCase() + x.slice(1)
             )
         }).join(" ")
+        }
+        return word
     }
+    
     const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
 
     const handleCountryClick = (country) => {
@@ -46,64 +50,72 @@ const ContinentCountry = () => {
             navigate(country)
         }
     }
+
+    const tabHeadings = ["Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
     
     return(
         <>
             <NavBar/>
             {country === undefined ? 
-            <div className="continentSummarySection">
-                <div className="continentSummary">
-                    <p>{summaryInfo.name}</p>
-                    <p>{summaryInfo.summary}</p>
+            <>
+                <div className="continentSummarySection">
+                    <div className="continentSummary">
+                        <p>{summaryInfo.name}</p>
+                        <p>{summaryInfo.summary}</p>
+                    </div>
+                    {windowSize >= 768 ?
+                    <div className="interactiveMap">
+                        <ComposableMap
+                            width={600}
+                            height={600}
+                            projection="geoAzimuthalEquidistant"
+                            projectionConfig={continentInfo[continent].geoInfo}
+                            >
+                            <Geographies geography={geoUrl}>
+                                {({ geographies }) =>
+                                geographies.map((geo) => (
+                                    <Geography
+                                    key={geo.rsmKey}
+                                    geography={geo}
+                                    onMouseEnter={() => {
+                                        setSummaryInfo({name: continentInfo[continent].countries[geo.properties.geounit].name, summary: continentInfo[continent].countries[geo.properties.geounit].summary})
+                                    }}
+                                    onMouseLeave={() => {
+                                        setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
+                                    }}
+                                    onClick={() => handleCountryClick(geo.properties.geounit)}
+                                    style={{
+                                        default: {
+                                        fill: "rgb(227, 227, 227)",
+                                        stroke: "#3F3D56",
+                                        },
+                                        hover: {
+                                        fill: "#30c7b5ad",
+                                        stroke: "#3F3D56",
+                                        },
+                                        pressed: {
+                                        fill: "#3F3D56",
+                                        stroke: "#30c7b5ad",
+                                        },
+                                    }}
+                                    />
+                                ))
+                                }
+                            </Geographies>
+                        </ComposableMap>
+                        </div> : 
+                    <div className="backgroundWorld">
+                        <img src={backgroundWorld} alt="" />
+                    </div>}
                 </div>
-                {windowSize >= 768 ?
-                <div className="interactiveMap">
-                    <ComposableMap
-                        width={600}
-                        height={600}
-                        projection="geoAzimuthalEquidistant"
-                        projectionConfig={continentInfo[continent].geoInfo}
-                        >
-                        <Geographies geography={geoUrl}>
-                            {({ geographies }) =>
-                            geographies.map((geo) => (
-                                <Geography
-                                key={geo.rsmKey}
-                                geography={geo}
-                                onMouseEnter={() => {
-                                    setSummaryInfo({name: continentInfo[continent].countries[geo.properties.geounit].name, summary: continentInfo[continent].countries[geo.properties.geounit].summary})
-                                }}
-                                onMouseLeave={() => {
-                                    setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
-                                }}
-                                onClick={() => handleCountryClick(geo.properties.geounit)}
-                                style={{
-                                    default: {
-                                    fill: "rgb(227, 227, 227)",
-                                    stroke: "#3F3D56",
-                                    },
-                                    hover: {
-                                    fill: "#30c7b5ad",
-                                    stroke: "#3F3D56",
-                                    },
-                                    pressed: {
-                                    fill: "#3F3D56",
-                                    stroke: "#30c7b5ad",
-                                    },
-                                }}
-                                />
-                            ))
-                            }
-                        </Geographies>
-                    </ComposableMap>
-                    </div> : 
-                <div className="backgroundWorld">
-                    <img src={backgroundWorld} alt="" />
-                </div>}
+                <div>
+                    <h2 className="seperatorTitle">Top Countries to Visit in {formatWord(continent)}</h2>
                 </div>
+                <ArticleGridStyle3/>
+            </>
             : 
             <div className="topCitiesSection">
-                <h2 className="seperatorTitle">Top cities to visit in {formattedCountry}</h2>
+                <h2 className="seperatorTitle">Top cities to visit in {formatWord(country)}</h2>
                 <div className="topCities">
                     {continentInfo[continent].countries[country].popularCities.map(x => {
                         return(
@@ -116,12 +128,20 @@ const ContinentCountry = () => {
             </div>
             }
             <GoogleAd dataAdSlot={"1136657549"}/>
-            <ArticleGridStyle3/>
-            <GoogleAd dataAdSlot={"1136657549"}/>
+            <div>
+                <h2 className="seperatorTitle">Cultural Experiences in {formatWord(continent)}</h2>
+            </div>
             <ArticleGridStyle4/>
             <GoogleAd dataAdSlot={"1136657549"}/>
+            <div>
+                <h2 className="seperatorTitle">Food and Drink to Try in {formatWord(continent)}</h2>
+            </div>
             <ArticleGridStyle5/>
             <GoogleAd dataAdSlot={"1136657549"}/>
+            <div>
+                <h2 className="seperatorTitle">Explore Different Trip Styles in {formatWord(continent)}</h2>
+            </div>
+            <ArticleTabSelectorList tabHeadings={tabHeadings}/>
             <BottomMenu/>
         </>
     )

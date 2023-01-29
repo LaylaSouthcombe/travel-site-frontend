@@ -15,7 +15,7 @@ import budget from '../../images/budget.png'
 import city from '../../images/city.png'
 import food from '../../images/food.png'
 import nature from '../../images/nature.png'
-import picturesque from '../../images/picturesque.png'
+import luxury from '../../images/luxury.png'
 import relaxing from '../../images/relaxing.png'
 
 
@@ -243,9 +243,9 @@ const Home = () => {
                 </div>
                 <div>
                     <div>
-                        <img src={picturesque} alt="Camera with photographs illustration" />
+                        <img src={luxury} alt="Camera with photographs illustration" />
                     </div>
-                    <p>Picturesque</p>
+                    <p>Luxury</p>
                 </div>
                 <div>
                     <div>

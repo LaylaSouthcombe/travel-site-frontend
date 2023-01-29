@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
-import { faCamera } from '@fortawesome/free-solid-svg-icons'
+import { faGem } from '@fortawesome/free-solid-svg-icons'
 import { faUmbrellaBeach } from '@fortawesome/free-solid-svg-icons'
 import { faLeaf } from '@fortawesome/free-solid-svg-icons'
 import { faUtensils } from '@fortawesome/free-solid-svg-icons'
@@ -187,9 +187,9 @@ const NavBar = ({country}) => {
                   "url": "/relaxing"
                 },
                 {
-                    "name": "Picturesque",
-                    "icon": faCamera,
-                    "url": "/picturesque"
+                    "name": "Luxury",
+                    "icon": faGem,
+                    "url": "/luxury"
                 },
                 {
                     "name": "Nature",
