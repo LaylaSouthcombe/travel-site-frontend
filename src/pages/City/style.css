@@ -1,0 +1,40 @@
+.cityPageHeroSection {
+    display: grid;
+    grid-template-columns: 100%;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cityPageHeroImg > img {
+    width: 100%;
+    opacity: 85%;
+}
+
+.cityName {
+    margin: 30px auto 0px auto;
+    font-size: 4rem;
+}
+
+@media (min-width: 768px) {
+    .cityPageHeroSection {
+        grid-template-columns: 55% 45%;
+    }
+    
+    .cityName {
+        margin-left: 100px;
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 900px) {
+    .cityPageHeroSection {
+        grid-template-columns: 60% 40%;
+    }
+    
+    .cityName {
+        margin-left: 160px;
+        margin-top: 120px;
+    }
+    
+}
