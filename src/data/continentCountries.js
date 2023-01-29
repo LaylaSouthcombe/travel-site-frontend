@@ -7,6 +7,7 @@ const continentInfo = {
             scale: 650
         },
         summary: "A diverse continent with a rich history and culture, offering an array of attractions from the Eiffel Tower in Paris to the canals of Venice. Visitors can explore ancient ruins, sample local cuisines, and take in stunning natural landscapes.",
+        topCountries: ['France', 'Spain', 'Italy'],
         countries: {
             Italy: {
                 name: "Italy",
@@ -247,6 +248,7 @@ const continentInfo = {
             scale: 300
         },
         summary: "",
+        topCountries: ['China', 'Thailand', 'Japan'],
         countries: {
             Yemen:{
                 name: "Yemen",
@@ -422,6 +424,7 @@ const continentInfo = {
             scale: 300
         },
         summary: "",
+        topCountries: ['Morocco', 'Egypt', 'Tunisia'],
         countries: {
             // :{
 //     name: "",
@@ -437,6 +440,7 @@ const continentInfo = {
             scale: 325
         },
         summary: "",
+        topCountries: ['USA', 'Mexico', 'Canada'],
         countries: {
 // :{
 //     name: "",
@@ -452,6 +456,7 @@ const continentInfo = {
             scale: 400
         },
         summary: "",
+        topCountries: ['Argentina', 'Brazil', 'Chile'],
         countries: {
             // :{
 //     name: "",
@@ -467,6 +472,7 @@ const continentInfo = {
             scale: 350
         },
         summary: "",
+        topCountries: ['Australia', 'New Zealand', 'Fiji'],
         countries: {
             // :{
 //     name: "",
