@@ -24,13 +24,12 @@ const ContinentCountry = () => {
 
     let geoUrl
     const continent = location.pathname.split("/")[1]
-console.log(continentInfo[continent])
+
     if(continent === 'australia-oceania'){
         geoUrl =`https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${'oceania'}.json`
     } else {
         geoUrl =`https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${continent}.json`
     }
-    console.log(continent);
     let formattedCountry
     const {country, city, articleid} = useParams();
     if(country !== undefined){
@@ -40,12 +39,13 @@ console.log(continentInfo[continent])
             )
         }).join(" ")
     }
-        
-    console.log(country)
-    console.log(formattedCountry)
-    console.log(city)
-    console.log(articleid)
+    const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
 
+    const handleCountryClick = (country) => {
+        if(continentInfo[continent].countries[country].popularCities.length){
+            navigate(country)
+        }
+    }
     
     return(
         <>
@@ -53,8 +53,8 @@ console.log(continentInfo[continent])
             {country === undefined ? 
             <div className="continentSummarySection">
                 <div className="continentSummary">
-                    <p>Italy</p>
-                    <p>Italy is known for its art, architecture, history, and delicious food. It is the home of the Roman Empire, the Vatican City, and landmarks such as the Colosseum and Leaning Tower of Pisa.</p>
+                    <p>{summaryInfo.name}</p>
+                    <p>{summaryInfo.summary}</p>
                 </div>
                 {windowSize >= 768 ?
                 <div className="interactiveMap">
@@ -71,11 +71,12 @@ console.log(continentInfo[continent])
                                 key={geo.rsmKey}
                                 geography={geo}
                                 onMouseEnter={() => {
-                                    console.log(`${JSON.stringify(geo.properties.geounit)}`);
+                                    setSummaryInfo({name: continentInfo[continent].countries[geo.properties.geounit].name, summary: continentInfo[continent].countries[geo.properties.geounit].summary})
                                 }}
-                                onClick={() => {
-                                    navigate(geo.properties.geounit.toLowerCase())
+                                onMouseLeave={() => {
+                                    setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
                                 }}
+                                onClick={() => handleCountryClick(geo.properties.geounit)}
                                 style={{
                                     default: {
                                     fill: "rgb(227, 227, 227)",
@@ -104,18 +105,13 @@ console.log(continentInfo[continent])
             <div className="topCitiesSection">
                 <h2 className="seperatorTitle">Top cities to visit in {formattedCountry}</h2>
                 <div className="topCities">
-                    <div className="topCity">
-                        <p>London</p>
-                    </div>
-                    <div className="topCity">
-                        <p>London</p>
-                    </div>
-                    <div className="topCity">
-                        <p>London</p>
-                    </div>
-                    <div className="topCity">
-                        <p>London</p>
-                    </div>
+                    {continentInfo[continent].countries[country].popularCities.map(x => {
+                        return(
+                            <div className="topCity" key={country + x}>
+                                <p>{x}</p>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
             }

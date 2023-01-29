@@ -1,5 +1,6 @@
 const continentInfo = {
     'europe': {
+        name: "Europe",
         geoInfo: {
             rotate: [-10.0, -53.0, 0],
             center: [5, 3.5],
@@ -7,97 +8,97 @@ const continentInfo = {
         },
         summary: "A diverse continent with a rich history and culture, offering an array of attractions from the Eiffel Tower in Paris to the canals of Venice. Visitors can explore ancient ruins, sample local cuisines, and take in stunning natural landscapes.",
         countries: {
-            italy: {
+            Italy: {
                 name: "Italy",
                 summary: "Italy is known for its art, architecture, history, and delicious food. It is the home of the Roman Empire, the Vatican City, and landmarks such as the Colosseum and Leaning Tower of Pisa.",
                 popularCities: ["Rome", "Florence", "Venice", "Milan"]
             },
-            germany: {
+            Germany: {
                 name: "Germany",
                 summary: "A country with a rich history and culture, known for its castles, beer gardens, and Christmas markets. Visitors can experience the bustling cities of Berlin and Munich, or take a scenic drive through the Bavarian Alps.",
                 popularCities: ["Berlin", "Munich", "Hamburg", "Frankfurt"]
             },
-            england: {
+            England: {
                 name: "England",
                 summary: "A country known for its historic landmarks, such as Buckingham Palace and Stonehenge, as well as its vibrant cities like London and Manchester. Visitors can explore medieval castles, take in a Shakespeare play, or indulge in traditional fish and chips.",
                 popularCities: ["London", "Manchester", "Bristol", "Liverpool"]
             },
-            scotland: {
+            Scotland: {
                 name: "Scotland",
                 summary: "A country known for its stunning landscapes, such as the Isle of Skye and the Loch Ness, as well as its rich cultural heritage. Visitors can explore ancient castles, hike through the highlands, or take a scenic drive on the North Coast 500.",
                 popularCities: ["Edinburgh", "Glasgow", "Inverness", "Dundee"]
             },
-            wales: {
+            Wales: {
                 name: "Wales",
                 summary: "A country known for its rugged landscapes and natural beauty, such as Snowdonia National Park and the Brecon Beacons. Visitors can explore medieval castles, hike through the mountains, or sample traditional Welsh cuisine like Welsh lamb and cawl.",
                 popularCities: ["Cardiff", "Swansea", "Wrexham", "Newport"]
             },
-            iceland: {
+            Iceland: {
                 name: "Iceland",
                 summary: "A country known for its otherworldly landscapes, such as the Blue Lagoon and the Northern Lights. Visitors can explore glaciers, waterfalls, and volcanic landscapes, as well as take in the culture and history of Reykjavik, the country's capital city.",
                 popularCities: ["Reykjavik", "Akureyri", "Vatnajökull", "Skaftafell"]
             },
-            svalbard: {
+            Svalbard: {
                 name: "Svalbard",
                 summary: "An Arctic archipelago located between Norway and the North Pole. Known for its rugged wilderness and unique wildlife, such as polar bears, reindeer and arctic foxes. Visitors can experience dog sledding, snowmobiling, and ice caving, as well as the historic mining towns.",
                 popularCities: ["Longyearbyen", "Barentsburg", "Ny-Ålesund", "Sveagruva"]
             },
-            russia: {
+            Russia: {
                 name: "Russia",
                 summary: "The largest country in the world, Russia is a land of contrasts, from the bustling cities of Moscow and St. Petersburg to the remote wilderness of Siberia. It's recommended to check the travel advice of the government before planning a trip to Russia.",
                 popularCities: ["Moscow", "St. Petersburg", "Kazan", "Sochi"]
             },
-            ireland: {
+            Ireland: {
                 name: "Ireland",
                 summary: "An island country in northwest Europe known for its green landscapes, picturesque villages, and rich cultural heritage. Visitors can explore the Cliffs of Moher, the Ring of Kerry, and the city of Dublin.",
                 popularCities: ["Dublin", "Cork", "Galway", "Killarney"]
             },
-            'northern ireland': {
+            'NorthernIreland': {
                 name: "Northern Ireland",
                 summary: "A country located in the northeastern part of the island of Ireland, known for its rugged landscapes and historic landmarks, such as the Giant's Causeway and the Dark Hedges. Visitors can also explore the city of Belfast.",
                 popularCities: ["Belfast", "Derry", "Newry", "Coleraine"]
             },
-            portugal: {
+            Portugal: {
                 name: "Portugal",
                 summary: "A country located in southwestern Europe, known for its historic cities such as Lisbon and Porto, as well as its picturesque villages, beaches, and wine regions. Visitors can explore historic castles and monasteries and sample traditional seafood dishes.",
                 popularCities: ["Lisbon", "Porto", "Coimbra", "Albufeira"]
             },
-            spain: {
+            Spain: {
                 name: "Spain",
                 summary: "A country located in southwestern Europe, known for its rich history and culture, delicious cuisine, and vibrant nightlife. Visitors can explore historic landmarks such as the Alhambra and the Sagrada Familia, and experience the local festivals and traditions.",
                 popularCities: ["Madrid", "Barcelona", "Valencia", "Seville"]
             },
-            france: {
+            France: {
                 name: "France",
                 summary: "A country located in Western Europe, known for its iconic landmarks such as the Eiffel Tower and the Louvre, as well as its rich history, culture, and delicious cuisine. Visitors can explore famous wine regions, take in the local art and music scene, and indulge in traditional French dishes.",
                 popularCities: ["Paris", "Marseille", "Lyon", "Nice"]
             },
-            switzerland: {
+            Switzerland: {
                 name: "Switzerland",
                 summary: "Known for its natural beauty, history, and culture, Switzerland is a popular destination for outdoor activities such as skiing and hiking. Cities like Zurich and Geneva offer a mix of history and modern amenities.",
                 popularCities: ["Zurich", "Geneva", "Bern", "Lucerne"]
             },
-            luxembourg: {
+            Luxembourg: {
                 name: "Luxembourg",
                 summary: "Known for its history, culture, and natural beauty, Luxembourg is a small country with a lot to offer. The capital, Luxembourg City, is a UNESCO World Heritage Site with a rich history and beautiful architecture.",
                 popularCities: ["Luxembourg City", "Esch-sur-Alzette", "Echternach", "Clervaux"]
             },
-            walloonRegion: {
+            WalloonRegion: {
                 name: "Belgium",
                 summary: "Known for its history, culture, and delicious chocolate and beer, Belgium is a great destination for foodies and history buffs alike. Cities like Brussels, Bruges, and Antwerp offer a mix of medieval architecture and modern amenities, while the picturesque countryside is perfect for cycling or hiking.",
                 popularCities: ["Brussels", "Bruges", "Antwerp", "Ghent"]
             },
-            flemishRegion: {
+            FlemishRegion: {
                 name: "Belgium",
                 summary: "Known for its history, culture, and delicious chocolate and beer, Belgium is a great destination for foodies and history buffs alike. Cities like Brussels, Bruges, and Antwerp offer a mix of medieval architecture and modern amenities, while the picturesque countryside is perfect for cycling or hiking.",
                 popularCities: ["Brussels", "Bruges", "Antwerp", "Ghent"]
             },
-            netherlands: {
+            Netherlands: {
                 name: "Netherlands",
                 summary: "Known for its history, culture, and natural beauty, the Netherlands is a great destination for those interested in art, architecture, and history. Cities like Amsterdam, Rotterdam, and Utrecht offer a mix of medieval architecture and modern amenities, while the picturesque countryside is perfect for cycling or hiking.",
                 popularCities: ["Amsterdam", "Rotterdam", "Utrecht", "The Hague "]
             },
-            greece: {
+            Greece: {
                 name: "Greece",
                 summary: "Known for its history, culture, and natural beauty, Greece is a popular destination for those interested in ancient history and mythology. The capital, Athens, is home to the iconic Acropolis and Parthenon, while the charming island of Santorini and the ancient city of Crete offer a mix of history and natural beauty.",
                 popularCities: ["Athens", "Thessaloniki", "Crete", "Santorini"]
