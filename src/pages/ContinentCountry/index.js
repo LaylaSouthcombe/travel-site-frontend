@@ -53,7 +53,7 @@ const ContinentCountry = () => {
     }
 
     const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
-console.log(summaryInfo)
+
     const handleCountryClick = (country) => {
         if(continentInfo[continent].countries[country].popularCities.length){
             navigate(country)

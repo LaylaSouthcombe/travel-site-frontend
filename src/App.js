@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountry} from './pages'
+import {Home, ContinentCountry, City} from './pages'
 
 import './layout/FirstSideNavBar/style.css'
 import './layout/DesktopNavBar/style.css'
@@ -21,16 +21,16 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      {/* continent/country page */}
       {continents.map(continent => (
-        <Route path={continent} element={<ContinentCountry/>}>
-          <Route path=":country" element={<ContinentCountry />}>
-            <Route path=":city" element={<Home />} >
-              <Route path=":articleid" element={<Home/>}/>
-            </Route>
-          </Route>
-        </Route>
+        <>
+          <Route path={continent} element={<ContinentCountry/>}/>
+          <Route path={continent+'/:country'} element={<ContinentCountry/>}/>
+          <Route path={continent+'/:country/:city'} element={<City/>}/>
+          <Route path={continent+'/:country/:city/:articleid'} element={<City/>}/>
+        </>
       ))}
+
+
       {/* <Route path="/africa" element={<Home/>}/>
       <Route path="/asia" element={<Home/>}/>
       <Route path="/northamerica" element={<Home/>}/>
