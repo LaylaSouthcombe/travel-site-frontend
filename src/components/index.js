@@ -9,6 +9,7 @@ export {default as ArticleGridStyle8} from './ArticleGridStyle8'
 
 export {default as TripStylesGrid} from './TripStylesGrid'
 
+export {default as PageNotFound} from './PageNotFound'
 
 export {default as ArticleTabSelectorList} from './ArticleTabSelectorList'
 

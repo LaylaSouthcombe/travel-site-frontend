@@ -1,0 +1,65 @@
+.pageNotFound {
+    width: 65%;
+    margin: 40px auto 60px auto;
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.pageNotFoundText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pageNotFoundText > p:first-child {
+    font-size: 1.75rem;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+.pageNotFoundText > p:nth-child(2) {
+    font-size: 1rem;
+    margin-bottom: 35px;
+}
+
+.takeMeBackBtn {
+    background-color: var(--main-button-color);
+    width: 65%;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7.5px;
+    font-size: 1rem;
+}
+
+.pageNotFoundImg > img{
+    width: 100%;
+}
+
+@media (min-width: 768px){
+    .takeMeBackBtn {
+        width: 75%;
+    }
+    .pageNotFoundText > p:first-child {
+        margin-top: 45px;
+    }
+    .pageNotFound {
+        margin: 80px auto;
+        width: 65%;
+        margin: 80px auto;
+        grid-template-columns: 25% 75%;
+    }
+    .takeMeBackBtn {
+        width: 85%;
+        font-size: 0.85rem;
+        border-radius: 10px;
+    }
+}
+
+@media (min-width: 1024px){
+    .takeMeBackBtn {
+        width: 75%;
+        padding: 7.5px;
+        font-size: 1rem;
+        border-radius: 15px;
+    }
+}
