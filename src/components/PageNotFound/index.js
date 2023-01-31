@@ -13,7 +13,7 @@ const PageNotFound = () => {
         <div className="pageNotFoundText">
             <p>Ooops!</p>
             <p>Page Not Found</p>
-            <div className="takeMeBackBtn">Back to Home</div>
+            <div className="takeMeBackBtn" onClick={() => navigate(-1)}>Take Me Back</div>
         </div>
         <div className="pageNotFoundImg">
             <img src={pageNotFound} alt="Page not found illustration"/>

@@ -6,15 +6,13 @@ import parse from 'html-react-parser'
 
 import './style.css'
 
-import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle3,ArticleGridStyle4,ArticleGridStyle5,ArticleGridStyle6,ArticleGridStyle7,ArticleGridStyle8,ExploreMoreButton,TripStylesGrid, GoogleAd, PageNotFound} from '../../components'
+import {ArticleGridStyle2, ArticleListGridStyle1, ExploreMoreButton, TripStylesGrid, GoogleAd, PageNotFound} from '../../components'
 
 const Article = () => {
     
     const {country, city, articleid} = useParams();
     let navigate = useNavigate();
     
-
-
     const [article, setArticle] = useState()
 
     useEffect(() => {
@@ -36,7 +34,12 @@ const Article = () => {
                     {parse(article.body)}
                     <p>{article.trip_categories}</p>
                 </div>
+                <h2 className="seperatorTitle">Similar Articles</h2>
+                <ArticleGridStyle2/>
                 <ExploreMoreButton endpoint={"/articles"}/>
+                <h2 className="seperatorTitle">Must Reads</h2>
+                <ArticleListGridStyle1/>
+                <GoogleAd dataAdSlot={"1136657549"}/>
             </>
             : <PageNotFound/>}
             <GoogleAd dataAdSlot={"1136657549"}/>

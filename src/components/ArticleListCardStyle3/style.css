@@ -1,0 +1,37 @@
+.articleListCardStyle3 {
+    display: grid;
+    grid-template-areas: 
+    "city readMore"
+    "title readMore";
+    width: 90%;
+    align-items: center;
+}
+
+.articleListCardCategory3 {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.articleListCardTitle3 {
+    grid-area: title;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.articleListCard3Button {
+    grid-area: readMore;
+    padding: 10px;
+    background-color: var(--main-button-color);
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+.articleListCardStyle3 > .articleCardMeta > .articleCardCategory {
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    .articleListCard3Button {
+        font-size: 12px;
+    }
+}
