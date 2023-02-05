@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountry, City, Categories, Article} from './pages'
+import {Home, ContinentCountry, Categories, Article, ArticleList} from './pages'
 
 import './layout/FirstSideNavBar/style.css'
 import './layout/DesktopNavBar/style.css'
@@ -38,8 +38,8 @@ function App() {
       {/* tips and tricks page */}
       <Route path="/tips-and-tricks" element={<Home/>}/>
       {/* Article list that connects to explore more buttons, has filter list etc */}
-      <Route path="/articles" element={<Home/>}/>
-      <Route path="/articles/:articleid" element={<Article/>}/>
+      <Route path="/articles/:query" element={<ArticleList/>}/>
+      <Route path="/article/:articleid" element={<Article/>}/>
     </Routes>
     </>
   );

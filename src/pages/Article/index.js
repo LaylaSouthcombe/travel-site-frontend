@@ -16,7 +16,7 @@ const Article = () => {
     const [article, setArticle] = useState()
 
     useEffect(() => {
-        const URL = `http://localhost:3000/articles/${articleid}`
+        const URL = `http://localhost:3000/articles/article/${articleid}`
         axios.get(URL).then((response) => {
             setArticle(response.data)
             console.log(response.data.body)
