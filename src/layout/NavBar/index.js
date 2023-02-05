@@ -66,119 +66,146 @@ const NavBar = ({country}) => {
                           "url": "/unitedkingdom"
                         }
                       ]
-                },{
-                    "name": "Asia",
-                    "children": [
-                      {
-                        "name": "Explore Asia",
-                        "url": "/asia"
-                      },
-                      {
-                          "name": "China",
-                          "url": "/china"
-                      },
-                      {
-                          "name": "Cambodia",
-                          "url": "/cambodia"
-                      },
-                      {
-                          "name": "Thailand",
-                          "url": "/thailand"
-                      },
-                      {
-                          "name": "Vietnam",
-                          "url": "/vietnam"
-                      }
-                  ]
-                  },
-                {
-                  "name": "Africa",
-                  "children": [
-                    {
-                      "name": "Explore Africa",
-                      "url": "/africa"
-                    },
-                    {
-                        "name": "Zimbabwe",
-                        "url": "/zimbabwe"
-                    },
-                    {
-                        "name": "Kenya",
-                        "url": "/kenya"
-                    },
-                    {
-                        "name": "Morocco",
-                        "url": "/morocco"
-                    },
-                    {
-                        "name": "Uganda",
-                        "url": "/uganda"
-                    }
-                ]
                 },
-                  
-                  {
-                    "name": "North America",
-                    "children": [
+                {
+                  "name": "",
+                  "icon": "SendIcon",
+                  "children": [
                       {
-                        "name": "Explore North America",
-                        "url": "/africa"
+                        "name": "Cities in Europe",
+                        "url": "/bulgaria"
                       },
                       {
-                          "name": "USA",
-                          "url": "/usa"
+                        "name": "London",
+                        "url": "/bulgaria"
                       },
                       {
-                          "name": "Bahamas",
-                          "url": "/bahamas"
+                        "name": "Paris",
+                        "url": "/denmark"
                       },
                       {
-                          "name": "Costa Rica",
-                          "url": "/costarica"
+                        "name": "Berlin",
+                        "url": "/france"
+                      },
+                      {
+                        "name": "Rome",
+                        "url": "/unitedkingdom"
                       }
-                  ]
-                  },
-                  {
-                    "name": "South America",
-                    "children": [
-                      {
-                        "name": "Explore South America",
-                        "url": "/africa"
-                      },
-                      {
-                          "name": "Colombia",
-                          "url": "/colombia"
-                      },
-                      {
-                          "name": "Argentina",
-                          "url": "/argentina"
-                      },
-                      {
-                          "name": "Chile",
-                          "url": "/chile"
-                      }
-                  ]
-                  },{
-                    "name": "Australia/Oceania",
-                    "children": [
-                      {
-                        "name": "Explore Australia/Oceania",
-                        "url": "/africa"
-                      },
-                      {
-                          "name": "Australia",
-                          "url": "/australia"
-                      },
-                      {
-                          "name": "New Zealand",
-                          "url": "/newzealand"
-                      },
-                      {
-                          "name": "Fiji",
-                          "url": "/fiji"
-                      }
-                  ]
-                  },
+                    ]
+              }
+                // {
+                //     "name": "Asia",
+                //     "children": [
+                //       {
+                //         "name": "Explore Asia",
+                //         "url": "/asia"
+                //       },
+                //       {
+                //           "name": "China",
+                //           "url": "/china"
+                //       },
+                //       {
+                //           "name": "Cambodia",
+                //           "url": "/cambodia"
+                //       },
+                //       {
+                //           "name": "Thailand",
+                //           "url": "/thailand"
+                //       },
+                //       {
+                //           "name": "Vietnam",
+                //           "url": "/vietnam"
+                //       }
+                //   ]
+                //   },
+                // {
+                //   "name": "Africa",
+                //   "children": [
+                //     {
+                //       "name": "Explore Africa",
+                //       "url": "/africa"
+                //     },
+                //     {
+                //         "name": "Zimbabwe",
+                //         "url": "/zimbabwe"
+                //     },
+                //     {
+                //         "name": "Kenya",
+                //         "url": "/kenya"
+                //     },
+                //     {
+                //         "name": "Morocco",
+                //         "url": "/morocco"
+                //     },
+                //     {
+                //         "name": "Uganda",
+                //         "url": "/uganda"
+                //     }
+                // ]
+                // },             
+                  // {
+                  //   "name": "North America",
+                  //   "children": [
+                  //     {
+                  //       "name": "Explore North America",
+                  //       "url": "/africa"
+                  //     },
+                  //     {
+                  //         "name": "USA",
+                  //         "url": "/usa"
+                  //     },
+                  //     {
+                  //         "name": "Bahamas",
+                  //         "url": "/bahamas"
+                  //     },
+                  //     {
+                  //         "name": "Costa Rica",
+                  //         "url": "/costarica"
+                  //     }
+                  // ]
+                  // },
+                  // {
+                  //   "name": "South America",
+                  //   "children": [
+                  //     {
+                  //       "name": "Explore South America",
+                  //       "url": "/africa"
+                  //     },
+                  //     {
+                  //         "name": "Colombia",
+                  //         "url": "/colombia"
+                  //     },
+                  //     {
+                  //         "name": "Argentina",
+                  //         "url": "/argentina"
+                  //     },
+                  //     {
+                  //         "name": "Chile",
+                  //         "url": "/chile"
+                  //     }
+                  // ]
+                  // },
+                  // {
+                  //   "name": "Australia/Oceania",
+                  //   "children": [
+                  //     {
+                  //       "name": "Explore Australia/Oceania",
+                  //       "url": "/africa"
+                  //     },
+                  //     {
+                  //         "name": "Australia",
+                  //         "url": "/australia"
+                  //     },
+                  //     {
+                  //         "name": "New Zealand",
+                  //         "url": "/newzealand"
+                  //     },
+                  //     {
+                  //         "name": "Fiji",
+                  //         "url": "/fiji"
+                  //     }
+                  // ]
+                  // },
             ],
             "Trip Styles": [
                 {

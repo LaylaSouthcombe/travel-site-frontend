@@ -16,7 +16,9 @@ import './components/ArticleGridStyle1/style.css'
 
 
 function App() {
-  const continents = ['/europe', '/africa', '/asia', '/north-america', '/south-america', '/australia-oceania']
+  const continents = ['/europe', 
+  // '/africa', '/asia', '/north-america', '/south-america', '/australia-oceania'
+]
   return (
     <>
     <Routes>

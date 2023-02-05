@@ -10,6 +10,10 @@
     max-width: 780px;
 }
 
+.copyrightPara {
+    color: var(--moon-green);
+}
+
 .bottomMenuMainSegment {
     display: grid;
     grid-template-columns: 25% 25% 25%;

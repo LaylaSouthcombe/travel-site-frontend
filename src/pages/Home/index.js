@@ -36,7 +36,7 @@ const Home = () => {
             </div>
             <ArticleGridStyle2/>
             <GoogleAd dataAdSlot={"1136657549"}/>
-            <div>
+            {/* <div>
                 <h2 className="seperatorTitle">Popular Destinations</h2>
             </div>
             <div className="popularDestinationsSection">
@@ -220,8 +220,8 @@ const Home = () => {
                         </AccordionDetails>
                     </Accordion>
                 </div>
-            </div>
-            <GoogleAd dataAdSlot={"1136657549"}/>
+            </div> */}
+            {/* <GoogleAd dataAdSlot={"1136657549"}/> */}
             <div>
                 <h2 className="seperatorTitle">Explore Trip Styles</h2>
             </div>
