@@ -1,12 +1,79 @@
+.articleMainPage {
+    width: 90%;
+    max-width: 1050px;
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 0 auto;
+}
+
 .articleSection {
     width: 85%;
+    max-width: 950px;
     margin: 75px auto 0 auto;
 }
 
+.articleSection > h1 {
+    width: 100%;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-size: 26px;
+}
+
 .articleHeroImage {
-    width: 70%;
+    width: 100%;
 }
 
 .articleImage {
-    width: 40%;
+    width: 90%;
+    margin-top: 25px;
+}
+
+.sideAds {
+     display: none;
+}
+
+.popularSideHeading{
+    border-bottom: 1px solid grey;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.articleSection > p {
+    font-size: 1.2rem;
+}
+
+.introPara {
+    margin-bottom: 25px;
+}
+
+.articleH2 {
+    margin-bottom: 15px;
+}
+
+.articlePara {
+    margin-bottom: 15px;
+}
+
+.articleSection > figcaption {
+    margin-bottom: 30px;
+}
+
+@media (min-width: 648px) {
+    .articleSection > h1 {
+        font-size: 32px;
+        width: 75%;
+    }
+    .articleImage {
+        width: 75%;
+    }
+}
+
+@media (min-width: 900px) {
+    .sideAds {
+        display: block;
+   }
+   .articleMainPage {
+    grid-template-columns: 75% 25%;
+    }
 }

@@ -62,6 +62,10 @@ const ContinentCountry = () => {
 
     const tabHeadings = ["Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
     
+    const checkAndSetSumamryInfo = (countryName) => {
+        setSummaryInfo({name: continentInfo[continent].countries[countryName].name, summary: continentInfo[continent].countries[countryName].summary})
+    }
+
     return(
         <>
             <NavBar/>
@@ -86,9 +90,9 @@ const ContinentCountry = () => {
                                     <Geography
                                     key={geo.rsmKey}
                                     geography={geo}
-                                    onMouseEnter={() => {
-                                        setSummaryInfo({name: continentInfo[continent].countries[geo.properties.geounit.toLowerCase()].name, summary: continentInfo[continent].countries[geo.properties.geounit.toLowerCase()].summary})
-                                    }}
+                                    onMouseEnter={(e) => 
+                                        checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
+                                    }
                                     onMouseLeave={() => {
                                         setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
                                     }}

@@ -6,7 +6,7 @@ import parse from 'html-react-parser'
 
 import './style.css'
 
-import {ArticleGridStyle2, ArticleListGridStyle1, ExploreMoreButton, TripStylesGrid, GoogleAd, PageNotFound} from '../../components'
+import {ArticleGridStyle2, ArticleListGridStyle1, ArticleListGridStyle2, ExploreMoreButton, TripStylesGrid, GoogleAd, PageNotFound} from '../../components'
 
 const Article = () => {
     
@@ -28,12 +28,23 @@ const Article = () => {
         <>
             <NavBar/>
             {article !== undefined ? 
-            <>
-                <div className="articleSection">
-                    <h1>{article.title}</h1>
-                    {parse(article.body)}
-                    <p>{article.trip_categories}</p>
+            <>  <div className="articleMainPage">
+                    <div className="articleSection">
+                        {parse(article.feature_img_html)}
+                        <h1>{article.title}</h1>
+                        {parse(article.body)}
+                    </div>
+                    <div className="sideAds">
+                        <GoogleAd dataAdSlot={"4238599075"}/>
+                        <p className="popularSideHeading">Popular on Sojo Travels</p>
+                        <div className="popularArticlesSideList">
+                            <ArticleListGridStyle2/>
+                        </div>
+                        <GoogleAd dataAdSlot={"9095054520"}/>
+                        {/* make sticky */}
+                    </div>
                 </div>
+                <GoogleAd dataAdSlot={"1136657549"}/>
                 <h2 className="seperatorTitle">Similar Articles</h2>
                 <ArticleGridStyle2/>
                 <ExploreMoreButton endpoint={"/articles"}/>

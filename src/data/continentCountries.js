@@ -40,9 +40,9 @@ const continentInfo = {
                 popularCities: ["Reykjavik", "Akureyri", "Vatnajökull", "Skaftafell"]
             },
             svalbard: {
-                name: "Svalbard",
-                summary: "An Arctic archipelago located between Norway and the North Pole. Known for its rugged wilderness and unique wildlife, such as polar bears, reindeer and arctic foxes. Visitors can experience dog sledding, snowmobiling, and ice caving, as well as the historic mining towns.",
-                popularCities: ["Longyearbyen", "Barentsburg", "Ny-Ålesund", "Sveagruva"]
+                name: "Europe",
+                summary: "A diverse continent with a rich history and culture, offering an array of attractions from the Eiffel Tower in Paris to the canals of Venice. Visitors can explore ancient ruins, sample local cuisines, and take in stunning natural landscapes.",
+                popularCities: []
             },
             russia: {
                 name: "Russia",
@@ -130,9 +130,9 @@ const continentInfo = {
                 popularCities: ["Belgrade", "Novi Sad", "Nis", "Kragujevac"]
             },
             kosovo:{
-                name: "Kosovo",
-                summary: "Known for its history, culture, and natural beauty, Kosovo is a country that is still relatively undiscovered by tourists. The capital, Pristina, is a bustling city with a mix of Ottoman and communist-era architecture. It's recommended to check the travel advice of the government before planning a trip to Kosovo.",
-                popularCities: ["Pristina", "Prizren", "Peja", "Gjakova"]
+                name: "Europe",
+                summary: "A diverse continent with a rich history and culture, offering an array of attractions from the Eiffel Tower in Paris to the canals of Venice. Visitors can explore ancient ruins, sample local cuisines, and take in stunning natural landscapes.",
+                popularCities: []
             },
             montenegro:{
                 name: "Montenegro",
@@ -140,9 +140,9 @@ const continentInfo = {
                 popularCities: ["Podgorica", "Budva", "Kotor", "Ulcinj"]
             },
             republicsrpska:{
-                name: "Republic Srpska",
-                summary: "Known for its history, culture, and natural beauty, Republic Srpska is a country that is still relatively undiscovered by tourists. The capital, Banja Luka, is a bustling city with a mix of Ottoman and communist-era architecture.",
-                popularCities: ["Banja Luka", "Bijeljina", "Prijedor", "Trebinje"]
+                name: "Europe",
+                summary: "A diverse continent with a rich history and culture, offering an array of attractions from the Eiffel Tower in Paris to the canals of Venice. Visitors can explore ancient ruins, sample local cuisines, and take in stunning natural landscapes.",
+                popularCities: []
             },
             bosniaandherzegovina:{
                 name: "Bosnia and Herzegovina",

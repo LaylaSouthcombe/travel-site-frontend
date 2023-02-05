@@ -1,0 +1,25 @@
+.articleListCardStyle4 {
+    display: flex;
+    padding-bottom: 7.5px;
+    padding-top: 7.5px;
+    border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.articleListCardStyle4 > .cardImg {
+    width: 22.5%;
+    overflow: hidden;
+    height: 100px;
+    object-fit: cover;
+}
+
+.articleListCardStyle4 > .cardImg > img {
+    width: 300%;
+}
+
+.articleListCardTitle4 {
+    padding-left: 7.5px;
+}
+
+@media (min-width: 768px) {
+    
+}

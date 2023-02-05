@@ -7,6 +7,8 @@ export {default as ArticleGridStyle6} from './ArticleGridStyle6'
 export {default as ArticleGridStyle7} from './ArticleGridStyle7'
 export {default as ArticleGridStyle8} from './ArticleGridStyle8'
 export {default as ArticleListGridStyle1} from './ArticleListGridStyle1'
+export {default as ArticleListGridStyle2} from './ArticleListGridStyle2'
+
 
 export {default as TripStylesGrid} from './TripStylesGrid'
 
@@ -19,6 +21,7 @@ export {default as ArticleCardFeatureImg} from './ArticleCardFeatureImg'
 export {default as ArticleListCardStyle1} from './ArticleListCardStyle1'
 export {default as ArticleListCardStyle2} from './ArticleListCardStyle2'
 export {default as ArticleListCardStyle3} from './ArticleListCardStyle3'
+export {default as ArticleListCardStyle4} from './ArticleListCardStyle4'
 
 
 export {default as ExploreMoreButton} from './ExploreMoreButton'
