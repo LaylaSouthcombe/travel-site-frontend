@@ -1,6 +1,6 @@
 import React from 'react'
 import List from '@mui/material/List';
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
@@ -44,12 +44,20 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
             )
         }
     )
-
+    const theme = createTheme({
+        palette: {
+          secondary: {
+            main: '#3F3D56',
+          },
+        },
+      });
     return (
         <div id="firstSideNavMenu">
             <div className="navSearchIconSideNav">
-                    <TextField id="outlined-basic" label="Search" variant="outlined" />
+            <ThemeProvider theme={theme}>
+                    <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
                     <FontAwesomeIcon icon={faMagnifyingGlass}/>
+            </ThemeProvider>
             </div>
             <List
                 sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}

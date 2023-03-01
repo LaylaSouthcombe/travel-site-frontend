@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { FirstSideNavBar, SecondSideNavBar, DesktopNavBar } from '../'
 import TextField from '@mui/material/TextField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -301,6 +302,14 @@ const NavBar = ({country}) => {
         }
     }
 
+    const theme = createTheme({
+      palette: {
+        secondary: {
+          main: '#3F3D56',
+        },
+      },
+    });
+
     return (
         <>
         {windowSize < 440 ?
@@ -355,7 +364,9 @@ const NavBar = ({country}) => {
                     {country !== undefined ? <div>{country}</div>: null}     
                   <DesktopNavBar titleListData={titleListData} fullListData={fullListData} dropdownMenuOpen={dropdownMenuOpen} setDropdownMenuOpen={setDropdownMenuOpen}/>
                   <div className="navSearchIcon">
-                    <TextField id="outlined-basic" label="Search" variant="outlined" />
+                  <ThemeProvider theme={theme}>
+                    <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
+                    </ThemeProvider>
                       <FontAwesomeIcon icon={faMagnifyingGlass}/>
                   </div>
                 </div>
