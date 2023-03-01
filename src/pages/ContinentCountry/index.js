@@ -98,7 +98,8 @@ const ContinentCountry = () => {
             <>
                 <div className="continentSummarySection">
                     <div className="continentSummary">
-                        <p>{summaryInfo.name}</p>
+                        <h2>{formatWord(continent)}</h2>
+                        {summaryInfo.name !== 'Europe' ? <p className="countryName">{summaryInfo.name}</p> : null}
                         <p>{summaryInfo.summary}</p>
                     </div>
                     {windowSize >= 768 ?
