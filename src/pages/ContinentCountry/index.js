@@ -54,15 +54,41 @@ const ContinentCountry = () => {
 
     const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
 
+    const normalHoverColor = {
+        fill: "#30c7b5ad",
+        stroke: "#3F3D56"
+    }
+
+    const normalClickColor = {
+        fill: "#3F3D56",
+        stroke: "#30c7b5ad"
+    }
+
+    const [hoverColors, setHoverColors] = useState({})
+    const [clickColors, setClickColors] = useState({})
+    
     const handleCountryClick = (country) => {
         if(continentInfo[continent].countries[country].popularCities.length){
+            setClickColors(normalClickColor)
             navigate(country)
+        } else {
+            setClickColors({
+                fill: "rgb(227, 227, 227)",
+                stroke: "#3F3D56"
+            })
         }
     }
 
     const tabHeadings = ["Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
     
     const checkAndSetSumamryInfo = (countryName) => {
+        setHoverColors({
+            fill: "rgb(227, 227, 227)",
+            stroke: "#3F3D56"
+        })
+        if(continentInfo[continent].countries[countryName].name !== "Europe"){
+           setHoverColors(normalHoverColor) 
+        }
         setSummaryInfo({name: continentInfo[continent].countries[countryName].name, summary: continentInfo[continent].countries[countryName].summary})
     }
 
@@ -90,7 +116,7 @@ const ContinentCountry = () => {
                                     <Geography
                                     key={geo.rsmKey}
                                     geography={geo}
-                                    onMouseEnter={(e) => 
+                                    onMouseEnter={() => 
                                         checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
                                     }
                                     onMouseLeave={() => {
@@ -99,17 +125,11 @@ const ContinentCountry = () => {
                                     onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}
                                     style={{
                                         default: {
-                                        fill: "rgb(227, 227, 227)",
-                                        stroke: "#3F3D56",
+                                            fill: "rgb(227, 227, 227)",
+                                            stroke: "#3F3D56"
                                         },
-                                        hover: {
-                                        fill: "#30c7b5ad",
-                                        stroke: "#3F3D56",
-                                        },
-                                        pressed: {
-                                        fill: "#3F3D56",
-                                        stroke: "#30c7b5ad",
-                                        },
+                                        hover: hoverColors,
+                                        pressed: clickColors,
                                     }}
                                     />
                                 ))

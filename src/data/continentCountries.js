@@ -159,7 +159,7 @@ const continentInfo = {
                 summary: "Known for its rich cultural heritage, Vojvodina is a province in Serbia that is home to a diverse mix of ethnic groups. It's recommended to check the travel advice of the government before planning a trip to Vojvodina.",
                 popularCities: ["Novi Sad", "Subotica", "Zrenjanin", "Kikinda"]
             },
-            Hungary:{
+            hungary:{
                 name: "Hungary",
                 summary: "Known for its rich culture, history, and thermal baths, Hungary is a popular destination for tourists. The capital, Budapest, is a bustling city with a mix of Gothic, Baroque, and Art Nouveau architecture.",
                 popularCities: ["Budapest", "Debrecen", "Szeged", "Miskolc"]
