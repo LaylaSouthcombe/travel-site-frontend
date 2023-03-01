@@ -19,11 +19,12 @@ const BottomMenu = () => {
                             "Home"
                             : null}</p>
                         <p onClick={() => navigate('/europe')}>Europe</p>
-                        <p onClick={() => navigate('/asia')}>Asia</p>
-                        <p onClick={() => navigate('/africa')}>Africa</p>
-                        <p onClick={() => navigate('/northamerica')}>North America</p>
-                        <p onClick={() => navigate('/southamerica')}>South America</p>
-                        {window.innerWidth < 440 ? <p onClick={() => navigate('/australiaoceania')}>Australia/ Oceania</p> : <p onClick={() => navigate('/australiaoceania')}>Australia/Oceania</p>}
+                        <p onClick={() => navigate('/asia')}>London</p>
+                        <p onClick={() => navigate('/africa')}>Paris</p>
+                        <p onClick={() => navigate('/northamerica')}>Amsterdam</p>
+                        <p onClick={() => navigate('/southamerica')}>Barcelona</p>
+                        <p onClick={() => navigate('/southamerica')}>Berlin</p>
+                        {/* {window.innerWidth < 440 ? <p onClick={() => navigate('/australiaoceania')}>Australia/ Oceania</p> : <p onClick={() => navigate('/australiaoceania')}>Australia/Oceania</p>} */}
                     </div>
                     <div className="bottomMenuSegment2">
                         <p onClick={() => navigate('/category/relaxing')}>Relaxing</p>
