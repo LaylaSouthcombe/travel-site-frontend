@@ -7,7 +7,7 @@ import backgroundWorld from '../../images/backgroundWorld.png'
 
 import {continentInfo} from '../../data/continentCountries'
 
-import {NavBar, BottomMenu, NoNestDropMenu} from '../../layout'
+import {NavBar, BottomMenu} from '../../layout'
 import {ArticleGridStyle3, ArticleGridStyle4, ArticleGridStyle5, ArticleTabSelectorList, ExploreMoreButton, GoogleAd} from '../../components'
 
 const ContinentCountry = () => {
@@ -31,7 +31,7 @@ const ContinentCountry = () => {
         geoUrl =`https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${continent}.json`
     }
     // let formattedCountry
-    const {country, city, articleid} = useParams();
+    const {country} = useParams();
 
     let currentWebLocation
 
@@ -69,25 +69,24 @@ const ContinentCountry = () => {
     
     const handleCountryClick = (country) => {
         if(continentInfo[continent].countries[country].popularCities.length){
-            setClickColors(normalClickColor)
             navigate(country)
-        } else {
-            setClickColors({
-                fill: "rgb(227, 227, 227)",
-                stroke: "#3F3D56"
-            })
         }
     }
 
     const tabHeadings = ["Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
     
     const checkAndSetSumamryInfo = (countryName) => {
+        setClickColors({
+            fill: "rgb(227, 227, 227)",
+            stroke: "#3F3D56"
+        })
         setHoverColors({
             fill: "rgb(227, 227, 227)",
             stroke: "#3F3D56"
         })
         if(continentInfo[continent].countries[countryName].name !== "Europe"){
            setHoverColors(normalHoverColor) 
+           setClickColors(normalClickColor)
         }
         setSummaryInfo({name: continentInfo[continent].countries[countryName].name, summary: continentInfo[continent].countries[countryName].summary})
     }
