@@ -29,7 +29,7 @@
 }
 
 .sideAds {
-     display: none;
+    display: none;
 }
 
 .popularSideHeading{
@@ -72,6 +72,7 @@
 @media (min-width: 900px) {
     .sideAds {
         display: block;
+        margin-top: 60px;
    }
    .articleMainPage {
     grid-template-columns: 75% 25%;

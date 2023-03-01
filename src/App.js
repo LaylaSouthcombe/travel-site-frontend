@@ -33,10 +33,8 @@ function App() {
       ))}
       {/* categories page */}
       <Route path="/trip-styles" element={<Categories/>}/>
-      {/* popular page */}
-      <Route path="/popular" element={<Home/>}/>
       {/* tips and tricks page */}
-      <Route path="/tips-and-tricks" element={<Home/>}/>
+      <Route path="/trip-planning" element={<Home/>}/>
       {/* Article list that connects to explore more buttons, has filter list etc */}
       <Route path="/articles/:query" element={<ArticleList/>}/>
       <Route path="/article/:articleid" element={<Article/>}/>

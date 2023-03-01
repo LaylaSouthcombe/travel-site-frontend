@@ -56,7 +56,7 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
     }
     
     const renderMenu = titleListData.map((item, i) => {
-        if(item.name !== "Popular" && item.name !== "Tips & Tricks" ){
+        if(item.name !== "Popular" && item.name !== "Trip Planning" ){
             return (
                 windowSize < 1024 ? 
                 <div className={menuItemClassName[i]} key={i}>

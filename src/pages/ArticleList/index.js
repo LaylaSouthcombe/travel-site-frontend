@@ -12,11 +12,12 @@ const ArticleList = () => {
     let navigate = useNavigate();
     
     const [articles, setArticles] = useState([])
+    const [filters, setFilters] = useState([])
 
+// 'category=budget-friendly&city=london'
     useEffect(() => {
         if(query !== 'popular'){
             let splitQuery = query.replace(/-/g, " ").split("&")
-            console.log(splitQuery)
             let country = ""
             let city = ""
             let category = ""
@@ -50,7 +51,6 @@ const ArticleList = () => {
             const URL = `http://localhost:3000/articles/queryterm`
             axios.get(URL, config).then((response) => {
                 setArticles(response.data)
-                console.log(response.data.body)
               });
         } else if(query === 'popular'){
             const URL = `http://localhost:3000/articles/trending`

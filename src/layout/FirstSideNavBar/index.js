@@ -30,7 +30,7 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
     const renderedMenuItems = titleListData.map((item,i ) => {
         return (
                 <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
-                    {item.name !== "Popular" && item.name !== "Tips & Tricks" ? 
+                    {item.name !== "Popular" && item.name !== "Trip Planning" ? 
                     <ListItemButton onClick={() => handleClick(item.name)}>
                         <FontAwesomeIcon icon={item.icon} />
                         <ListItemText primary={item.name} />
