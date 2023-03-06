@@ -34,6 +34,8 @@
 
 .continentSummary > p {
     margin-left: 40px;
+    font-size: 16px;
+    margin-bottom: 28px;
 }
 
 .backgroundWorld > img{

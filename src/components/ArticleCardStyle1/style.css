@@ -10,11 +10,11 @@
     width: 100%;
 }
 
-.articleCardCategory {
+/* .articleCardCategory {
     text-transform: capitalize;
     margin: 5px 10px;
     opacity: 80%;
-}
+} */
 
 .articleCardStyle1 > .articleCardCategory {
     font-size: 14px;

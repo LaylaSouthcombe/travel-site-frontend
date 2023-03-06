@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import {ArticleCardStyle1, ArticleListCardStyle3,ArticleListCardStyle1} from '..'
+import {ArticleListCardStyle3} from '..'
 
 import './style.css'
 

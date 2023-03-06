@@ -1,0 +1,52 @@
+.articleTabSection {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+}
+
+.MuiButtonBase-root.MuiTab-root {
+    min-width: 100px;
+}
+
+.MuiBox-root.css-1gsv261 {
+    border-bottom: 2px solid;
+    border-color: var(--main-purple);
+}
+
+.PrivateTabIndicator-root-1.MuiTabs-indicator {
+    transition: none;
+    display: none;
+}
+
+.MuiButtonBase-root.MuiTab-root.Mui-selected {
+    background-color: var(--accent-color);
+    border-top-left-radius: 7.5px;
+    border-top-right-radius: 7.5px;
+}
+
+.MuiTabPanel-root {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-between;
+    width:100%;
+    row-gap: 20px;
+    /* grid-template-rows: 325px; */
+    overflow: visible !important;
+    height: fit-content !important;
+}
+
+.MuiTabPanel-root[hidden] {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .MuiTabPanel-root {
+        grid-template-columns: 30% 30% 30%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .MuiTabPanel-root {
+        grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
+    }
+}
