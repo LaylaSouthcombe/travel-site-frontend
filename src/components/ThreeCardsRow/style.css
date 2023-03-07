@@ -8,6 +8,7 @@
     "card2"
     "card3";
     column-gap: 5%;
+    border-top: 2px solid var(--main-purple);
 }
 
 .threeCard:nth-child(1){
@@ -22,8 +23,14 @@
     grid-area: card3;
 }
 
+.articleCard > .cardImg {
+    padding: 7.5px;
+}
+
 .articleCard > .cardImg > img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .threeCard {
@@ -38,7 +45,7 @@
 .articleCard:hover {
     box-shadow: 5px 5px var(--main-purple);
     translate: -5px -5px;
-    background-color: #30c7b512;
+    background-color: #177d7112;
 }
 
 .articleCardCategory {

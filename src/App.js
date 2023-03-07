@@ -28,7 +28,7 @@ function App() {
           <Route path={continent} element={<ContinentCountry/>}/>
           <Route path={continent+'/:country'} element={<ContinentCountry/>}/>
           {/* <Route path={continent+'/:country/:city'} element={<City/>}/> */}
-          <Route path={continent+'/:country/:articleid'} element={<Article/>}/>
+          <Route path={continent+'/:country/:city'} element={<ContinentCountry/>}/>
         </>
       ))}
       {/* categories page */}

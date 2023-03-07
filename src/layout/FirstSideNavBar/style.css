@@ -6,6 +6,7 @@
     height: 100%;
     background-color: var(--light-grey);
     border-left: 3px solid var(--main-purple);
+    z-index: 999;
 }
 
 .secondNavBar {
@@ -16,6 +17,7 @@
     height: 100%;
     background-color: var(--light-grey);
     border-left: 3px solid var(--main-purple);
+    z-index: 900;
 }
 
 .secondNavBar > .backArrow {
@@ -32,6 +34,7 @@
 
 .sideNavMenuChildItem > div > div > span {
     color: var(--main-purple);
+    z-index: 999;
 }
 
 .navSearchIconSideNav {

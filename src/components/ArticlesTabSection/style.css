@@ -26,13 +26,14 @@
 
 .MuiTabPanel-root {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 47.5% 47.5%;
     justify-content: space-between;
     width:100%;
     row-gap: 20px;
     /* grid-template-rows: 325px; */
     overflow: visible !important;
     height: fit-content !important;
+    padding: 12px !important;
 }
 
 .MuiTabPanel-root[hidden] {

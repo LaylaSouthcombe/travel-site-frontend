@@ -9,6 +9,8 @@ import {continentInfo} from '../../data/continentCountries'
 
 import {NavBar, BottomMenu} from '../../layout'
 import {ThreeCardsRow, GoogleAd, ArticlesTabSection} from '../../components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 
 const ContinentCountry = () => {
 
@@ -44,7 +46,7 @@ const ContinentCountry = () => {
         geoUrl =`https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${continent}.json`
     }
     
-    const {country} = useParams();
+    const {country, city} = useParams();
 
     let currentWebLocation
 
@@ -176,22 +178,44 @@ const ContinentCountry = () => {
                         <img src={backgroundWorld} alt="" />
                     </div>}
                 </div>
-                <ThreeCardsRow article={article}/>
             </>
             :
-            <div className="topCitiesSection">
-                <h2 className="seperatorTitle">Top cities to visit in {formatWord(currentWebLocation)}</h2>
-                <div className="topCities">
-                    {continentInfo[continent].countries[country].popularCities.map(x => {
-                        return(
-                            <div className="topCity" key={country + x} onClick={() => console.log(continentInfo[continent].countries[country])}>
-                                <p>{x}</p>
-                            </div>
-                        )
-                    })}
+            <>
+            {city === undefined 
+            ? 
+                <div className="breadcrumbMenu">
+                    <div className="destinationsBreadcrumb">
+                       <a href="">Destinations</a>
+                       <FontAwesomeIcon icon={faGreaterThan}/>
+                       <a href="">{formatWord(continent)}</a>
+                    </div>
+                    <p className="countryCityName">{formatWord(country)}</p>
+                    <p className="countryCitySummary">{continentInfo[continent].countries[country].summary}</p>
                 </div>
-            </div>
+            :
+            <div className="breadcrumbMenu">
+                    <div className="destinationsBreadcrumb">
+                       <a href="">Destinations</a>
+                       <FontAwesomeIcon icon={faGreaterThan}/>
+                       <a href="">{formatWord(continent)}</a>
+                       <FontAwesomeIcon icon={faGreaterThan}/>
+                       <a href="">{formatWord(country)}</a>
+                    </div>
+                    <p className="countryCityName">{formatWord(city)}</p>
+                    <p className="countryCitySummary">{continentInfo[continent].countries[country].summary}</p>
+                    {/* TODO: add city and city summary data to country data file */}
+                </div>
             }
+                <a href="" className="heroArticle articleCard">
+                    <div className="heroArticleImg">
+                        <img src={article.imageUrl} alt=""/>
+                    </div>
+                    <p className="heroArticleTag articleCardCategory">{article.trip_categories.split(",")[0]}</p>
+                    <a href="" className="heroArticleTitle">{article.title}</a>
+                </a>
+            </>
+            }
+            <ThreeCardsRow article={article}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             
             <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings}/>
