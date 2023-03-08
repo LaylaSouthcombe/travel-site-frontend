@@ -23,29 +23,40 @@
     grid-area: card3;
 }
 
-.articleCard > .cardImg {
-    padding: 7.5px;
-}
-
 .articleCard > .cardImg > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.threeCard {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 .articleCard {
     background-color: white;
+    padding: 7.5px 7.5px 10.5px 7.5px;
 }
 
 .articleCard:hover {
     box-shadow: 5px 5px var(--main-purple);
     translate: -5px -5px;
     background-color: #177d7112;
+    border: 3px solid var(--main-purple);
+    padding: 4.5px 4.5px 7.5px 4.5px;
+}
+
+.threeCard {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.articleCardTitle {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+.articleCard:hover .articleCardTitle {
+    margin-left: 7px;
 }
 
 .articleCardCategory {
@@ -60,13 +71,6 @@
     width: fit-content;
     z-index: 100;
     position: relative;
-}
-
-.articleCardTitle {
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 16px;
-    padding-bottom: 12px;   
 }
 
 @media (min-width: 600px) {
