@@ -4,7 +4,7 @@ import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 import axios from 'axios';
 
-import {ArticleGridStyle1,ArticleListCardStyle1, ArticleListGridStyle2, GoogleAd} from '../../components'
+import {ArticleGridStyle1,ArticleListCardStyle1, ArticleListGridStyle2, GoogleAd, HeroArticleSection, ArticleTabCards, ThreeCardsRow, TripStylesGrid} from '../../components'
 
 //add in random country button
 const ArticleList = () => {
@@ -43,15 +43,18 @@ const ArticleList = () => {
                 city: city,
                 category: category
             }
+
             const config = {
                 headers: {
                   query: JSON.stringify(queryParam)
                 }
             };
+
             const URL = `http://localhost:3000/articles/queryterm`
             axios.get(URL, config).then((response) => {
                 setArticles(response.data)
               });
+
         } else if(query === 'popular'){
             const URL = `http://localhost:3000/articles/trending`
             axios.get(URL).then((response) => {
@@ -67,32 +70,46 @@ const ArticleList = () => {
         <>
             <NavBar/>
             <div className="mainArticleListSection">
+                {articles.length ? <HeroArticleSection article={articles[0]}/> : 
+                    <div className="noArticlesFound">
+                        <p>No articles found</p>
+                    </div> 
+                }
+                {articles.length >= 4 ? <ThreeCardsRow articles={articles.slice(1,4)}/> : null }
                 <div className="articleListSection">
-                    <div className="filterSection">
-
-                    </div>
                     <div className="articleList">
-                        {articles.length ? articles.map(article => {
+                        {articles.length >= 5 ? articles.slice(5).map(article => {
                             return(
-                                <ArticleListCardStyle1 article={article}/>
+                                <ArticleTabCards article={article}/>
                             )
                         }) : null}
                     </div>
                 </div>
                 <div className="sideAds">
                         <GoogleAd dataAdSlot={"4238599075"}/>
-                        <p className="popularSideHeading">Popular on Sojo Travels</p>
-                        <div className="popularArticlesSideList">
-                            <ArticleListGridStyle2/>
-                        </div>
-                        <GoogleAd dataAdSlot={"9095054520"}/>
+                            {query !== 'popular' ? 
+                            <>
+                                <p className="popularSideHeading">Popular on Sojo Travels</p>
+                                <div className="popularArticlesSideList">
+                                    <ArticleListGridStyle2/> 
+                                </div>
+                                <GoogleAd dataAdSlot={"9095054520"}/>
+                            </>
+                            : null}
                         {/* make sticky */}
                 </div>
             </div>
             <GoogleAd dataAdSlot={"1136657549"}/>
-            <div>
-                <h2 className="seperatorTitle">Explore Trip Styles</h2>
-            </div>
+            {query === 'popular' ? 
+            <>
+                <div>
+                    <h2 className="seperatorTitle">Explore Trip Styles</h2>
+                </div>
+                <TripStylesGrid/>
+                <GoogleAd dataAdSlot={"1136657549"}/>
+            </>
+            :
+            null}
             <BottomMenu/>
         </>
     )

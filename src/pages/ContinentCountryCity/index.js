@@ -183,7 +183,7 @@ const ContinentCountryCity = () => {
                 <HeroArticleSection article={article}/>
             </>
             }
-            <ThreeCardsRow article={article}/>
+            <ThreeCardsRow articles={[article,article,article]}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             
             <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings}/>

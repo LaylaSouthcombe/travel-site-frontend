@@ -1,11 +1,5 @@
-.mainArticleListSection {
-    width: 95%;
-    display: grid;
-    grid-template-columns: 75% 25%;
+.mainArticleListSection, .articleListSection {
+    width: 90%;
     margin: 0 auto;
-}
-
-.articleListSection {
-    display: grid;
-    grid-template-columns: 25% 75%;
+    height: fit-content;
 }

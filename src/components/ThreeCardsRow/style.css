@@ -8,7 +8,7 @@
     "card2"
     "card3";
     column-gap: 5%;
-    border-top: 2px solid var(--main-purple);
+    border-top: 3px solid var(--main-purple);
 }
 
 .threeCard:nth-child(1){

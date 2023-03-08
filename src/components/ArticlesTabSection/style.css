@@ -8,6 +8,10 @@
     min-width: 100px;
 }
 
+.MuiTab-wrapper {
+    font-weight: bold;
+}
+
 .MuiTabs-scroller {
    background-color: #177d7112; 
 }
