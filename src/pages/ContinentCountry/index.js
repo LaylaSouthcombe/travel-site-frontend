@@ -8,9 +8,7 @@ import backgroundWorld from '../../images/backgroundWorld.png'
 import {continentInfo} from '../../data/continentCountries'
 
 import {NavBar, BottomMenu} from '../../layout'
-import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection} from '../../components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
+import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCrumbMenu} from '../../components'
 
 const ContinentCountry = () => {
 
@@ -181,31 +179,7 @@ const ContinentCountry = () => {
             </>
             :
             <>
-            {city === undefined 
-            ? 
-                <div className="breadcrumbMenu">
-                    <div className="destinationsBreadcrumb">
-                       <a href="">Destinations</a>
-                       <FontAwesomeIcon icon={faGreaterThan}/>
-                       <a href="">{formatWord(continent)}</a>
-                    </div>
-                    <p className="countryCityName">{formatWord(country)}</p>
-                    <p className="countryCitySummary">{continentInfo[continent].countries[country].summary}</p>
-                </div>
-            :
-            <div className="breadcrumbMenu">
-                    <div className="destinationsBreadcrumb">
-                       <a href="">Destinations</a>
-                       <FontAwesomeIcon icon={faGreaterThan}/>
-                       <a href="">{formatWord(continent)}</a>
-                       <FontAwesomeIcon icon={faGreaterThan}/>
-                       <a href="">{formatWord(country)}</a>
-                    </div>
-                    <p className="countryCityName">{formatWord(city)}</p>
-                    <p className="countryCitySummary">{continentInfo[continent].countries[country].summary}</p>
-                    {/* TODO: add city and city summary data to country data file */}
-                </div>
-            }
+                <BreadCrumbMenu/>
                 <HeroArticleSection article={article}/>
             </>
             }

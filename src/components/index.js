@@ -30,5 +30,6 @@ export {default as ArticlesTabSection} from './ArticlesTabSection'
 export {default as ArticleTabCards} from './ArticleTabCards'
 
 export { default as HeroArticleSection} from './HeroArticleSection'
+export { default as BreadCrumbMenu} from './BreadCrumbMenu'
 
 export {default as GoogleAd} from './GoogleAd'
