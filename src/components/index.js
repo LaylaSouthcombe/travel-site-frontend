@@ -29,6 +29,6 @@ export {default as ThreeCardsRow} from './ThreeCardsRow'
 export {default as ArticlesTabSection} from './ArticlesTabSection'
 export {default as ArticleTabCards} from './ArticleTabCards'
 
-
+export { default as HeroArticleSection} from './HeroArticleSection'
 
 export {default as GoogleAd} from './GoogleAd'

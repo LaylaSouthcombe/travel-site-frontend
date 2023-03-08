@@ -33,7 +33,7 @@
     /* grid-template-rows: 325px; */
     overflow: visible !important;
     height: fit-content !important;
-    padding: 12px !important;
+    padding: 24px 12px !important;
 }
 
 .MuiTabPanel-root[hidden] {

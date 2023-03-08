@@ -8,7 +8,7 @@ import backgroundWorld from '../../images/backgroundWorld.png'
 import {continentInfo} from '../../data/continentCountries'
 
 import {NavBar, BottomMenu} from '../../layout'
-import {ThreeCardsRow, GoogleAd, ArticlesTabSection} from '../../components'
+import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection} from '../../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 
@@ -206,13 +206,7 @@ const ContinentCountry = () => {
                     {/* TODO: add city and city summary data to country data file */}
                 </div>
             }
-                <a href="" className="heroArticle articleCard">
-                    <div className="heroArticleImg">
-                        <img src={article.imageUrl} alt=""/>
-                    </div>
-                    <p className="heroArticleTag articleCardCategory">{article.trip_categories.split(",")[0]}</p>
-                    <a href="" className="heroArticleTitle">{article.title}</a>
-                </a>
+                <HeroArticleSection article={article}/>
             </>
             }
             <ThreeCardsRow article={article}/>
