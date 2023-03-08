@@ -8,8 +8,12 @@
     min-width: 100px;
 }
 
+.MuiTabs-scroller {
+   background-color: #177d7112; 
+}
+
 .MuiBox-root.css-1gsv261 {
-    border-bottom: 2px solid;
+    border-bottom: 3px solid;
     border-color: var(--main-purple);
 }
 
@@ -20,6 +24,9 @@
 
 .MuiButtonBase-root.MuiTab-root.Mui-selected {
     background-color: var(--accent-color);
+    border-style: solid;
+    border-width: 3px 3px 0px 3px;
+    border-color: var(--main-purple);
     border-top-left-radius: 7.5px;
     border-top-right-radius: 7.5px;
 }
@@ -30,7 +37,6 @@
     justify-content: space-between;
     width:100%;
     row-gap: 20px;
-    /* grid-template-rows: 325px; */
     overflow: visible !important;
     height: fit-content !important;
     padding: 24px 12px !important;

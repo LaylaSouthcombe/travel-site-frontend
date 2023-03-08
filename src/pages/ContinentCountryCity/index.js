@@ -10,7 +10,7 @@ import {continentInfo} from '../../data/continentCountries'
 import {NavBar, BottomMenu} from '../../layout'
 import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCrumbMenu} from '../../components'
 
-const ContinentCountry = () => {
+const ContinentCountryCity = () => {
 
     const article = {
         "imageUrl": "https://cdn.pixabay.com/photo/2014/09/19/19/13/cocoa-452911_960_720.jpg",
@@ -194,4 +194,4 @@ const ContinentCountry = () => {
     )
 }
 
-export default ContinentCountry;
+export default ContinentCountryCity;
