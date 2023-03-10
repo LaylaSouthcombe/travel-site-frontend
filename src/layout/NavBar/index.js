@@ -315,7 +315,7 @@ const NavBar = ({country}) => {
         {windowSize < 440 ?
             <>
               <div className="mainMobileNavBar">
-                  {country !== undefined ? <div>{country}</div>: null}  
+                  {country !== undefined ? <div>{country}</div> : null}  
                   <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>

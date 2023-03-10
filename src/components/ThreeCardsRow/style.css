@@ -37,7 +37,7 @@
 .articleCard:hover {
     box-shadow: 5px 5px var(--main-purple);
     translate: -5px -5px;
-    background-color: #177d7112;
+    background-color: var(--card-green);
     border: 3px solid var(--main-purple);
     padding: 4.5px 4.5px 7.5px 4.5px;
 }

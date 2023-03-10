@@ -13,7 +13,7 @@
 }
 
 .MuiTabs-scroller {
-   background-color: #177d7112; 
+   background-color: var(--card-green); 
 }
 
 .MuiBox-root.css-1gsv261 {
