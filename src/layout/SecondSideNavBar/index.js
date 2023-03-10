@@ -38,30 +38,43 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle}) => {
                 <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
                     {selectedListTitle === 'Destinations' ? 
                     <>
-                    <ListItemButton onClick={() => handleWithChildClick(i)}>
-                    <ListItemText primary={heading.name} />
-                        {listData[i].openState ? <ExpandLess /> : <ExpandMore /> }
-                    </ListItemButton>
-                    <Collapse in={listData[i].openState} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                            {heading.children.map((child, j) => {
-                                return(
-                                    <div className="sideNavMenuChildItem" key={"sideNavMenuChildItem"+i+j}>
-                                        <ListItemButton sx={{ pl: 4 }} onClick={() => navigate(child.url)}>
-                                    <ListItemText primary={child.name} />
-                                    </ListItemButton>
-                                    </div>
-                                    )
-                                })
+                        {heading.cities === undefined ? 
+                            <ListItemButton onClick={() => navigate(heading.url)}>
+                                <ListItemText primary={heading.name} />
+                            </ListItemButton>
+                        : 
+                        <>
+                            <ListItemButton onClick={() => handleWithChildClick(i)}>
+                            <ListItemText primary={heading.name} />
+                                {listData[i].openState ? <ExpandLess /> : <ExpandMore /> }
+                            </ListItemButton>
+                            {heading.cities !== undefined ? 
+                                <Collapse in={listData[i].openState} timeout="auto" unmountOnExit>
+                                    <List component="div" disablePadding>
+                                        {heading.cities.map((child, j) => {
+                                            return(
+                                                <div className="sideNavMenuChildItem" key={"sideNavMenuChildItem"+i+j}>
+                                                    <ListItemButton sx={{ pl: 4 }} onClick={() => navigate(child.url)}>
+                                                <ListItemText primary={child.name} />
+                                                </ListItemButton>
+                                                </div>
+                                                )
+                                            })
+                                        }
+                                    </List>
+                                </Collapse> 
+                            : null    
                             }
-                        </List>
-                    </Collapse> 
+                        </>
+                    }
                     </>
-                    : <>
-                    <ListItemButton onClick={() => navigate(heading.url)}>
+                    : 
+                    <>
+                        <ListItemButton onClick={() => navigate(heading.url)}>
                         <ListItemText primary={heading.name} />
-                    </ListItemButton>
-                    </> }
+                        </ListItemButton>
+                    </> 
+                    }
                 </div>
             )
         }

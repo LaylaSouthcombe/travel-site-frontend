@@ -26,74 +26,119 @@ const NavBar = ({country}) => {
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
     const [menuIcon, setMenuIcon] = useState(faBars)
     const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
+    const [menuBarPosition, setMenuBarPosition] = useState('static')
 
     const [windowSize, setWindowSize] = useState(window.innerWidth)
     const fullListData = {
         "Destinations": [
-                {
-                    "name": "Europe",
-                    "icon": "SendIcon",
-                    "children": [
+                // {
+                //     "name": "Europe",
+                //     "icon": "SendIcon",
+                //     "children": [
                         {
                           "name": "Explore Europe",
                           "url": "/europe"
                         },
                         {
                           "name": "Bulgaria",
-                          "url": "/bulgaria"
+                          "url": "europe/bulgaria",
+                          "cities": [
+                            {
+                              "name": "Plovdiv",
+                              "url": "/europe/bulgraia/plovdiv"
+                            },
+                            {
+                              "name": "Sofia",
+                              "url": "/europe/bulgraia/sofia"
+                            }
+                          ]
                         },
                         {
                           "name": "Denmark",
-                          "url": "/denmark"
+                          "url": "europe/denmark",
+                          "cities": [
+                            {
+                              "name": "Copenhagen",
+                              "url": "/europe/denmark/copenhagen"
+                            },
+                            {
+                              "name": "Aarhus",
+                              "url": "/europe/denmark/aarhus"
+                            }
+                          ]
                         },
                         {
                           "name": "France",
-                          "url": "/france"
+                          "url": "/france",
+                          "cities": [
+                            {
+                              "name": "Paris",
+                              "url": "/europe/france/paris"
+                            },
+                            {
+                              "name": "Lille",
+                              "url": "/europe/france/lille"
+                            }
+                          ]
                         },
                         {
                           "name": "Germany",
-                          "url": "/germany"
+                          "url": "/germany",
+                          "cities": [
+                            {
+                              "name": "Berlin",
+                              "url": "/europe/germany/berlin"
+                            },
+                            {
+                              "name": "Hamburg",
+                              "url": "/europe/germany/hamburg"
+                            }
+                          ]
                         },
                         {
                           "name": "Greece",
-                          "url": "/greece"
+                          "url": "/greece",
+                          "cities": [
+                            {
+                              "name": "Athens",
+                              "url": "/europe/greece/athens"
+                            },
+                            {
+                              "name": "Corfu",
+                              "url": "/europe/greece/corfu"
+                            }
+                          ]
                         },
                         {
                           "name": "Spain",
-                          "url": "/spain"
+                          "url": "/spain",
+                          "cities": [
+                            {
+                              "name": "Madrid",
+                              "url": "/europe/spain/madrid"
+                            },
+                            {
+                              "name": "Barcelona",
+                              "url": "/europe/spain/barcelona"
+                            }
+                          ]
                         },
                         {
                           "name": "United Kingdom",
-                          "url": "/unitedkingdom"
-                        }
-                      ]
-                },
-                {
-                  "name": "",
-                  "icon": "SendIcon",
-                  "children": [
-                      {
-                        "name": "Cities in Europe",
-                        "url": "/bulgaria"
-                      },
-                      {
-                        "name": "London",
-                        "url": "/bulgaria"
-                      },
-                      {
-                        "name": "Paris",
-                        "url": "/denmark"
-                      },
-                      {
-                        "name": "Berlin",
-                        "url": "/france"
-                      },
-                      {
-                        "name": "Rome",
-                        "url": "/unitedkingdom"
-                      }
-                    ]
-              }
+                          "url": "/unitedkingdom",
+                          "cities": [
+                            {
+                              "name": "London",
+                              "url": "/europe/unitedkingdom/london"
+                            },
+                            {
+                              "name": "Edinburgh",
+                              "url": "/europe/unitedkingdom/edinburgh"
+                            }
+                          ]
+                      //   }
+                      // ]
+                }
                 // {
                 //     "name": "Asia",
                 //     "children": [
@@ -296,9 +341,11 @@ const NavBar = ({country}) => {
             setSideMenuOpen(false)
             setListData([])
             setMenuIcon(faBars)
+            setMenuBarPosition('static')
         } else if(!sideMenuOpen){
             setSideMenuOpen(true)
             setMenuIcon(faXmark)
+            setMenuBarPosition('fixed')
         }
     }
 
@@ -319,7 +366,7 @@ const NavBar = ({country}) => {
                   <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
-                  <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
+                  <div className="sideMenuButton" style={{position: menuBarPosition}}onClick={() => openCloseSideMenu()}>
                       <FontAwesomeIcon icon={menuIcon} />
                   </div>
               </div> 
