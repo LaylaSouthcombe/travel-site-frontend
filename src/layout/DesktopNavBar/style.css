@@ -8,7 +8,7 @@
     border-bottom: 1px solid grey;
 }
 
-.menuItems{
+.menuItems {
     display: flex;
     align-items: center;
     margin-left: 30px;
@@ -20,11 +20,6 @@
     border-radius: 5px;
 }
 
-.activeMenuItem {
-    background-color: var(--main-button-color);
-    border-radius: 5px 5px 0px 0px;
-}
-
 .menuItem > p > svg {
     margin-left: 5px;
 }
@@ -32,7 +27,7 @@
 .navDropdown {
     display: none;
     position: absolute;
-    background-color: var(--light-grey);
+    background-color: var(--card-green-no-opacity);
     border-radius: 0px 5px 5px 5px;
     top: 55px;
 }
@@ -53,10 +48,6 @@
     .navDropdown {
         display: grid;
     }
-    
-    .menuItem:active {
-        background-color: var(--main-button-color);
-    }
 }
 
 @media screen and (min-width: 1024px){
@@ -71,6 +62,10 @@
 
     .menuItem:hover {
         background-color: var(--main-button-color);
+    }
+
+    .menuItem:hover > p {
+        color: var(--card-green-no-opacity);
     }
 
     .menuItem > p {

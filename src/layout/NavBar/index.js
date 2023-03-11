@@ -40,20 +40,6 @@ const NavBar = ({country}) => {
                           "url": "/europe"
                         },
                         {
-                          "name": "Bulgaria",
-                          "url": "europe/bulgaria",
-                          "cities": [
-                            {
-                              "name": "Plovdiv",
-                              "url": "/europe/bulgraia/plovdiv"
-                            },
-                            {
-                              "name": "Sofia",
-                              "url": "/europe/bulgraia/sofia"
-                            }
-                          ]
-                        },
-                        {
                           "name": "Denmark",
                           "url": "europe/denmark",
                           "cities": [
@@ -125,7 +111,7 @@ const NavBar = ({country}) => {
                         },
                         {
                           "name": "United Kingdom",
-                          "url": "/unitedkingdom",
+                          "url": "/europe/unitedkingdom",
                           "cities": [
                             {
                               "name": "London",
@@ -136,9 +122,9 @@ const NavBar = ({country}) => {
                               "url": "/europe/unitedkingdom/edinburgh"
                             }
                           ]
-                      //   }
+                        }
                       // ]
-                }
+                // }
                 // {
                 //     "name": "Asia",
                 //     "children": [

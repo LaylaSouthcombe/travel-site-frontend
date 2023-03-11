@@ -69,12 +69,14 @@ const ContinentCountryCity = () => {
 
     const normalHoverColor = {
         fill: "#30c7b570",
-        stroke: "#3F3D56"
+        stroke: "#3F3D56",
+        strokeWidth: 1.5
     }
 
     const normalClickColor = {
         fill: "#3F3D56",
-        stroke: "#30c7b570"
+        stroke: "#30c7b570",
+        strokeWidth: 1.5
     }
 
     const [hoverColors, setHoverColors] = useState({})
@@ -109,16 +111,15 @@ const ContinentCountryCity = () => {
         [article],
         [article]
     ]
+    const defaultStyles = {
+        fill: "var(--card-green-no-opacity)",
+        stroke: "#3F3D56",
+        strokeWidth: 1.5
+    }
 
     const checkAndSetSumamryInfo = (countryName) => {
-        setClickColors({
-            fill: "rgb(227, 227, 227)",
-            stroke: "#3F3D56"
-        })
-        setHoverColors({
-            fill: "rgb(227, 227, 227)",
-            stroke: "#3F3D56"
-        })
+        setClickColors(defaultStyles)
+        setHoverColors(defaultStyles)
         if(continentInfo[continent].countries[countryName].name !== "Europe"){
            setHoverColors(normalHoverColor) 
            setClickColors(normalClickColor)
@@ -159,12 +160,9 @@ const ContinentCountryCity = () => {
                                     }}
                                     onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}
                                     style={{
-                                        default: {
-                                            fill: "rgb(227, 227, 227)",
-                                            stroke: "#3F3D56"
-                                        },
+                                        default: defaultStyles,
                                         hover: hoverColors,
-                                        pressed: clickColors,
+                                        pressed: clickColors
                                     }}
                                     />
                                 ))

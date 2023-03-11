@@ -1,8 +1,6 @@
 #destinationsDropdown {
-    width: 100%;
-    max-width: 600px;
-    grid-template-columns: 47.5% 47.5%;
-    column-gap: 5%;
+    width: 50%;
+    max-width: 300px;
     left: 0px;
 }
 
@@ -15,23 +13,41 @@
 } */
 
 .dropDownContinent {
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.dropDownContinent > p {
     font-weight: bold;
-}
-
-.dropDownContinent p {
+    margin: 10px;
+    width: fit-content;
     border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
+    padding: 10px 20px;
 }
 
-.dropDownContinent p:hover {
+.dropDownCountry {
+    margin: 5px;
+    width: fit-content;
+}
+
+.dropDownCountries {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: space-around;
+    column-gap: 5%;
+    margin-left: 15px;
+    align-items: center;
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+}
+
+.dropDownCountry p {
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.dropDownContinent:hover {
+    cursor: pointer;
+    background-color: var(--light-grey-overlay);
+}
+
+.dropDownCountry p:hover {
     cursor: pointer;
     background-color: var(--light-grey-overlay);
 }

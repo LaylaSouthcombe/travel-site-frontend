@@ -9,10 +9,20 @@
 }
 
 .MuiTab-wrapper {
-    font-weight: bold;
+    font-weight: 900;
 }
 
-.MuiTabs-scroller {
+.MuiButtonBase-root.MuiTabScrollButton-root:first-child {
+    border-right: 2px solid var(--main-purple);
+    margin-right: 20px;
+}
+
+.MuiButtonBase-root.MuiTabScrollButton-root:last-child {
+    border-left: 2px solid var(--main-purple);
+    margin-left: 20px;
+}
+
+.MuiTabs-root {
    background-color: var(--card-green); 
 }
 
@@ -26,13 +36,21 @@
     display: none;
 }
 
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeSmall {
+    font-size: 32px;
+}
+
 .MuiButtonBase-root.MuiTab-root.Mui-selected {
-    background-color: var(--accent-color);
+    background-color: var(--main-button-color);
     border-style: solid;
     border-width: 3px 3px 0px 3px;
     border-color: var(--main-purple);
     border-top-left-radius: 7.5px;
     border-top-right-radius: 7.5px;
+}
+
+.MuiButtonBase-root.MuiTab-root.Mui-selected > span {
+    color: var(--card-green-no-opacity);
 }
 
 .MuiTabPanel-root {
