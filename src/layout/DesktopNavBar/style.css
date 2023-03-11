@@ -20,6 +20,18 @@
     border-radius: 5px;
 }
 
+.itemName {
+    font-weight: bold;
+}
+
+.activeMenuItem {
+    background-color: var(--main-button-color);
+}
+
+.activeMenuItem > p {
+    color: var(--card-green-no-opacity);
+}
+
 .menuItem > p > svg {
     margin-left: 5px;
 }

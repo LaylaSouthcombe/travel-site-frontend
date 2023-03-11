@@ -60,18 +60,18 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
             return (
                 windowSize < 1024 ? 
                 <div className={menuItemClassName[i]} key={i}>
-                    <p onClick={() => clickOpenCloseMenu(item.name, i)}>{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
+                    <p onClick={() => clickOpenCloseMenu(item.name, i)} className="itemName">{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
                     {dropdownMenuOpen && dropdownMenuName === item.name ? renderSubMenu(item.name) : null}
                 </div> : 
                 <div className="menuItem">
-                    <p>{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
+                    <p className="itemName">{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
                     {renderSubMenu(item.name)}
                 </div>
             )
         } else {
             return (
                 <div className="menuItem" key={i}>
-                    <p onClick={() => navigate(fullListData[item.name].url)}>{item.name}</p>
+                    <p onClick={() => navigate(fullListData[item.name].url)} className="itemName">{item.name}</p>
                 </div>
             )
         }
