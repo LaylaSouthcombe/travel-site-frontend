@@ -27,4 +27,5 @@ code {
   --light-grey: rgb(241, 241, 241);
   --light-grey-overlay: rgb(215, 214, 214);
   --card-green: #177d7112;
+  --card-green-no-opacity: #F0F6F5;
 }
