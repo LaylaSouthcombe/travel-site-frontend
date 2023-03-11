@@ -20,19 +20,19 @@ const continentInfo = {
                 popularCities: ["Berlin", "Munich", "Hamburg", "Frankfurt"]
             },
             england: {
-                name: "England",
-                summary: "A country known for its historic landmarks, such as Buckingham Palace and Stonehenge, as well as its vibrant cities like London and Manchester. Visitors can explore medieval castles, take in a Shakespeare play, or indulge in traditional fish and chips.",
-                popularCities: ["London", "Manchester", "Bristol", "Liverpool"]
+                name: "United Kingdom",
+                summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
+                popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"]
             },
             scotland: {
-                name: "Scotland",
-                summary: "A country known for its stunning landscapes, such as the Isle of Skye and the Loch Ness, as well as its rich cultural heritage. Visitors can explore ancient castles, hike through the highlands, or take a scenic drive on the North Coast 500.",
-                popularCities: ["Edinburgh", "Glasgow", "Inverness", "Dundee"]
+                name: "United Kingdom",
+                summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
+                popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"]
             },
             wales: {
-                name: "Wales",
-                summary: "A country known for its rugged landscapes and natural beauty, such as Snowdonia National Park and the Brecon Beacons. Visitors can explore medieval castles, hike through the mountains, or sample traditional Welsh cuisine like Welsh lamb and cawl.",
-                popularCities: ["Cardiff", "Swansea", "Wrexham", "Newport"]
+                name: "United Kingdom",
+                summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
+                popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"]
             },
             iceland: {
                 name: "Iceland",
@@ -55,9 +55,9 @@ const continentInfo = {
                 popularCities: ["Dublin", "Cork", "Galway", "Killarney"]
             },
             northernireland: {
-                name: "Northern Ireland",
-                summary: "A country located in the northeastern part of the island of Ireland, known for its rugged landscapes and historic landmarks, such as the Giant's Causeway and the Dark Hedges. Visitors can also explore the city of Belfast.",
-                popularCities: ["Belfast", "Derry", "Newry", "Coleraine"]
+                name: "United Kingdom",
+                summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
+                popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"]
             },
             portugal: {
                 name: "Portugal",
