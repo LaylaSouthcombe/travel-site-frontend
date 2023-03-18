@@ -7,10 +7,9 @@ import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCr
 
 import {article} from '../../data/article'
 
-//add in random country button
 const TripPlanning = () => {
 
-    const tabHeadings = ["All", "Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
+    const tabHeadings = ["All", "Tips & Tricks", "Packing", "Gear", "Tech"]
     
 
     const tabArticles = [
@@ -27,10 +26,6 @@ const TripPlanning = () => {
             "trip_categories": "city, adventure, culture",
             "keywords": "Colombia, Ecuador, Brazil, Argentina"
             }, article],
-        [article],
-        [article],
-        [article],
-        [article],
         [article],
         [article],
         [article]

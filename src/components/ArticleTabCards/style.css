@@ -37,9 +37,9 @@
     background-position: 0 0,100% 0;
     background-repeat: no-repeat;
     background-size: 60% 100%;
-    color: white;
-    padding: 3px 30px;
-    margin: -20px 10px 10px 10px;
+    color: var(--card-green-no-opacity);
+    padding: 3px 22px;
+    margin: -20px 10px 10px 5px;
     font-size: 14px;
     width: fit-content;
     z-index: 100;
@@ -47,7 +47,6 @@
 }
 
 @media (min-width: 900px) {
-
     .articleCardTitle {
         font-size: 18px;
     }
