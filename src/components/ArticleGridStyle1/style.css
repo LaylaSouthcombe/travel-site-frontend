@@ -4,7 +4,22 @@
     grid-template-columns: 100%;
     margin: 0 auto;
     max-width: 1000px;
+    padding-bottom: 10px;
 }
+
+.style1column1 {
+    display: grid;
+    margin-bottom: 30px;
+}
+
+.style1column1 > a {
+    padding-bottom: 20px;
+}
+
+.style1column1 > .articleCard:hover {
+    padding-bottom: 17px;
+}
+
 .style1column2 {
     display: flex;
     flex-wrap: wrap;
@@ -12,17 +27,19 @@
     row-gap: 20px;
 }
 
-@media(min-width: 768px){
-
-}
-
 @media(min-width: 900px){
     .articleGridStyle1 {
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 45% 55%;
     }
+
     .style1column1 {
-        margin-right: 20px;
-        border-right: var(--divider-line);
-        padding-right: 20px;
+        align-content: center;
     }
+
+    .style1column2 {
+        margin-left: 20px;
+        border-left: var(--divider-line);
+        padding-left: 20px;
+    }
+
 }

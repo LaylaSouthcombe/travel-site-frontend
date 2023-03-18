@@ -2,24 +2,33 @@
     display: flex;
 }
 
-.articleListCardStyle1 > .articleCardMeta > .articleCardCategory {
-    font-size: 12px;
-}
-
 .articleListCardStyle1 > .cardImg {
-    width: 70%;
-    margin: auto;
-    display: block;
-}
-
-.articleListCardStyle1 > .cardImg > img{
-    width: 100%;
+    width: 80%;
 }
 
 .articleCardMeta {
     margin-left: 10px;
+    margin-top: 30px;
 }
 
-.articleListCardTitle {
-    font-size: 14px;
+.articleCardMeta > .articleCardCategory {
+    margin-top: 0px;
+}
+
+.articleCard:hover {
+    box-shadow: 5px 5px var(--main-purple);
+    translate: -5px -5px;
+    background-color: var(--card-green);
+    border: 3px solid var(--main-purple);
+    padding: 4.5px 4.5px 7.5px 4.5px;
+}
+
+.articleCard:hover .articleCardTitle {
+    margin-left: 7px;
+}
+
+@media(min-width: 900px){
+    .articleCardMeta {
+        margin-top: 0px;
+    }
 }

@@ -1,3 +1,59 @@
 .articleCard {
     flex:0 0 22.5%;
 }
+
+.articleCard > .cardImg > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.articleCard {
+    background-color: white;
+    padding: 7.5px 7.5px 10.5px 7.5px;
+}
+
+.articleCard:hover {
+    box-shadow: 5px 5px var(--main-purple);
+    translate: -5px -5px;
+    background-color: var(--card-green);
+    border: 3px solid var(--main-purple);
+    padding: 4.5px 4.5px 7.5px 4.5px;
+}
+
+
+.articleCardTitle {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+.articleCard:hover .articleCardTitle {
+    margin-left: 7px;
+}
+
+.articleCardCategory {
+    background-image: linear-gradient(102deg,transparent 1em,var(--main-purple) 1em),linear-gradient(282deg,transparent 1em,var(--main-purple) 1em);
+    background-position: 0 0,100% 0;
+    background-repeat: no-repeat;
+    background-size: 60% 100%;
+    color: white;
+    padding: 3px 30px;
+    margin: -20px 10px 10px 10px;
+    font-size: 14px;
+    width: fit-content;
+    z-index: 100;
+    position: relative;
+}
+
+@media (min-width: 900px) {
+
+    .articleCardTitle {
+        font-size: 18px;
+    }
+
+    .articleCardCategory {
+        font-size: 18px;
+    }
+}

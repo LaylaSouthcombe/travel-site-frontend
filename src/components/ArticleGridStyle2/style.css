@@ -3,9 +3,9 @@
     display: grid;
     grid-template-columns: 100%;
     margin: 0 auto;
-    max-width: 1000px;
-    
+    max-width: 1000px; 
 }
+
 @media(min-width: 768px){
     .articleGridStyle2 {
         grid-template-columns: 47.5% 47.5%;

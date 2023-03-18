@@ -5,16 +5,17 @@ import {ArticleCardFeatureImg} from '../index'
 
 const ArticleListCardStyle1 = ({article}) => {
     let navigate = useNavigate();
-
+console.log(article)
     return (
-        <div className="articleListCardStyle1">
-            <ArticleCardFeatureImg articleId={article.imageId}/>
+        <a className="articleListCardStyle1 articleCard" href={"http://localhost:3001/article/" + article.id}>
+            <div className="cardImg">
+                    <img src={article.feature_img_url !== "" ? article.feature_img_url : article.feature_img_base64} alt=""/>
+            </div>
             <div className="articleCardMeta">
                 <p className="articleCardCategory">{article.trip_categories.split(",")[0]}</p>
                 <p className="articleCardTitle articleListCardTitle">{article.title}</p>
-                <button className="articleCardButton">Read more</button>
             </div>
-        </div>
+        </a>
     )
 }
 

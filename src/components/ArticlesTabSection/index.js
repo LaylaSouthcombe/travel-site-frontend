@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Tab from '@material-ui/core/Tab';
-import Tabs from '@mui/material/Tabs';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
@@ -33,7 +32,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
                 </TabList>
             </Box>
 
-            {tabHeadings.map((heading, i) => {
+            {tabHeadings.map((i) => {
                     return (
                         <TabPanel value={(i+1).toString()}>{tabArticles[i].map(article => {
                             return (
