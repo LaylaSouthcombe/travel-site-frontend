@@ -10,7 +10,7 @@ import {article} from '../../data/article'
 import {formatWord} from '../../data/formatWord'
 
 import {NavBar, BottomMenu} from '../../layout'
-import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCrumbMenu} from '../../components'
+import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, CountryBreadCrumbMenu} from '../../components'
 
 
 const ContinentCountryCity = () => {
@@ -158,7 +158,7 @@ const ContinentCountryCity = () => {
             </>
             :
             <>
-                <BreadCrumbMenu/>
+                <CountryBreadCrumbMenu/>
                 <HeroArticleSection article={article}/>
             </>
             }
