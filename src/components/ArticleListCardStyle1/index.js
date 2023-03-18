@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css'
-import {ArticleCardFeatureImg} from '../index'
 
 const ArticleListCardStyle1 = ({article}) => {
     let navigate = useNavigate();
-console.log(article)
+
     return (
         <a className="articleListCardStyle1 articleCard" href={"http://localhost:3001/article/" + article.id}>
             <div className="cardImg">
