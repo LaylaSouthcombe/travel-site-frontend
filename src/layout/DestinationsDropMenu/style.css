@@ -53,7 +53,7 @@
     color: var(--card-green-no-opacity);
 }
 
-.exploreMoreMenuItem{
+.exploreMoreMenuItem {
     color: var(--main-button-color);
     font-weight: bold;
 }

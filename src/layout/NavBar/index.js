@@ -287,7 +287,7 @@ const NavBar = ({country}) => {
             },
           "Trip Planning": {
               "icon": faLightbulb,
-              "url": "/tips-and-tricks"
+              "url": "/trip-planning"
           }
     }
     

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountryCity, Categories, Article, ArticleList} from './pages'
+import {Home, ContinentCountryCity, Categories, Article, ArticleList, TripPlanning} from './pages'
 
 import './layout/FirstSideNavBar/style.css'
 import './layout/DesktopNavBar/style.css'
@@ -9,9 +9,6 @@ import './layout/NavBar/style.css'
 import './pages/Home/style.css'
 
 import './components/ArticleGridStyle1/style.css'
-
-
-
 
 
 
@@ -34,7 +31,7 @@ function App() {
       {/* categories page */}
       <Route path="/trip-styles" element={<Categories/>}/>
       {/* tips and tricks page */}
-      <Route path="/trip-planning" element={<Home/>}/>
+      <Route path="/trip-planning" element={<TripPlanning/>}/>
       {/* Article list that connects to explore more buttons, has filter list etc */}
       <Route path="/articles/:query" element={<ArticleList/>}/>
       <Route path="/article/:articleid" element={<Article/>}/>
