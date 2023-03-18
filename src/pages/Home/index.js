@@ -5,7 +5,7 @@ import leftHeroImage from '../../images/leftHeroImage.png'
 import rightHeroImage from '../../images/rightHeroImage.png'
 
 import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd} from '../../components'
-import {article} from '../../data/article'
+import {article} from '../../utilities/article'
 //add in random country button
 const Home = () => {
 

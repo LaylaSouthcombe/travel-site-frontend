@@ -2,7 +2,7 @@ import React from 'react'
 import {useLocation} from 'react-router-dom';
 import './style.css'
 
-import {formatWord} from '../../data/formatWord'
+import {formatWord} from '../../utilities/formatWord'
 
 const BreadCrumbMenu = () => {
 

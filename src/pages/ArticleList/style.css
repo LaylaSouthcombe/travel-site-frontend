@@ -1,5 +1,40 @@
-.mainArticleListSection, .articleListSection {
+.mainArticleListSection {
     width: 90%;
+}
+.mainArticleListSection, .articleListSection {
     margin: 0 auto;
     height: fit-content;
+}
+
+.articleList {
+    display: grid;
+    grid-template-columns: 100%;
+    width: 100%;
+    margin: 0 auto 50px auto;
+    padding-top: 20px;
+    column-gap: 5%;
+    height: fit-content;
+    justify-content: space-between;
+    row-gap: 20px;
+    overflow: visible;
+    border-top: 3px solid var(--main-purple);
+}
+
+.articleListSection {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+
+@media (min-width: 600px) {
+    .articleList {
+        grid-template-columns: 46% 46%;
+    }
+}
+
+@media (min-width: 768px) {
+    .articleListSection {
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+    }
 }

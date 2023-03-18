@@ -7,6 +7,7 @@
     "card1"
     "card2"
     "card3";
+    grid-template-columns: 100%;
     column-gap: 5%;
     border-top: 3px solid var(--main-purple);
 }
@@ -35,6 +36,7 @@
         grid-template-areas: 
         "card1 card2"
         "card3 card3";
+        grid-template-columns: 50% 50%;
     }
 }
 
@@ -43,5 +45,6 @@
         width: 80%;
         grid-template-areas: 
         "card1 card2 card3";
+        grid-template-columns: 30% 30% 30%;
     }
 }

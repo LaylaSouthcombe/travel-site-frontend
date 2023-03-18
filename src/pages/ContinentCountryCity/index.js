@@ -5,9 +5,9 @@ import './style.css'
 
 import backgroundWorld from '../../images/backgroundWorld.png'
 
-import {continentInfo} from '../../data/continentCountries'
-import {article} from '../../data/article'
-import {formatWord} from '../../data/formatWord'
+import {continentInfo} from '../../utilities/continentCountries'
+import {article} from '../../utilities/article'
+import {formatWord} from '../../utilities/formatWord'
 
 import {NavBar, BottomMenu} from '../../layout'
 import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, CountryBreadCrumbMenu} from '../../components'

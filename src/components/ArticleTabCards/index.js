@@ -6,7 +6,7 @@ const ArticleTabCards = ({article, classnames}) => {
         <>
             <a className={classnames + " articleCard"} href={"http://localhost:3001/article/" + article.id}>
                 <div className="cardImg">
-                    <img src={article.feature_img_url !== "" ? article.feature_img_url : article.feature_img_base64} alt=""/>
+                    <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
                 </div>
                 <div className="threeCardInfo">
                     <p className="articleCardCategory">{article.trip_categories.split(",")[0]}</p>

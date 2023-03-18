@@ -5,7 +5,7 @@ import './style.css'
 
 import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCrumbMenu} from '../../components'
 
-import {article} from '../../data/article'
+import {article} from '../../utilities/article'
 
 const TripPlanning = () => {
 
