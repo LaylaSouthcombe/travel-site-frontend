@@ -11,6 +11,8 @@ import {ArticleTabCards} from '../index'
 const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
     let navigate = useNavigate();
 
+    // console.log(tabArticles)
+
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event, newValue) => {
@@ -32,7 +34,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
                 </TabList>
             </Box>
 
-            {tabHeadings.map((i) => {
+            {tabHeadings.map((heading, i) => {
                     return (
                         <TabPanel value={(i+1).toString()}>{tabArticles[i].map(article => {
                             return (

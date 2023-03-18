@@ -5,21 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 
+import {formatWord} from '../../data/formatWord'
+
 const BreadCrumbMenu = () => {
-    const {country, city} = useParams();
+    let {country, city} = useParams();
     const location = useLocation();
     const continent = location.pathname.split("/")[1]
     
-    const formatWord = (word) => {
-        if(word !== undefined){
-        word = word.split('-').map((x, i) => {
-            return (
-                x = x[0].toUpperCase() + x.slice(1)
-            )
-        }).join(" ")
-        }
-        return word
+    if (country === "united-kingdom" || country === "wales" || country === "scotland" || country === "northern-ireland"){
+        country = "england"
     }
+
     return (
         <>
         <div className="breadcrumbMenu">
@@ -36,7 +32,7 @@ const BreadCrumbMenu = () => {
                     </>
                     }
                 </div>
-                <p className="countryCityName">{city === undefined ? formatWord(country) : formatWord(city)}</p>
+                <p className="countryCityName">{city === undefined ? formatWord(country === "england" || country === "wales" || country === "scotland" || country === "northern-ireland" ? "united-kingdom" : country) : formatWord(city)}</p>
                 <p className="countryCitySummary">{continentInfo[continent].countries[country].summary}</p>
                 {/* TODO: add city and city summary data to country data file */}
             </div>
