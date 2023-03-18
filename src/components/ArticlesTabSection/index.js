@@ -23,7 +23,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
         <Box sx={{ width: '100%', typography: 'body1', height: "fit-content", marginBottom: "30px"}}>
             <TabContext value={value} sx={{padding: "12px"}}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile onChange={handleChange} aria-label="lab API tabs example">
+                <TabList variant="scrollable" scrollButtons="auto" onChange={handleChange} aria-label="lab API tabs example">
                 {tabHeadings.map((heading, i) => {
                     return (
                         <Tab label={heading} value={(i+1).toString()}/>
@@ -37,7 +37,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
                     return (
                         <TabPanel value={(i+1).toString()}>{tabArticles[i].map(article => {
                             return (
-                                <ArticleTabCards article={article}/>
+                                <ArticleTabCards article={article} classnames={"articleTabCard"}/>
                             )
                         })}</TabPanel>
                     )

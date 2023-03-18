@@ -55,8 +55,8 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle}) => {
                                             return(
                                                 <div className="sideNavMenuChildItem" key={"sideNavMenuChildItem"+i+j}>
                                                     <ListItemButton sx={{ pl: 4 }} onClick={() => navigate(child.url)}>
-                                                <ListItemText primary={child.name} />
-                                                </ListItemButton>
+                                                        <ListItemText primary={child.name} />
+                                                    </ListItemButton>
                                                 </div>
                                                 )
                                             })

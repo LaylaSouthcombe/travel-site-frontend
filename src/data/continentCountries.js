@@ -97,7 +97,7 @@ const continentInfo = {
             netherlands: {
                 name: "Netherlands",
                 summary: "Known for its history, culture, and natural beauty, the Netherlands is a great destination for those interested in art, architecture, and history. Cities like Amsterdam, Rotterdam, and Utrecht offer a mix of medieval architecture and modern amenities, while the picturesque countryside is perfect for cycling or hiking.",
-                popularCities: ["Amsterdam", "Rotterdam", "Utrecht", "The Hague "]
+                popularCities: ["Amsterdam", "Rotterdam", "Utrecht", "The Hague"]
             },
             greece: {
                 name: "Greece",
