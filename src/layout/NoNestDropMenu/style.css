@@ -21,7 +21,11 @@
 
 .dropDownItem:hover {
     cursor: pointer;
-    background-color: var(--light-grey-overlay);
+    background-color: var(--main-purple);
+}
+
+.dropDownItem:hover > p, .dropDownItem:hover > svg > path{
+    color: var(--card-green-no-opacity);
 }
 
 .dropDownItem > svg {
