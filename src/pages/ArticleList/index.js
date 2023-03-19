@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams} from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
@@ -10,8 +10,6 @@ import {ArticleListGridStyle2, GoogleAd, HeroArticleSection, ArticleTabCards, Th
 //add in random country button
 const ArticleList = () => {
     const {query} = useParams();
-    // let navigate = useNavigate();
-
     
     const dispatch = useDispatch()
     const articles = useSelector(state => {
@@ -35,68 +33,67 @@ const ArticleList = () => {
     }
 
 // 'category=budget-friendly&city=london'
-//     useEffect(() => {
-//         if(query !== 'popular'){
-//             let splitQuery = query.replace(/-/g, " ").split("&")
-//             let country = ""
-//             let city = ""
-//             let category = ""
-//             let continent = ""
-//             for(let i = 0; i < splitQuery.length; i++){
-//                 if(splitQuery[i].includes("country=")){
-//                     country = splitQuery[i].split("=")[1]
-//                 }
-//                 if(splitQuery[i].includes("continent=")){
-//                     continent = splitQuery[i].split("=")[1]
-//                 }
-//                 if(splitQuery[i].includes("city=")){
-//                     city = splitQuery[i].split("=")[1]
-//                 }
-//                 if(splitQuery[i].includes("category=")){
-//                     category = splitQuery[i].split("=")[1]
-//                 }
-//             }
+    useEffect(() => {
+        if(query !== 'popular'){
+            let splitQuery = query.replace(/-/g, " ").split("&")
+            let country = ""
+            let city = ""
+            let category = ""
+            let continent = ""
+            for(let i = 0; i < splitQuery.length; i++){
+                if(splitQuery[i].includes("country=")){
+                    country = splitQuery[i].split("=")[1]
+                }
+                if(splitQuery[i].includes("continent=")){
+                    continent = splitQuery[i].split("=")[1]
+                }
+                if(splitQuery[i].includes("city=")){
+                    city = splitQuery[i].split("=")[1]
+                }
+                if(splitQuery[i].includes("category=")){
+                    category = splitQuery[i].split("=")[1]
+                }
+            }
 
-//             const queryParam = {
-//                 country: country,
-//                 continent: continent,
-//                 city: city,
-//                 category: category
-//             }
+            const queryParam = {
+                country: country,
+                continent: continent,
+                city: city,
+                category: category
+            }
 
-//             const config = {
-//                 headers: {
-//                   query: JSON.stringify(queryParam)
-//                 }
-//             };
+            const config = {
+                headers: {
+                  query: JSON.stringify(queryParam)
+                }
+            };
 
-//             const URL = `http://localhost:3000/articles/queryterm`
-//             axios.get(URL, config).then((response) => {
-    //                 let responseArticles = response.data
-                    //responseArticles.forEach(x => {
-//                      x.visibility = true
-                    //})
-//                 dispatch({ type: "UPDATE_ARTICLES", payload: responseArticles})
-//               });
+            const URL = `http://localhost:3000/articles/queryterm`
+            axios.get(URL, config).then((response) => {
+                    let responseArticles = response.data
+                    responseArticles.forEach(x => {
+                     x.visibility = true
+                    })
+                dispatch({ type: "UPDATE_ARTICLES", payload: responseArticles})
+              });
 
-//         } else if(query === 'popular'){
-//             const URL = `http://localhost:3000/articles/trending`
-//             axios.get(URL).then((response) => {
-    //                 let responseArticles = response.data
-                    //responseArticles.forEach(x => {
-//                      x.visibility = true
-                    //})
-//                 dispatch({ type: "UPDATE_ARTICLES", payload: responseArticles})
-//               });
-//         }
-//     }, [query])
+        } else if(query === 'popular'){
+            const URL = `http://localhost:3000/articles/trending`
+            axios.get(URL).then((response) => {
+                    let responseArticles = response.data
+                    responseArticles.forEach(x => {
+                     x.visibility = true
+                    })
+                dispatch({ type: "UPDATE_ARTICLES", payload: responseArticles})
+              });
+        }
+    }, [query])
 
-    // console.log(query)
-    // console.log(articles)
+    console.log(query)
+    console.log(articles)
 
     const [tripFilterClassName, setTripFilterClassName] = useState("hiddenLabel")
     const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
-
 
     const addFilterToFiltersList = (x, type) => {
         if(filters[type].includes(x)){
@@ -124,6 +121,7 @@ const ArticleList = () => {
                     //TODO: replace with a better layout error msg
                 }
                 {articles.length >= 4 ? <ThreeCardsRow articles={articles.slice(1,4)}/> : null}
+                {articles.length > 0 ? 
                 <div className="articleListSection">
                     <div className="articleListFilterSection">
                         <p>Filter By:</p>
@@ -255,6 +253,7 @@ const ArticleList = () => {
                             {/* make sticky */}
                     </div>
                 </div>
+                : null}
             </div>
             <GoogleAd dataAdSlot={"1136657549"}/>
             {query === 'popular' ? 

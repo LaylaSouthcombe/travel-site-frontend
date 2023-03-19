@@ -4,7 +4,7 @@ import { tripStylesShowing } from '../utilities/tripStylesShowing'
 
 
 const initialState = {
-    articles: [article, article, article, article, article, article],
+    articles: [],
     filters: {countries: [], tripStyles: []},
     countriesInfo: countriesInfo,
     tripStylesShowing: tripStylesShowing

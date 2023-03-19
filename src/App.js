@@ -33,6 +33,8 @@ function App() {
       {/* tips and tricks page */}
       <Route path="/trip-planning" element={<TripPlanning/>}/>
       {/* Article list that connects to explore more buttons, has filter list etc */}
+      
+      {/* use below route for search results, view all, individual categories, popular */}
       <Route path="/articles/:query" element={<ArticleList/>}/>
       <Route path="/article/:articleid" element={<Article/>}/>
     </Routes>

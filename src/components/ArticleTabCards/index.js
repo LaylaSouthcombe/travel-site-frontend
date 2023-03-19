@@ -4,7 +4,7 @@ import './style.css'
 const ArticleTabCards = ({article, classnames, keyId}) => {
     return (
         <>
-            <a className={classnames + " articleCard"} href={"http://localhost:3001/article/" + article.id} key={keyId}>
+            <a className={classnames + " articleCard"} href={"http://localhost:3001/article/" + article.id} target="_blank" rel="noreferrer" key={keyId}>
                 <div className="cardImg">
                     <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
                 </div>
