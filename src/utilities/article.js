@@ -9,7 +9,8 @@ const article = {
     "continent": "south america",
     "trip_categories": "Art & Culture, adventure, culture",
     "keywords": "Colombia, Ecuador, Brazil, Argentina",
-    visibility: true
+    visibility: true,
+    id: 0
 }
 
 module.exports = {article}

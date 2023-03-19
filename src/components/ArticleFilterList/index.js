@@ -12,8 +12,6 @@ const ArticleFilterList = ({articles, setArticles}) => {
     //     return state.articles
     // })
 
-    //useeffect for filter list
-
     const {query} = useParams();
     
     const filters = useSelector(state => state.filters)
@@ -22,7 +20,16 @@ const ArticleFilterList = ({articles, setArticles}) => {
 
     const tripStylesShowing = useSelector(state => state.tripStylesShowing)
 
+    const [listArticles, setListArticles] = useState(articles)
+
+    const [tripFilterLabels, setTripFilterLabels] = useState([])
+
+    const [countryFilterLabels, setCountryFilterLabels] = useState([])
+
+    const [loaded, setLoaded] = useState("Loading")
+
     const setArticleVisibility = (filters, article) => {
+        console.log(filters)
         for(let i = 0; i < filters.countries.length || i < filters.tripStyles.length; i++){
             if(article.country.includes(filters.countries[i]) || article.trip_categories.includes(filters.tripStyles[i])){
                 article.visibility = true
@@ -37,6 +44,9 @@ const ArticleFilterList = ({articles, setArticles}) => {
     const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
     const [countryShowAllClassName, setCountryShowAllClassName] = useState("filterLabel")
 
+    useEffect(() => {
+        setLoaded("Loaded")
+    }, [])
 
     const handleTripShowAll = (e) => {
         e.preventDefault()
@@ -58,18 +68,18 @@ const ArticleFilterList = ({articles, setArticles}) => {
             filters[type].push(x)
         }
         dispatch({ type: "UPDATE_FILTERS", payload: filters})
-        articles.forEach(article => {
+        let updatedList = [...articles];
+        updatedList.forEach(article => {
             setArticleVisibility(filters, article)
         })
-        // dispatch({ type: "UPDATE_ARTICLES", payload: articles})
-        setArticles(articles)
+        setListArticles(updatedList)
     }
 
     let numberOfArticles = 0
-    console.log(countriesInfo["europe"].countries)
 
     return (
         <div className="articleListSection">
+            {loaded !== "loading" && listArticles.length > 4 ?
             <div className="articleListFilterSection">
                 <p>Filter By:</p>
                 <ul className="filterLists">
@@ -83,7 +93,7 @@ const ArticleFilterList = ({articles, setArticles}) => {
                             dispatch({ type: "UPDATE_TRIP_STYLE_SHOWING", payload: tripStylesShowing})
                         }
                     })}
-                    {Object.keys(tripStylesShowing).map((x, i) => {
+                    {loaded !== "Loading" ? Object.keys(tripStylesShowing).map((x, i) => {
                         if(tripStylesShowing[x].filterShowing === true){
                             tripStylesShowing.totalShowing += 1
                         }
@@ -110,12 +120,12 @@ const ArticleFilterList = ({articles, setArticles}) => {
                                 : null}
                             </>
                         )
-                    })}
-                    {tripStylesShowing.totalShowing > 3 ? <li onClick={(e) => handleTripShowAll(e)} className={tripShowAllClassName}>Show all ({tripStylesShowing.totalShowing})</li> : null}
+                    }) : null }
+                    {loaded !== "Loading"  && tripStylesShowing.totalShowing > 3 ? <li onClick={(e) => handleTripShowAll(e)} className={tripShowAllClassName}>Show all ({tripStylesShowing.totalShowing})</li> : null}
                 </ul>
                 <ul className="filterLists">
                     <li>Country</li>
-                    {articles.slice(4).forEach((x, i) => {
+                    {loaded !== "Loading" ? articles.slice(4).forEach((x, i) => {
                         if(countriesInfo["europe"].countries[x.country.split(",")[0]] !== undefined) {
                             if(countriesInfo["europe"].countries[x.country.split(",")[0]].visitable !== false){
                                 countriesInfo["europe"].countries[x.country.split(",")[0]].filterShowing = true
@@ -125,8 +135,8 @@ const ArticleFilterList = ({articles, setArticles}) => {
                         if(i === articles.slice(4).length -1){
                             dispatch({ type: "UPDATE_COUNTRIES_INFO", payload: countriesInfo})
                         }
-                    })}
-                    {Object.keys(countriesInfo["europe"].countries).map((x, i) => {
+                    }) : null}
+                    {loaded !== "Loading" ? Object.keys(countriesInfo["europe"].countries).map((x, i) => {
                         if(countriesInfo["europe"].countries[x].filterShowing === true){
                             countriesInfo["europe"].countries.countriesLength += 1
                         }
@@ -153,12 +163,17 @@ const ArticleFilterList = ({articles, setArticles}) => {
                                 : null}
                             </>
                         )
-                    })}
-                    {countriesInfo["europe"].countries.countriesLength > 3 ? <li onClick={(e) => handleCountryShowAll(e)} className={countryShowAllClassName}>Show all ({countriesInfo["europe"].countries.countriesLength})</li> : null}
+                    }) : null}
+                    {loaded !== "Loading" && countriesInfo["europe"].countries.countriesLength > 3 ? <li onClick={(e) => handleCountryShowAll(e)} className={countryShowAllClassName}>Show all ({countriesInfo["europe"].countries.countriesLength})</li> : null}
                 </ul>
             </div>
+            : null}
+            {loaded !== "Loading" && articles.length > 4 ?
             <div className="articleList">
-                {articles.length >= 5 ? articles.slice(4).map((article, i) => {
+                {listArticles.map((article, i) => {
+                    console.log(article.visibility === true)
+                    console.log(articles.length)
+                    console.log(loaded)
                     if(article.visibility === true){
                         numberOfArticles += 1
                     }
@@ -167,8 +182,8 @@ const ArticleFilterList = ({articles, setArticles}) => {
                             {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} article={article}/> : null}
                         </>
                     )
-                }) : null}
-                {articles.length < 5 && articles.length > 0 ? articles.slice(1).map((article, i) => {
+                })}
+                {/* {loaded !== "Loading" && listArticles.length < 5 && listArticles.length > 0 ? listArticles.slice(1).map((article, i) => {
                     if(article.visibility === true){
                         numberOfArticles += 1
                     }
@@ -177,8 +192,8 @@ const ArticleFilterList = ({articles, setArticles}) => {
                             {article.visibility === true ? <ArticleTabCards keyId={"articleListShort " + i} article={article}/> : null}
                         </>
                     )
-                }) : null}
-                {numberOfArticles === 0 ? 
+                }) : null} */}
+                {loaded !== "Loading" && numberOfArticles === 0 ? 
                 <>
                     <div className="noArticles">
                         No articles found
@@ -186,6 +201,7 @@ const ArticleFilterList = ({articles, setArticles}) => {
                 </>
                 : null}
             </div>
+            : null}
             <div className="sideAds">
                     <GoogleAd dataAdSlot={"4238599075"}/>
                         {query !== 'popular' ? 
@@ -203,4 +219,4 @@ const ArticleFilterList = ({articles, setArticles}) => {
 )
 }
 
-export default memo(ArticleFilterList);
+export default ArticleFilterList;
