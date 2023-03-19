@@ -24,7 +24,6 @@ function App() {
         <>
           <Route path={continent} element={<ContinentCountryCity/>}/>
           <Route path={continent+'/:country'} element={<ContinentCountryCity/>}/>
-          {/* <Route path={continent+'/:country/:city'} element={<City/>}/> */}
           <Route path={continent+'/:country/:city'} element={<ContinentCountryCity/>}/>
         </>
       ))}

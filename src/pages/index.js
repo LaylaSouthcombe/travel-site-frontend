@@ -1,6 +1,5 @@
 export { default as Home} from './Home'
 export { default as ContinentCountryCity} from './ContinentCountryCity'
-export { default as City} from './City'
 export { default as Categories} from './Categories'
 export { default as Article} from './Article'
 export { default as ArticleList} from './ArticleList'

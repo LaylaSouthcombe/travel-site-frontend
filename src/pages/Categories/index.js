@@ -3,7 +3,7 @@ import React from 'react'
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 
-import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle3,ArticleGridStyle4,ArticleGridStyle5,ArticleGridStyle6,ArticleGridStyle7,ArticleGridStyle8,ExploreMoreButton,TripStylesGrid, GoogleAd} from '../../components'
+import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle5,ArticleGridStyle6,ArticleGridStyle7,ArticleGridStyle8,ExploreMoreButton,TripStylesGrid, GoogleAd} from '../../components'
 
 //add in random country button
 const Categories = () => {
