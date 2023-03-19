@@ -27,7 +27,7 @@ const ArticleList = () => {
     //     return state.articles
     // })
 
-    const [articles, setArticles] = useState([article1, article2, article3,article4, article5, article6, article7, article8])
+    const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
 
     console.log(articles)

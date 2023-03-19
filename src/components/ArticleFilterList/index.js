@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import './style.css'
 
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
-import { ConstructionOutlined } from '@mui/icons-material';
 
 const ArticleFilterList = ({articles, setArticles}) => {
     const dispatch = useDispatch()
@@ -48,14 +47,42 @@ const ArticleFilterList = ({articles, setArticles}) => {
         let tripLabels = []
         let countryLabels = []
         articles.forEach((x, i) => {
-            if(tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing !== undefined){
-                tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing = true
-                tripStylesShowing[x.trip_categories.split(",")[0]].numberOfArticles += 1
+            let tripName = x.trip_categories.split(",")[0]
+            if(tripStylesShowing[tripName] !== undefined){
+                let labelItem = {}                
+                const result = tripLabels.filter((element) => {
+                    return Object.keys(element)[0] === tripName
+                });
+                if(result.length){
+                    for(let i = 0; i < tripLabels.length; i++){
+                        if(Object.keys(tripLabels[i])[0] === tripName){
+                            console.log(tripLabels[i][tripName])
+                            tripLabels[i][tripName] += 1
+                        } 
+                    }
+                } else {
+                   labelItem[tripName] = 1
+                    tripLabels.push(labelItem) 
+                }
             }
-            if(countriesInfo["europe"].countries[x.country.split(",")[0]] !== undefined) {
-                if(countriesInfo["europe"].countries[x.country.split(",")[0]].visitable !== false){
-                    countriesInfo["europe"].countries[x.country.split(",")[0]].filterShowing = true
-                    countriesInfo["europe"].countries[x.country.split(",")[0]].numberOfArticles += 1
+            let countryName = x.country.split(",")[0]
+            if(countriesInfo["europe"].countries[countryName] !== undefined) {
+                if(countriesInfo["europe"].countries[countryName].visitable !== false){
+                    let labelItem = {}                
+                    const result = countryLabels.filter((element) => {
+                        return Object.keys(element)[0] === countryName
+                    });
+                    if(result.length){
+                        for(let i = 0; i < countryLabels.length; i++){
+                            if(Object.keys(countryLabels[i])[0] === countryName){
+                                console.log(countryLabels[i][countryName])
+                                countryLabels[i][countryName] += 1
+                            } 
+                        }
+                    } else {
+                        labelItem[countryName] = 1
+                        countryLabels.push(labelItem) 
+                    }
                 }
             }
             if(i === articles.length -1){
@@ -64,28 +91,8 @@ const ArticleFilterList = ({articles, setArticles}) => {
             }
         })
 
-        for(let i = 0; i < Object.keys(tripStylesShowing).length; i++){
-            let tripName = Object.keys(tripStylesShowing)[i]
-            let tripInfo = tripStylesShowing[Object.keys(tripStylesShowing)[i]]
-            if(tripInfo.filterShowing === true){
-                let labelItem = {}
-                labelItem[tripName] = tripInfo.numberOfArticles
-                tripLabels.push(labelItem)
-            }
-        }
-
-        for(let i = 0; i < Object.keys(countriesInfo["europe"].countries).length; i++){
-            let countryName = Object.keys(countriesInfo["europe"].countries)[i]
-            let countryInfo = countriesInfo["europe"].countries[Object.keys(countriesInfo["europe"].countries)[i]]
-            if(countryInfo.visitable === true && countryInfo.filterShowing === true){
-                let labelItem = {}
-                labelItem[countryName] = countryInfo.numberOfArticles
-                countryLabels.push(labelItem)
-            }
-        }
-
-        console.log(tripLabels)
-        console.log(countryLabels)
+        // console.log(tripLabels)
+        // console.log(countryLabels)
         setTripFilterLabels(tripLabels)
         setCountryFilterLabels(countryLabels)
         setLoaded("Loaded")
@@ -151,7 +158,6 @@ const ArticleFilterList = ({articles, setArticles}) => {
                 <ul className="filterLists">
                     <li>Country</li>
                     {loaded !== "Loading" ? countryFilterLabels.map((x, i) => {
-                        console.log(i)
                         return (
                             <>
                                 <li key={"countryFilter " + i}>
