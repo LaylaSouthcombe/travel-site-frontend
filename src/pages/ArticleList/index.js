@@ -15,62 +15,77 @@ const ArticleList = () => {
     let navigate = useNavigate();
     
     const [articles, setArticles] = useState([article,article,article,article,article,article,article,article])
-    const [filters, setFilters] = useState([])
+    const [filters, setFilters] = useState({countries: [], tripStyles: []})
+
+    const setArticleVisibility = (filters, article) => {
+        for(let i = 0; i < filters.countries.length || i < filters.tripStyles.length; i++){
+            if(article.country.includes(filters.countries[i]) || article.trip_categories.includes(filters.tripStyles[i])){
+                article.visibility = true
+            } else {
+                article.visibility = false
+            }
+        }
+    }
 
 // 'category=budget-friendly&city=london'
-    // useEffect(() => {
-    //     if(query !== 'popular'){
-    //         let splitQuery = query.replace(/-/g, " ").split("&")
-    //         let country = ""
-    //         let city = ""
-    //         let category = ""
-    //         let continent = ""
-    //         for(let i = 0; i < splitQuery.length; i++){
-    //             if(splitQuery[i].includes("country=")){
-    //                 country = splitQuery[i].split("=")[1]
-    //             }
-    //             if(splitQuery[i].includes("continent=")){
-    //                 continent = splitQuery[i].split("=")[1]
-    //             }
-    //             if(splitQuery[i].includes("city=")){
-    //                 city = splitQuery[i].split("=")[1]
-    //             }
-    //             if(splitQuery[i].includes("category=")){
-    //                 category = splitQuery[i].split("=")[1]
-    //             }
-    //         }
+//     useEffect(() => {
+//         if(query !== 'popular'){
+//             let splitQuery = query.replace(/-/g, " ").split("&")
+//             let country = ""
+//             let city = ""
+//             let category = ""
+//             let continent = ""
+//             for(let i = 0; i < splitQuery.length; i++){
+//                 if(splitQuery[i].includes("country=")){
+//                     country = splitQuery[i].split("=")[1]
+//                 }
+//                 if(splitQuery[i].includes("continent=")){
+//                     continent = splitQuery[i].split("=")[1]
+//                 }
+//                 if(splitQuery[i].includes("city=")){
+//                     city = splitQuery[i].split("=")[1]
+//                 }
+//                 if(splitQuery[i].includes("category=")){
+//                     category = splitQuery[i].split("=")[1]
+//                 }
+//             }
 
-    //         const queryParam = {
-    //             country: country,
-    //             continent: continent,
-    //             city: city,
-    //             category: category
-    //         }
+//             const queryParam = {
+//                 country: country,
+//                 continent: continent,
+//                 city: city,
+//                 category: category
+//             }
 
-    //         const config = {
-    //             headers: {
-    //               query: JSON.stringify(queryParam)
-    //             }
-    //         };
+//             const config = {
+//                 headers: {
+//                   query: JSON.stringify(queryParam)
+//                 }
+//             };
 
-    //         const URL = `http://localhost:3000/articles/queryterm`
-    //         axios.get(URL, config).then((response) => {
-    //             setArticles(response.data)
-    //           });
+//             const URL = `http://localhost:3000/articles/queryterm`
+//             axios.get(URL, config).then((response) => {
+    //                 let responseArticles = response.data
+                    //responseArticles.forEach(x => {
+//                      x.visibility = true
+                    //})
+//                 setArticles(responseArticles)
+//               });
 
-    //     } else if(query === 'popular'){
-    //         const URL = `http://localhost:3000/articles/trending`
-    //         axios.get(URL).then((response) => {
-    //             setArticles(response.data)
-    //             console.log(response.data.body)
-    //           });
-    //     }
-    // }, [query])
-    
+//         } else if(query === 'popular'){
+//             const URL = `http://localhost:3000/articles/trending`
+//             axios.get(URL).then((response) => {
+    //                 let responseArticles = response.data
+                    //responseArticles.forEach(x => {
+//                      x.visibility = true
+                    //})
+//                 setArticles(responseArticles)
+//               });
+//         }
+//     }, [query])
+
     console.log(query)
     console.log(articles)
-
-    console.log(countriesInfo)
 
     let tripStyleShowing = {
         "City Break": false,
@@ -87,6 +102,22 @@ const ArticleList = () => {
     let countriesLength = 0
     let stylesLength = 0
 
+    const addFilterToFiltersList = (x, type) => {
+        if(filters[type].includes(x)){
+            filters[type].splice(filters[type].indexOf(x), 1)
+        } else {
+            filters[type].push(x)
+        }
+        setFilters(filters)
+        articles.forEach(article => {
+            setArticleVisibility(filters, article)
+        })
+        setArticles(articles)
+        console.log(articles)
+    }
+
+    let numberOfArticles = 0
+
     return (
         <>
             <NavBar/>
@@ -101,30 +132,43 @@ const ArticleList = () => {
                 <div className="articleListSection">
                     <div className="articleListFilterSection">
                         <p>Filter By:</p>
-                        <ul>
+                        {/* <label class="filterLabel">One
+                            <input type="checkbox" checked="checked"/>
+                            <span class="checkmark"></span>
+                        </label> */}
+                        <ul className="filterLists">
                             <li>Trip Style</li>
                             {articles.forEach(x => {
                                 tripStyleShowing[x.trip_categories.split(",")[0]] = true
                             })}
                             {Object.keys(tripStyleShowing).map(x => {
-                                console.log(x)
                                 if(tripStyleShowing[x] === true){
                                     stylesLength += 1
                                 }
                                 return (
                                     <>
                                         {tripStyleShowing[x] === true && stylesLength <= 3 ? 
-                                        <li>{x}</li>
+                                        <li>
+                                            <label class="filterLabel">{x}
+                                                <input type="checkbox"/>
+                                                <span class="checkmark" onClick={() => addFilterToFiltersList(x, "tripStyles")}></span>
+                                            </label>
+                                        </li>
                                         : null}
                                         {tripStyleShowing[x] === true && stylesLength > 3 ? 
-                                        <li className="hiddenStyleFilter">{x}</li>
+                                        <li>
+                                            <label class="filterLabel">{x}
+                                                <input type="checkbox"/>
+                                                <span class="checkmark" onClick={() => addFilterToFiltersList(x, "tripStyles")}></span>
+                                            </label>
+                                        </li>
                                         : null}
                                     </>
                                 )
                             })}
                             {stylesLength > 3 ? <li>Show all ({stylesLength})</li> : null}
                         </ul>
-                        <ul>
+                        <ul className="filterLists">
                             <li>Country</li>
                             {articles.forEach(x => {
                                 if(countriesInfo["europe"].countries[x.country.split(",")[0]] !== undefined) {
@@ -140,10 +184,20 @@ const ArticleList = () => {
                                 return (
                                     <>
                                         {countriesInfo["europe"].countries[x].filterShowing === true && countriesLength <= 3 ? 
-                                        <li>{x}</li>
+                                        <li>
+                                            <label class="filterLabel">{x}
+                                                <input type="checkbox"/>
+                                                <span class="checkmark" onClick={() => addFilterToFiltersList(x, "countries")}></span>
+                                            </label>
+                                        </li>
                                         : null}
                                         {countriesInfo["europe"].countries[x].filterShowing === true && countriesLength > 3 ? 
-                                        <li className="hiddenStyleFilter">{x}</li>
+                                        <li>
+                                            <label class="filterLabel">{x}
+                                                <input type="checkbox"/>
+                                                <span class="checkmark" onClick={() => addFilterToFiltersList(x, "countries")}></span>
+                                            </label>
+                                        </li>
                                         : null}
                                     </>
                                 )
@@ -153,15 +207,26 @@ const ArticleList = () => {
                     </div>
                     <div className="articleList">
                         {articles.length >= 5 ? articles.slice(5).map(article => {
-                            return(
-                                <ArticleTabCards article={article}/>
+                            return (
+                                <>
+                                    {article.visibility === true ? <><ArticleTabCards article={article}/> {numberOfArticles += 1}</> : null}
+                                </>
                             )
                         }) : null}
                         {articles.length < 5 && articles.length > 0 ? articles.slice(1).map(article => {
-                            return(
-                                <ArticleTabCards article={article}/>
+                            return (
+                                <>
+                                    {article.visibility === true ? <><ArticleTabCards article={article}/> {numberOfArticles += 1}</> : null}
+                                </>
                             )
                         }) : null}
+                        {numberOfArticles === 0 ? 
+                        <>
+                            <div className="noArticles">
+                                No articles found
+                            </div>
+                        </>
+                        : null}
                     </div>
                     <div className="sideAds">
                             <GoogleAd dataAdSlot={"4238599075"}/>

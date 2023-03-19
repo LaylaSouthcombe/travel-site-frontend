@@ -9,7 +9,7 @@
 .articleList {
     display: grid;
     grid-template-columns: 100%;
-    width: 100%;
+    width: 95%;
     margin: 0 auto 50px auto;
     padding-top: 20px;
     column-gap: 5%;
@@ -25,6 +25,92 @@
     grid-template-columns: 100%;
 }
 
+.articleListFilterSection {
+    background-color: aliceblue;
+    border-right: 2px solid var(--main-purple);
+    padding-right: 10px;
+}
+
+.filterLists > li {
+    list-style: none;
+}
+
+.articleListFilterSection > p {
+    font-size: 22px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.filterLists > li {
+    margin: 5px 0px 5px 20px;
+}
+
+.filterLists > li:first-child {
+    font-weight: bold;
+    margin: 10px 0px 10px 15px;
+}
+
+.filterLabel {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+.filterLabel input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.checkmark {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 0;
+    height: 22.5px;
+    width: 22.5px;
+    background-color: var(--card-green-no-opacity);
+    border: 2px solid black;
+    border-radius: 3px;
+}
+  
+.filterLabel input:checked ~ .checkmark {
+    background-color: var(--main-button-color);
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+
+.filterLabel input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.filterLabel .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 3px;
+    height: 8px;
+    border: solid var(--card-green-no-opacity);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
 
 @media (min-width: 600px) {
     .articleList {

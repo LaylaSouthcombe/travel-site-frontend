@@ -8,7 +8,8 @@ const article = {
     "country": "United Kingdom, Ecuador, Brazil, Argentina",
     "continent": "south america",
     "trip_categories": "Art & Culture, adventure, culture",
-    "keywords": "Colombia, Ecuador, Brazil, Argentina"
+    "keywords": "Colombia, Ecuador, Brazil, Argentina",
+    visibility: true
 }
 
 module.exports = {article}
