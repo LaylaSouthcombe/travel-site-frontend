@@ -6,11 +6,14 @@ import './style.css'
 
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
 
-const ArticleFilterList = ({articles}) => {
+const ArticleFilterList = ({articles, setArticles}) => {
     const dispatch = useDispatch()
     // const articles = useSelector(state => {
     //     return state.articles
     // })
+
+    //useeffect for filter list
+
     const {query} = useParams();
     
     const filters = useSelector(state => state.filters)
@@ -58,7 +61,8 @@ const ArticleFilterList = ({articles}) => {
         articles.forEach(article => {
             setArticleVisibility(filters, article)
         })
-        dispatch({ type: "UPDATE_ARTICLES", payload: articles})
+        // dispatch({ type: "UPDATE_ARTICLES", payload: articles})
+        setArticles(articles)
     }
 
     let numberOfArticles = 0
@@ -70,12 +74,12 @@ const ArticleFilterList = ({articles}) => {
                 <p>Filter By:</p>
                 <ul className="filterLists">
                     <li>Trip Style</li>
-                    {articles.forEach((x, i) => {
+                    {articles.slice(4).forEach((x, i) => {
                         if(tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing !== undefined){
                             tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing = true
                             tripStylesShowing[x.trip_categories.split(",")[0]].numberOfArticles += 1
                         }
-                        if(i === articles.length -1){
+                        if(i === articles.slice(4).length -1){
                             dispatch({ type: "UPDATE_TRIP_STYLE_SHOWING", payload: tripStylesShowing})
                         }
                     })}
@@ -111,14 +115,14 @@ const ArticleFilterList = ({articles}) => {
                 </ul>
                 <ul className="filterLists">
                     <li>Country</li>
-                    {articles.forEach((x, i) => {
+                    {articles.slice(4).forEach((x, i) => {
                         if(countriesInfo["europe"].countries[x.country.split(",")[0]] !== undefined) {
                             if(countriesInfo["europe"].countries[x.country.split(",")[0]].visitable !== false){
                                 countriesInfo["europe"].countries[x.country.split(",")[0]].filterShowing = true
                                 countriesInfo["europe"].countries[x.country.split(",")[0]].numberOfArticles += 1
                             }
                         }
-                        if(i === articles.length -1){
+                        if(i === articles.slice(4).length -1){
                             dispatch({ type: "UPDATE_COUNTRIES_INFO", payload: countriesInfo})
                         }
                     })}
