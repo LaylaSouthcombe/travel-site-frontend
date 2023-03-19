@@ -94,6 +94,10 @@ const ArticleList = () => {
     // console.log(query)
     // console.log(articles)
 
+    const [tripFilterClassName, setTripFilterClassName] = useState("hiddenLabel")
+    const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
+
+
     const addFilterToFiltersList = (x, type) => {
         if(filters[type].includes(x)){
             filters[type].splice(filters[type].indexOf(x), 1)
@@ -153,7 +157,7 @@ const ArticleList = () => {
                                         : null}
                                         {tripStylesShowing[x].filterShowing === true && tripStylesShowing.totalShowing > 3 ? 
                                         <li key={"tripFilter " + i}>
-                                            <label className="filterLabel">{x} ({tripStylesShowing[x].numberOfArticles})
+                                            <label className={tripFilterClassName}>{x} ({tripStylesShowing[x].numberOfArticles})
                                                 <input type="checkbox"/>
                                                 <span className="checkmark" onClick={() => addFilterToFiltersList(x, "tripStyles")}></span>
                                             </label>
@@ -162,7 +166,7 @@ const ArticleList = () => {
                                     </>
                                 )
                             })}
-                            {tripStylesShowing.totalShowing > 3 ? <li>Show all ({tripStylesShowing.totalShowing})</li> : null}
+                            {tripStylesShowing.totalShowing > 3 ? <li onClick={() => setTripFilterClassName("filterLabel")}>Show all ({tripStylesShowing.totalShowing})</li> : null}
                         </ul>
                         <ul className="filterLists">
                             <li>Country</li>
@@ -196,7 +200,7 @@ const ArticleList = () => {
                                         : null}
                                         {countriesInfo["europe"].countries[x].filterShowing === true && countriesInfo["europe"].countries.countriesLength > 3 ? 
                                         <li key={"countryFilter " + i}>
-                                            <label className="filterLabel">{x} ({countriesInfo["europe"].countries[x].numberOfArticles})
+                                            <label className={countryFilterClassName}>{x} ({countriesInfo["europe"].countries[x].numberOfArticles})
                                                 <input type="checkbox"/>
                                                 <span className="checkmark" onClick={() => addFilterToFiltersList(x, "countries")}></span>
                                             </label>
@@ -205,7 +209,7 @@ const ArticleList = () => {
                                     </>
                                 )
                             })}
-                            {countriesInfo["europe"].countries.countriesLength > 3 ? <li>Show all ({countriesInfo["europe"].countries.countriesLength})</li> : null}
+                            {countriesInfo["europe"].countries.countriesLength > 3 ? <li onClick={() => setCountryFilterClassName("filterLabel")}>Show all ({countriesInfo["europe"].countries.countriesLength})</li> : null}
                         </ul>
                     </div>
                     <div className="articleList">

@@ -50,6 +50,10 @@
     margin: 10px 0px 10px 15px;
 }
 
+.hiddenLabel {
+    display: none;
+}
+
 .filterLabel {
     display: block;
     position: relative;
