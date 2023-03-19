@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './style.css'
 
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
+import { ConstructionOutlined } from '@mui/icons-material';
 
 const ArticleFilterList = ({articles, setArticles}) => {
     const dispatch = useDispatch()
@@ -25,11 +26,10 @@ const ArticleFilterList = ({articles, setArticles}) => {
     const [tripFilterLabels, setTripFilterLabels] = useState([])
 
     const [countryFilterLabels, setCountryFilterLabels] = useState([])
-
+    
     const [loaded, setLoaded] = useState("Loading")
 
     const setArticleVisibility = (filters, article) => {
-        console.log(filters)
         for(let i = 0; i < filters.countries.length || i < filters.tripStyles.length; i++){
             if(article.country.includes(filters.countries[i]) || article.trip_categories.includes(filters.tripStyles[i])){
                 article.visibility = true
@@ -44,9 +44,57 @@ const ArticleFilterList = ({articles, setArticles}) => {
     const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
     const [countryShowAllClassName, setCountryShowAllClassName] = useState("filterLabel")
 
-    useEffect(() => {
+    const generateFilterLabels = (articles) => {
+        let tripLabels = []
+        let countryLabels = []
+        articles.forEach((x, i) => {
+            if(tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing !== undefined){
+                tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing = true
+                tripStylesShowing[x.trip_categories.split(",")[0]].numberOfArticles += 1
+            }
+            if(countriesInfo["europe"].countries[x.country.split(",")[0]] !== undefined) {
+                if(countriesInfo["europe"].countries[x.country.split(",")[0]].visitable !== false){
+                    countriesInfo["europe"].countries[x.country.split(",")[0]].filterShowing = true
+                    countriesInfo["europe"].countries[x.country.split(",")[0]].numberOfArticles += 1
+                }
+            }
+            if(i === articles.length -1){
+                dispatch({ type: "UPDATE_TRIP_STYLE_SHOWING", payload: tripStylesShowing})
+                dispatch({ type: "UPDATE_COUNTRIES_INFO", payload: countriesInfo})
+            }
+        })
+
+        for(let i = 0; i < Object.keys(tripStylesShowing).length; i++){
+            let tripName = Object.keys(tripStylesShowing)[i]
+            let tripInfo = tripStylesShowing[Object.keys(tripStylesShowing)[i]]
+            if(tripInfo.filterShowing === true){
+                let labelItem = {}
+                labelItem[tripName] = tripInfo.numberOfArticles
+                tripLabels.push(labelItem)
+            }
+        }
+
+        for(let i = 0; i < Object.keys(countriesInfo["europe"].countries).length; i++){
+            let countryName = Object.keys(countriesInfo["europe"].countries)[i]
+            let countryInfo = countriesInfo["europe"].countries[Object.keys(countriesInfo["europe"].countries)[i]]
+            if(countryInfo.visitable === true && countryInfo.filterShowing === true){
+                let labelItem = {}
+                labelItem[countryName] = countryInfo.numberOfArticles
+                countryLabels.push(labelItem)
+            }
+        }
+
+        console.log(tripLabels)
+        console.log(countryLabels)
+        setTripFilterLabels(tripLabels)
+        setCountryFilterLabels(countryLabels)
         setLoaded("Loaded")
-    }, [])
+    }
+
+    useEffect(() => {
+        generateFilterLabels(articles)
+        setLoaded("Loaded")
+    },[articles])
 
     const handleTripShowAll = (e) => {
         e.preventDefault()
@@ -69,9 +117,11 @@ const ArticleFilterList = ({articles, setArticles}) => {
         }
         dispatch({ type: "UPDATE_FILTERS", payload: filters})
         let updatedList = [...articles];
+        console.log(articles)
         updatedList.forEach(article => {
             setArticleVisibility(filters, article)
         })
+        generateFilterLabels(updatedList)
         setListArticles(updatedList)
     }
 
@@ -83,97 +133,43 @@ const ArticleFilterList = ({articles, setArticles}) => {
             <div className="articleListFilterSection">
                 <p>Filter By:</p>
                 <ul className="filterLists">
-                    <li>Trip Style</li>
-                    {articles.slice(4).forEach((x, i) => {
-                        if(tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing !== undefined){
-                            tripStylesShowing[x.trip_categories.split(",")[0]].filterShowing = true
-                            tripStylesShowing[x.trip_categories.split(",")[0]].numberOfArticles += 1
-                        }
-                        if(i === articles.slice(4).length -1){
-                            dispatch({ type: "UPDATE_TRIP_STYLE_SHOWING", payload: tripStylesShowing})
-                        }
-                    })}
-                    {loaded !== "Loading" ? Object.keys(tripStylesShowing).map((x, i) => {
-                        if(tripStylesShowing[x].filterShowing === true){
-                            tripStylesShowing.totalShowing += 1
-                        }
-                        if(i === Object.keys(tripStylesShowing).length -1){
-                            dispatch({ type: "UPDATE_TRIP_STYLE_SHOWING", payload: tripStylesShowing})
-                        }
+                    <li>Trip Style</li>                  
+                    {loaded !== "Loading" && tripFilterLabels.length ? tripFilterLabels.map((x, i) => {
                         return (
                             <>
-                                {tripStylesShowing[x].filterShowing === true && tripStylesShowing.totalShowing <= 3 ? 
                                 <li key={"tripFilter " + i}>
-                                    <label className="filterLabel">{x} ({tripStylesShowing[x].numberOfArticles})
-                                        {filters.tripStyles.includes(x) ? <input type="checkbox" checked />: <input type="checkbox"/>}
-                                        <span className="checkmark" onClick={() => addFilterToFiltersList(x, "tripStyles")}></span>
-                                    </label>
-                                </li>
-                                : null}
-                                {tripStylesShowing[x].filterShowing === true && tripStylesShowing.totalShowing > 3 ? 
-                                <li key={"tripFilter " + i}>
-                                    <label className={tripFilterClassName}>{x} ({tripStylesShowing[x].numberOfArticles})
+                                    <label className={i < 3 ? "filterLabel" : tripFilterClassName}>{Object.keys(x)} ({Object.values(x)})
                                         <input type="checkbox"/>
-                                        <span className="checkmark" onClick={() => addFilterToFiltersList(x, "tripStyles")}></span>
+                                        <span className="checkmark" onClick={() => addFilterToFiltersList(Object.keys(x), "tripStyles")}></span>
                                     </label>
                                 </li>
-                                : null}
                             </>
                         )
                     }) : null }
-                    {loaded !== "Loading"  && tripStylesShowing.totalShowing > 3 ? <li onClick={(e) => handleTripShowAll(e)} className={tripShowAllClassName}>Show all ({tripStylesShowing.totalShowing})</li> : null}
+                    {loaded !== "Loading"  && tripFilterLabels.length > 3 ? <li onClick={(e) => handleTripShowAll(e)} className={tripShowAllClassName}>Show all ({tripFilterLabels.length})</li> : null}
                 </ul>
                 <ul className="filterLists">
                     <li>Country</li>
-                    {loaded !== "Loading" ? articles.slice(4).forEach((x, i) => {
-                        if(countriesInfo["europe"].countries[x.country.split(",")[0]] !== undefined) {
-                            if(countriesInfo["europe"].countries[x.country.split(",")[0]].visitable !== false){
-                                countriesInfo["europe"].countries[x.country.split(",")[0]].filterShowing = true
-                                countriesInfo["europe"].countries[x.country.split(",")[0]].numberOfArticles += 1
-                            }
-                        }
-                        if(i === articles.slice(4).length -1){
-                            dispatch({ type: "UPDATE_COUNTRIES_INFO", payload: countriesInfo})
-                        }
-                    }) : null}
-                    {loaded !== "Loading" ? Object.keys(countriesInfo["europe"].countries).map((x, i) => {
-                        if(countriesInfo["europe"].countries[x].filterShowing === true){
-                            countriesInfo["europe"].countries.countriesLength += 1
-                        }
-                        if(i === Object.keys(countriesInfo["europe"].countries).length -1){
-                            dispatch({ type: "UPDATE_COUNTRIES_INFO", payload: countriesInfo})
-                        }
+                    {loaded !== "Loading" ? countryFilterLabels.map((x, i) => {
+                        console.log(i)
                         return (
                             <>
-                                {countriesInfo["europe"].countries[x].filterShowing === true && countriesInfo["europe"].countries.countriesLength <= 3 ? 
                                 <li key={"countryFilter " + i}>
-                                    <label className="filterLabel">{x} ({countriesInfo["europe"].countries[x].numberOfArticles})
+                                    <label className={i < 3 ? "filterLabel" : countryFilterClassName}>{Object.keys(x)}  ({Object.values(x)})
                                         <input type="checkbox"/>
-                                        <span className="checkmark" onClick={() => addFilterToFiltersList(x, "countries")}></span>
+                                        <span className="checkmark" onClick={() => addFilterToFiltersList(Object.keys(x), "countries")}></span>
                                     </label>
                                 </li>
-                                : null}
-                                {countriesInfo["europe"].countries[x].filterShowing === true && countriesInfo["europe"].countries.countriesLength > 3 ? 
-                                <li key={"countryFilter " + i}>
-                                    <label className={countryFilterClassName}>{x} ({countriesInfo["europe"].countries[x].numberOfArticles})
-                                        <input type="checkbox"/>
-                                        <span className="checkmark" onClick={() => addFilterToFiltersList(x, "countries")}></span>
-                                    </label>
-                                </li>
-                                : null}
                             </>
                         )
                     }) : null}
-                    {loaded !== "Loading" && countriesInfo["europe"].countries.countriesLength > 3 ? <li onClick={(e) => handleCountryShowAll(e)} className={countryShowAllClassName}>Show all ({countriesInfo["europe"].countries.countriesLength})</li> : null}
+                    {loaded !== "Loading" && countryFilterLabels.length > 3 ? <li onClick={(e) => handleCountryShowAll(e)} className={countryShowAllClassName}>Show all ({countryFilterLabels.length})</li> : null}
                 </ul>
             </div>
             : null}
             {loaded !== "Loading" && articles.length > 4 ?
             <div className="articleList">
                 {listArticles.map((article, i) => {
-                    console.log(article.visibility === true)
-                    console.log(articles.length)
-                    console.log(loaded)
                     if(article.visibility === true){
                         numberOfArticles += 1
                     }

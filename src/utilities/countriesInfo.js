@@ -2,7 +2,6 @@ const countriesInfo = {
     'europe': {
         name: "Europe",
         countries: {
-                    countriesLength: 0,
                     "Italy": {
                         filterShowing: false,
                         visitable: true,
