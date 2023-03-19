@@ -1,10 +1,10 @@
 import React from 'react'
 import './style.css'
 
-const ArticleTabCards = ({article, classnames}) => {
+const ArticleTabCards = ({article, classnames, keyId}) => {
     return (
         <>
-            <a className={classnames + " articleCard"} href={"http://localhost:3001/article/" + article.id}>
+            <a className={classnames + " articleCard"} href={"http://localhost:3001/article/" + article.id} key={keyId}>
                 <div className="cardImg">
                     <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
                 </div>
