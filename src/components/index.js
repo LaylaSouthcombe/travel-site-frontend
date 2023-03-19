@@ -7,7 +7,7 @@ export {default as ArticleGridStyle7} from './ArticleGridStyle7'
 export {default as ArticleGridStyle8} from './ArticleGridStyle8'
 export {default as ArticleListGridStyle1} from './ArticleListGridStyle1'
 export {default as ArticleListGridStyle2} from './ArticleListGridStyle2'
-
+export {default as ArticleFilterList} from './ArticleFilterList'
 
 export {default as TripStylesGrid} from './TripStylesGrid'
 
