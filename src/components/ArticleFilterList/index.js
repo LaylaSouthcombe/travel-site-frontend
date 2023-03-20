@@ -1,4 +1,4 @@
-import React, {useEffect, useState, memo} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useParams} from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -46,47 +46,48 @@ const ArticleFilterList = ({articles, setArticles}) => {
     const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
     const [countryShowAllClassName, setCountryShowAllClassName] = useState("filterLabel")
 
+    const checkIfLabelAlreadyInLabelsArray = (labelsArray, labelToCheck) => {
+        const result = labelsArray.filter((filter) => {
+            let filterLabel = Object.keys(filter)[0]
+            return filterLabel === labelToCheck
+        });
+        return result.length ? true : false
+    }
+    
+    const increaseNumberOfArticlesForFilter = (labelsArray, filterToIncrease) => {
+        for(let i = 0; i < labelsArray.length; i++){
+            if(Object.keys(labelsArray[i])[0] === filterToIncrease){
+                labelsArray[i][filterToIncrease] += 1
+            }
+        }
+    }
+
+    const addNewFilterToFiltersArray = (labelsArray, filterToAdd) => {
+        let labelItem = {}
+        labelItem[filterToAdd] = 1
+        labelsArray.push(labelItem) 
+    }
+
+    const addNewOrIncreaseExistingFilterToFilterArray = (objectWithFilterInfo, filterArray, labelToAddOrCreate) => {
+        if(objectWithFilterInfo[labelToAddOrCreate] !== undefined){     
+            if(checkIfLabelAlreadyInLabelsArray(filterArray, labelToAddOrCreate)){
+                increaseNumberOfArticlesForFilter(filterArray, labelToAddOrCreate)
+            } else {
+                addNewFilterToFiltersArray(filterArray, labelToAddOrCreate)
+            }
+        }
+    }
+
     const generateFilterLabels = (articlesList) => {
         let tripLabels = []
         let countryLabels = []
-        articlesList.forEach((x, i) => {
-            if(x.visibility === true){
-            let tripName = x.trip_categories.split(",")[0]
-            if(tripStylesShowing[tripName] !== undefined){
-                let labelItem = {}                
-                const result = tripLabels.filter((element) => {
-                    return Object.keys(element)[0] === tripName
-                });
-                if(result.length){
-                    for(let i = 0; i < tripLabels.length; i++){
-                        if(Object.keys(tripLabels[i])[0] === tripName){
-                            console.log(tripLabels[i][tripName])
-                            tripLabels[i][tripName] += 1
-                        } 
-                    }
-                } else {
-                   labelItem[tripName] = 1
-                    tripLabels.push(labelItem) 
-                }
-            }
-            let countryName = x.country.split(",")[0]
+        articlesList.forEach((article, i) => {
+            if(article.visibility === true){
+            let tripName = article.trip_categories.split(",")[0]
+            addNewOrIncreaseExistingFilterToFilterArray(tripStylesShowing, tripLabels, tripName)
+            let countryName = article.country.split(",")[0]
             if(countriesInfo["europe"].countries[countryName] !== undefined) {
-                if(countriesInfo["europe"].countries[countryName].visitable !== false){
-                    let labelItem = {}                
-                    const result = countryLabels.filter((element) => {
-                        return Object.keys(element)[0] === countryName
-                    });
-                    if(result.length){
-                        for(let i = 0; i < countryLabels.length; i++){
-                            if(Object.keys(countryLabels[i])[0] === countryName){
-                                countryLabels[i][countryName] += 1
-                            } 
-                        }
-                    } else {
-                        labelItem[countryName] = 1
-                        countryLabels.push(labelItem) 
-                    }
-                }
+                addNewOrIncreaseExistingFilterToFilterArray(countriesInfo["europe"].countries, countryLabels, countryName)
             }
         }
             // if(i === articles.length -1){
@@ -118,6 +119,7 @@ const ArticleFilterList = ({articles, setArticles}) => {
 
 
     const addFilterToFiltersList = (x, type) => {
+        console.log(articles)
         if(filters[type].includes(x)){
             filters[type].splice(filters[type].indexOf(x), 1)
         } else {
@@ -131,6 +133,7 @@ const ArticleFilterList = ({articles, setArticles}) => {
         updatedList.forEach(article => {
             setArticleVisibility(filters, article)
         })
+        console.log(articles)
         generateFilterLabels(updatedList)
         setListArticles(updatedList)
     }
@@ -150,7 +153,9 @@ const ArticleFilterList = ({articles, setArticles}) => {
                                 <li key={"tripFilter " + i}>
                                     <label className={i < 3 ? "filterLabel" : tripFilterClassName}>{Object.keys(x)} ({Object.values(x)})
                                         <input type="checkbox"/>
-                                        <span className="checkmark" onClick={() => addFilterToFiltersList(Object.keys(x)[0], "tripStyles")}></span>
+                                        <span className="checkmark" onClick={() => {
+                                            console.log(articles)
+                                            addFilterToFiltersList(Object.keys(x)[0], "tripStyles")}}></span>
                                     </label>
                                 </li>
                             </>
