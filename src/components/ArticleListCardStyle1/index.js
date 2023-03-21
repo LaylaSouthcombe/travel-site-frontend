@@ -6,6 +6,7 @@ const ArticleListCardStyle1 = ({article}) => {
     let navigate = useNavigate();
 
     return (
+        
         <a className="articleListCardStyle1 articleCard" href={"http://localhost:3001/article/" + article.id}>
             <div className="cardImg">
                     <img src={article.feature_img_url !== "" ? article.feature_img_url : article.feature_img_base64} alt=""/>

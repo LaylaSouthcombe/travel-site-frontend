@@ -10,6 +10,7 @@
 .style4column1 {
     width: 90%;
     margin: 0 auto;
+    display: grid;
 }
 
 .style4column2 {
@@ -25,7 +26,7 @@
 }
 
 .style4column2row1 {
-    display: flex;
+    display: grid;
     column-gap: 10px;
     flex-direction: column;
     width: 90%;
@@ -39,11 +40,21 @@
 .style4column2row1 > .articleCardStyle1 > .articleCardTitle {
     font-size: 14px;
 }
+
+.style4column2row2 {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
 @media(min-width: 768px){
     .style4column2row1 {
         display: flex;
         column-gap: 10px;
         flex-direction: row;
+    }
+
+    .style4column2row2 {
+        grid-template-columns: 50% 50%;
     }
 }
 
@@ -52,6 +63,16 @@
         grid-template-columns: 50% 50%;
         justify-content: space-between;
     }
+
+    .style4column1 .articleCardTitle {
+        font-size: 22px;
+    }
+
+    .style4column1 .articleCardCategory {
+        font-size: 22px;
+        padding: 3px 28px;
+    }
+
     .style4column2 {
         row-gap: 10px;
     }

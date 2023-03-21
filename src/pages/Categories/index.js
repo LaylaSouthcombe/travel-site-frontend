@@ -19,10 +19,10 @@ import { article8 } from '../../utilities/article8'
 //add in random country button
 const Categories = () => {
 
-    let cityArticles = [article, article1, article2, article3]
-    let luxuryArticles = [article, article1, article2, article3]
-    let natureArticles = [article, article1, article2, article3]
-    let foodArticles = [article, article1, article2, article3, article5]
+    let cityArticles = [article5, article1, article2, article3]
+    let luxuryArticles = [article5, article1, article2, article3]
+    let natureArticles = [article5, article1, article2, article3]
+    let foodArticles = [article5, article1, article2, article3, article5]
     let relaxingArticles = [article8, article7, article6, article5]
     let budgetArticles = [article8, article7, article6, article5, article5]
     let artArticles = [article8, article7, article6, article5, article5]
