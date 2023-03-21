@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams} from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 import axios from 'axios';
@@ -17,16 +16,11 @@ import { article8 } from '../../utilities/article8'
 
 import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils'
 
-import {ArticleListGridStyle2, GoogleAd, HeroArticleSection, ArticleTabCards, ThreeCardsRow, TripStylesGrid, ArticleFilterList} from '../../components'
+import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList} from '../../components'
 
 //add in random country button
 const ArticleList = () => {
     const {query} = useParams();
-    
-    const dispatch = useDispatch()
-    // const articles = useSelector(state => {
-    //     return state.articles
-    // })
 
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
