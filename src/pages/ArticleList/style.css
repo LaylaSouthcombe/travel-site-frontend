@@ -89,7 +89,7 @@
     border-radius: 3px;
 }
   
-.filterLabel input:checked ~ .checkmark {
+.checkmark.checked {
     background-color: var(--main-button-color);
 }
   
@@ -100,7 +100,7 @@
 }
   
 
-.filterLabel input:checked ~ .checkmark:after {
+.checkmark.checked:after {
     display: block;
 }
   
