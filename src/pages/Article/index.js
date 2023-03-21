@@ -6,7 +6,7 @@ import parse from 'html-react-parser'
 
 import './style.css'
 
-import {ArticleGridStyle2, ArticleListGridStyle1, ArticleListGridStyle2, ExploreMoreButton, TripStylesGrid, GoogleAd, PageNotFound} from '../../components'
+import {ArticleGridStyle2, ArticleListGridStyle2, ExploreMoreButton,  GoogleAd, PageNotFound} from '../../components'
 
 const Article = () => {
     

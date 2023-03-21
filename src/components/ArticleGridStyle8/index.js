@@ -1,8 +1,6 @@
-import React, {useEffect} from 'react'
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
 
-import {ArticleTabCards, ArticleListCardStyle1} from '..'
+import {ArticleTabCards} from '..'
 
 import './style.css'
 

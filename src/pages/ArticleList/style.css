@@ -99,7 +99,6 @@
     position: absolute;
     display: none;
 }
-  
 
 .checkmark.checked:after {
     display: block;

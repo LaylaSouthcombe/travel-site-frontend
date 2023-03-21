@@ -3,13 +3,11 @@ import React from 'react'
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 
-import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle5,ArticleGridStyle6,ArticleGridStyle7,ArticleGridStyle8,ExploreMoreButton,TripStylesGrid, GoogleAd} from '../../components'
+import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle6, ArticleGridStyle8, ExploreMoreButton, GoogleAd} from '../../components'
 
-import { article } from '../../utilities/article'
 import { article1 } from '../../utilities/article1'
 import { article2 } from '../../utilities/article2'
 import { article3 } from '../../utilities/article3'
-import { article4 } from '../../utilities/article4'
 import { article5 } from '../../utilities/article5'
 import { article6 } from '../../utilities/article6'
 import { article7 } from '../../utilities/article7'
@@ -28,22 +26,17 @@ const Categories = () => {
     let artArticles = [article8, article7, article6, article5, article5]
     let adventureArticles = [article8, article7, article6, article5, article5]
 
-
-
     return(
         <>
             <NavBar/>
             <div>
                 <h2 className="seperatorTitle">Explore Trip Styles</h2>
             </div>
-            {/* <TripStylesGrid/>
-            <GoogleAd dataAdSlot={"1136657549"}/> */}
             <div>
                 <h2 className="seperatorTitle">Top City Breaks</h2>
             </div>
             <ArticleGridStyle1 articles={cityArticles}/>
             <ExploreMoreButton endpoint={"/articles"}/>
-            {/* <GoogleAd dataAdSlot={"1136657549"}/> */}
             <div>
                 <h2 className="seperatorTitle">Explore Luxury Trips</h2>
             </div>
@@ -55,7 +48,6 @@ const Categories = () => {
             </div>
             <ArticleGridStyle4 articles={natureArticles}/>
             <ExploreMoreButton endpoint={"/articles"}/>
-            {/* <GoogleAd dataAdSlot={"1136657549"}/> */}
             <div>
                 <h2 className="seperatorTitle">Trips for Foodies</h2>
             </div>
@@ -67,7 +59,6 @@ const Categories = () => {
             </div>
             <ArticleGridStyle6 articles={relaxingArticles}/>
             <ExploreMoreButton endpoint={"/articles"}/>
-            {/* <GoogleAd dataAdSlot={"1136657549"}/> */}
             <div>
                 <h2 className="seperatorTitle">Budget Friendly Trips</h2>
             </div>
@@ -79,7 +70,6 @@ const Categories = () => {
             </div>
             <ArticleGridStyle8 articles={artArticles}/>
             <ExploreMoreButton endpoint={"/articles"}/>
-            {/* <GoogleAd dataAdSlot={"1136657549"}/> */}
             <div>
                 <h2 className="seperatorTitle">Adventurous Trips</h2>
             </div>
