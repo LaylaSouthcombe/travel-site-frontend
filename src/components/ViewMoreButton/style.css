@@ -1,8 +1,8 @@
-.exploreMoreButton {
+.viewMoreButton {
     margin: 10px 0px 50px 0px;
 }
 
-.exploreMoreButton > div {
+.viewMoreButton > div {
     background-color: var(--main-purple);
     width: 35%;
     margin: 0 auto;
@@ -12,18 +12,18 @@
     text-align: center;
 }
 
-.exploreMoreButton > div:hover {
+.viewMoreButton > div:hover {
     cursor: pointer;
 }
 
 @media (min-width: 768px) {
-    .exploreMoreButton > div {
+    .viewMoreButton > div {
         width: 16%;
     }
 }
 
 @media (min-width: 900px) {
-    .exploreMoreButton > div {
+    .viewMoreButton > div {
         width: 12%;
     }
 }

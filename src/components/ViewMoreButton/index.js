@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css'
 
-const ExploreMoreButton = ({endpoint}) => {
+const ViewMoreButton = ({endpoint}) => {
     let navigate = useNavigate();
 
     const handleButtonClick = () => {
@@ -10,10 +10,10 @@ const ExploreMoreButton = ({endpoint}) => {
     }
     
     return (
-        <div className="exploreMoreButton">
-            <div onClick={handleButtonClick}>Explore more</div>
+        <div className="viewMoreButton">
+            <div onClick={handleButtonClick}>View more</div>
         </div>
     )
 }
 
-export default ExploreMoreButton;
+export default ViewMoreButton;

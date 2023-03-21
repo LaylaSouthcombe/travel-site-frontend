@@ -6,7 +6,7 @@ import parse from 'html-react-parser'
 
 import './style.css'
 
-import {ArticleGridStyle2, ArticleListGridStyle2, ExploreMoreButton,  GoogleAd, PageNotFound} from '../../components'
+import {ArticleGridStyle2, ArticleListGridStyle2, ViewMoreButton,  GoogleAd, PageNotFound} from '../../components'
 
 const Article = () => {
     
@@ -61,7 +61,7 @@ const Article = () => {
                 <>
                     <h2 className="seperatorTitle">Similar Articles</h2>
                     <ArticleGridStyle2 articles={similarArticles}/> 
-                    <ExploreMoreButton endpoint={"/articles"}/>
+                    <ViewMoreButton endpoint={"/articles"}/>
                 </>
                 : null}
                 {popularArticles.length !== 0 ? 
