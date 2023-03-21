@@ -29,71 +29,70 @@ const ArticleList = () => {
 
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
+    const checkContentOfQuerySegmentAndAssign = (queryParamObject, segmentToCheck, queryParamSectionToCheck) => {
+        if(segmentToCheck.includes(`${queryParamSectionToCheck}=`)){
+            queryParamObject[queryParamSectionToCheck] = segmentToCheck.split("=")[1]
+        } else {
+            queryParamObject[queryParamSectionToCheck] = ""
+        }
+    }
 
-    console.log(articles)
+    const checkContentForAllUrlQueryParamsAndAssign = (queryParamObject, segmentToCheck) => {
+        let urlQueryParams = ["country", "continent", "city", "category"]
+        urlQueryParams.forEach(param => {
+            checkContentOfQuerySegmentAndAssign(queryParamObject, segmentToCheck, param)
+        })
+        
+    }
+
+    const generateQueryParam = (query) => {
+        let queryParamObject = {}
+        let splitQuery = query.replace(/-/g, " ").split("&")
+        for(let i = 0; i < splitQuery.length; i++){
+            checkContentForAllUrlQueryParamsAndAssign(queryParamObject, splitQuery[i])
+        }
+        return queryParamObject
+    }
+
+    const setArticleVisibilityToTrue = (articles) => {
+        articles.forEach(article => {
+            article.visibility = true
+        })
+        return articles
+    }
+
+    const fetchArticlesWithConfig = async (url, config) => {
+        await axios.get(url, config).then((response) => {
+            let responseArticles = setArticleVisibilityToTrue(response.data)
+            setArticles(responseArticles)
+        });
+    }
+
+    const fetchArticlesWithoutConfig = async (url) => {
+        await axios.get(URL).then((response) => {
+            let responseArticles = setArticleVisibilityToTrue(response.data)
+            setArticles(responseArticles)
+        });
+    }
+
 // 'category=budget-friendly&city=london'
+
     // useEffect(() => {
     //     if(query !== 'popular'){
-    //         let splitQuery = query.replace(/-/g, " ").split("&")
-    //         let country = ""
-    //         let city = ""
-    //         let category = ""
-    //         let continent = ""
-    //         for(let i = 0; i < splitQuery.length; i++){
-    //             if(splitQuery[i].includes("country=")){
-    //                 country = splitQuery[i].split("=")[1]
-    //             }
-    //             if(splitQuery[i].includes("continent=")){
-    //                 continent = splitQuery[i].split("=")[1]
-    //             }
-    //             if(splitQuery[i].includes("city=")){
-    //                 city = splitQuery[i].split("=")[1]
-    //             }
-    //             if(splitQuery[i].includes("category=")){
-    //                 category = splitQuery[i].split("=")[1]
-    //             }
-    //         }
-
-    //         const queryParam = {
-    //             country: country,
-    //             continent: continent,
-    //             city: city,
-    //             category: category
-    //         }
-
+    //        let queryParam = generateQueryParam(query)
     //         const config = {
     //             headers: {
     //               query: JSON.stringify(queryParam)
     //             }
     //         };
-
-    //         const URL = `http://localhost:3000/articles/queryterm`
-    //         axios.get(URL, config).then((response) => {
-    //                 let responseArticles = response.data
-    //                 responseArticles.forEach(x => {
-    //                  x.visibility = true
-    //                 })
-    //             setArticles(responseArticles)
-    //           });
-
+    //         fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
     //     } else if(query === 'popular'){
-    //         const URL = `http://localhost:3000/articles/trending`
-    //         axios.get(URL).then((response) => {
-    //                 let responseArticles = response.data
-    //                 responseArticles.forEach(x => {
-    //                  x.visibility = true
-    //                 })
-    //             setArticles(responseArticles)
-    //           });
+    //         fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
     //     }
     // }, [query])
 
     console.log(query)
     console.log(articles)
-
-    
-
-    
 
     return (
         <>

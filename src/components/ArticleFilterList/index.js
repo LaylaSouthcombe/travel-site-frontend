@@ -1,45 +1,31 @@
 import React, {useEffect, useState} from 'react'
 import { useParams} from 'react-router-dom';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import './style.css'
 
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
 
 import {setArticleVisibility, increaseNumberOfArticlesForFilter, addNewOrIncreaseExistingFilterToFilterArray, resetFilterLabelNumbers, uncheckOrCheckCheckBox} from './articleFilterListHelper'
 
-
-const ArticleFilterList = ({articles, setArticles}) => {
-    const dispatch = useDispatch()
+const ArticleFilterList = ({articles}) => {
 
     const {query} = useParams();
-
     const countriesInfo = useSelector(state => state.countriesInfo)
-
     const tripStylesShowing = useSelector(state => state.tripStylesShowing)
-
     const [filters, setFilters] = useState({countries: [], tripStyles: []})
-
     const [listArticles, setListArticles] = useState([])
-
     const [tripFilterLabels, setTripFilterLabels] = useState([])
-    
     const [countryFilterLabels, setCountryFilterLabels] = useState([])
-    
     const [loaded, setLoaded] = useState("Loading")
-    
     const [tripFilterClassName, setTripFilterClassName] = useState("hiddenLabel")
     const [tripShowAllClassName, setTripShowAllClassName] = useState("filterLabel")
     const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
     const [countryShowAllClassName, setCountryShowAllClassName] = useState("filterLabel")
 
-
-    
-
     const generateFilterLabels = (articlesList) => {
         let tripLabels = []
         let countryLabels = []
-
         articlesList.forEach(article => {
                 let tripName = article.trip_categories.split(",")[0]
                 addNewOrIncreaseExistingFilterToFilterArray(tripStylesShowing, tripLabels, tripName)
@@ -48,7 +34,6 @@ const ArticleFilterList = ({articles, setArticles}) => {
                     addNewOrIncreaseExistingFilterToFilterArray(countriesInfo["europe"].countries, countryLabels, countryName)
                 }
         })
-
         setTripFilterLabels(tripLabels)
         setCountryFilterLabels(countryLabels)
         setLoaded("Loaded")
@@ -100,13 +85,10 @@ const ArticleFilterList = ({articles, setArticles}) => {
     const filterArticles = (e,filterLabel, type) => {
         uncheckOrCheckCheckBox(e)
         addFilterToFiltersList(filterLabel, type)
-
         let updatedList = [...articles]
-
         updatedList.forEach(article => {
             setArticleVisibility(filters, article)
         })
-
         updateFilterLabels(updatedList)
         setListArticles(updatedList)
     }
@@ -165,8 +147,6 @@ const ArticleFilterList = ({articles, setArticles}) => {
     
 
     let numberOfArticles = 0
-   
-    
 
     return (
         <div className="articleListSection">
@@ -197,16 +177,6 @@ const ArticleFilterList = ({articles, setArticles}) => {
                         </>
                     )
                 })}
-                {/* {loaded !== "Loading" && listArticles.length < 5 && listArticles.length > 0 ? listArticles.slice(1).map((article, i) => {
-                    if(article.visibility === true){
-                        numberOfArticles += 1
-                    }
-                    return (
-                        <>
-                            {article.visibility === true ? <ArticleTabCards keyId={"articleListShort " + i} article={article}/> : null}
-                        </>
-                    )
-                }) : null} */}
                 {loaded !== "Loading" && numberOfArticles === 0 ? 
                 <>
                     <div className="noArticles">
@@ -230,7 +200,7 @@ const ArticleFilterList = ({articles, setArticles}) => {
                     {/* make sticky */}
             </div>
         </div>
-)
+    )
 }
 
 export default ArticleFilterList;
