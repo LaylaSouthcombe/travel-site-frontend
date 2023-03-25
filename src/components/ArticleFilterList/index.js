@@ -3,13 +3,18 @@ import { useParams} from 'react-router-dom';
 
 import { useSelector} from 'react-redux';
 import './style.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
+import { faList } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
 
 import {setArticleVisibility, increaseNumberOfArticlesForFilter, addNewOrIncreaseExistingFilterToFilterArray, resetFilterLabelNumbers, uncheckOrCheckCheckBox} from './articleFilterListHelper'
 
 const ArticleFilterList = ({articles}) => {
-
+    const root = document.getElementById('root');
+    
     const {query} = useParams();
     const countriesInfo = useSelector(state => state.countriesInfo)
     const tripStylesShowing = useSelector(state => state.tripStylesShowing)
@@ -147,10 +152,25 @@ const ArticleFilterList = ({articles}) => {
 
     let numberOfArticles = 0
 
+    const articleListFilterSection = document.getElementsByClassName("articleListFilterSection")
+    const body = document.querySelector('body')
+    const openFilterMenu = (e) => {
+        e.preventDefault()
+        articleListFilterSection[0].style.display = 'block'
+        body.classList.add("fixedBody")
+    }
+
+    const closeFilterMenu = (e) => {
+        e.preventDefault()
+        articleListFilterSection[0].style.display = 'none'
+        body.classList.remove("fixedBody")
+    }
+
     return (
         <div className="articleListSection">
             {loaded !== "loading" && listArticles.length > 4 ?
             <div className="articleListFilterSection">
+                <div className="filterCross" onClick={(e) => closeFilterMenu(e)}><FontAwesomeIcon icon={faXmark}/></div>
                 <p>Filter By:</p>
                 <ul className="filterLists">
                     <li>Trip Style</li>                  
@@ -162,10 +182,15 @@ const ArticleFilterList = ({articles}) => {
                     {loaded !== "Loading" && countryFilterLabels.length ? renderCountryFilters : null }
                     {loaded !== "Loading" && numberOfCountryFiltersShowing > 3 ? renderShowAllCountryFilters() : null }
                 </ul>
+                <p className="showResults">Show results</p>
             </div>
             : null}
             {loaded !== "Loading" && listArticles.length > 4 ?
             <div className="articleList">
+                <div className="filterBar" onClick={(e) => openFilterMenu(e)}>
+                    <FontAwesomeIcon icon={faList}/>
+                    <FontAwesomeIcon icon={faFilter}/> Filters
+                </div>
                 {listArticles.map((article, i) => {
                     if(article.visibility === true){
                         numberOfArticles += 1

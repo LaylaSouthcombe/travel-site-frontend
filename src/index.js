@@ -12,6 +12,7 @@ import App from './App';
 const store = createStore(reducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render (
   <Provider store={store}>
     <BrowserRouter>

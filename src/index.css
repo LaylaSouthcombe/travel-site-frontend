@@ -27,5 +27,9 @@ code {
   --light-grey: rgb(241, 241, 241);
   --light-grey-overlay: #e5eae9;
   --card-green: #177d7112;
-  --card-green-no-opacity: #F0F6F5;
+  --card-green-no-opacity: #d8eeea;
+}
+
+#root {
+  position: relative;
 }
