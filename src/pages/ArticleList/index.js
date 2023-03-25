@@ -69,7 +69,12 @@ const ArticleList = () => {
                     </div> 
                     //TODO: replace with a better layout error msg
                 }
-                {articles.length >= 4 ? <ThreeCardsRow articles={articles.slice(1,4)}/> : null}
+                {articles.length >= 4 ? 
+                <>
+                    <ThreeCardsRow articles={articles.slice(1,4)}/> 
+                    <GoogleAd dataAdSlot={"1136657549"}/>
+                </>
+                : null}
                 {articles.length > 0 ? 
                     <ArticleFilterList articles={articles} setArticles={setArticles}/>
                 : null}
