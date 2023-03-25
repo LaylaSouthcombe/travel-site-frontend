@@ -182,7 +182,7 @@ const ArticleFilterList = ({articles}) => {
                     {loaded !== "Loading" && countryFilterLabels.length ? renderCountryFilters : null }
                     {loaded !== "Loading" && numberOfCountryFiltersShowing > 3 ? renderShowAllCountryFilters() : null }
                 </ul>
-                <p className="showResults">Show results</p>
+                <p className="showResults"  onClick={(e) => closeFilterMenu(e)}>Show results</p>
             </div>
             : null}
             {loaded !== "Loading" && listArticles.length > 4 ?

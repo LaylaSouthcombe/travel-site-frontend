@@ -4,7 +4,7 @@ import {DestinationsDropMenu, NoNestDropMenu} from '../../layout'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-
+import favicon from '../../images/favicon.png'
 
 const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdownMenuOpen}) => {
     let navigate = useNavigate();
@@ -86,6 +86,9 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
     return(
         <>
             <div className="menuItems">
+                <div className="menuFav">
+                    <img src={favicon} alt="" />
+                </div>
                 {renderMenu}
             </div>
         </>

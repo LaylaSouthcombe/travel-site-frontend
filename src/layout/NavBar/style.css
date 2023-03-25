@@ -3,17 +3,23 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    background-color: var(--background-colour);
 }
 
 .navLogo {
-    margin: 10px 10px 10px 30px;
-    max-width: 200px;
-    min-width: 30px;
+    display: flex;
+    padding: 10px 10px 10px 30px;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--background-colour);
 }
 
 .navLogo > img {
     width: 100%;
+    max-width: 200px;
+    min-width: 30px;
 }
 
 .navSearchIcon {
@@ -41,11 +47,41 @@
     font-size: 1.25rem;
 }
 
+.mainDesktopNavBarContainer {
+    width: 100%;
+    z-index: 901;
+}
+
 .mainDesktopNavBar {
     display: flex;
     justify-content: space-between;
     height: 75px;
+    background-color: var(--background-colour);
 }
+
+.stickyBuffer {
+    height: 75px;
+}
+
+.menuFav {
+    width: 50px;
+
+}
+
+.menuFav > img {
+    width: 100%;
+}
+
+.hiddenNav {
+    display: none;
+}
+
+.stickyNav {
+    position: fixed;
+    top: 0;
+}
+
+
 
 @media (min-width: 475px) {
     .sideMenuButton > svg {
@@ -56,23 +92,22 @@
         padding-left: 16%;
     }
 }
+
 @media (min-width: 575px) {
     .sideMenuButton > svg {
         font-size: 1.55rem;
     }
 }
+
 @media (min-width: 675px) {
     .sideMenuButton > svg {
         font-size: 1.65rem;
     }
 }
+
 @media (min-width: 768px) {
     .navSearchIcon {
         padding-left: 2%;
-    }
-
-    .navLogo {
-        margin: 10px auto;
     }
 
     .menuItem:hover {

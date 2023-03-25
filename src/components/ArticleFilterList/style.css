@@ -7,12 +7,19 @@
     width: 90%;
     margin: 0 auto;
     z-index: 900;
-    height: 100vh;
+    /* height: 100vh; */
+    /* height: fit-content; */
     top: 0;
+    overflow: scroll;
 }
 
 .fixedBody {
     overflow: hidden;
+}
+
+.filterBar > svg:first-child {
+    margin-left: 15px;
+    margin-right: 5px;
 }
 
 .filterCross {

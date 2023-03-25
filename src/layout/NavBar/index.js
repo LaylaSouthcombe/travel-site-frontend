@@ -20,7 +20,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 import logo from '../../images/logo.png'
 
-const NavBar = ({country}) => {
+const NavBar = () => {
     const [selectedListTitle, setSelectedListTitle] = useState();
     const [listData, setListData] = useState([])
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
@@ -343,12 +343,32 @@ const NavBar = ({country}) => {
       },
     });
 
+    
+    function stickynavbar() {
+      const navbar = document.querySelector('.mainDesktopNavBarContainer');
+      const menuBuffer = document.querySelector('.menuBuffer');
+      let top = navbar.offsetTop;
+
+      if(this.oldScroll > this.scrollY){
+        if (window.scrollY < top + 75) { 
+          navbar.classList.remove('stickyNav');
+          menuBuffer.classList.remove('stickyBuffer');
+        }
+      } else {
+        if (window.scrollY > top) {    
+          navbar.classList.add('stickyNav');
+          menuBuffer.classList.add('stickyBuffer');
+        }
+      }
+      this.oldScroll = this.scrollY;
+    }
+    window.addEventListener('scroll', stickynavbar);
+
     return (
         <>
         {windowSize < 440 ?
             <>
-              <div className="mainMobileNavBar">
-                  {country !== undefined ? <div>{country}</div> : null}  
+              <div className="mainMobileNavBar">  
                   <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
@@ -369,7 +389,6 @@ const NavBar = ({country}) => {
             {windowSize < 768 && windowSize >= 440 ?
             <>
               <div className="mainMobileNavBar">
-                  {country !== undefined ? <div>{country}</div>: null}  
                   <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
@@ -393,17 +412,17 @@ const NavBar = ({country}) => {
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
                   <div className="mainDesktopNavBarContainer">
-                <div className="mainDesktopNavBar">
-                    {country !== undefined ? <div>{country}</div>: null}     
-                  <DesktopNavBar titleListData={titleListData} fullListData={fullListData} dropdownMenuOpen={dropdownMenuOpen} setDropdownMenuOpen={setDropdownMenuOpen}/>
-                  <div className="navSearchIcon">
-                  <ThemeProvider theme={theme}>
-                    <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
-                    </ThemeProvider>
-                      <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                    <div className="mainDesktopNavBar"> 
+                      <DesktopNavBar titleListData={titleListData} fullListData={fullListData} dropdownMenuOpen={dropdownMenuOpen} setDropdownMenuOpen={setDropdownMenuOpen}/>
+                      <div className="navSearchIcon">
+                      <ThemeProvider theme={theme}>
+                        <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
+                        </ThemeProvider>
+                          <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                  </div>
+                  <div className="menuBuffer"></div>
             </>
             : null }
         </>
