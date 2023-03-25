@@ -8,10 +8,10 @@ import TextField from '@mui/material/TextField';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 
-const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, windowSize}) => {
+const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu}) => {
     let navigate = useNavigate();
     
     const changeSecondNavBarVisibility = (name) => {
@@ -50,14 +50,18 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
             main: '#3F3D56',
           },
         },
-      });
+    });
+
     return (
         <div id="firstSideNavMenu">
+            <div className="closeSideMenu" onClick={() => openCloseSideMenu()}>
+                <FontAwesomeIcon icon={faXmark} />
+            </div>
             <div className="navSearchIconSideNav">
-            <ThemeProvider theme={theme}>
-                    <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
-                    <FontAwesomeIcon icon={faMagnifyingGlass}/>
-            </ThemeProvider>
+                <ThemeProvider theme={theme}>
+                        <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
+                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                </ThemeProvider>
             </div>
             <List
                 sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}

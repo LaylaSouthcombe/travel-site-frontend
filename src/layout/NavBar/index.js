@@ -323,6 +323,7 @@ const NavBar = () => {
     window.addEventListener('resize', handleResize)
 
     const openCloseSideMenu = () => {
+      console.log("hi")
         if(sideMenuOpen){
             setSideMenuOpen(false)
             setListData([])
@@ -344,7 +345,7 @@ const NavBar = () => {
     });
 
     
-    function stickynavbar() {
+    const stickynavbar = () => {
       const navbar = document.querySelector('.mainDesktopNavBarContainer');
       const menuBuffer = document.querySelector('.menuBuffer');
       let top = navbar.offsetTop;
@@ -372,15 +373,15 @@ const NavBar = () => {
                   <div className="navLogo">
                     <img src={logo} alt="sojo travels logo"/>
                   </div>
-                  <div className="sideMenuButton" style={{position: menuBarPosition}}onClick={() => openCloseSideMenu()}>
+                  <div className="sideMenuButton" style={{position: menuBarPosition}} onClick={() => openCloseSideMenu()}>
                       <FontAwesomeIcon icon={menuIcon} />
                   </div>
               </div> 
                   {sideMenuOpen ? 
                     <div>
-                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize}/> : null}
+                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData} setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} openCloseSideMenu={openCloseSideMenu}/> : null}
                       {listData.length ?
-                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle}/> 
+                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu}/> 
                       : null}
                     </div> 
                   : null}
@@ -398,9 +399,9 @@ const NavBar = () => {
               </div> 
                   {sideMenuOpen ? 
                     <div>
-                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize}/> : null}
+                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize} openCloseSideMenu={openCloseSideMenu}/> : null}
                       {listData.length ?
-                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle}/> 
+                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu}/> 
                       : null}
                     </div> 
                   : null}

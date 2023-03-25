@@ -6,7 +6,19 @@
     height:100vh;
     background-color: var(--card-green-no-opacity);
     border-left: 3px solid var(--main-purple);
-    z-index: 998;
+    z-index: 200;
+}
+
+.closeSideMenu {
+    width: 15%;
+    z-index: 300;
+    margin-right: 0;
+    margin-left: auto;
+    margin-top: 22px;
+}
+
+.closeSideMenu > svg {
+    font-size: 2rem;
 }
 
 .secondNavBar {
@@ -20,10 +32,16 @@
     z-index: 900;
 }
 
-.secondNavBar > .backArrow {
+.sideMenuButtons {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.secondNavBar .backArrow {
     font-size: 1.75rem;
     margin: 30px;
     margin-left: 6%;
+    margin-top: 18px;
 }
 
 .secondNavBar > .MuiList-subheader > .MuiListSubheader-root{
@@ -73,11 +91,32 @@
     border-radius: 10px;
 }
 
+.sideNavMenuMainItem > .MuiButtonBase-root:hover {
+    background-color: var(--main-purple);
+    color: var(--card-green-no-opacity);
+}
+
+.sideNavMenuMainItem > .MuiButtonBase-root:hover > div > span {
+    color: var(--card-green-no-opacity);
+}
+
+.sideNavMenuMainItem > .MuiButtonBase-root:hover > svg > path {
+    color: var(--card-green-no-opacity);
+}
+
+.sideNavMenuChildItem > .MuiButtonBase-root:hover {
+    background-color: var(--main-purple);
+    color: var(--card-green-no-opacity);
+}
+
+.sideNavMenuChildItem > .MuiButtonBase-root:hover > div > span {
+    color: var(--card-green-no-opacity);
+}
+
 .secondNavBar > .backArrow {
     font-size: 1.75rem;
     margin: 30px;
 }
-
 
 .sideNavMenuMainItem > div > svg {
     margin-right: 20px;
@@ -92,7 +131,7 @@
 }
 
 .sideNavMenuChildItem > .MuiButtonBase-root {
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .sideNavMenuChildItem span {

@@ -12,8 +12,10 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-const SecondSideNavBar = ({listData, setListData, selectedListTitle}) => {
+
+const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSideMenu}) => {
     let navigate = useNavigate();
     const [openList, setOpenList] = useState([]);
 
@@ -81,9 +83,14 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle}) => {
     )
 
     return (
-        <div className={"secondNavBar"}>
-            <div className="backArrow" onClick={() => closeSideNavBar()}>
-                <FontAwesomeIcon icon={faArrowLeft} />
+        <div className="secondNavBar">
+            <div className="sideMenuButtons">
+                <div className="backArrow" onClick={() => closeSideNavBar()}>
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                </div>
+                <div className="closeSideMenu" onClick={() => openCloseSideMenu()}>
+                    <FontAwesomeIcon icon={faXmark} />
+                </div>
             </div>
             <List
                 subheader={
