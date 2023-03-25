@@ -13,30 +13,23 @@ import './components/ArticleGridStyle1/style.css'
 
 
 function App() {
-  const continents = ['/europe', 
-  // '/africa', '/asia', '/north-america', '/south-america', '/australia-oceania'
-]
+
   return (
     <>
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      {continents.map(continent => (
-        <>
-          <Route path={continent} element={<ContinentCountryCity/>}/>
-          <Route path={continent+'/:country'} element={<ContinentCountryCity/>}/>
-          <Route path={continent+'/:country/:city'} element={<ContinentCountryCity/>}/>
-        </>
-      ))}
-      {/* categories page */}
-      <Route path="/trip-styles" element={<Categories/>}/>
-      {/* tips and tricks page */}
-      <Route path="/trip-planning" element={<TripPlanning/>}/>
-      {/* Article list that connects to explore more buttons, has filter list etc */}
-      
-      {/* use below route for search results, view all, individual categories, popular */}
-      <Route path="/articles/:query" element={<ArticleList/>}/>
-      <Route path="/article/:articleid" element={<Article/>}/>
-    </Routes>
+      <Routes>
+        {/* Europe routes */}
+        <Route path="/" element={<Home/>}/>
+        <Route path={'/europe'} element={<ContinentCountryCity/>}/>
+        <Route path={'/europe/:country'} element={<ContinentCountryCity/>}/>
+        <Route path={'/europe/:country/:city'} element={<ContinentCountryCity/>}/>
+        {/* Categories page */}
+        <Route path="/trip-styles" element={<Categories/>}/>
+        {/* Tips and tricks page */}
+        <Route path="/trip-planning" element={<TripPlanning/>}/>    
+        {/* Search results, view all, individual categories, popular */}
+        <Route path="/articles/:query" element={<ArticleList/>}/>
+        <Route path="/article/:articleid" element={<Article/>}/>
+      </Routes>
     </>
   );
 }

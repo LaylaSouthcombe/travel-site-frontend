@@ -68,11 +68,17 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
                     {renderSubMenu(item.name)}
                 </div>
             )
-        } else {
+        } else if(item.name === "Trip Planning" || item.name === "Popular"){
             return (
                 <div className="menuItem" key={i}>
                     <p onClick={() => navigate(fullListData[item.name].url)} className="itemName">{item.name}</p>
                 </div>
+            )
+        } else {
+            return (
+                <>
+                    <div>Error 404</div>
+                </>
             )
         }
     })

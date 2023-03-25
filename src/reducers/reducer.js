@@ -7,7 +7,13 @@ const initialState = {
     articles: [],
     filters: {countries: [], tripStyles: []},
     countriesInfo: countriesInfo,
-    tripStylesShowing: tripStylesShowing
+    tripStylesShowing: tripStylesShowing,
+    queryParams: {
+        continent: "",
+        country: "",
+        city: "",
+        category: ""
+    }
 }
 
 const reducer = (state=initialState, action) => {
@@ -20,6 +26,8 @@ const reducer = (state=initialState, action) => {
             return { ...state, countriesInfo: action.payload }
         case "UPDATE_TRIP_STYLE_SHOWING":
             return { ...state, tripStylesShowing: action.payload }
+        case "UPDATE_QUERY_PARAMS":
+            return { ...state, queryParams: action.payload }
         default:
             return initialState
     }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams} from 'react-router-dom';
-import {NavBar, BottomMenu} from '../../layout'
+import { useSelector } from 'react-redux'
+import { NavBar, BottomMenu } from '../../layout'
 import './style.css'
 import axios from 'axios';
 
@@ -22,6 +23,8 @@ import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilt
 const ArticleList = () => {
     const {query} = useParams();
 
+    const queryParams = useSelector(state => state.queryParams)
+
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
     const fetchArticlesWithConfig = async (url, config) => {
@@ -32,7 +35,7 @@ const ArticleList = () => {
     }
     
     const fetchArticlesWithoutConfig = async (url) => {
-        await axios.get(URL).then((response) => {
+        await axios.get(url).then((response) => {
             let responseArticles = setArticleVisibilityToTrue(response.data)
             setArticles(responseArticles)
         });
@@ -42,17 +45,16 @@ const ArticleList = () => {
 
     // useEffect(() => {
     //     if(query !== 'popular'){
-    //        let queryParam = generateQueryParam(query)
     //         const config = {
     //             headers: {
-    //               query: JSON.stringify(queryParam)
+    //               query: JSON.stringify(queryParams)
     //             }
     //         };
     //         fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
     //     } else if(query === 'popular'){
     //         fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
     //     }
-    // }, [query])
+    // }, [query, queryParams])
 
     console.log(query)
     console.log(articles)

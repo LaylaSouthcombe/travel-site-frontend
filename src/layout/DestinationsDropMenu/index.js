@@ -6,7 +6,7 @@ const DestinationsDropMenu = ({fullListData}) => {
     // console.log(fullListData)
     const renderDestinationsDropDown = fullListData['Destinations'].slice(1, 7).map((continent, i) => {
         return(
-            <div className="dropDownCountry">
+            <div className="dropDownCountry" key={"dropDownCountry" + i}>
                 <p onClick={() => navigate(continent.name.toLowerCase())}>{continent.name}</p>
                 {/* <div className="continentMenuCountries">
                     {continent.children.slice(1, 5).map((country, i) => {

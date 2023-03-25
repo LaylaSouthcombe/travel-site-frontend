@@ -27,8 +27,8 @@ const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
                 <TabList variant="scrollable" scrollButtons="auto" onChange={handleChange} aria-label="lab API tabs example">
                 {tabHeadings.map((heading, i) => {
                     return (
-                        <Tab label={heading} value={(i+1).toString()}/>
-                    )
+                            <Tab label={heading} value={(i+1).toString()}/>
+                        )
                     }
                 )}
                 </TabList>

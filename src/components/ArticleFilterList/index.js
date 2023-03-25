@@ -144,7 +144,6 @@ const ArticleFilterList = ({articles}) => {
                 </>
             )
         }
-    
 
     let numberOfArticles = 0
 
@@ -173,7 +172,7 @@ const ArticleFilterList = ({articles}) => {
                     }
                     return (
                         <>
-                            {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} article={article}/> : null}
+                            {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article}/> : null}
                         </>
                     )
                 })}

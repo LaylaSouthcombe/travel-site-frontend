@@ -283,7 +283,7 @@ const NavBar = ({country}) => {
             ],
             "Popular": {
               "icon": faArrowTrendUp,
-              "url": "/popular"
+              "url": "/articles/popular"
             },
           "Trip Planning": {
               "icon": faLightbulb,
@@ -303,7 +303,7 @@ const NavBar = ({country}) => {
       {
           "name": "Popular",
           "icon": faArrowTrendUp,
-          "url": "/popular"
+          "url": "/articles/popular"
       },
       {
           "name": "Trip Planning",

@@ -6,9 +6,9 @@ import './style.css'
 const NoNestDropMenu = ({fullListData, itemTitle}) => {
     let navigate = useNavigate();
 
-    const renderNoNestDropMenuDropDown = fullListData[itemTitle].map(item => {
-        return(
-            <div className="dropDownItem" onClick={() => navigate(item.url)}>
+    const renderNoNestDropMenuDropDown = fullListData[itemTitle].map((item, i) => {
+        return (
+            <div className="dropDownItem" key={"dropDownItem" + i} onClick={() => navigate(item.url)}>
                 <FontAwesomeIcon icon={item.icon} />
                 <p>{item.name}</p>
             </div>
