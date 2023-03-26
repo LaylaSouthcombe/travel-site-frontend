@@ -376,13 +376,14 @@ const NavBar = () => {
 
     const getAndSetSearchQuery = (e, location) => {
       let inputArea = document.querySelector('.MuiInputBase-input')
-      if(location === 'input'){
+      console.log(inputArea.value)
+      if(location === 'input' && inputArea.value !== ""){
         if(e.key === 'Enter'){
           dispatch({ type: "UPDATE_SEARCH_QUERY", payload: inputArea.value})
           inputArea.value = ""
           navigate('/articles/search-results')
         }
-      } else if(location === 'icon'){
+      } else if(location === 'icon' && inputArea.value !== ""){
         dispatch({ type: "UPDATE_SEARCH_QUERY", payload: inputArea.value})
         inputArea.value = ""
         navigate('/articles/search-results')
@@ -403,7 +404,7 @@ const NavBar = () => {
               </div> 
                   {sideMenuOpen ? 
                     <div>
-                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData} setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} openCloseSideMenu={openCloseSideMenu}/> : null}
+                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData} setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} openCloseSideMenu={openCloseSideMenu}getAndSetSearchQuery={getAndSetSearchQuery}/> : null}
                       {listData.length ?
                         <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu}/> 
                       : null}
@@ -423,7 +424,7 @@ const NavBar = () => {
               </div> 
                   {sideMenuOpen ? 
                     <div>
-                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize} openCloseSideMenu={openCloseSideMenu}/> : null}
+                      {!listData.length ? <FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize} openCloseSideMenu={openCloseSideMenu} getAndSetSearchQuery={getAndSetSearchQuery}/> : null}
                       {listData.length ?
                         <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu}/> 
                       : null}

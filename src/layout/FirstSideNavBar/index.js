@@ -11,7 +11,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 
-const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu}) => {
+const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery}) => {
     let navigate = useNavigate();
     
     const changeSecondNavBarVisibility = (name) => {
@@ -59,8 +59,8 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
             </div>
             <div className="navSearchIconSideNav">
                 <ThemeProvider theme={theme}>
-                        <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
-                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                        <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary" onKeyUp={(e) => getAndSetSearchQuery(e, "input")}/>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={(e) => getAndSetSearchQuery(e, "icon")}/>
                 </ThemeProvider>
             </div>
             <List

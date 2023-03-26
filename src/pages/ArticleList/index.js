@@ -44,26 +44,26 @@ const ArticleList = () => {
 
 // 'category=budget-friendly&city=london'
 
-    useEffect(() => {
-        console.log(query)
-        if(query === 'popular'){
-            fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
-        } else if(query === 'search-results'){
-             const config = {
-                headers: {
-                  query: JSON.stringify(searchQuery)
-                }
-            };
-             fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
-         } else {
-            const config = {
-                headers: {
-                  query: queryParams
-                }
-            };
-            fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
-         }
-    }, [query, queryParams, searchQuery])
+    // useEffect(() => {
+    //     console.log(query)
+    //     if(query === 'popular'){
+    //         fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
+    //     } else if(query === 'search-results'){
+    //          const config = {
+    //             headers: {
+    //               query: JSON.stringify(searchQuery)
+    //             }
+    //         };
+    //          fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
+    //      } else {
+    //         const config = {
+    //             headers: {
+    //               query: queryParams
+    //             }
+    //         };
+    //         fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
+    //      }
+    // }, [query, queryParams, searchQuery])
 
     console.log(query)
     console.log(articles)
