@@ -4,21 +4,44 @@
 
 .articleListFilterSection {
     position: fixed;
-    width: 95%;
-    margin: 0 auto;
+    width: 90%;
+    height: 91.75vh;
     z-index: 900;
-    /* height: 100vh; */
-    /* height: fit-content; */
     top: 0;
     overflow: scroll;
+    background-color: var(--darker-background-colour);
+    border: 3px solid var(--main-purple);
+    margin-top: 83px;
+    border-radius: 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+.articleListFilterSection::-webkit-scrollbar {
+    display: none;
+}
+
 
 .fixedBody {
     overflow: hidden;
 }
 
+.filterBar {
+    height: 50px;
+    border-top: 3px solid var(--main-purple);
+    width: 95%;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    font-size: 24px;
+}
+
 .filterBar > svg:first-child {
     margin-left: 15px;
+    margin-right: 5px;
+}
+
+.filterBar > svg {
     margin-right: 5px;
 }
 
@@ -30,7 +53,7 @@
 
 p.showResults {
     background-color: var(--main-purple);
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
     width: 50%;
     text-align: center;
     margin: 30px auto 0px auto;
@@ -42,13 +65,6 @@ p.showResults {
 .articleListSection {
     display: grid;
     grid-template-columns: 100%;
-}
-
-.articleListFilterSection {
-    background-color: var(--card-green-no-opacity);
-    padding-right: 10px;
-    margin-top: 20px;
-    border-radius: 15px;
 }
 
 .filterLists {
@@ -105,13 +121,13 @@ p.showResults {
     left: 0;
     height: 22.5px;
     width: 22.5px;
-    background-color: var(--card-green-no-opacity);
+    background-color: var(--background-colour);
     border: 2px solid black;
     border-radius: 3px;
 }
   
 .checkmark.checked {
-    background-color: var(--main-button-color);
+    background-color: var(--main-purple);
 }
   
 .checkmark:after {
@@ -129,7 +145,7 @@ p.showResults {
     top: 2px;
     width: 3px;
     height: 8px;
-    border: solid var(--card-green-no-opacity);
+    border: solid var(--background-colour);
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -166,6 +182,7 @@ p.showResults {
     }
 
     .articleListFilterSection {
+        margin-top: 10px;
         position: relative;
         border-radius: 0px;
         border-right: 2px solid var(--main-purple);

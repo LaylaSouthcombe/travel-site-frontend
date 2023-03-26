@@ -186,11 +186,12 @@ const ArticleFilterList = ({articles}) => {
             </div>
             : null}
             {loaded !== "Loading" && listArticles.length > 4 ?
+            <>
+            <div className="filterBar" onClick={(e) => openFilterMenu(e)}>
+                <FontAwesomeIcon icon={faList}/>
+                <FontAwesomeIcon icon={faFilter}/> Filters
+            </div>
             <div className="articleList">
-                <div className="filterBar" onClick={(e) => openFilterMenu(e)}>
-                    <FontAwesomeIcon icon={faList}/>
-                    <FontAwesomeIcon icon={faFilter}/> Filters
-                </div>
                 {listArticles.map((article, i) => {
                     if(article.visibility === true){
                         numberOfArticles += 1
@@ -209,6 +210,7 @@ const ArticleFilterList = ({articles}) => {
                 </>
                 : null}
             </div>
+            </>
             : null}
             <div className="sideAds">
                     <GoogleAd dataAdSlot={"4238599075"}/>

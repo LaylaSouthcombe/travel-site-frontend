@@ -1,7 +1,3 @@
-/* .articleCard {
-    flex:0 0 22.5%;
-} */
-
 .articleCard > .cardImg > img {
     width: 100%;
     height: 100%;
@@ -23,8 +19,8 @@
 .articleCardTitle {
     margin-top: 10px;
     margin-left: 10px;
-    margin-bottom: 0px;
-    font-size: 16px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .articleCard:hover .articleCardTitle {
@@ -40,7 +36,7 @@
     color: var(--background-colour);
     padding: 3px 22px;
     margin: -20px 10px 10px 5px;
-    font-size: 14px;
+    font-size: 18px;
     width: fit-content;
     z-index: 100;
     position: relative;
@@ -48,10 +44,6 @@
 
 @media (min-width: 900px) {
     .articleCardTitle {
-        font-size: 18px;
-    }
-
-    .articleCardCategory {
         font-size: 18px;
     }
 }
