@@ -8,7 +8,6 @@ const ArticleListCardStyle4 = ({article}) => {
 
     return (
         <div className="articleListCardStyle4">
-                <ArticleCardFeatureImg articleId={article.imageId}/>
                 <p className="articleCardTitle articleListCardTitle4" onClick={()=>navigate()}>{article.title}</p>
         </div>
     )

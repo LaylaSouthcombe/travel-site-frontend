@@ -28,7 +28,7 @@
     margin-top: 25px;
 }
 
-.sideAds {
+.articleSideAds {
     display: none;
 }
 
@@ -70,7 +70,7 @@
 }
 
 @media (min-width: 900px) {
-    .sideAds {
+    .articleSideAds {
         display: block;
         margin-top: 60px;
    }

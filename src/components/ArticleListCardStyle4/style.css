@@ -1,8 +1,19 @@
 .articleListCardStyle4 {
     display: flex;
-    padding-bottom: 7.5px;
-    padding-top: 7.5px;
+    padding: 7.5px;
     border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.articleListCardStyle4:hover {
+    box-shadow: 5px 5px var(--main-purple);
+    translate: -5px -5px;
+    background-color: var(--card-green);
+    border: 3px solid var(--main-purple);
+    padding: 4.5px 4.5px 5.5px 4.5px;
+}
+
+.articleListCardStyle4:hover .articleCardTitle {
+    margin-left: 7px;
 }
 
 .articleListCardStyle4 > .cardImg {

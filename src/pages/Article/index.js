@@ -46,7 +46,7 @@ const Article = () => {
                         <h1>{article.title}</h1>
                         {parse(article.body)}
                     </div>
-                    <div className="sideAds">
+                    <div className="articleSideAds">
                         <GoogleAd dataAdSlot={"4238599075"}/>
                         <p className="popularSideHeading">Popular on Sojo Travels</p>
                         <div className="popularArticlesSideList">
