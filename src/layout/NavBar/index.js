@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { FirstSideNavBar, SecondSideNavBar, DesktopNavBar } from '../'
 import TextField from '@mui/material/TextField';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
@@ -18,9 +21,12 @@ import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
+import { FirstSideNavBar, SecondSideNavBar, DesktopNavBar } from '../'
 import logo from '../../images/logo.png'
 
 const NavBar = () => {
+    const dispatch = useDispatch()
+    let navigate = useNavigate();
     const [selectedListTitle, setSelectedListTitle] = useState();
     const [listData, setListData] = useState([])
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
@@ -368,6 +374,21 @@ const NavBar = () => {
     }
     window.addEventListener('scroll', stickynavbar);
 
+    const getAndSetSearchQuery = (e, location) => {
+      let inputArea = document.querySelector('.MuiInputBase-input')
+      if(location === 'input'){
+        if(e.key === 'Enter'){
+          dispatch({ type: "UPDATE_SEARCH_QUERY", payload: inputArea.value})
+          inputArea.value = ""
+          navigate('/articles/search-results')
+        }
+      } else if(location === 'icon'){
+        dispatch({ type: "UPDATE_SEARCH_QUERY", payload: inputArea.value})
+        inputArea.value = ""
+        navigate('/articles/search-results')
+      }
+    }
+
     return (
         <>
         {windowSize < 440 ?
@@ -419,10 +440,10 @@ const NavBar = () => {
                     <div className="mainDesktopNavBar"> 
                       <DesktopNavBar titleListData={titleListData} fullListData={fullListData} dropdownMenuOpen={dropdownMenuOpen} setDropdownMenuOpen={setDropdownMenuOpen}/>
                       <div className="navSearchIcon">
-                      <ThemeProvider theme={theme}>
-                        <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary"/>
-                        </ThemeProvider>
-                          <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                        <ThemeProvider theme={theme}>
+                            <TextField id="outlined-basic" label="Search" variant="outlined" color="secondary" onKeyUp={(e) => getAndSetSearchQuery(e, "input")}/>
+                          </ThemeProvider>
+                          <FontAwesomeIcon icon={faMagnifyingGlass} onClick={(e) => getAndSetSearchQuery(e, "icon")}/>
                       </div>
                     </div>
                   </div>

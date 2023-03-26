@@ -13,7 +13,8 @@ const initialState = {
         country: "",
         city: "",
         category: ""
-    }
+    },
+    searchQuery: ""
 }
 
 const reducer = (state=initialState, action) => {
@@ -28,6 +29,8 @@ const reducer = (state=initialState, action) => {
             return { ...state, tripStylesShowing: action.payload }
         case "UPDATE_QUERY_PARAMS":
             return { ...state, queryParams: action.payload }
+        case "UPDATE_SEARCH_QUERY":
+            return { ...state, searchQuery: action.payload }
         default:
             return initialState
     }

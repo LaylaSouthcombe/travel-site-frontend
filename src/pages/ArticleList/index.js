@@ -24,6 +24,7 @@ const ArticleList = () => {
     const {query} = useParams();
 
     const queryParams = useSelector(state => state.queryParams)
+    const searchQuery = useSelector(state => state.searchQuery)
 
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
@@ -43,18 +44,26 @@ const ArticleList = () => {
 
 // 'category=budget-friendly&city=london'
 
-    // useEffect(() => {
-    //     if(query !== 'popular'){
-    //         const config = {
-    //             headers: {
-    //               query: JSON.stringify(queryParams)
-    //             }
-    //         };
-    //         fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
-    //     } else if(query === 'popular'){
-    //         fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
-    //     }
-    // }, [query, queryParams])
+    useEffect(() => {
+        console.log(query)
+        if(query === 'popular'){
+            fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
+        } else if(query === 'search-results'){
+             const config = {
+                headers: {
+                  query: JSON.stringify(searchQuery)
+                }
+            };
+             fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
+         } else {
+            const config = {
+                headers: {
+                  query: queryParams
+                }
+            };
+            fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
+         }
+    }, [query, queryParams, searchQuery])
 
     console.log(query)
     console.log(articles)
