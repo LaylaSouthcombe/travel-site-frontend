@@ -4,8 +4,8 @@
     right: 0;
     top: 0;
     height:100vh;
-    background-color: var(--card-green-no-opacity);
-    border-left: 3px solid var(--main-purple);
+    background-color: var(--darker-background-colour);
+    border-left: 20px solid var(--main-purple);
     z-index: 200;
 }
 
@@ -27,14 +27,14 @@
     right: 0;
     top: 0;
     height: 150%;
-    background-color: var(--card-green-no-opacity);
-    border-left: 3px solid var(--main-purple);
+    background-color: var(--darker-background-colour);
+    border-left: 20px solid var(--main-purple);
     z-index: 900;
 }
 
 .sideMenuButtons {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .secondNavBar .backArrow {
@@ -45,7 +45,7 @@
 }
 
 .secondNavBar > .MuiList-subheader > .MuiListSubheader-root{
-    background-color: var(--card-green-no-opacity);
+    background-color: var(--darker-background-colour);
     font-size: 1.75rem;
     color: var(--main-purple);
     margin-left: 15px;
@@ -77,12 +77,12 @@
 }
 
 .MuiList-root {
-    background-color: var(--card-green-no-opacity) !important;
+    background-color: var(--darker-background-colour) !important;
 }
 
 .sideNavMenuMainItem {
     padding-left: 30px;
-    background-color: var(--card-green-no-opacity);
+    background-color: var(--darker-background-colour);
     width: 90%;
 }
 
@@ -93,24 +93,24 @@
 
 .sideNavMenuMainItem > .MuiButtonBase-root:hover {
     background-color: var(--main-purple);
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .sideNavMenuMainItem > .MuiButtonBase-root:hover > div > span {
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .sideNavMenuMainItem > .MuiButtonBase-root:hover > svg > path {
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .sideNavMenuChildItem > .MuiButtonBase-root:hover {
     background-color: var(--main-purple);
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .sideNavMenuChildItem > .MuiButtonBase-root:hover > div > span {
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .secondNavBar > .backArrow {

@@ -30,6 +30,8 @@ code {
   --card-green: #177d7112;
   --card-green-no-opacity: #d8eeea;
   --background-colour: #fdfcff;
+  --lighter-card-green-no-opacity: rgb(235, 248, 246);
+  --darker-background-colour: #fbf9fe;
 }
 
 #root {

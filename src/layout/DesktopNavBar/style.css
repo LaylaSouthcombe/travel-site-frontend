@@ -25,11 +25,11 @@
 }
 
 .activeMenuItem {
-    background-color: var(--main-button-color);
+    background-color: var(--main-purple);
 }
 
 .activeMenuItem > p {
-    color: var(--card-green-no-opacity);
+    color: var(--background-colour);
 }
 
 .menuItem > p > svg {
@@ -39,9 +39,11 @@
 .navDropdown {
     display: none;
     position: absolute;
-    background-color: var(--card-green-no-opacity);
+    background-color: var(--darker-background-colour);
     border-radius: 0px 5px 5px 5px;
     top: 55px;
+    z-index: 200;
+    border: 3px solid var(--main-purple)
 }
 
 .dropDownContinent {
@@ -73,11 +75,11 @@
     }
 
     .menuItem:hover {
-        background-color: var(--main-button-color);
+        background-color: var(--main-purple);
     }
 
     .menuItem:hover > p {
-        color: var(--card-green-no-opacity);
+        color: var(--background-colour);
     }
 
     .menuItem > p {

@@ -7,11 +7,12 @@
     top: 0;
     background-color: var(--background-colour);
     z-index: 200;
+    border-bottom: 3px solid var(--main-purple);
 }
 
 .navLogo {
     display: flex;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 10px 10px 20%;
     width: 100%;
     justify-content: center;
     background-color: var(--background-colour);

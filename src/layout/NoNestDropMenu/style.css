@@ -25,7 +25,7 @@
 }
 
 .dropDownItem:hover > p, .dropDownItem:hover > svg > path{
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .dropDownItem > svg {

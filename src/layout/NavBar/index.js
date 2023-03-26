@@ -323,13 +323,15 @@ const NavBar = () => {
     window.addEventListener('resize', handleResize)
 
     const openCloseSideMenu = () => {
-      console.log("hi")
+      const body = document.querySelector('body')
         if(sideMenuOpen){
+            body.classList.remove("fixedBody")
             setSideMenuOpen(false)
             setListData([])
             setMenuIcon(faBars)
             setMenuBarPosition('static')
         } else if(!sideMenuOpen){
+            body.classList.add("fixedBody")
             setSideMenuOpen(true)
             setMenuIcon(faXmark)
             setMenuBarPosition('fixed')
@@ -344,24 +346,25 @@ const NavBar = () => {
       },
     });
 
-    
+    let oldScrollY = window.scrollY;
     const stickynavbar = () => {
-      const navbar = document.querySelector('.mainDesktopNavBarContainer');
-      const menuBuffer = document.querySelector('.menuBuffer');
-      let top = navbar.offsetTop;
-
-      if(this.oldScroll > this.scrollY){
-        if (window.scrollY < top + 75) { 
-          navbar.classList.remove('stickyNav');
-          menuBuffer.classList.remove('stickyBuffer');
+      if(windowSize >= 768){
+        const navbar = document.querySelector('.mainDesktopNavBarContainer');
+        const menuBuffer = document.querySelector('.menuBuffer');
+        let top = navbar.offsetTop;
+        if(oldScrollY < window.scrollY){
+          if (window.scrollY > top) {    
+            navbar.classList.add('stickyNav');
+            menuBuffer.classList.add('stickyBuffer');
+          }
+        } else {
+          if (window.scrollY < top + 75) { 
+            navbar.classList.remove('stickyNav');
+            menuBuffer.classList.remove('stickyBuffer');
+          }
         }
-      } else {
-        if (window.scrollY > top) {    
-          navbar.classList.add('stickyNav');
-          menuBuffer.classList.add('stickyBuffer');
-        }
+        oldScrollY = window.scrollY;
       }
-      this.oldScroll = this.scrollY;
     }
     window.addEventListener('scroll', stickynavbar);
 

@@ -44,13 +44,13 @@
 .dropDownContinent:hover {
     cursor: pointer;
     background-color: var(--main-purple);
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .dropDownCountry p:hover {
     cursor: pointer;
     background-color: var(--main-purple);
-    color: var(--card-green-no-opacity);
+    color: var(--darker-background-colour);
 }
 
 .exploreMoreMenuItem {
