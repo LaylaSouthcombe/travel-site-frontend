@@ -46,3 +46,59 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.backToTopBtnMid, .backToTopBtnBot {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  cursor: pointer;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.backToTopBtnMid {
+  background-color: var(--main-purple);
+  color: var(--darker-background-colour);
+}
+
+.backToTopBtnBot {
+  background-color: var(--darker-background-colour);
+  color: var(--main-purple);
+}
+
+.backToTopBtnMid svg, .backToTopBtnBot svg {
+  margin-right: 10px;
+}
+
+.backToTopBtnMid path {
+  color: var(--darker-background-colour);
+}
+
+.backToTopBtnBot path {
+  color: var(--main-purple);
+}
+
+.backToTopBtnMid:hover {
+  background-color: var(--darker-background-colour);
+  color: var(--main-purple);
+  border: 3px solid var(--main-purple);
+  padding: 7px 15px;
+}
+
+.backToTopBtnBot:hover {
+  background-color: var(--main-purple);
+  color: var(--darker-background-colour);
+  border: 3px solid var(--darker-background-colour);
+  padding: 7px 15px;
+}
+
+.backToTopBtnMid:hover path {
+  color: var(--main-purple);
+}
+
+.backToTopBtnBot:hover path {
+  color: var(--darker-background-colour);
+}

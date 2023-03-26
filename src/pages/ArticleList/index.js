@@ -46,6 +46,7 @@ const ArticleList = () => {
 
     // useEffect(() => {
     //     console.log(query)
+    //     console.log("rerun")
     //     if(query === 'popular'){
     //         fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
     //     } else if(query === 'search-results'){
