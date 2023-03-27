@@ -21,13 +21,25 @@
     cursor: pointer;
 }
 
+.tripStyles > div:hover > p {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+.tripStyles > div:focus > p {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
 .tripStyles > div:focus {
     cursor: pointer;
 }
 
 .tripStyles > div > p {
     text-align: center;
-    margin: 10px auto;
+    padding: 10px;
 }
 
 .tripStyles > div > div {
