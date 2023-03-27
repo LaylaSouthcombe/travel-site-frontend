@@ -8,7 +8,7 @@ const ArticleListCardStyle3 = ({article}) => {
 
     return (
         <div className="articleListCardStyle3">
-                <p className="articleListCardCategory3">{article.trip_categories.split(",")[0]}</p>
+                <p className="articleListCardCategory3">{article.article_categories.split(",")[0]}</p>
                 <p className="articleCardTitle articleListCardTitle3">{article.title}</p>
                 <div className="articleListCard3Button">Read more</div>
         </div>

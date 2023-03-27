@@ -10,7 +10,7 @@ const ArticleListCardStyle2 = ({article}) => {
         <section className="articleListCardStyle2">
             <ArticleCardFeatureImg articleId={article.imageId}/>
             <section className="articleCardMeta">
-                <p className="articleCardCategory">{article.trip_categories.split(",")[0]}</p>
+                <p className="articleCardCategory">{article.article_categories.split(",")[0]}</p>
                 <p className="articleCardTitle articleListCardTitle">{article.title}</p>
             </section>
             <button className="articleCardButton">Read more</button>

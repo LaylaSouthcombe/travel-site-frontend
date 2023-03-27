@@ -30,7 +30,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
             if(heading === 'All'){
                 articlesArray['All'].push(tabArticles[i])
             } else {
-                if(tabArticles[i]["trip_categories"].includes(heading)){
+                if(tabArticles[i]["article_categories"].includes(heading)){
                     articlesArray[heading].push(tabArticles[i])
                 }
             }

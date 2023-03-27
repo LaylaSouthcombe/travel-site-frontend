@@ -23,7 +23,7 @@ const TripPlanning = () => {
             "city": "bogota, Quito, brazillia, buenos aires",
             "country": "Colombia, Ecuador, Brazil, Argentina",
             "continent": "south america",
-            "trip_categories": "city, adventure, culture",
+            "article_categories": "city, adventure, culture",
             "keywords": "Colombia, Ecuador, Brazil, Argentina"
             }, article],
         [article],

@@ -8,7 +8,7 @@ const article8 = {
     "city": "bogota, Quito, brazillia, buenos aires",
     "country": "Belgium, Ecuador, Brazil, Argentina",
     "continent": "south america",
-    "trip_categories": "Nature, adventure, culture",
+    "article_categories": "Nature, adventure, culture",
     "keywords": "Colombia, Ecuador, Brazil, Argentina",
     visibility: true
 }
