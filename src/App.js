@@ -21,13 +21,16 @@ function App() {
   function scrollFunction() {
     if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
       if(document.body.scrollHeight - document.body.scrollTop <= 1290 || document.documentElement.scrollHeight - document.documentElement.scrollTop <= 1290){
-        setButtonClassName("backToTopBtnBot")
+        setButtonClassName("backToTopBtnBot visibleToTopBtn")
       } else {
-        setButtonClassName("backToTopBtnMid")
+        setButtonClassName("backToTopBtnMid visibleToTopBtn")
       }
-      setButtonDisplay("block")
     } else {
-      setButtonDisplay("none")
+      if(document.body.scrollHeight - document.body.scrollTop <= 1290 || document.documentElement.scrollHeight - document.documentElement.scrollTop <= 1290){
+        setButtonClassName("backToTopBtnBot hiddenToTopBtn")
+      } else {
+        setButtonClassName("backToTopBtnMid hiddenToTopBtn")
+      }
     }
   }
   
@@ -54,7 +57,7 @@ function App() {
         <Route path="/articles/:query" element={<ArticleList/>}/>
         <Route path="/article/:articleid" element={<Article/>}/>
       </Routes>
-      <div className={buttonClassName} onClick={() => topFunction()} style={{display: buttonDisplay}}>
+      <div className={buttonClassName} onClick={() => topFunction()}>
         <FontAwesomeIcon icon={faAngleUp} />
         To top
       </div>

@@ -47,8 +47,28 @@ body {
   scrollbar-width: none;
 }
 
+@keyframes btnAppear {
+  0% {opacity: 0; visibility: hidden;}
+  100% {opacity: 1; visibility: visible;}
+}
+
+.visibleToTopBtn {
+  animation-name: btnAppear;
+  animation-duration: 0.5s;
+}
+
+@keyframes btnDisappear {
+  0% {opacity: 1; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+
+.hiddenToTopBtn {
+  animation-name: btnDisappear;
+  animation-duration: 0.5s;
+  opacity: 0;
+}
+
 .backToTopBtnMid, .backToTopBtnBot {
-  display: none;
   position: fixed;
   bottom: 20px;
   right: 30px;
