@@ -12,7 +12,7 @@ const ArticleListCardStyle1 = ({article}) => {
                     <img src={article.feature_img_url !== "" ? article.feature_img_url : article.feature_img_base64} alt=""/>
             </div>
             <div className="articleCardMeta">
-                <p className="articleCardCategory">{article.article_categories.split(",")[0]}</p>
+                <p className="articleCardCategoryArea articleCardCategory">{article.article_categories.split(",")[0]}</p>
                 <p className="articleCardTitle articleListCardTitle">{article.title}</p>
             </div>
         </a>

@@ -33,14 +33,6 @@
     margin: 0 auto;
 }
 
-.style4column2row1 > .articleCardStyle1 > .articleCardCategory {
-    font-size: 12px;
-}
-
-.style4column2row1 > .articleCardStyle1 > .articleCardTitle {
-    font-size: 14px;
-}
-
 .style4column2row2 {
     display: grid;
     grid-template-columns: 100%;
