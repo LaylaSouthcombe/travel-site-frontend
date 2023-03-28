@@ -34,7 +34,6 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
         // setListData([])
         setSecondNavClassName("secondNavBar hiddenSecondNavBar")
     }
-    console.log(listData)
 
     const renderedMenuItems = listData.map((heading,i )=> {
         return (

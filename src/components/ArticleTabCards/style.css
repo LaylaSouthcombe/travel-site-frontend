@@ -1,10 +1,11 @@
-.articleCard > .cardImg > img {
+.articleCard > .cardImg > img,
+.skeletonArticleCard > .cardImg > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.articleCard {
+.articleCard, .skeletonArticleCard {
     padding: 7.5px 7.5px 10.5px 7.5px;
 }
 
