@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from 'react'
 import { useParams} from 'react-router-dom';
-
 import { useSelector} from 'react-redux';
+import Skeleton from '@material-ui/lab/Skeleton';
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
+import article from '../../utilities/article'
+
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
 
 import {setArticleVisibility, increaseNumberOfArticlesForFilter, addNewOrIncreaseExistingFilterToFilterArray, resetFilterLabelNumbers, uncheckOrCheckCheckBox} from './articleFilterListHelper'
 
 const ArticleFilterList = ({articles}) => {
-    const root = document.getElementById('root');
-    
+  
     const {query} = useParams();
     const countriesInfo = useSelector(state => state.countriesInfo)
     const tripStylesShowing = useSelector(state => state.tripStylesShowing)
@@ -22,11 +23,13 @@ const ArticleFilterList = ({articles}) => {
     const [listArticles, setListArticles] = useState([])
     const [tripFilterLabels, setTripFilterLabels] = useState([])
     const [countryFilterLabels, setCountryFilterLabels] = useState([])
-    const [loaded, setLoaded] = useState("Loading")
+    const [loaded, setLoaded] = useState(false)
     const [tripFilterClassName, setTripFilterClassName] = useState("hiddenLabel")
     const [tripShowAllClassName, setTripShowAllClassName] = useState("filterLabel")
     const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
     const [countryShowAllClassName, setCountryShowAllClassName] = useState("filterLabel")
+
+    let loadingArticles = [article, article, article, article, article, article]
 
     const generateFilterLabels = (articlesList) => {
         let tripLabels = []
@@ -41,7 +44,7 @@ const ArticleFilterList = ({articles}) => {
         })
         setTripFilterLabels(tripLabels)
         setCountryFilterLabels(countryLabels)
-        setLoaded("Loaded")
+        setLoaded(true)
     }
 
     const updateFilterLabels = (articlesList) => {
@@ -59,14 +62,14 @@ const ArticleFilterList = ({articles}) => {
         })
         setTripFilterLabels(tripLabels)
         setCountryFilterLabels(countryLabels)
-        setLoaded("Loaded")
+        setLoaded(true)
     }
 
     useEffect(() => {
         setListArticles(articles)
         generateFilterLabels(articles)
-        setLoaded("Loaded")
-    },[articles])
+        setLoaded(true)
+    },[articles, generateFilterLabels])
 
     const handleTripShowAll = () => {
         setTripFilterClassName("filterLabel")
@@ -168,24 +171,41 @@ const ArticleFilterList = ({articles}) => {
 
     return (
         <div className="articleListSection">
-            {loaded !== "loading" && listArticles.length > 4 ?
+            {loaded && listArticles.length > 4 ?
             <div className="articleListFilterSection">
                 <div className="filterCross" onClick={(e) => closeFilterMenu(e)}><FontAwesomeIcon icon={faXmark}/></div>
                 <p>Filter By:</p>
                 <ul className="filterLists">
                     <li>Trip Style</li>                  
-                    {loaded !== "Loading" && tripFilterLabels.length ? renderTripFilters : null }
-                    {loaded !== "Loading" && numberOfTripFiltersShowing > 3 ? renderShowAllTripFilters() : null }
+                    {loaded && tripFilterLabels.length ? renderTripFilters : null }
+                    {loaded && numberOfTripFiltersShowing > 3 ? renderShowAllTripFilters() : null }
                 </ul>
                 <ul className="filterLists">
                     <li>Country</li>
-                    {loaded !== "Loading" && countryFilterLabels.length ? renderCountryFilters : null }
-                    {loaded !== "Loading" && numberOfCountryFiltersShowing > 3 ? renderShowAllCountryFilters() : null }
+                    {loaded && countryFilterLabels.length ? renderCountryFilters : null }
+                    {loaded && numberOfCountryFiltersShowing > 3 ? renderShowAllCountryFilters() : null }
                 </ul>
                 <p className="showResults"  onClick={(e) => closeFilterMenu(e)}>Show results</p>
             </div>
             : null}
-            {loaded !== "Loading" && listArticles.length > 4 ?
+            {!loaded ?
+            <div className="articleListFilterSection skeletonFilterSection">
+                <p><Skeleton variant="rounded" width={"80%"} height={20}/></p>
+                <ul className="filterLists">
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                </ul>
+                <ul className="filterLists">
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                    <li><Skeleton variant="rounded" width={"80%"} height={20}/></li>
+                </ul>
+            </div>
+            : null}
+            {loaded && listArticles.length > 4 ?
             <>
             <div className="filterBar" onClick={(e) => openFilterMenu(e)}>
                 <FontAwesomeIcon icon={faList}/>
@@ -198,11 +218,31 @@ const ArticleFilterList = ({articles}) => {
                     }
                     return (
                         <>
-                            {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article}/> : null}
+                            {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article}  loaded={loaded}/> : null}
                         </>
                     )
                 })}
-                {loaded !== "Loading" && numberOfArticles === 0 ? 
+                {loaded && numberOfArticles === 0 ? 
+                <>
+                    <div className="noArticles">
+                        No articles found
+                    </div>
+                </>
+                : null}
+            </div>
+            </>
+            : null}
+            {!loaded ?
+            <>
+            <div className="articleList">
+                {loadingArticles.map((article, i) => {
+                    return (
+                        <>
+                            <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article} loaded={false}/>
+                        </>
+                    )
+                })}
+                {loaded && numberOfArticles === 0 ? 
                 <>
                     <div className="noArticles">
                         No articles found

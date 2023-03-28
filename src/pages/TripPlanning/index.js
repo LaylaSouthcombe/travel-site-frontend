@@ -20,7 +20,7 @@ const TripPlanning = () => {
     return (
         <>
             <NavBar/>
-            <BreadCrumbMenu loaded={loaded}/>
+            <BreadCrumbMenu/>
             <HeroArticleSection article={article} loaded={loaded}/>
             <ThreeCardsRow articles={[article,article,article]} loaded={loaded}/>
             <GoogleAd dataAdSlot={"1136657549"}/>

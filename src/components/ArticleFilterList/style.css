@@ -4,6 +4,7 @@
 
 .articleListFilterSection {
     position: fixed;
+    display: none;
     width: 90%;
     height: 91.75vh;
     z-index: 900;
@@ -182,10 +183,23 @@ p.showResults {
     }
 
     .articleListFilterSection {
+        display: block;
         margin-top: 10px;
         position: relative;
         border-radius: 0px;
         border-right: 2px solid var(--main-purple);
+    }
+
+    .skeletonFilterSection {
+        padding: 20px 20px;
+    }
+
+    .skeletonFilterSection li {
+        margin-left: 25px;
+    }
+
+    .skeletonFilterSection .filterLists {
+        margin-top: 20px;
     }
 
     .showResults{

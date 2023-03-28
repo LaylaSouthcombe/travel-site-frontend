@@ -5,6 +5,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import './style.css'
 
 const HeroArticleSection = ({article, loaded}) => {
+    
     return (
         <>
             {loaded ? 

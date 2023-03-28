@@ -5,7 +5,7 @@ import './style.css'
 
 import {formatWord} from '../../utilities/formatWord'
 
-const BreadCrumbMenu = ({loaded}) => {
+const BreadCrumbMenu = () => {
 
     const location = useLocation();
     const pageLocation = location.pathname.split("/")[1]
@@ -15,16 +15,11 @@ const BreadCrumbMenu = ({loaded}) => {
     return (
          <>
             <div className="breadcrumbMenu">
-               {loaded ? 
-               <>
                     <div className="breadcrumb">
                         <a href="">Home</a>
                     </div>
                     <p className="countryCityName">{formatWord(pageLocation)}</p>
                     <p className="countryCitySummary">{summaryInfo}</p>
-               </>
-                : <Skeleton variant="rectangular" width={210} height={20}/>
-                }
             </div>
         </>
     )

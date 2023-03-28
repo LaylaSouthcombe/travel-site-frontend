@@ -9,7 +9,7 @@
     padding: 7.5px 7.5px 10.5px 7.5px;
 }
 
-.articleCard:hover {
+.articleCard:hover, .articleCard:focus {
     box-shadow: 5px 5px var(--main-purple);
     translate: -5px -5px;
     background-color: var(--card-green);
@@ -24,8 +24,16 @@
     font-size: 20px;
 }
 
-.articleCard:hover .articleCardTitle {
+.articleCard:hover .articleCardTitle, .articleCard:focus .articleCardTitle {
     margin-left: 7px;
+}
+
+.articleCardCategoryArea, .skeletonArticleTag {
+    padding: 3px 22px;
+    margin: -10px 10px 10px 5px;
+    font-size: 18px;
+    z-index: 100;
+    position: relative;
 }
 
 .articleCardCategory {
@@ -35,12 +43,12 @@
     background-repeat: no-repeat;
     background-size: 60% 100%;
     color: var(--background-colour);
-    padding: 3px 22px;
-    margin: -20px 10px 10px 5px;
-    font-size: 18px;
     width: fit-content;
-    z-index: 100;
-    position: relative;
+    margin: -20px 10px 10px 5px;
+}
+
+.articleCardTitle.skeletonArticleCardTitle > span{
+    margin: 5px 0px;
 }
 
 @media (min-width: 900px) {

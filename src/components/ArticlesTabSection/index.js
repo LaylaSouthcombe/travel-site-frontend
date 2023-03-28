@@ -8,7 +8,7 @@ import TabPanel from '@material-ui/lab/TabPanel';
 import './style.css'
 import {ArticleTabCards} from '../index'
 
-const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
+const ArticlesTabSection = ({tabArticles, tabHeadings, loaded}) => {
     let navigate = useNavigate();
 
     const [value, setValue] = React.useState('1');
@@ -72,7 +72,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings}) => {
                     return (
                         <TabPanel value={(i+1).toString()}>{sortedArticlesArray[heading].map(article => {
                             return (
-                                <ArticleTabCards article={article} classnames={"articleTabCard"}/>
+                                <ArticleTabCards article={article} classnames={"articleTabCard"} loaded={loaded}/>
                             )
                         })}
                         </TabPanel>
