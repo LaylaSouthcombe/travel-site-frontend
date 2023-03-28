@@ -7,6 +7,8 @@
     padding: 10px;
     row-gap: 10px;
     max-width: 450px;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
 }
 
 .dropDownItem {

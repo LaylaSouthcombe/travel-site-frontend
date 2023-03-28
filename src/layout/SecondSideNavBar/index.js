@@ -15,7 +15,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 
-const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSideMenu}) => {
+const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSideMenu, secondNavClassName, setSecondNavClassName}) => {
     let navigate = useNavigate();
     const [openList, setOpenList] = useState([]);
 
@@ -31,7 +31,8 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
     };
 
     const closeSideNavBar = () => {
-        setListData([])
+        // setListData([])
+        setSecondNavClassName("secondNavBar hiddenSecondNavBar")
     }
     console.log(listData)
 
@@ -83,7 +84,7 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
     )
 
     return (
-        <div className="secondNavBar">
+        <div className={secondNavClassName}>
             <div className="sideMenuButtons">
                 <div className="backArrow" onClick={() => closeSideNavBar()}>
                     <FontAwesomeIcon icon={faArrowLeft} />

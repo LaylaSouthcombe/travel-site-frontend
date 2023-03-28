@@ -7,7 +7,30 @@
     background-color: var(--darker-background-colour);
     border-left: 20px solid var(--main-purple);
     z-index: 200;
+    animation: growSide 300ms ease-in-out forwards;
+    transform-origin: top center;
 }
+
+@keyframes growSide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes hideSide {
+    0% {
+        transform: translate(0px, 0px);
+        
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
 
 .closeSideMenu {
     width: 15%;
@@ -30,6 +53,13 @@
     background-color: var(--darker-background-colour);
     border-left: 20px solid var(--main-purple);
     z-index: 900;
+    animation: growSide 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+.hiddenSecondNavBar {
+    animation: hideSide 300ms ease-in-out forwards;
+    transform-origin: top center;
 }
 
 .sideMenuButtons {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import List from '@mui/material/List';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -11,15 +11,12 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 
-const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery}) => {
+const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery, secondNavClassName, setSecondNavClassName}) => {
     let navigate = useNavigate();
-    
+
     const changeSecondNavBarVisibility = (name) => {
-        if(listData.length){
-            setListData([])
-        } else {
-            setListData(fullListData[name])
-        }
+        setSecondNavClassName("secondNavBar")
+        setListData(fullListData[name])
     }
 
     const handleClick = (name) => {

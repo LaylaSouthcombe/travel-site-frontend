@@ -2,6 +2,18 @@
     width: 50%;
     max-width: 300px;
     left: 0px;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    100% {
+        transform: scaleY(1)
+    }
 }
 
 /* #destinationsDropdown {
