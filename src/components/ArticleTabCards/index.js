@@ -3,7 +3,6 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import './style.css'
 
 const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
-    console.log(loaded)
     return (
         <>
         {loaded ? 

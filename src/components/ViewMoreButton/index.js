@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css'
 
-const ViewMoreButton = ({endpoint}) => {
+const ViewMoreButton = ({endpoint, loaded}) => {
     let navigate = useNavigate();
 
     const handleButtonClick = () => {
@@ -10,9 +10,14 @@ const ViewMoreButton = ({endpoint}) => {
     }
     
     return (
-        <div className="viewMoreButton">
-            <div onClick={handleButtonClick}>View more</div>
-        </div>
+        <>
+        {loaded ? 
+            <div className="viewMoreButton">
+                <div onClick={handleButtonClick}>View more</div>
+            </div>
+        : 
+        null}
+        </>
     )
 }
 

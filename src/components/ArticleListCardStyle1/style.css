@@ -6,6 +6,22 @@
     width: 80%;
 }
 
+.skeletonListCardImg {
+    width: 35%;
+}
+
+.skeletonListCardMeta {
+    flex-grow: 3;
+}
+
+.skeletonListCard {
+    align-items: center;
+}
+
+.articleCard, .skeletonArticleCard {
+    padding: 7.5px 7.5px 10.5px 7.5px;
+}
+
 .articleCardMeta {
     margin-left: 10px;
     margin-top: 30px;
@@ -15,16 +31,8 @@
     margin-top: 0px;
 }
 
-.articleCard:hover {
-    box-shadow: 5px 5px var(--main-purple);
-    translate: -5px -5px;
-    background-color: var(--card-green);
-    border: 3px solid var(--main-purple);
-    padding: 4.5px 4.5px 7.5px 4.5px;
-}
-
-.articleCard:hover .articleCardTitle {
-    margin-left: 7px;
+.skeletonListCard {
+    padding: 7.5px 7.5px 10.5px 7.5px;
 }
 
 @media(min-width: 900px){

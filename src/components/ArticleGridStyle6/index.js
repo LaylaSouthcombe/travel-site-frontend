@@ -6,14 +6,14 @@ import {ArticleTabCards, ArticleListCardStyle1} from '..'
 
 import './style.css'
 
-const ArticleGridStyle6 = ({articles}) => {
+const ArticleGridStyle6 = ({articles, loaded}) => {
 
     return (
         <div className="articleGridStyle6">
             <div className="style6column1">
-                <ArticleTabCards article={articles[0]}/>
+                <ArticleTabCards article={articles[0]} classnames={"articleTabCard"}/>
             </div>
-            <div className="style6column2">
+            <div className={loaded ? "style6column2" : null}>
                 <div>
                     <ArticleListCardStyle1 article={articles[1]}/>
                 </div>
@@ -22,7 +22,7 @@ const ArticleGridStyle6 = ({articles}) => {
                 </div>
             </div>
             <div className="style6column1">
-                <ArticleTabCards article={articles[3]}/>
+                <ArticleTabCards article={articles[3]} classnames={"articleTabCard"}/>
             </div>
         </div>
     )

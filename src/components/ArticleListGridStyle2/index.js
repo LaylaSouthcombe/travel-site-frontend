@@ -28,7 +28,6 @@ const article = {
                 <ArticleListCardStyle4 article={article}/>
             </div>
         </div>
-        //add new list card style with no image
     )
 }
 

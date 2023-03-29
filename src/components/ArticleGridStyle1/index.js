@@ -12,9 +12,9 @@ const ArticleGridStyle1 = () => {
                 <ArticleTabCards article={article}/>
             </div>
             <div className="style1column2">
-                <ArticleListCardStyle1 article={article}/>
-                <ArticleListCardStyle1 article={article}/>
-                <ArticleListCardStyle1 article={article}/>
+                <ArticleListCardStyle1 article={article} classnames={"articleTabCard"}/>
+                <ArticleListCardStyle1 article={article} classnames={"articleTabCard"}/>
+                <ArticleListCardStyle1 article={article} classnames={"articleTabCard"}/>
             </div>
         </div>
     )
