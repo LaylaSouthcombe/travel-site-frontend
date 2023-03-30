@@ -59,6 +59,18 @@
     margin-bottom: 30px;
 }
 
+.skeletonArticleH1 > span {
+    margin-bottom: 10px;
+}
+
+.skeletonPara > span {
+    margin-bottom: 10px;
+}
+
+.skeletonPara {
+    margin-bottom: 30px;
+}
+
 @media (min-width: 648px) {
     .articleSection > h1 {
         font-size: 32px;

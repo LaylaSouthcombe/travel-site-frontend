@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css'
-import {ArticleCardFeatureImg} from '../index'
 import Skeleton from '@material-ui/lab/Skeleton';
 
 const ArticleListCardStyle4 = ({article, loaded}) => {
