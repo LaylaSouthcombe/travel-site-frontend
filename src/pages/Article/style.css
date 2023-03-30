@@ -32,7 +32,7 @@
     display: none;
 }
 
-.popularSideHeading{
+.popularSideHeading {
     border-bottom: 1px solid grey;
     margin-bottom: 5px;
     text-align: center;
@@ -74,6 +74,7 @@
         display: block;
         margin-top: 60px;
    }
+   
    .articleMainPage {
     grid-template-columns: 75% 25%;
     }

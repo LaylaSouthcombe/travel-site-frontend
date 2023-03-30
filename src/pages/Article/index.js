@@ -16,6 +16,7 @@ const Article = () => {
     const [article, setArticle] = useState()
     const [popularArticles, setPopularArticles] = useState([])
     const [similarArticles, setSimilarArticles] = useState([])
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         const URL = `http://localhost:3000/articles/article/${articleid}`
@@ -50,7 +51,8 @@ const Article = () => {
                         <GoogleAd dataAdSlot={"4238599075"}/>
                         <p className="popularSideHeading">Popular on Sojo Travels</p>
                         <div className="popularArticlesSideList">
-                            <ArticleListGridStyle2 articles={popularArticles.slice(0,4)}/>
+                            {/* <ArticleListGridStyle2 articles={popularArticles.slice(0,4)}/> */}
+                            <ArticleListGridStyle2 articles={[article, article, article, article]} loaded={loaded}/>
                         </div>
                         <GoogleAd dataAdSlot={"9095054520"}/>
                         {/* make sticky */}
