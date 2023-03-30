@@ -12,8 +12,6 @@ export {default as PageNotFound} from './PageNotFound'
 
 export {default as ArticleCardFeatureImg} from './ArticleCardFeatureImg'
 export {default as ArticleListCardStyle1} from './ArticleListCardStyle1'
-export {default as ArticleListCardStyle2} from './ArticleListCardStyle2'
-export {default as ArticleListCardStyle3} from './ArticleListCardStyle3'
 export {default as ArticleListCardStyle4} from './ArticleListCardStyle4'
 
 
