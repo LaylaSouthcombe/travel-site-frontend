@@ -13,7 +13,7 @@ const ArticleListCardStyle4 = ({article, loaded}) => {
                     <p className="articleCardTitle articleListCardTitle4" onClick={()=>navigate()}>{article.title}</p>
             </div>
         : 
-        <div className="articleListCardStyle4">
+        <div className="skeletonArticleListCardStyle4">
             <Skeleton variant="rounded" width={"100%"} height={40}/>
         </div>
         }

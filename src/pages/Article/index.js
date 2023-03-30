@@ -22,35 +22,30 @@ const Article = () => {
     
     useEffect(() => {
         const URL = `http://localhost:3000/articles/article/${articleid}`
-        // const fetchFullArticle = async () => {
+        const fetchFullArticle = async () => {
             axios.get(URL).then((response) => {
                 let fetchedArticle = response.data
                 setArticle(fetchedArticle)
                 console.log(fetchedArticle)
                 setLoaded(true)
             });
-        // }
-        // fetchFullArticle()
+        }
+        fetchFullArticle()
 
         const popularURL = `http://localhost:3000/articles/trending`
-        // const fetchPopularArticles = async () => {
+        const fetchPopularArticles = async () => {
             axios.get(popularURL).then((response) => {
                 setPopularArticles(response.data)
-                console.log(response.data.body)
             });
-        // }
-        // fetchPopularArticles()
+        }
+        fetchPopularArticles()
         console.log(loaded)
         // const similarURL = `http://localhost:3000/articles/suggested`
         // axios.get(similarURL).then((response) => {
         //     setSimilarArticles(response.data)
         //     console.log(response.data.body)
         // });
-    }, [articleid])
-
-    console.log(popularArticles)
-    console.log(similarArticles)
-
+    }, [articleid, loaded])
 
     console.log(articleid)
     console.log(article)
@@ -67,10 +62,14 @@ const Article = () => {
                         </div>
                         <div className="articleSideAds">
                             <GoogleAd dataAdSlot={"4238599075"}/>
-                            <p className="popularSideHeading">Popular on Sojo Travels</p>
-                            <div className="popularArticlesSideList">
-                                <ArticleListGridStyle2 articles={popularArticles.slice(0,4)}/>
-                            </div>
+                            {popularArticles.length > 0 ? 
+                            <>
+                                <p className="popularSideHeading">Popular on Sojo Travels</p>
+                                <div className="popularArticlesSideList">
+                                    <ArticleListGridStyle2 articles={popularArticles} loaded={loaded}/>
+                                </div>
+                            </>
+                            : null}
                             <GoogleAd dataAdSlot={"9095054520"}/>
                             {/* make sticky */}
                         </div>

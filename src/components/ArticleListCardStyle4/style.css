@@ -1,30 +1,21 @@
-.articleListCardStyle4 {
+.articleListCardStyle4, .skeletonArticleListCardStyle4 {
     display: flex;
     padding: 7.5px;
     border-bottom: 1px solid rgb(203, 203, 203);
 }
 
-.articleListCardStyle4:hover {
+.articleListCardStyle4:hover, .articleListCardStyle4:focus {
     box-shadow: 5px 5px var(--main-purple);
     translate: -5px -5px;
     background-color: var(--card-green);
     border: 3px solid var(--main-purple);
     padding: 4.5px 4.5px 5.5px 4.5px;
+    cursor: pointer;
 }
 
-.articleListCardStyle4:hover .articleCardTitle {
+.articleListCardStyle4:hover .articleCardTitle, 
+.articleListCardStyle4:focus .articleCardTitle {
     margin-left: 7px;
-}
-
-.articleListCardStyle4 > .cardImg {
-    width: 22.5%;
-    overflow: hidden;
-    height: 100px;
-    object-fit: cover;
-}
-
-.articleListCardStyle4 > .cardImg > img {
-    width: 300%;
 }
 
 .articleListCardTitle4 {
