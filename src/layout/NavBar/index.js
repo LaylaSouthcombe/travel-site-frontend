@@ -248,6 +248,10 @@ const NavBar = () => {
             ],
             "Trip Styles": [
                 {
+                  "name": "Explore all",
+                  "url": "/trip-styles"
+                },
+                {
                   "name": "City Break",
                   "icon": faCity,
                   "url": "/city-break"

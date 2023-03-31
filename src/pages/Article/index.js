@@ -13,7 +13,7 @@ const Article = () => {
     
     const {articleid} = useParams();
     let navigate = useNavigate();
-    
+
     const [article, setArticle] = useState()
     const [popularArticles, setPopularArticles] = useState([])
     const [similarArticles, setSimilarArticles] = useState([])
@@ -22,6 +22,8 @@ const Article = () => {
     
     useEffect(() => {
         window.scrollTo(0, 0)
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
         const URL = `http://localhost:3000/articles/article/${articleid}`
         const fetchFullArticle = async () => {
             axios.get(URL).then((response) => {

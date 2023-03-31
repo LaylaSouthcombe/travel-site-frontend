@@ -8,9 +8,13 @@ import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd} from '..
 import {article} from '../../utilities/article'
 //add in random country button
 const Home = () => {
+
     useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
       }, [])
+      
     return(
         <>
             <NavBar/>

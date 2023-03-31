@@ -18,6 +18,12 @@ import tripStylesPageHero from '../../images/tripStylesPageHero.png'
 //add in random country button
 const Categories = () => {
 
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
+        window.scrollTo(0, 0)
+    }, [])
+
     let cityArticles = [article5, article1, article2, article3]
     let luxuryArticles = [article5, article1, article2, article3]
     let natureArticles = [article5, article1, article2, article3]
@@ -28,10 +34,6 @@ const Categories = () => {
     let adventureArticles = [article8, article7, article6, article5, article5]
 
     const [loaded, setLoaded] = useState(true)
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-      }, [])
 
     return(
         <>

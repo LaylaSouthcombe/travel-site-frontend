@@ -15,6 +15,12 @@ import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, Country
 
 const ContinentCountryCity = () => {
 
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
+        window.scrollTo(0, 0)
+    }, [])
+
     const location = useLocation();
     let navigate = useNavigate();
     
@@ -95,10 +101,6 @@ const ContinentCountryCity = () => {
         }
         setSummaryInfo({name: continentInfo[continent].countries[countryName].name, summary: continentInfo[continent].countries[countryName].summary})
     }
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-      }, [])
 
     return(
         <>

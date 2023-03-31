@@ -69,8 +69,11 @@ const ArticleList = () => {
     //      }
     // }, [query, queryParams, searchQuery])
     useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
+    
     console.log(query)
     console.log(articles)
 

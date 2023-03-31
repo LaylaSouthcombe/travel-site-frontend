@@ -73,7 +73,7 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
                     : 
                     <>
                         <ListItemButton onClick={() => navigate(heading.url)}>
-                        <ListItemText primary={heading.name} />
+                            <ListItemText primary={heading.name} />
                         </ListItemButton>
                     </> 
                     }
