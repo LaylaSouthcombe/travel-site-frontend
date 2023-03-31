@@ -19,20 +19,20 @@ const BottomMenu = () => {
                             "Home"
                             : null}</p>
                         <p onClick={() => navigate('/europe')}>Europe</p>
-                        <p onClick={() => navigate('/asia')}>London</p>
-                        <p onClick={() => navigate('/africa')}>Paris</p>
-                        <p onClick={() => navigate('/northamerica')}>Amsterdam</p>
-                        <p onClick={() => navigate('/southamerica')}>Barcelona</p>
-                        <p onClick={() => navigate('/southamerica')}>Berlin</p>
+                        <p onClick={() => navigate('/europe/unitedkingdom/london')}>London</p>
+                        <p onClick={() => navigate('/europe/france/paris')}>Paris</p>
+                        <p onClick={() => navigate('/europe/netherlands/amsterdam')}>Amsterdam</p>
+                        <p onClick={() => navigate('/europe/spain/barcelona')}>Barcelona</p>
+                        <p onClick={() => navigate('/europe/germany/berlin')}>Berlin</p>
                         {/* {window.innerWidth < 440 ? <p onClick={() => navigate('/australiaoceania')}>Australia/ Oceania</p> : <p onClick={() => navigate('/australiaoceania')}>Australia/Oceania</p>} */}
                     </div>
                     <div className="bottomMenuSegment2">
-                        <p onClick={() => navigate('/category/relaxing')}>Relaxing</p>
-                        <p onClick={() => navigate('/category/luxury')}>Luxury</p>
-                        <p onClick={() => navigate('/category/nature')}>Nature</p>
-                        <p onClick={() => navigate('/category/citybreak')}>City Break</p>
-                        <p onClick={() => navigate('/category/budgetfriendly')}>Budget Friendly</p>
-                        <p onClick={() => navigate('/category/adventure')}>Adventure</p>
+                        <p onClick={() => navigate('/articles/categories=relaxing')}>Relaxing</p>
+                        <p onClick={() => navigate('/articles/categories=luxury')}>Luxury</p>
+                        <p onClick={() => navigate('/articles/categories=nature')}>Nature</p>
+                        <p onClick={() => navigate('/articles/categories=city-break')}>City Break</p>
+                        <p onClick={() => navigate('/articles/categories=budget-friendly')}>Budget Friendly</p>
+                        <p onClick={() => navigate('/articles/categories=adventure')}>Adventure</p>
                     </div>
                 </div>
             </div>
