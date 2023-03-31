@@ -66,7 +66,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) =
             let formattedHeading = formatHeadingForEndPoint(heading)
             endPoint = `${endPointStart}&category=${formattedHeading}`
         }
-        return endPoint
+        return endPoint.toLowerCase()
     }
 
     return (
