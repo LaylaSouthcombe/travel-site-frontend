@@ -12,7 +12,7 @@
 
 .navLogo {
     display: flex;
-    padding: 10px 10px 10px 20%;
+    padding: 10px 10px 10px 10px;
     width: 100%;
     justify-content: center;
     background-color: var(--background-colour);
@@ -67,7 +67,6 @@
 
 .menuFav {
     width: 50px;
-
 }
 
 .menuFav > img {
@@ -82,8 +81,6 @@
     position: fixed;
     top: 0;
 }
-
-
 
 @media (min-width: 475px) {
     .sideMenuButton > svg {

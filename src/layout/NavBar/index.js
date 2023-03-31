@@ -48,7 +48,7 @@ const NavBar = () => {
                         },
                         {
                           "name": "Denmark",
-                          "url": "europe/denmark",
+                          "url": "/europe/denmark",
                           "cities": [
                             {
                               "name": "Copenhagen",
@@ -62,7 +62,7 @@ const NavBar = () => {
                         },
                         {
                           "name": "France",
-                          "url": "/france",
+                          "url": "/europe/france",
                           "cities": [
                             {
                               "name": "Paris",
@@ -76,7 +76,7 @@ const NavBar = () => {
                         },
                         {
                           "name": "Germany",
-                          "url": "/germany",
+                          "url": "/europe/germany",
                           "cities": [
                             {
                               "name": "Berlin",
@@ -90,7 +90,7 @@ const NavBar = () => {
                         },
                         {
                           "name": "Greece",
-                          "url": "/greece",
+                          "url": "/europe/greece",
                           "cities": [
                             {
                               "name": "Athens",
@@ -104,7 +104,7 @@ const NavBar = () => {
                         },
                         {
                           "name": "Spain",
-                          "url": "/spain",
+                          "url": "/europe/spain",
                           "cities": [
                             {
                               "name": "Madrid",
@@ -254,42 +254,42 @@ const NavBar = () => {
                 {
                   "name": "City Break",
                   "icon": faCity,
-                  "url": "/city-break"
+                  "url": "/articles/category=city-break"
                 },
                 {
                     "name": "Luxury",
                     "icon": faGem,
-                    "url": "/luxury"
+                    "url": "/articles/category=luxury"
                 },
                 {
                     "name": "Nature",
                     "icon": faLeaf,
-                    "url": "/nature"
+                    "url": "/articles/category=nature"
                 },
                 {
                     "name": "Food",
                     "icon": faUtensils,
-                    "url": "/food"
+                    "url": "/articles/category=food"
                 },
                 {
                   "name": "Relaxation",
                   "icon": faUmbrellaBeach,
-                  "url": "/relaxing"
+                  "url": "/articles/category=relaxing"
                 },
                 {
                     "name": "Budget Friendly",
                     "icon": faSackDollar,
-                    "url": "/budget-friendly"
+                    "url": "/articles/category=budget-friendly"
                 },
                 {
                     "name": "Art & Culture",
                     "icon": faPalette,
-                    "url": "/art-culture"
+                    "url": "/articles/category=art-culture"
                 },
                 {
                     "name": "Adventure",
                     "icon": faPersonHiking,
-                    "url": "/adventure"
+                    "url": "/articles/category=adventure"
                 }
             ],
             "Popular": {

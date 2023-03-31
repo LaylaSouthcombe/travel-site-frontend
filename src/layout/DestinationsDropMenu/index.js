@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 const DestinationsDropMenu = ({fullListData}) => {
     let navigate = useNavigate();
-    // console.log(fullListData)
+    console.log(fullListData)
     const renderDestinationsDropDown = fullListData['Destinations'].slice(1, 7).map((continent, i) => {
-        return(
+        return (
             <div className="dropDownCountry" key={"dropDownCountry" + i}>
-                <p onClick={() => navigate(continent.name.toLowerCase())}>{continent.name}</p>
+                <p onClick={() => navigate(continent.url)}>{continent.name}</p>
                 {/* <div className="continentMenuCountries">
                     {continent.children.slice(1, 5).map((country, i) => {
                         return (
@@ -25,7 +25,7 @@ const DestinationsDropMenu = ({fullListData}) => {
     return(
         <>
             <div className="navDropdown" id='destinationsDropdown'>
-                <p className="dropDownContinent">{fullListData['Destinations'][0].name}</p>
+                <p className="dropDownContinent" onClick={() => navigate(fullListData['Destinations'][0].url)}>{fullListData['Destinations'][0].name}</p>
                 <div className="dropDownCountries">
                     {renderDestinationsDropDown}
                 </div>
