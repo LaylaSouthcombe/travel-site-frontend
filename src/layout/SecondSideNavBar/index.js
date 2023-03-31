@@ -6,6 +6,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
+import Drawer from '@mui/material/Drawer';
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -35,13 +36,18 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
         setSecondNavClassName("secondNavBar hiddenSecondNavBar")
     }
 
+    const closeSideMenuAndNavigate = (url) => {
+        openCloseSideMenu()
+        navigate(url)
+    };
+
     const renderedMenuItems = listData.map((heading,i )=> {
         return (
                 <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
                     {selectedListTitle === 'Destinations' ? 
                     <>
                         {heading.cities === undefined ? 
-                            <ListItemButton onClick={() => navigate(heading.url)}>
+                            <ListItemButton onClick={() => closeSideMenuAndNavigate(heading.url)}>
                                 <ListItemText primary={heading.name} />
                             </ListItemButton>
                         : 
@@ -56,7 +62,7 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
                                         {heading.cities.map((child, j) => {
                                             return(
                                                 <div className="sideNavMenuChildItem" key={"sideNavMenuChildItem"+i+j}>
-                                                    <ListItemButton sx={{ pl: 4 }} onClick={() => navigate(child.url)}>
+                                                    <ListItemButton sx={{ pl: 4 }} onClick={() => closeSideMenuAndNavigate(child.url)}>
                                                         <ListItemText primary={child.name} />
                                                     </ListItemButton>
                                                 </div>
@@ -72,7 +78,7 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
                     </>
                     : 
                     <>
-                        <ListItemButton onClick={() => navigate(heading.url)}>
+                        <ListItemButton onClick={() => closeSideMenuAndNavigate(heading.url)}>
                             <ListItemText primary={heading.name} />
                         </ListItemButton>
                     </> 
@@ -92,14 +98,14 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
                     <FontAwesomeIcon icon={faXmark} />
                 </div>
             </div>
-            <List
-                subheader={
-                <ListSubheader component="div" id="nested-list-subheader">
-                {selectedListTitle}
-                </ListSubheader>
-                }>
-                {renderedMenuItems}
-            </List>
+                <List
+                    subheader={
+                    <ListSubheader component="div" id="nested-list-subheader">
+                    {selectedListTitle}
+                    </ListSubheader>
+                    }>
+                    {renderedMenuItems}
+                </List>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-
+import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,25 +14,30 @@ import { useNavigate } from 'react-router-dom';
 const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery, secondNavClassName, setSecondNavClassName}) => {
     let navigate = useNavigate();
 
-    const changeSecondNavBarVisibility = (name) => {
+    const openSecondNavBar = (name) => {
         setSecondNavClassName("secondNavBar")
         setListData(fullListData[name])
     }
 
-    const handleClick = (name) => {
+    const handleNestedItemClick = (name) => {
         setSelectedListTitle(name)
-        changeSecondNavBarVisibility(name)
+        openSecondNavBar(name)
+    };
+
+    const handleNonNestedItemClick = (url) => {
+        openCloseSideMenu()
+        navigate(url)
     };
   
     const renderedMenuItems = titleListData.map((item,i ) => {
         return (
                 <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
                     {item.name !== "Popular" && item.name !== "Trip Planning" ? 
-                    <ListItemButton onClick={() => handleClick(item.name)}>
+                    <ListItemButton onClick={() => handleNestedItemClick(item.name)}>
                         <FontAwesomeIcon icon={item.icon} />
                         <ListItemText primary={item.name} />
                     </ListItemButton>
-                    : <ListItemButton onClick={() => navigate(item.url)}>
+                    : <ListItemButton onClick={() => handleNonNestedItemClick(item.url)}>
                         <FontAwesomeIcon icon={item.icon} />
                         <ListItemText primary={item.name} />
                     </ListItemButton>
@@ -60,12 +65,14 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
                         <FontAwesomeIcon icon={faMagnifyingGlass} onClick={(e) => getAndSetSearchQuery(e, "icon")}/>
                 </ThemeProvider>
             </div>
-            <List
-                sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
-                component="nav"
-                aria-labelledby="nested-list-subheader">
-                {renderedMenuItems}
-            </List>
+            <Box>
+                <List
+                    sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
+                    component="nav"
+                    aria-labelledby="nested-list-subheader">
+                    {renderedMenuItems}
+                </List>
+            </Box>
         </div>
     )
 }

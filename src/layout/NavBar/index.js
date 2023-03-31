@@ -335,18 +335,18 @@ const NavBar = () => {
 
     const openCloseSideMenu = () => {
       const body = document.querySelector('body')
-        if(sideMenuOpen){
-            body.classList.remove("fixedBody")
-            setSideMenuOpen(false)
-            setListData([])
-            setMenuIcon(faBars)
-            setMenuBarPosition('static')
-        } else if(!sideMenuOpen){
-            body.classList.add("fixedBody")
-            setSideMenuOpen(true)
-            setMenuIcon(faXmark)
-            setMenuBarPosition('fixed')
-        }
+      if(sideMenuOpen){
+          body.classList.remove("fixedBody")
+          setSideMenuOpen(false)
+          setListData([])
+          setMenuIcon(faBars)
+          setMenuBarPosition('static')
+      } else if(!sideMenuOpen){
+          body.classList.add("fixedBody")
+          setSideMenuOpen(true)
+          setMenuIcon(faXmark)
+          setMenuBarPosition('fixed')
+      }
     }
 
     const theme = createTheme({
@@ -409,7 +409,7 @@ const NavBar = () => {
               </div> 
                   {sideMenuOpen ? 
                     <div>
-                      {<FirstSideNavBar fullListData={fullListData} listData={listData} setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} openCloseSideMenu={openCloseSideMenu}getAndSetSearchQuery={getAndSetSearchQuery} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/>}
+                      {<FirstSideNavBar fullListData={fullListData} listData={listData} setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} openCloseSideMenu={openCloseSideMenu} getAndSetSearchQuery={getAndSetSearchQuery} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/>}
                       {listData.length ?
                         <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/> 
                       : null}

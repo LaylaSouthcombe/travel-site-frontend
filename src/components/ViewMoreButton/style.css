@@ -7,8 +7,9 @@
     width: 35%;
     margin: 0 auto;
     border-radius: 5px;
-    color: var(--moon-green);
-    padding: 5px;
+    color: var(--darker-background-colour);
+    padding: 10px 5px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -18,12 +19,16 @@
 
 @media (min-width: 768px) {
     .viewMoreButton > div {
-        width: 16%;
+        width: 26%;
+    }
+    .viewMoreButton > div {
+        font-size: 18px;
     }
 }
 
 @media (min-width: 900px) {
     .viewMoreButton > div {
-        width: 12%;
+        width: 22%;
+        font-size: 16px;
     }
 }
