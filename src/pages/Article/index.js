@@ -21,6 +21,7 @@ const Article = () => {
 
     
     useEffect(() => {
+        window.scrollTo(0, 0)
         const URL = `http://localhost:3000/articles/article/${articleid}`
         const fetchFullArticle = async () => {
             axios.get(URL).then((response) => {

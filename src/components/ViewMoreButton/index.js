@@ -8,6 +8,7 @@ const ViewMoreButton = ({endpoint, loaded}) => {
     const handleButtonClick = () => {
         navigate(endpoint)
     }
+    console.log(endpoint)
     
     return (
         <>

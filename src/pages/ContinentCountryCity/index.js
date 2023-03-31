@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 import './style.css'
@@ -19,6 +19,8 @@ const ContinentCountryCity = () => {
     let navigate = useNavigate();
     
     const [windowSize, setWindowSize] = useState(window.innerWidth)
+    const [loaded, setLaoded] = useState(true)
+    
 
     const handleResize = () => {
         setWindowSize(window.innerWidth)
@@ -37,7 +39,13 @@ const ContinentCountryCity = () => {
     }
     
     let {country} = useParams();
-
+    let endPointStart
+    if(continent !== undefined && country === undefined){
+        endPointStart = `/articles/continent=${continent}`
+    } else if(continent !== undefined && country !== undefined){
+        endPointStart = `/articles/country=${country}`
+    }
+    console.log(endPointStart)
     if (country === "united-kingdom" || country === "wales" || country === "scotland" || country === "northern-ireland"){
         country = "england"
     }
@@ -70,9 +78,8 @@ const ContinentCountryCity = () => {
     const tabHeadings = ["All", "Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
     
 
-    const tabArticles =
-        [article, article, article, article, article,article, article, article, article, article, article]
-
+    const [tabArticles, setTabArticles] = useState([article, article, article, article, article, article, article, article, article, article, article, article])
+    
     const defaultStyles = {
         fill: "var(--card-green-no-opacity)",
         stroke: "#3F3D56",
@@ -88,6 +95,10 @@ const ContinentCountryCity = () => {
         }
         setSummaryInfo({name: continentInfo[continent].countries[countryName].name, summary: continentInfo[continent].countries[countryName].summary})
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return(
         <>
@@ -140,13 +151,13 @@ const ContinentCountryCity = () => {
             :
             <>
                 <CountryBreadCrumbMenu/>
-                <HeroArticleSection article={article}/>
+                <HeroArticleSection article={article} loaded={loaded}/>
             </>
             }
-            <ThreeCardsRow articles={[article,article,article]}/>
+            <ThreeCardsRow articles={[article,article,article]} loaded={loaded}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             
-            <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings}/>
+            <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart}/>
 
             <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>

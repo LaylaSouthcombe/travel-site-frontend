@@ -6,9 +6,9 @@ import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
 import './style.css'
-import {ArticleTabCards} from '../index'
+import {ArticleTabCards, ViewMoreButton} from '../index'
 
-const ArticlesTabSection = ({tabArticles, tabHeadings, loaded}) => {
+const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) => {
     let navigate = useNavigate();
 
     const [value, setValue] = React.useState('1');
@@ -54,6 +54,21 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded}) => {
     })
     sortedArticlesArray = removeTabsWithNoArticles(sortedArticlesArray)  
 
+    const formatHeadingForEndPoint = (heading) => {
+        return heading.replace("& ", "").replace(" ", "-")
+    }
+
+    const generateEndPoint = (heading) => {
+        let endPoint
+        if(heading === "All"){
+            endPoint = `${endPointStart}`
+        } else {
+            let formattedHeading = formatHeadingForEndPoint(heading)
+            endPoint = `${endPointStart}&category=${formattedHeading}`
+        }
+        return endPoint
+    }
+
     return (
         <div className="articleTabSection">
         <Box sx={{ width: '100%', typography: 'body1', height: "fit-content", marginBottom: "30px"}}>
@@ -69,13 +84,19 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded}) => {
                 </TabList>
             </Box>
             {Object.keys(sortedArticlesArray).map((heading, i) => {
+                    let endPoint = generateEndPoint(heading)
                     return (
+                        <>
                         <TabPanel value={(i+1).toString()}>{sortedArticlesArray[heading].map(article => {
                             return (
                                 <ArticleTabCards article={article} classnames={"articleTabCard"} loaded={loaded}/>
                             )
                         })}
+                            <div className="articleListViewMoreButton">
+                                <ViewMoreButton endpoint={endPoint} loaded={loaded}/>
+                            </div>
                         </TabPanel>
+                        </>
                     )
                 }
             )}

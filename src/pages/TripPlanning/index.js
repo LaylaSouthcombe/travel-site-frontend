@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPlaceholder from 'react-placeholder';
 
 import "react-placeholder/lib/reactPlaceholder.css";
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 
-import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCrumbMenu} from '../../components'
+import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCrumbMenu, ViewMoreButton} from '../../components'
 
 import {article} from '../../utilities/article'
 
@@ -13,9 +13,13 @@ const TripPlanning = () => {
 
     const tabHeadings = ["All", "Tips & Tricks", "Packing", "Gear", "Tech"]
     
-    const [loaded, setLoaded] = useState(false)
+    const [loaded, setLoaded] = useState(true)
 
     const tabArticles = [article, article, article, article, article,article, article, article, article, article]
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return (
         <>

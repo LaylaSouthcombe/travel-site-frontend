@@ -13,7 +13,7 @@ const HeroArticleSection = ({article, loaded}) => {
                     <div className="heroArticleImg">
                         <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
                     </div>
-                    <p className="heroArticleTag articleCardCategory">{article.article_categories.split(",")[0]}</p>
+                    <p className="heroArticleTag articleCardCategoryArea articleCardCategory">{article.article_categories.split(",")[0]}</p>
                     <p className="heroArticleTitle">{article.title}</p>
                 </a>
                 :

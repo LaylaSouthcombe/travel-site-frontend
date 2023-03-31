@@ -6,7 +6,6 @@ import './style.css'
 const ArticleListCardStyle1 = ({article, loaded}) => {
     let navigate = useNavigate();
 
-    console.log(loaded)
     return (
         <>
         {loaded ? 

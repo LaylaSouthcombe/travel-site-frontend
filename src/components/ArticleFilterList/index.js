@@ -8,7 +8,7 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-import article from '../../utilities/article'
+import {article} from '../../utilities/article'
 
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
 
@@ -69,7 +69,7 @@ const ArticleFilterList = ({articles}) => {
         setListArticles(articles)
         generateFilterLabels(articles)
         setLoaded(true)
-    },[articles, generateFilterLabels])
+    },[articles])
 
     const handleTripShowAll = () => {
         setTripFilterClassName("filterLabel")
@@ -185,7 +185,7 @@ const ArticleFilterList = ({articles}) => {
                     {loaded && countryFilterLabels.length ? renderCountryFilters : null }
                     {loaded && numberOfCountryFiltersShowing > 3 ? renderShowAllCountryFilters() : null }
                 </ul>
-                <p className="showResults"  onClick={(e) => closeFilterMenu(e)}>Show results</p>
+                <p className="showResults" onClick={(e) => closeFilterMenu(e)}>Show results</p>
             </div>
             : null}
             {!loaded ?
@@ -258,7 +258,7 @@ const ArticleFilterList = ({articles}) => {
                         <>
                             <p className="popularSideHeading">Popular on Sojo Travels</p>
                             <div className="popularArticlesSideList">
-                                <ArticleListGridStyle2/> 
+                                <ArticleListGridStyle2 articles={[article,article, article, article]} loaded={loaded}/> 
                             </div>
                             <GoogleAd dataAdSlot={"9095054520"}/>
                         </>

@@ -78,4 +78,8 @@
     .MuiTabPanel-root {
         grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
     }
+    .articleListViewMoreButton {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import {NavBar, BottomMenu} from '../../layout'
 import leftHeroImage from '../../images/leftHeroImage.png'
@@ -8,7 +8,9 @@ import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd} from '..
 import {article} from '../../utilities/article'
 //add in random country button
 const Home = () => {
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return(
         <>
             <NavBar/>

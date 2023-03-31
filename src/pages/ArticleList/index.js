@@ -26,6 +26,9 @@ const ArticleList = () => {
     const queryParams = useSelector(state => state.queryParams)
     const searchQuery = useSelector(state => state.searchQuery)
 
+    const [loaded, setLoaded] = useState(true)
+
+
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
     const fetchArticlesWithConfig = async (url, config) => {
@@ -65,7 +68,9 @@ const ArticleList = () => {
     //         fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
     //      }
     // }, [query, queryParams, searchQuery])
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     console.log(query)
     console.log(articles)
 
@@ -73,24 +78,24 @@ const ArticleList = () => {
         <>
             <NavBar/>
             <div className="mainArticleListSection">
-                {articles.length !== 0 ? <HeroArticleSection article={articles[0]}/> : 
+                {articles.length !== 0 && loaded ? <HeroArticleSection article={articles[0]} loaded={loaded}/> : 
                     <div className="noArticlesFound">
                         <p>No articles found</p>
                     </div> 
                     //TODO: replace with a better layout error msg
                 }
-                {articles.length >= 4 ? 
+                {articles.length >= 4  && loaded ? 
                 <>
-                    <ThreeCardsRow articles={articles.slice(1,4)}/> 
+                    <ThreeCardsRow articles={articles.slice(1,4)} loaded={loaded}/> 
                     <GoogleAd dataAdSlot={"1136657549"}/>
                 </>
                 : null}
-                {articles.length > 0 ? 
+                {articles.length > 0  && loaded ? 
                     <ArticleFilterList articles={articles} setArticles={setArticles}/>
                 : null}
             </div>
             <GoogleAd dataAdSlot={"1136657549"}/>
-            {query === 'popular' ? 
+            {query === 'popular'  && loaded ? 
             <>
                 <div>
                     <h2 className="seperatorTitle">Explore Trip Styles</h2>
