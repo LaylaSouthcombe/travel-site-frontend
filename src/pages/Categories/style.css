@@ -1,0 +1,14 @@
+.tripStylesHero {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.tripStylesHero > img {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .tripStylesHero {
+        width: 50%;
+    }
+}

@@ -13,6 +13,7 @@ import { article6 } from '../../utilities/article6'
 import { article7 } from '../../utilities/article7'
 import { article8 } from '../../utilities/article8'
 
+import tripStylesPageHero from '../../images/tripStylesPageHero.png'
 
 //add in random country button
 const Categories = () => {
@@ -37,6 +38,9 @@ const Categories = () => {
             <NavBar/>
             <div>
                 <h2 className="seperatorTitle">Explore Trip Styles</h2>
+                <div className="tripStylesHero">
+                    <img src={tripStylesPageHero} alt="" />
+                </div>
             </div>
             <div>
                 <h2 className="seperatorTitle">Top City Breaks</h2>
