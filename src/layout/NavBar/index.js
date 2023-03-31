@@ -249,7 +249,8 @@ const NavBar = () => {
             "Trip Styles": [
                 {
                   "name": "Explore all",
-                  "url": "/trip-styles"
+                  "url": "/trip-styles",
+                  "icon": undefined
                 },
                 {
                   "name": "City Break",

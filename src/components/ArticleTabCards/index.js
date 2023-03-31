@@ -1,12 +1,14 @@
 import React from 'react'
 import Skeleton from '@material-ui/lab/Skeleton';
 import './style.css'
-
+import { useNavigate } from 'react-router-dom';
 const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
+    let navigate = useNavigate();
+
     return (
         <>
         {loaded ? 
-            <a className={classnames + " articleCard"} href={"http://localhost:3001/article/" + article.id} target="_blank" rel="noreferrer" key={keyId}>
+            <div className={classnames + " articleCard"} onClick={() => navigate("/article/" + article.id)} key={keyId}>
                 <div className="cardImg">
                     <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
                 </div>
@@ -16,9 +18,9 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
                         {article.title}
                     </p>
                 </div>
-            </a>
+            </div>
         :
-            <a className={classnames + " skeletonArticleCard"} key={keyId}>
+            <div className={classnames + " skeletonArticleCard"} key={keyId}>
                 <div className="cardImg">
                     <Skeleton variant="rounded" width={"100%"} height={160}/>
                 </div>
@@ -31,7 +33,7 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
                         <Skeleton variant="rounded" width={"100%"} height={20}/>
                     </p>
                 </div>
-            </a>
+            </div>
         }
         </>
     )

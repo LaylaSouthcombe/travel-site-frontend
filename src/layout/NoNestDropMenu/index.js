@@ -9,7 +9,11 @@ const NoNestDropMenu = ({fullListData, itemTitle}) => {
     const renderNoNestDropMenuDropDown = fullListData[itemTitle].map((item, i) => {
         return (
             <div className="dropDownItem" key={"dropDownItem" + i} onClick={() => navigate(item.url)}>
+                {item.icon !== undefined ? 
                 <FontAwesomeIcon icon={item.icon} />
+                : 
+                null
+                }
                 <p>{item.name}</p>
             </div>
         )

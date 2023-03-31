@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
 import Box from '@mui/material/Box';
 import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
@@ -9,7 +8,6 @@ import './style.css'
 import {ArticleTabCards, ViewMoreButton} from '../index'
 
 const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) => {
-    let navigate = useNavigate();
 
     const [value, setValue] = React.useState('1');
 

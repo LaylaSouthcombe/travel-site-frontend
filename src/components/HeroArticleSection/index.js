@@ -5,19 +5,20 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import './style.css'
 
 const HeroArticleSection = ({article, loaded}) => {
-    
+    let navigate = useNavigate();
+
     return (
         <>
             {loaded ? 
-                <a href="" className="heroArticle articleCard">
+                <div className="heroArticle articleCard" onClick={() => navigate("/article/" + article.id)}>
                     <div className="heroArticleImg">
                         <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
                     </div>
                     <p className="heroArticleTag articleCardCategoryArea articleCardCategory">{article.article_categories.split(",")[0]}</p>
                     <p className="heroArticleTitle">{article.title}</p>
-                </a>
+                </div>
                 :
-                <a href="" className="heroArticle skeletonArticleCard">
+                <div className="heroArticle skeletonArticleCard">
                     <div className="heroArticleImg">
                         <Skeleton variant="rounded" width={"100%"} height={200}/>
                     </div>
@@ -29,7 +30,7 @@ const HeroArticleSection = ({article, loaded}) => {
                         <Skeleton variant="rounded" width={"100%"} height={20}/>
                         <Skeleton variant="rounded" width={"100%"} height={20}/>
                     </p>
-                </a>
+                </div>
             }
         </>
     )

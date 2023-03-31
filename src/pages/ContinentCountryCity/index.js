@@ -51,7 +51,7 @@ const ContinentCountryCity = () => {
     } else if(continent !== undefined && country !== undefined){
         endPointStart = `/articles/country=${country}`
     }
-    console.log(endPointStart)
+
     if (country === "united-kingdom" || country === "wales" || country === "scotland" || country === "northern-ireland"){
         country = "england"
     }

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const DestinationsDropMenu = ({fullListData}) => {
     let navigate = useNavigate();
-    console.log(fullListData)
+
     const renderDestinationsDropDown = fullListData['Destinations'].slice(1, 7).map((continent, i) => {
         return (
             <div className="dropDownCountry" key={"dropDownCountry" + i}>

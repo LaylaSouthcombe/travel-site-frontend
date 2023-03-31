@@ -10,7 +10,6 @@ export {default as TripStylesGrid} from './TripStylesGrid'
 
 export {default as PageNotFound} from './PageNotFound'
 
-export {default as ArticleCardFeatureImg} from './ArticleCardFeatureImg'
 export {default as ArticleListCardStyle1} from './ArticleListCardStyle1'
 export {default as ArticleListCardStyle4} from './ArticleListCardStyle4'
 
