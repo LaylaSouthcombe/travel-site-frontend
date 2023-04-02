@@ -60,6 +60,7 @@ const ArticleList = () => {
     //         };
     //          fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
     //      } else {
+            // let queryParams = generateQueryParam(query)
     //         const config = {
     //             headers: {
     //               query: queryParams

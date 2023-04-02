@@ -12,9 +12,9 @@ const HeroArticleSection = ({article, loaded}) => {
             {loaded ? 
                 <div className="heroArticle articleCard" onClick={() => navigate("/article/" + article.id)}>
                     <div className="heroArticleImg">
-                        <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
+                        <img src={article.feature_img_url} alt=""/>
                     </div>
-                    <p className="heroArticleTag articleCardCategoryArea articleCardCategory">{article.article_categories.split(",")[0]}</p>
+                    <p className="heroArticleTag articleCardCategoryArea articleCardCategory">{article.article_category}</p>
                     <p className="heroArticleTitle">{article.title}</p>
                 </div>
                 :

@@ -16,6 +16,10 @@
     padding-bottom: 20px;
 }
 
+.style1column1 > .articleCard {
+    padding-bottom: 20px;
+}
+
 .style1column1 > .articleCard:hover {
     padding-bottom: 17px;
 }
@@ -38,7 +42,6 @@
 
     .style1column2 {
         margin-left: 20px;
-        border-left: var(--divider-line);
         padding-left: 20px;
     }
 

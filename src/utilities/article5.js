@@ -8,7 +8,7 @@ const article5 = {
     "city": "bogota, Quito, brazillia, buenos aires",
     "country": "Portugal, Ecuador, Brazil, Argentina",
     "continent": "south america",
-    "article_categories": "Budget Friendly, adventure, culture",
+    "article_category": "Budget Friendly",
     "keywords": "Colombia, Ecuador, Brazil, Argentina",
     visibility: true
 }

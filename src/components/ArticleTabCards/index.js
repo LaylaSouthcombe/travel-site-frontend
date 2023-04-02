@@ -8,17 +8,23 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
     return (
         <>
         {loaded ? 
-            <div className={classnames + " articleCard"} onClick={() => navigate("/article/" + article.id)} key={keyId}>
-                <div className="cardImg">
-                    <img src={article.feature_img_url !== null ? article.feature_img_url : article.feature_img_base64} alt=""/>
+        <>
+            {article !== undefined ? 
+            <>
+                <div className={classnames + " articleCard"} onClick={() => navigate("/article/" + article.id)} key={keyId}>
+                    <div className="cardImg">
+                        <img src={article.feature_img_url} alt=""/>
+                    </div>
+                    <div className="threeCardInfo">
+                        <p className="articleCardCategoryArea articleCardCategory">{article.article_category}</p>
+                        <p className="articleCardTitle articleTabCardTitle" maxLength="4">
+                            {article.title}
+                        </p>
+                    </div>
                 </div>
-                <div className="threeCardInfo">
-                    <p className="articleCardCategoryArea articleCardCategory">{article.article_categories.split(",")[0]}</p>
-                    <p className="articleCardTitle articleTabCardTitle" maxLength="4">
-                        {article.title}
-                    </p>
-                </div>
-            </div>
+            </>
+            : null}
+        </>
         :
             <div className={classnames + " skeletonArticleCard"} key={keyId}>
                 <div className="cardImg">

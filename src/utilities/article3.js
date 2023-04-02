@@ -8,7 +8,7 @@ const article3 = {
     "city": "bogota, Quito, brazillia, buenos aires",
     "country": "Denmark, Ecuador, Brazil, Argentina",
     "continent": "south america",
-    "article_categories": "City Break, adventure, culture",
+    "article_category": "City Break",
     "keywords": "Colombia, Ecuador, Brazil, Argentina",
     visibility: true
 }

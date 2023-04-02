@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-
+import React, {useEffect, useState} from 'react'
+import axios from 'axios';
 import {NavBar, BottomMenu} from '../../layout'
 import leftHeroImage from '../../images/leftHeroImage.png'
 import rightHeroImage from '../../images/rightHeroImage.png'
@@ -9,10 +9,36 @@ import {article} from '../../utilities/article'
 //add in random country button
 const Home = () => {
 
+    const [trendingArticles, setTrendingArticles] = useState([])
+    const [cityArticles, setCityArticles] = useState([])
+    const [loaded, setLoaded] = useState(false)
+
+    const fetchTrendingArticles = async (url) => {
+        await axios.get(url).then((response) => {
+            console.log(response)
+            setTrendingArticles(response.data)
+        });
+    }  
+
+    const fetchCityArticles = async (url) => {
+        await axios.get(url).then((response) => {
+            console.log(response)
+            setCityArticles(response.data.splice(0,4))
+        });
+    }  
+
+    const fetchAllHomePageArticles = async () => {
+        await fetchTrendingArticles('http://localhost:3000/articles/trending')
+        await fetchCityArticles('http://localhost:3000/articles/category/city')
+        setLoaded(true)
+    }
+
     useEffect(() => {
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
+        fetchAllHomePageArticles()
+        console.log(loaded)
       }, [])
       
     return(
@@ -26,15 +52,42 @@ const Home = () => {
                 </div>
                 <div className="heroImage heroImage2"><img src={rightHeroImage} alt=""/></div>
             </div>
-            <div>
-                <h2 className="seperatorTitle">Trending Articles</h2>
-            </div>
-            <ArticleGridStyle1 articles={[article, article, article, article]}/>
-            <GoogleAd dataAdSlot={"1136657549"}/>
-            <div>
-                <h2 className="seperatorTitle">City Breaks</h2>
-            </div>
-            <ArticleGridStyle2 articles={[article, article, article, article]}/>
+            {loaded ? 
+            <>
+                {trendingArticles.length ? 
+                <>
+                    <div>
+                        <h2 className="seperatorTitle">Trending Articles</h2>
+                    </div>
+                    <ArticleGridStyle1 articles={trendingArticles} loaded={loaded}/>
+                    <GoogleAd dataAdSlot={"1136657549"}/>
+                </>
+                : null}
+            </>
+            :
+            <>
+                <div>
+                    <h2 className="seperatorTitle">Trending Articles</h2>
+                </div>
+                <ArticleGridStyle1 articles={trendingArticles} loaded={loaded}/>
+            </>
+            }
+            {loaded ? 
+            <>
+                {cityArticles.length ? 
+                    <div>
+                        <h2 className="seperatorTitle">City Breaks</h2>
+                    </div>
+                : null}
+            </>
+            :
+            <>
+                <div>
+                    <h2 className="seperatorTitle">City Breaks</h2>
+                </div>
+            </>
+            }
+            <ArticleGridStyle2 articles={cityArticles} loaded={loaded}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
             <div>
                 <h2 className="seperatorTitle">Explore Trip Styles</h2>

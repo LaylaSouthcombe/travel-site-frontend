@@ -9,10 +9,16 @@ const ArticleListCardStyle4 = ({article, loaded}) => {
     return (
         <>
         {loaded ? 
-            <div className="articleListCardStyle4">
-                    <p className="articleCardTitle articleListCardTitle4" onClick={()=> navigate("/article/" + article.id)}>{article.title}</p>
-            </div>
-        : 
+        <>
+            {article !== undefined ? 
+            <>
+                <div className="articleListCardStyle4">
+                        <p className="articleCardTitle articleListCardTitle4" onClick={()=> navigate("/article/" + article.id)}>{article.title}</p>
+                </div>
+            </>
+            : null}
+        </>
+        :
         <div className="skeletonArticleListCardStyle4">
             <Skeleton variant="rounded" width={"100%"} height={40}/>
         </div>

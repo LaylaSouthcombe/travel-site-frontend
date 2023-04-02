@@ -12,7 +12,7 @@ const setArticleVisibility = (filters, article) => {
         }
     }
     for(let i = 0; i < filters.tripStyles.length; i++){
-        if(!article.article_categories.includes(filters.tripStyles[i])){
+        if(!article.article_category.includes(filters.tripStyles[i])){
             article.visibility = false
         }
     }

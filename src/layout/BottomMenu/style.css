@@ -55,6 +55,18 @@
     font-weight: bold;
 }
 
+.bottomMenuLeft p:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+.bottomMenuLeft p:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
 .bottomMenuSegment2 {
     border-left: var(--divider-line);
 }

@@ -8,7 +8,7 @@ const article4 = {
     "city": "bogota, Quito, brazillia, buenos aires",
     "country": "Poland, Ecuador, Brazil, Argentina",
     "continent": "south america",
-    "article_categories": "Food, adventure, culture",
+    "article_category": "Food",
     "keywords": "Colombia, Ecuador, Brazil, Argentina",
     visibility: true
 }

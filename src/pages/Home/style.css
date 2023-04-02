@@ -18,7 +18,7 @@
 
 .heroImage1 > img{
     width: 75%;
-    margin-left: 45px;
+    margin-left:75px;
 }
 
 .heroImage2 > img{
@@ -83,10 +83,18 @@
     color: var(--main-purple) !important;
 }
 
+.heroImage2 {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .heroSection {
         width: 90%;
         grid-template-columns: 50% 50%;
+    }
+
+    .heroImage2 {
+        display: block;
     }
 
     .heroImage1 > img{

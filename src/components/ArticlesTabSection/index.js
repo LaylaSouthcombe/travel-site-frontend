@@ -28,7 +28,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) =
             if(heading === 'All'){
                 articlesArray['All'].push(tabArticles[i])
             } else {
-                if(tabArticles[i]["article_categories"].includes(heading)){
+                if(tabArticles[i]["article_category"].includes(heading)){
                     articlesArray[heading].push(tabArticles[i])
                 }
             }

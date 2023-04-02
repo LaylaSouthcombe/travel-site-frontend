@@ -35,7 +35,7 @@ const ArticleFilterList = ({articles}) => {
         let tripLabels = []
         let countryLabels = []
         articlesList.forEach(article => {
-                let tripName = article.article_categories.split(",")[0]
+                let tripName = article.article_category
                 addNewOrIncreaseExistingFilterToFilterArray(tripStylesShowing, tripLabels, tripName)
                 let countryName = article.country.split(",")[0]
                 if(countriesInfo["europe"].countries[countryName] !== undefined) {
@@ -53,7 +53,7 @@ const ArticleFilterList = ({articles}) => {
         resetFilterLabelNumbers(tripLabels)
         resetFilterLabelNumbers(countryLabels)
         articlesList.forEach(article => {
-            let tripName = article.article_categories.split(",")[0]
+            let tripName = article.article_category
             let countryName = article.country.split(",")[0]
             if(article.visibility === true){
                 increaseNumberOfArticlesForFilter(tripLabels, tripName)

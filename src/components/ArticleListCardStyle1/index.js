@@ -9,17 +9,21 @@ const ArticleListCardStyle1 = ({article, loaded}) => {
     return (
         <>
         {loaded ? 
-            <>
-                <div className="articleListCardStyle1 articleCard" onClick={() => navigate("/article/" + article.id)}>
-                    <div className="cardImg">
-                            <img src={article.feature_img_url !== "" ? article.feature_img_url : article.feature_img_base64} alt=""/>
+        <>
+            {article !== undefined ?   
+                <>
+                    <div className="articleListCardStyle1 articleCard" onClick={() => navigate("/article/" + article.id)}>
+                        <div className="cardImg">
+                                <img src={article.feature_img_url} alt=""/>
+                        </div>
+                        <div className="articleCardMeta">
+                            <p className="articleCardCategoryArea articleCardCategory">{article.article_category}</p>
+                            <p className="articleCardTitle articleListCardTitle">{article.title}</p>
+                        </div>
                     </div>
-                    <div className="articleCardMeta">
-                        <p className="articleCardCategoryArea articleCardCategory">{article.article_categories.split(",")[0]}</p>
-                        <p className="articleCardTitle articleListCardTitle">{article.title}</p>
-                    </div>
-                </div>
-            </>
+                </>
+            : null}
+        </>
         :    <div className="articleListCardStyle1 skeletonListCard">
                 <div className="skeletonListCardImg">
                     <Skeleton variant="rounded" width={"100%"} height={160}/>
