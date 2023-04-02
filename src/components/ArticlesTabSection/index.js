@@ -11,7 +11,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) =
 
     const [value, setValue] = React.useState('1');
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (newValue) => {
       setValue(newValue);
     };
 

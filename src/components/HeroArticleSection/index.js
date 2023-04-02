@@ -10,6 +10,8 @@ const HeroArticleSection = ({article, loaded}) => {
     return (
         <>
             {loaded ? 
+            <>
+                {article !== undefined ? 
                 <div className="heroArticle articleCard" onClick={() => navigate("/article/" + article.id)}>
                     <div className="heroArticleImg">
                         <img src={article.feature_img_url} alt=""/>
@@ -17,6 +19,9 @@ const HeroArticleSection = ({article, loaded}) => {
                     <p className="heroArticleTag articleCardCategoryArea articleCardCategory">{article.article_category}</p>
                     <p className="heroArticleTitle">{article.title}</p>
                 </div>
+                : 
+                null}
+            </>
                 :
                 <div className="heroArticle skeletonArticleCard">
                     <div className="heroArticleImg">

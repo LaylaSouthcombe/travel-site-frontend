@@ -1,32 +1,42 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
-import './style.css'
+
+import {NavBar, BottomMenu} from '../../layout'
+import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, CountryBreadCrumbMenu} from '../../components'
 
 import backgroundWorld from '../../images/backgroundWorld.png'
 
 import {continentInfo} from '../../utilities/continentCountries'
 import {article} from '../../utilities/article'
 import {formatWord} from '../../utilities/formatWord'
+import { generateFetchUrl, generateGeoUrl, generateEndPointStart, formatCountry, defaultStyles, normalHoverColor, normalClickColor } from './continentCountryCityUtils'
 
-import {NavBar, BottomMenu} from '../../layout'
-import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, CountryBreadCrumbMenu} from '../../components'
-
+import './style.css'
 
 const ContinentCountryCity = () => {
-
-    useEffect(() => {
-        const body = document.querySelector('body')
-        body.classList.remove("fixedBody")
-        window.scrollTo(0, 0)
-    }, [])
-
     const location = useLocation();
     let navigate = useNavigate();
-    
+
+    const [topSectionArticles, setTopSectionArticles] = useState([])
+    const tabHeadings = ["All", "Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
+    const [tabArticles, setTabArticles] = useState([article, article, article, article, article, article, article, article, article, article, article, article])
+
+    const [loaded, setLoaded] = useState(false)
     const [windowSize, setWindowSize] = useState(window.innerWidth)
-    const [loaded, setLaoded] = useState(true)
     
+    const [hoverColors, setHoverColors] = useState({})
+    const [clickColors, setClickColors] = useState({})
+
+    const continent = location.pathname.split("/")[1]
+    
+    let {country} = useParams();
+    country = formatCountry(country)
+    
+    let endPointStart = generateEndPointStart(country, continent)
+    
+    const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
 
     const handleResize = () => {
         setWindowSize(window.innerWidth)
@@ -35,43 +45,24 @@ const ContinentCountryCity = () => {
 
     window.addEventListener('resize', handleResize)
 
-    let geoUrl
-    const continent = location.pathname.split("/")[1]
-
-    if(continent === 'australia-oceania'){
-        geoUrl =`https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${'oceania'}.json`
-    } else {
-        geoUrl =`https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${continent}.json`
+    const fetchArticles = async (url) => {
+        await axios.get(url).then((response) => {
+            console.log(response)
+            setTabArticles(response.data)
+            setTopSectionArticles(response.data.splice(0,4))
+            setLoaded(true)
+        });
     }
     
-    let {country} = useParams();
-    let endPointStart
-    if(continent !== undefined && country === undefined){
-        endPointStart = `/articles/continent=${continent}`
-    } else if(continent !== undefined && country !== undefined){
-        endPointStart = `/articles/country=${country}`
-    }
+    let geoUrl = generateGeoUrl(continent)
 
-    if (country === "united-kingdom" || country === "wales" || country === "scotland" || country === "northern-ireland"){
-        country = "england"
-    }
-
-    const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
-
-    const normalHoverColor = {
-        fill: "#30c7b570",
-        stroke: "#3F3D56",
-        strokeWidth: 1.5
-    }
-
-    const normalClickColor = {
-        fill: "#3F3D56",
-        stroke: "#30c7b570",
-        strokeWidth: 1.5
-    }
-
-    const [hoverColors, setHoverColors] = useState({})
-    const [clickColors, setClickColors] = useState({})
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
+        window.scrollTo(0, 0)
+        let url = generateFetchUrl(country, continent)
+        fetchArticles(url)
+    }, [])
     
     const handleCountryClick = (country) => {
         if (country === "england" || country === "wales" || country === "scotland" || country === "northernireland"){
@@ -79,17 +70,6 @@ const ContinentCountryCity = () => {
         } else if(continentInfo[continent].countries[country].popularCities.length){
             navigate(country)
         }
-    }
-
-    const tabHeadings = ["All", "Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
-    
-
-    const [tabArticles, setTabArticles] = useState([article, article, article, article, article, article, article, article, article, article, article, article])
-    
-    const defaultStyles = {
-        fill: "var(--card-green-no-opacity)",
-        stroke: "#3F3D56",
-        strokeWidth: 1.5
     }
 
     const checkAndSetSumamryInfo = (countryName) => {
@@ -102,7 +82,7 @@ const ContinentCountryCity = () => {
         setSummaryInfo({name: continentInfo[continent].countries[countryName].name, summary: continentInfo[continent].countries[countryName].summary})
     }
 
-    return(
+    return (
         <>
             <NavBar/>
             {country === undefined ? 
@@ -114,53 +94,85 @@ const ContinentCountryCity = () => {
                         <p>{summaryInfo.summary}</p>
                     </div>
                     {windowSize >= 768 ?
-                    <div className="interactiveMap">
-                        <ComposableMap
-                            width={600}
-                            height={600}
-                            projection="geoAzimuthalEquidistant"
-                            projectionConfig={continentInfo[continent].geoInfo}
-                            >
-                            <Geographies geography={geoUrl}>
-                                {({ geographies }) =>
-                                geographies.map((geo) => (
-                                    <Geography
-                                    key={geo.rsmKey}
-                                    geography={geo}
-                                    onMouseEnter={() => 
-                                        checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
+                    <>
+                        <div className="interactiveMap">
+                            <ComposableMap
+                                width={600}
+                                height={600}
+                                projection="geoAzimuthalEquidistant"
+                                projectionConfig={continentInfo[continent].geoInfo}
+                                >
+                                <Geographies geography={geoUrl}>
+                                    {({ geographies }) =>
+                                    geographies.map((geo) => (
+                                        <Geography
+                                        key={geo.rsmKey}
+                                        geography={geo}
+                                        onMouseEnter={() => 
+                                            checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
+                                        }
+                                        onMouseLeave={() => {
+                                            setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
+                                        }}
+                                        onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}
+                                        style={{
+                                            default: defaultStyles,
+                                            hover: hoverColors,
+                                            pressed: clickColors
+                                        }}
+                                        />
+                                    ))
                                     }
-                                    onMouseLeave={() => {
-                                        setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
-                                    }}
-                                    onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}
-                                    style={{
-                                        default: defaultStyles,
-                                        hover: hoverColors,
-                                        pressed: clickColors
-                                    }}
-                                    />
-                                ))
-                                }
-                            </Geographies>
-                        </ComposableMap>
-                        </div> : 
-                    <div className="backgroundWorld">
-                        <img src={backgroundWorld} alt="" />
-                    </div>}
+                                </Geographies>
+                            </ComposableMap>
+                        </div> 
+                    </>
+                    :
+                    <>
+                        <div className="backgroundWorld">
+                            <img src={backgroundWorld} alt="" />
+                        </div>
+                    </>
+                    }
                 </div>
             </>
             :
             <>
                 <CountryBreadCrumbMenu/>
-                <HeroArticleSection article={article} loaded={loaded}/>
+                <HeroArticleSection articles={topSectionArticles[0]} loaded={loaded}/>
             </>
             }
-            <ThreeCardsRow articles={[article,article,article]} loaded={loaded}/>
-            <GoogleAd dataAdSlot={"1136657549"}/>
-            
-            <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart}/>
-
+            <>
+                {loaded ? 
+                <>
+                    {topSectionArticles.length === 4 ? 
+                    <>
+                        <ThreeCardsRow articles={topSectionArticles.splice(1,4)} loaded={loaded}/>
+                        <GoogleAd dataAdSlot={"1136657549"}/>
+                    </>
+                    : null}
+                </>
+                :
+                <>
+                    <ThreeCardsRow articles={topSectionArticles.splice(1,4)} loaded={loaded}/>
+                </>
+                }
+            </>
+            <>
+                {loaded ? 
+                <>
+                    {tabArticles.length  ? 
+                        <>
+                            <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart}/>
+                        </>
+                    : null}
+                </>
+                :
+                <>
+                    <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart}/>
+                </>
+                }
+            </>
             <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>
         </>
