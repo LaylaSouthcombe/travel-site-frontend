@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import axios from 'axios';
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 
@@ -18,23 +18,43 @@ import tripStylesPageHero from '../../images/tripStylesPageHero.png'
 //add in random country button
 const Categories = () => {
 
+    const [cityArticles, setCityArticles] = useState([])
+    const [luxuryArticles, setLuxuryArticles] = useState([])
+    const [natureArticles, setNatureArticles] = useState([])
+    const [foodArticles, setFoodArticles] = useState([])
+    const [relaxingArticles, setRelaxingArticles] = useState([])
+    const [budgetArticles, setBudgetArticles] = useState([])
+    const [artArticles, setArtArticles] = useState([])
+    const [adventureArticles, setAdventureArticles] = useState([])
+
+    const setAllArticles = (articles) => {
+        setCityArticles(articles["City Break"])
+        setLuxuryArticles(articles["Luxury"])
+        setNatureArticles(articles["Nature"])
+        setFoodArticles(articles["Food"])
+        setRelaxingArticles(articles["Relaxation"])
+        setBudgetArticles(articles["Budget Friendly"])
+        setArtArticles(articles["Art & Culture"])
+        setAdventureArticles(articles["Adventure"])
+    }
+
+    const fetchArticles = async (url) => {
+        await axios.get(url).then((response) => {
+            console.log(response)
+            setAllArticles(response.data)
+            setLoaded(true)
+        });
+    }
+
     useEffect(() => {
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
+        fetchArticles('http://localhost:3000/articles/categories/')
     }, [])
 
-    let cityArticles = [article5, article1, article2, article3]
-    let luxuryArticles = [article5, article1, article2, article3]
-    let natureArticles = [article5, article1, article2, article3]
-    let foodArticles = [article5, article1, article2, article3, article5]
-    let relaxingArticles = [article8, article7, article6, article5]
-    let budgetArticles = [article8, article7, article6, article5, article5]
-    let artArticles = [article8, article7, article6, article5, article5]
-    let adventureArticles = [article8, article7, article6, article5, article5]
-
     const [loaded, setLoaded] = useState(true)
-
+//add in undefined controls
     return(
         <>
             <NavBar/>
