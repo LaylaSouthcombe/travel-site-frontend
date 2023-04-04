@@ -49,7 +49,11 @@ const ContinentCountryCity = () => {
         await axios.get(url).then((response) => {
             console.log(response)
             setTabArticles(response.data)
-            setTopSectionArticles(response.data.splice(0,4))
+            if(response.data.length > 4){
+                setTopSectionArticles(response.data.splice(0,4))
+            } else {
+                setTopSectionArticles(response.data)
+            }
             setLoaded(true)
         });
     }

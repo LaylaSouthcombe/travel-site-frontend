@@ -94,7 +94,7 @@ const ArticleList = () => {
                     <GoogleAd dataAdSlot={"1136657549"}/>
                 </>
                 : null}
-                {articles.length > 0  && loaded ? 
+                {articles.length > 0 && loaded ? 
                     <ArticleFilterList articles={articles} setArticles={setArticles}/>
                 : null}
             </div>

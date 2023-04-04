@@ -14,11 +14,14 @@ import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components
 
 import {setArticleVisibility, increaseNumberOfArticlesForFilter, addNewOrIncreaseExistingFilterToFilterArray, resetFilterLabelNumbers, uncheckOrCheckCheckBox} from './articleFilterListHelper'
 
+import {tripStylesShowing} from '../../utilities/tripStylesShowing'
+import {countriesInfo} from '../../utilities/countriesInfo'
+
 const ArticleFilterList = ({articles}) => {
   
     const {query} = useParams();
-    const countriesInfo = useSelector(state => state.countriesInfo)
-    const tripStylesShowing = useSelector(state => state.tripStylesShowing)
+    // const countriesInfo = useSelector(state => state.countriesInfo)
+    // const tripStylesShowing = useSelector(state => state.tripStylesShowing)
     const [filters, setFilters] = useState({countries: [], tripStyles: []})
     const [listArticles, setListArticles] = useState([])
     const [tripFilterLabels, setTripFilterLabels] = useState([])
@@ -34,8 +37,10 @@ const ArticleFilterList = ({articles}) => {
     const generateFilterLabels = (articlesList) => {
         let tripLabels = []
         let countryLabels = []
+        console.log(articlesList)
         articlesList.forEach(article => {
                 let tripName = article.article_category
+                console.log(tripStylesShowing)
                 addNewOrIncreaseExistingFilterToFilterArray(tripStylesShowing, tripLabels, tripName)
                 let countryName = article.country.split(",")[0]
                 if(countriesInfo["europe"].countries[countryName] !== undefined) {
