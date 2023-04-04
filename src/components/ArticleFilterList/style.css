@@ -218,6 +218,10 @@ p.showResults {
         margin-left: 0px;
     }
 
+    .filterLabel {
+        font-size: 14px;
+    }
+
     .filterCross {
         display: none;
     }

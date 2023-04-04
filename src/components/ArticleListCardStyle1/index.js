@@ -12,7 +12,7 @@ const ArticleListCardStyle1 = ({article, loaded}) => {
         <>
             {article !== undefined ?   
                 <>
-                    <div className="articleListCardStyle1 articleCard" onClick={() => navigate("/article/" + article.id)}>
+                    <a className="articleListCardStyle1 articleCard" href={"/article/" + article.id} target="_blank" rel="noreferrer">
                         <div className="cardImg">
                                 <img src={article.feature_img_url} alt=""/>
                         </div>
@@ -20,7 +20,7 @@ const ArticleListCardStyle1 = ({article, loaded}) => {
                             <p className="articleCardCategoryArea articleCardCategory">{article.article_category}</p>
                             <p className="articleCardTitle articleListCardTitle">{article.title}</p>
                         </div>
-                    </div>
+                    </a>
                 </>
             : null}
         </>

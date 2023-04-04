@@ -12,9 +12,9 @@ const ArticleListCardStyle4 = ({article, loaded}) => {
         <>
             {article !== undefined ? 
             <>
-                <div className="articleListCardStyle4">
-                        <p className="articleCardTitle articleListCardTitle4" onClick={()=> navigate("/article/" + article.id)}>{article.title}</p>
-                </div>
+                <a className="articleListCardStyle4"  href={"/article/" + article.id} target="_blank" rel="noreferrer">
+                        <p className="articleCardTitle articleListCardTitle4">{article.title}</p>
+                </a>
             </>
             : null}
         </>

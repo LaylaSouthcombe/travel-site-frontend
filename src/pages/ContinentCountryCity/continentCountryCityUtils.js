@@ -31,20 +31,20 @@ const formatCountry = (country) => {
 }
 
 const defaultStyles = {
-    fill: "var(--card-green-no-opacity)",
-    stroke: "#3F3D56",
+    fill: "var(--main-light-purple)",
+    stroke: "var(--main-purple)",
     strokeWidth: 1.5
 }
 
 const normalHoverColor = {
-    fill: "#30c7b570",
-    stroke: "#3F3D56",
+    fill: "var(--main-medium-purple)",
+    stroke: "var(--main-medium-purple)",
     strokeWidth: 1.5
 }
 
 const normalClickColor = {
-    fill: "#3F3D56",
-    stroke: "#30c7b570",
+    fill: "var(--main-purple)",
+    stroke: "var(--main-purple)",
     strokeWidth: 1.5
 }
 

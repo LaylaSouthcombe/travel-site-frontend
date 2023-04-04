@@ -12,13 +12,13 @@ const HeroArticleSection = ({article, loaded}) => {
             {loaded ? 
             <>
                 {article !== undefined ? 
-                <div className="heroArticle articleCard" onClick={() => navigate("/article/" + article.id)}>
+                <a className="heroArticle articleCard" href={"/article/" + article.id} target="_blank" rel="noreferrer">
                     <div className="heroArticleImg">
                         <img src={article.feature_img_url} alt=""/>
                     </div>
                     <p className="heroArticleTag articleCardCategoryArea articleCardCategory">{article.article_category}</p>
                     <p className="heroArticleTitle">{article.title}</p>
-                </div>
+                </a>
                 : 
                 null}
             </>

@@ -25,6 +25,10 @@
     width: 90%;
 }
 
+.articleCard {
+    text-decoration: none;
+}
+
 .articleCard:hover .articleCardTitle, .articleCard:focus .articleCardTitle {
     margin-left: 7px;
 }

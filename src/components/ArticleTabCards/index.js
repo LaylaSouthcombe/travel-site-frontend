@@ -11,7 +11,7 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
         <>
             {article !== undefined ? 
             <>
-                <div className={classnames + " articleCard"} onClick={() => navigate("/article/" + article.id)} key={keyId}>
+                <a className={classnames + " articleCard"} key={keyId} href={"/article/" + article.id} target="_blank" rel="noreferrer">
                     <div className="cardImg">
                         <img src={article.feature_img_url} alt=""/>
                     </div>
@@ -21,7 +21,7 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
                             {article.title}
                         </p>
                     </div>
-                </div>
+                </a>
             </>
             : null}
         </>
