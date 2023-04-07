@@ -5,6 +5,7 @@ export {default as ArticleGridStyle6} from './ArticleGrids/ArticleGridStyle6'
 export {default as ArticleGridStyle8} from './ArticleGrids/ArticleGridStyle8'
 export {default as ArticleListGridStyle2} from './ArticleGrids/ArticleListGridStyle2'
 export {default as ArticleFilterList} from './ArticleFilterList'
+export {default as SkeletonArticleFilterList} from './SkeletonArticleFilterList'
 
 export {default as ConditionalArticlesGrid} from './ConditionalArticlesGrid'
 

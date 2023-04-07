@@ -17,7 +17,7 @@ import { article8 } from '../../utilities/article8'
 
 import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils'
 
-import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu} from '../../components'
+import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu, SkeletonArticleFilterList} from '../../components'
 
 //add in random country button
 const ArticleList = () => {
@@ -35,6 +35,7 @@ const ArticleList = () => {
             let responseArticles = setArticleVisibilityToTrue(response.data)
             setArticles(responseArticles)
         });
+        setLoaded(true)
     }
     
     const fetchArticlesWithoutConfig = async (url) => {
@@ -42,6 +43,7 @@ const ArticleList = () => {
             let responseArticles = setArticleVisibilityToTrue(response.data)
             setArticles(responseArticles)
         });
+        setLoaded(true)
     }   
 
 // 'category=budget-friendly&city=london'
@@ -73,7 +75,7 @@ const ArticleList = () => {
                 console.error(error.message)
             }
          }
-         setLoaded(true)
+        //  setLoaded(true)
     }, [query, queryParams, searchQuery])
     // useEffect(() => {
     //     const body = document.querySelector('body')
@@ -93,20 +95,56 @@ const ArticleList = () => {
                 {query.split("&").length === 1 && query.split("=")[0] === "category" ? 
                 <TripStylesBreadCrumbMenu/>
                 : null}
-                {articles.length !== 0 && loaded ? <HeroArticleSection article={articles[0]} loaded={loaded}/> : 
+
+                {loaded ? 
+                <>
+                    {articles.length !== 0 ? 
+                    <>
+                        <HeroArticleSection article={articles[0]} loaded={loaded}/>
+                    </>
+                    : 
+                    <>
                     <div className="noArticlesFound">
                         <p>No articles found</p>
                     </div> 
-                }
-                {articles.length >= 4  && loaded ? 
-                <>
-                    <ThreeCardsRow articles={articles.slice(1,4)} loaded={loaded}/> 
-                    <GoogleAd dataAdSlot={"1136657549"}/>
+                    </>
+                    }
                 </>
-                : null}
-                {articles.length > 0 && loaded ? 
-                    <ArticleFilterList articles={articles} setArticles={setArticles}/>
-                : null}
+                : 
+                <>
+                    <HeroArticleSection article={articles[0]} loaded={loaded}/>
+                </>
+                }
+
+                {loaded ? 
+                    <>
+                        {articles.length === 4 ? 
+                        <>
+                            <ThreeCardsRow articles={articles.splice(1,4)} loaded={loaded}/>
+                            <GoogleAd dataAdSlot={"1136657549"}/>
+                        </>
+                        : null}
+                    </>
+                    :
+                    <>
+                        <ThreeCardsRow articles={articles.splice(1,4)} loaded={loaded}/>
+                    </>
+                }
+                {loaded ?
+                    <>
+                        {articles.length > 0 ? 
+                            <>
+                                <ArticleFilterList articles={articles} />
+                            </>
+                        : 
+                        null
+                        }
+                    </>
+                :
+                    <>
+                        <SkeletonArticleFilterList/>
+                    </>
+                }
             </div>
             <GoogleAd dataAdSlot={"1136657549"}/>
             {query === 'popular'  && loaded ? 
