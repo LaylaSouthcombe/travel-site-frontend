@@ -17,7 +17,7 @@ import { article8 } from '../../utilities/article8'
 
 import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils'
 
-import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, CategoriesBreadCrumbMenu} from '../../components'
+import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu} from '../../components'
 
 //add in random country button
 const ArticleList = () => {
@@ -92,7 +92,7 @@ const ArticleList = () => {
             <NavBar/>
             <div className="mainArticleListSection">
                 {query.split("&").length === 1 && query.split("=")[0] === "category" ? 
-                <CategoriesBreadCrumbMenu/>
+                <TripStylesBreadCrumbMenu/>
                 : null}
                 {articles.length !== 0 && loaded ? <HeroArticleSection article={articles[0]} loaded={loaded}/> : 
                     <div className="noArticlesFound">

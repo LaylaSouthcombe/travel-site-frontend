@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountryCity, Categories, Article, ArticleList, TripPlanning} from './pages'
+import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning} from './pages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import './layout/FirstSideNavBar/style.css'
@@ -49,11 +49,11 @@ function App() {
         <Route path={'/europe'} element={<ContinentCountryCity/>}/>
         <Route path={'/europe/:country'} element={<ContinentCountryCity/>}/>
         <Route path={'/europe/:country/:city'} element={<ContinentCountryCity/>}/>
-        {/* Categories page */}
-        <Route path="/trip-styles" element={<Categories/>}/>
+        {/* TripStyles page */}
+        <Route path="/trip-styles" element={<TripStyles/>}/>
         {/* Tips and tricks page */}
         <Route path="/trip-planning" element={<TripPlanning/>}/>    
-        {/* Search results, view all, individual categories, popular */}
+        {/* Search results, view all, individual trip styles, popular */}
         <Route path="/articles/:query" element={<ArticleList/>}/>
         <Route path="/article/:articleid" element={<Article/>}/>
       </Routes>

@@ -1,6 +1,6 @@
 export { default as Home} from './Home'
 export { default as ContinentCountryCity} from './ContinentCountryCity'
-export { default as Categories} from './Categories'
+export { default as TripStyles} from './TripStyles'
 export { default as Article} from './Article'
 export { default as ArticleList} from './ArticleList'
 export { default as TripPlanning} from './TripPlanning'

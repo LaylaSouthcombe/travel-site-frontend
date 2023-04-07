@@ -24,6 +24,6 @@ export {default as ArticleTabCards} from './ArticleCards/ArticleTabCards'
 export { default as HeroArticleSection} from './HeroArticleSection'
 export { default as CountryBreadCrumbMenu} from './BreadCrumbMenus/CountryBreadCrumbMenu'
 export { default as BreadCrumbMenu} from './BreadCrumbMenus/BreadCrumbMenu'
-export { default as CategoriesBreadCrumbMenu} from './BreadCrumbMenus/CategoriesBreadCrumbMenu'
+export { default as TripStylesBreadCrumbMenu} from './BreadCrumbMenus/TripStylesBreadCrumbMenu'
 
 export {default as GoogleAd} from './GoogleAd'

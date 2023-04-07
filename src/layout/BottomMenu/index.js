@@ -27,12 +27,12 @@ const BottomMenu = () => {
                         {/* {window.innerWidth < 440 ? <p onClick={() => navigate('/australiaoceania')}>Australia/ Oceania</p> : <p onClick={() => navigate('/australiaoceania')}>Australia/Oceania</p>} */}
                     </div>
                     <div className="bottomMenuSegment2">
-                        <p onClick={() => navigate('/articles/categories=relaxing')}>Relaxing</p>
-                        <p onClick={() => navigate('/articles/categories=luxury')}>Luxury</p>
-                        <p onClick={() => navigate('/articles/categories=nature')}>Nature</p>
-                        <p onClick={() => navigate('/articles/categories=city-break')}>City Break</p>
-                        <p onClick={() => navigate('/articles/categories=budget-friendly')}>Budget Friendly</p>
-                        <p onClick={() => navigate('/articles/categories=adventure')}>Adventure</p>
+                        <p onClick={() => navigate('/articles/category=relaxing')}>Relaxing</p>
+                        <p onClick={() => navigate('/articles/category=luxury')}>Luxury</p>
+                        <p onClick={() => navigate('/articles/category=nature')}>Nature</p>
+                        <p onClick={() => navigate('/articles/category=city-break')}>City Break</p>
+                        <p onClick={() => navigate('/articles/category=budget-friendly')}>Budget Friendly</p>
+                        <p onClick={() => navigate('/articles/category=adventure')}>Adventure</p>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ import { article8 } from '../../utilities/article8'
 import tripStylesPageHero from '../../images/HeroImages/tripStylesPageHero.png'
 
 //add in random country button
-const Categories = () => {
+const TripStyles = () => {
 
     let fourLoadingArticles = [article1, article1, article1, article1]
     let fiveLoadingArticles = [article1, article1, article1, article1, article1]
@@ -156,4 +156,4 @@ const Categories = () => {
     )
 }
 
-export default Categories;
+export default TripStyles;

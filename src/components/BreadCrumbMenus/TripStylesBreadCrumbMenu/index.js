@@ -5,7 +5,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 import {formatWord} from '../../../utilities/formatWord'
 
-const CategoriesBreadCrumbMenu = () => {
+const TripStylesBreadCrumbMenu = () => {
 
     const location = useLocation();
     const pageLocation = location.pathname.split("=")[1]
@@ -41,4 +41,4 @@ const CategoriesBreadCrumbMenu = () => {
 
 }
 
-export default CategoriesBreadCrumbMenu;
+export default TripStylesBreadCrumbMenu;
