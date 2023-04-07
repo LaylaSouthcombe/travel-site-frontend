@@ -17,7 +17,7 @@ import { article8 } from '../../utilities/article8'
 
 import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils'
 
-import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList} from '../../components'
+import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, CategoriesBreadCrumbMenu} from '../../components'
 
 //add in random country button
 const ArticleList = () => {
@@ -27,6 +27,7 @@ const ArticleList = () => {
     const searchQuery = useSelector(state => state.searchQuery)
 
     const [loaded, setLoaded] = useState(true)
+
 
 
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
@@ -84,15 +85,19 @@ const ArticleList = () => {
     console.log(query)
     console.log(articles)
 
+    console.log(query.split("&").length)
+
     return (
         <>
             <NavBar/>
             <div className="mainArticleListSection">
+                {query.split("&").length === 1 && query.split("=")[0] === "category" ? 
+                <CategoriesBreadCrumbMenu/>
+                : null}
                 {articles.length !== 0 && loaded ? <HeroArticleSection article={articles[0]} loaded={loaded}/> : 
                     <div className="noArticlesFound">
                         <p>No articles found</p>
                     </div> 
-                    //TODO: replace with a better layout error msg
                 }
                 {articles.length >= 4  && loaded ? 
                 <>
