@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom';
 import Skeleton from '@material-ui/lab/Skeleton';
 import './style.css'
 
-import {formatWord} from '../../utilities/formatWord'
+import {formatWord} from '../../../utilities/formatWord'
 
 const BreadCrumbMenu = () => {
 

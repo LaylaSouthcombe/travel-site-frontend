@@ -29,7 +29,6 @@ const Article = () => {
             axios.get(URL).then((response) => {
                 let fetchedArticle = response.data
                 setArticle(fetchedArticle)
-                console.log(fetchedArticle)
                 setLoaded(true)
             });
         }
@@ -42,7 +41,6 @@ const Article = () => {
             });
         }
         fetchPopularArticles()
-        console.log(loaded)
         // const similarURL = `http://localhost:3000/articles/suggested`
         // axios.get(similarURL).then((response) => {
         //     setSimilarArticles(response.data)

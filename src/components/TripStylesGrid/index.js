@@ -1,14 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import adventure from '../../images/adventure.png'
-import art from '../../images/art.png'
-import budget from '../../images/budget.png'
-import city from '../../images/city.png'
-import food from '../../images/food.png'
-import nature from '../../images/nature.png'
-import luxury from '../../images/luxury.png'
-import relaxing from '../../images/relaxing.png'
+import adventure from '../../images/TripStylesIcons/adventure.png'
+import art from '../../images/TripStylesIcons/art.png'
+import budget from '../../images/TripStylesIcons/budget.png'
+import city from '../../images/TripStylesIcons/city.png'
+import food from '../../images/TripStylesIcons/food.png'
+import nature from '../../images/TripStylesIcons/nature.png'
+import luxury from '../../images/TripStylesIcons/luxury.png'
+import relaxing from '../../images/TripStylesIcons/relaxing.png'
 
 import './style.css'
 

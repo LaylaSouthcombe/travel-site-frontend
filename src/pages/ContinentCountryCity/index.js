@@ -6,7 +6,7 @@ import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 import {NavBar, BottomMenu} from '../../layout'
 import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, CountryBreadCrumbMenu} from '../../components'
 
-import backgroundWorld from '../../images/backgroundWorld.png'
+import backgroundWorld from '../../images/HeroImages/backgroundWorld.png'
 
 import {continentInfo} from '../../utilities/continentCountries'
 import {article} from '../../utilities/article'

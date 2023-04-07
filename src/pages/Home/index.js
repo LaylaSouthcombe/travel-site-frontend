@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import {NavBar, BottomMenu} from '../../layout'
-import leftHeroImage from '../../images/leftHeroImage.png'
-import rightHeroImage from '../../images/rightHeroImage.png'
+import leftHeroImage from '../../images/HeroImages/leftHeroImage.png'
+import rightHeroImage from '../../images/HeroImages/rightHeroImage.png'
 
 import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd} from '../../components'
 //add in random country button
@@ -39,7 +39,7 @@ const Home = () => {
         fetchAllHomePageArticles()
         console.log(loaded)
       }, [])
-      
+
     return(
         <>
             <NavBar/>

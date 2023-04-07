@@ -382,7 +382,6 @@ const NavBar = () => {
 
     const getAndSetSearchQuery = (e, location) => {
       let inputArea = document.querySelector('.MuiInputBase-input')
-      console.log(inputArea.value)
       if(location === 'input' && inputArea.value !== ""){
         if(e.key === 'Enter'){
           dispatch({ type: "UPDATE_SEARCH_QUERY", payload: inputArea.value})

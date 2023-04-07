@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {ArticleListCardStyle4} from '..'
+import {ArticleListCardStyle4} from '../../'
 
 import './style.css'
 

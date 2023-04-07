@@ -2,7 +2,7 @@ import React from 'react'
 
 import './style.css'
 
-import {ArticleTabCards} from '..'
+import {ArticleTabCards} from '../../'
 
 const ArticleGridStyle2 = ({articles, loaded}) => {
 

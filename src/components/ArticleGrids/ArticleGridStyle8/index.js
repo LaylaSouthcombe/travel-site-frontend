@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {ArticleTabCards} from '..'
+import {ArticleTabCards} from '../../'
 
 import './style.css'
 

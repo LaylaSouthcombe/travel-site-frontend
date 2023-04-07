@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import pageNotFound from '../../images/pageNotFound.png'
+import pageNotFound from '../../images/HeroImages/pageNotFound.png'
 
 import './style.css'
 

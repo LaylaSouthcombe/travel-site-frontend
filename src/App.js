@@ -9,7 +9,7 @@ import './layout/DestinationsDropMenu/style.css'
 import './layout/NavBar/style.css'
 import './pages/Home/style.css'
 
-import './components/ArticleGridStyle1/style.css'
+import './components/ArticleGrids/ArticleGridStyle1/style.css'
 
 
 

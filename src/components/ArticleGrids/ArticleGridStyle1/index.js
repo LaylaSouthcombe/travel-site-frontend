@@ -1,8 +1,8 @@
 import React from 'react'
 
-import {ArticleTabCards, ArticleListCardStyle1} from '../'
+import {ArticleTabCards, ArticleListCardStyle1} from '../..'
 
-import {article} from '../../utilities/article'
+import {article} from '../../../utilities/article'
 
 const ArticleGridStyle1 = ({articles, loaded}) => {
 

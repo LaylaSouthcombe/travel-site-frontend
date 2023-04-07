@@ -49,7 +49,6 @@ const ArticleList = () => {
 
     useEffect(() => {
         console.log(query)
-        console.log("rerun")
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)

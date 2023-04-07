@@ -13,7 +13,7 @@ import { article6 } from '../../utilities/article6'
 import { article7 } from '../../utilities/article7'
 import { article8 } from '../../utilities/article8'
 
-import tripStylesPageHero from '../../images/tripStylesPageHero.png'
+import tripStylesPageHero from '../../images/HeroImages/tripStylesPageHero.png'
 
 //add in random country button
 const Categories = () => {
