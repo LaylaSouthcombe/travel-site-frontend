@@ -16,7 +16,7 @@ const BreadCrumbMenu = () => {
          <>
             <div className="breadcrumbMenu">
                     <div className="breadcrumb">
-                        <a href="">Home</a>
+                        <a href="/">Home</a>
                     </div>
                     <p className="countryCityName">{formatWord(pageLocation)}</p>
                     <p className="countryCitySummary">{summaryInfo}</p>

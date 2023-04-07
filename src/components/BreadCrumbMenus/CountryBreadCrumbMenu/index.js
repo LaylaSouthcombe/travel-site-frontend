@@ -20,15 +20,15 @@ const CountryBreadCrumbMenu = () => {
         <>
         <div className="breadcrumbMenu">
                     <div className="destinationsBreadcrumb">
-                       <a href="">Destinations</a>
+                       <a href="/">Destinations</a>
                        <FontAwesomeIcon icon={faGreaterThan}/>
-                       <a href="">{formatWord(continent)}</a>
+                       <a href={"/" + continent}>{formatWord(continent)}</a>
                     {city === undefined ? 
                         null
                     :
                     <>
                         <FontAwesomeIcon icon={faGreaterThan}/>
-                        <a href="">{formatWord(country)}</a>
+                        <a href={"/" + country}>{formatWord(country)}</a>
                     </>
                     }
                 </div>

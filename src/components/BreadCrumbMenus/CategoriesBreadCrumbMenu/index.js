@@ -29,7 +29,7 @@ const CategoriesBreadCrumbMenu = () => {
          <>
             <div className="breadcrumbMenu">
                     <div className="breadcrumb">
-                        <a href="">Home</a>
+                        <a href="/trip-styles">Trip Styles</a>
                     </div>
                     <p className="countryCityName">{formatWord(pageLocation)}</p>
                     <p className="countryCitySummary">{summaryInfo[pageLocation]}</p>
