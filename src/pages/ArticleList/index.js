@@ -26,9 +26,7 @@ const ArticleList = () => {
     const queryParams = useSelector(state => state.queryParams)
     const searchQuery = useSelector(state => state.searchQuery)
 
-    const [loaded, setLoaded] = useState(true)
-
-
+    const [loaded, setLoaded] = useState(false)
 
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
@@ -75,6 +73,7 @@ const ArticleList = () => {
                 console.error(error.message)
             }
          }
+         setLoaded(true)
     }, [query, queryParams, searchQuery])
     // useEffect(() => {
     //     const body = document.querySelector('body')

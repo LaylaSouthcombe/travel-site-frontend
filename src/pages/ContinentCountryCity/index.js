@@ -167,13 +167,13 @@ const ContinentCountryCity = () => {
                 <>
                     {tabArticles.length  ? 
                         <>
-                            <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart}/>
+                            <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart} page={"countryCity"}/>
                         </>
                     : null}
                 </>
                 :
                 <>
-                    <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart}/>
+                    <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart} page={"countryCity"}/>
                 </>
                 }
             </>

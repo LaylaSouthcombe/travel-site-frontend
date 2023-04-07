@@ -1,20 +1,14 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 import './style.css'
 
 const ViewMoreButton = ({endpoint, loaded}) => {
-    let navigate = useNavigate();
 
-    const handleButtonClick = () => {
-        navigate(endpoint)
-    }
-    
     return (
         <>
         {loaded ? 
-            <div className="viewMoreButton">
-                <div onClick={handleButtonClick}>View more</div>
-            </div>
+            <a className="viewMoreButton" href={endpoint} target="_blank" rel="noreferrer">
+                <div>View more</div>
+            </a>
         : 
         null}
         </>

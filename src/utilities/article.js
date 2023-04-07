@@ -7,7 +7,7 @@ const article = {
     "city": "bogota, Quito, brazillia, buenos aires",
     "country": "Germany, Ecuador, Brazil, Argentina",
     "continent": "south america",
-    "article_category": "Art & Culture",
+    "article_category": "Tips & Tricks",
     "keywords": "Colombia, Ecuador, Brazil, Argentina",
     visibility: true,
     id: 0

@@ -7,11 +7,12 @@ import TabPanel from '@material-ui/lab/TabPanel';
 import './style.css'
 import {ArticleTabCards, ViewMoreButton} from '../index'
 
-const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) => {
+const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart, pageName}) => {
 
     const [value, setValue] = React.useState('1');
 
-    const handleChange = (newValue) => {
+    const handleChange = (event, newValue) => {
+        console.log(newValue)
       setValue(newValue);
     };
 
@@ -51,19 +52,30 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) =
         sortArticles(sortedArticlesArray, heading)
     })
     sortedArticlesArray = removeTabsWithNoArticles(sortedArticlesArray)  
-
+    console.log(sortedArticlesArray)
     const formatHeadingForEndPoint = (heading) => {
         return heading.replace("& ", "").replace(" ", "-")
     }
 
-    const generateEndPoint = (heading) => {
+    const generateEndPoint = (heading, pageName) => {
         let endPoint
+        console.log(pageName)
         if(heading === "All"){
-            endPoint = `${endPointStart}`
+            if(pageName === 'trip-planning'){
+                endPoint = `/articles/category=trip-planning`
+            } else {
+                endPoint = `${endPointStart}`
+            }
         } else {
-            let formattedHeading = formatHeadingForEndPoint(heading)
-            endPoint = `${endPointStart}&category=${formattedHeading}`
+            if(pageName === 'trip-planning'){
+                let formattedHeading = formatHeadingForEndPoint(heading)
+                endPoint = `/articles/category=${formattedHeading}`
+            } else {
+                let formattedHeading = formatHeadingForEndPoint(heading)
+                endPoint = `${endPointStart}&category=${formattedHeading}`
+            }
         }
+        console.log(endPoint.toLowerCase())
         return endPoint.toLowerCase()
     }
 
@@ -74,6 +86,8 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) =
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <TabList variant="scrollable" scrollButtons="auto" onChange={handleChange} aria-label="lab API tabs example">
                 {Object.keys(sortedArticlesArray).map((heading, i) => {
+                    console.log(heading)
+                    console.log("heading value", i+1)
                         return (
                             <Tab label={heading} value={(i+1).toString()}/>
                         )
@@ -82,7 +96,9 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart}) =
                 </TabList>
             </Box>
             {Object.keys(sortedArticlesArray).map((heading, i) => {
-                    let endPoint = generateEndPoint(heading)
+                    let endPoint = generateEndPoint(heading, pageName)
+                    console.log(sortedArticlesArray[heading])
+                    console.log("value", i+1)
                     return (
                         <>
                         <TabPanel value={(i+1).toString()}>{sortedArticlesArray[heading].map(article => {

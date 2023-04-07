@@ -8,7 +8,7 @@ const article1 = {
     "city": "bogota, Quito, brazillia, buenos aires",
     "country": "Germany, Ecuador, Brazil, Argentina",
     "continent": "south america",
-    "article_category": "Adventure",
+    "article_category": "Packing",
     "keywords": "Colombia, Ecuador, Brazil, Argentina",
     visibility: true
 }
