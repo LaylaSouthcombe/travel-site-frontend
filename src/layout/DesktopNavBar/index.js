@@ -86,9 +86,9 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
     return(
         <>
             <div className="menuItems">
-                <div className="menuFav">
+                <a className="menuFav" href="/">
                     <img src={favicon} alt="" />
-                </div>
+                </a>
                 {renderMenu}
             </div>
         </>

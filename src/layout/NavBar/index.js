@@ -401,7 +401,9 @@ const NavBar = () => {
             <>
               <div className="mainMobileNavBar">  
                   <div className="navLogo">
-                    <img src={logo} alt="sojo travels logo"/>
+                    <a href="/">
+                      <img src={logo} alt="sojo travels logo"/>
+                    </a>
                   </div>
                   <div className="sideMenuButton" style={{position: menuBarPosition}} onClick={() => openCloseSideMenu()}>
                       <FontAwesomeIcon icon={menuIcon} />
@@ -421,7 +423,9 @@ const NavBar = () => {
             <>
               <div className="mainMobileNavBar">
                   <div className="navLogo">
-                    <img src={logo} alt="sojo travels logo"/>
+                    <a href="/">
+                      <img src={logo} alt="sojo travels logo"/>
+                    </a>
                   </div>
                   <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
                       <FontAwesomeIcon icon={menuIcon} />
@@ -440,7 +444,9 @@ const NavBar = () => {
             {windowSize >= 768 ?
             <>
                   <div className="navLogo">
-                    <img src={logo} alt="sojo travels logo"/>
+                    <a href="/">
+                      <img src={logo} alt="sojo travels logo"/>
+                    </a>
                   </div>
                   <div className="mainDesktopNavBarContainer">
                     <div className="mainDesktopNavBar"> 

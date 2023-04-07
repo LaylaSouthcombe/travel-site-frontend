@@ -95,7 +95,11 @@ const Home = () => {
                     <h4>Find your next adventure here!</h4>
                     <div className="heroImage heroImage1"><img src={leftHeroImage} alt=""/></div>
                 </div>
-                <div className="heroImage heroImage2"><img src={rightHeroImage} alt=""/></div>
+                <div className="heroImage heroImage2">
+                    <div>
+                        <img src={rightHeroImage} alt=""/>
+                    </div>
+                </div>
             </div>
             <GoogleAd dataAdSlot={"1136657549"}/>
             {renderCategoryArticleSection}

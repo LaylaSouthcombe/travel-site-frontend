@@ -52,12 +52,12 @@ const Categories = () => {
         });
     }
 
-    // useEffect(() => {
-    //     const body = document.querySelector('body')
-    //     body.classList.remove("fixedBody")
-    //     window.scrollTo(0, 0)
-    //     fetchArticles('http://localhost:3000/articles/categories/')
-    // }, [])
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
+        window.scrollTo(0, 0)
+        fetchArticles('http://localhost:3000/articles/categories/')
+    }, [])
 
     const [loaded, setLoaded] = useState(false)
 //add in undefined controls
