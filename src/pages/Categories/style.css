@@ -7,8 +7,16 @@
     width: 100%;
 }
 
+.sectionSepertor {
+    height: 15px;
+}
+
 @media (min-width: 768px) {
     .tripStylesHero {
         width: 50%;
+    }
+    
+    .sectionSepertor {
+        height: 30px;
     }
 }

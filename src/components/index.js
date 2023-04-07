@@ -6,6 +6,8 @@ export {default as ArticleGridStyle8} from './ArticleGrids/ArticleGridStyle8'
 export {default as ArticleListGridStyle2} from './ArticleGrids/ArticleListGridStyle2'
 export {default as ArticleFilterList} from './ArticleFilterList'
 
+export {default as ConditionalArticlesGrid} from './ConditionalArticlesGrid'
+
 export {default as TripStylesGrid} from './TripStylesGrid'
 
 export {default as PageNotFound} from './PageNotFound'

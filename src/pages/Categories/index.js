@@ -3,7 +3,7 @@ import axios from 'axios';
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 
-import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle6, ArticleGridStyle8, ViewMoreButton, GoogleAd} from '../../components'
+import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle6, ArticleGridStyle8, ViewMoreButton, GoogleAd, ConditionalArticlesGrid} from '../../components'
 
 import { article1 } from '../../utilities/article1'
 import { article2 } from '../../utilities/article2'
@@ -18,14 +18,18 @@ import tripStylesPageHero from '../../images/HeroImages/tripStylesPageHero.png'
 //add in random country button
 const Categories = () => {
 
-    const [cityArticles, setCityArticles] = useState([])
-    const [luxuryArticles, setLuxuryArticles] = useState([])
-    const [natureArticles, setNatureArticles] = useState([])
-    const [foodArticles, setFoodArticles] = useState([])
-    const [relaxingArticles, setRelaxingArticles] = useState([])
-    const [budgetArticles, setBudgetArticles] = useState([])
-    const [artArticles, setArtArticles] = useState([])
-    const [adventureArticles, setAdventureArticles] = useState([])
+    let fourLoadingArticles = [article1, article1, article1, article1]
+    let fiveLoadingArticles = [article1, article1, article1, article1, article1]
+
+    
+    const [cityArticles, setCityArticles] = useState(fourLoadingArticles)
+    const [luxuryArticles, setLuxuryArticles] = useState(fourLoadingArticles)
+    const [natureArticles, setNatureArticles] = useState(fourLoadingArticles)
+    const [foodArticles, setFoodArticles] = useState(fourLoadingArticles)
+    const [relaxingArticles, setRelaxingArticles] = useState(fourLoadingArticles)
+    const [budgetArticles, setBudgetArticles] = useState(fourLoadingArticles)
+    const [artArticles, setArtArticles] = useState(fiveLoadingArticles)
+    const [adventureArticles, setAdventureArticles] = useState(fourLoadingArticles)
 
     const setAllArticles = (articles) => {
         setCityArticles(articles["City Break"])
@@ -38,7 +42,9 @@ const Categories = () => {
         setAdventureArticles(articles["Adventure"])
     }
 
+    let numberOfArticleSections = 0
     const fetchArticles = async (url) => {
+        numberOfArticleSections = 0
         await axios.get(url).then((response) => {
             console.log(response)
             setAllArticles(response.data)
@@ -46,16 +52,95 @@ const Categories = () => {
         });
     }
 
-    useEffect(() => {
-        const body = document.querySelector('body')
-        body.classList.remove("fixedBody")
-        window.scrollTo(0, 0)
-        fetchArticles('http://localhost:3000/articles/categories/')
-    }, [])
+    // useEffect(() => {
+    //     const body = document.querySelector('body')
+    //     body.classList.remove("fixedBody")
+    //     window.scrollTo(0, 0)
+    //     fetchArticles('http://localhost:3000/articles/categories/')
+    // }, [])
 
-    const [loaded, setLoaded] = useState(true)
+    const [loaded, setLoaded] = useState(false)
 //add in undefined controls
-    return(
+    
+    const categoryArticleSectionInfo = {
+        cityBreak: {
+            articlesArray: cityArticles,
+            title: "Top City Breaks",
+            buttonEndpoint: "/articles/category=city-break",
+            grid: <ArticleGridStyle1 articles={cityArticles} loaded={loaded}/>
+        },
+        luxury: {
+            articlesArray: luxuryArticles,
+            title: "Explore Luxury Trips",
+            buttonEndpoint: "/articles/category=luxury",
+            grid: <ArticleGridStyle2 articles={luxuryArticles} loaded={loaded}/>
+        },
+        nature: {
+            articlesArray: natureArticles,
+            title: "Picturesque Nature Trips",
+            buttonEndpoint: "/articles/category=nature",
+            grid: <ArticleGridStyle4 articles={natureArticles} loaded={loaded}/>
+        },
+        food: {
+            articlesArray: foodArticles,
+            title: "Trips for Foodies",
+            buttonEndpoint: "/articles/category=food",
+            grid: <ArticleGridStyle2 articles={foodArticles} loaded={loaded}/>
+        },
+        relaxing: {
+            articlesArray: relaxingArticles,
+            title: "Rest with Relaxing Trips",
+            buttonEndpoint: "/articles/category=relaxing",
+            grid: <ArticleGridStyle6 articles={relaxingArticles} loaded={loaded}/>
+        },
+        budget: {
+            articlesArray: budgetArticles,
+            title: "Budget Friendly Trips",
+            buttonEndpoint: "/articles/category=budget-friendly",
+            grid: <ArticleGridStyle2 articles={budgetArticles} loaded={loaded}/>
+        },
+        artCulture: {
+            articlesArray: artArticles,
+            title: "Discover Art and Cultures",
+            buttonEndpoint: "/articles/category=art",
+            grid: <ArticleGridStyle8 articles={artArticles} loaded={loaded}/>
+        },
+        adventure: {
+            articlesArray: adventureArticles,
+            title: "Adventurous Trips",
+            buttonEndpoint: "/articles/category=adventure",
+            grid: <ArticleGridStyle2 articles={adventureArticles} loaded={loaded}/>
+        }
+    }
+
+    const renderCategoryArticleSection = Object.keys(categoryArticleSectionInfo).map((category, i) => {
+        let categoryInfo = categoryArticleSectionInfo[category]
+        if(categoryInfo.articlesArray.length > 0){
+            numberOfArticleSections += 1
+        }
+        return (
+            <>
+                <ConditionalArticlesGrid loaded={loaded} articlesArray={categoryInfo.articlesArray} title={categoryInfo.title} buttonEndPoint={categoryInfo.buttonEndPoint} grid={categoryInfo.grid}/>
+                {numberOfArticleSections%2 === 0 && numberOfArticleSections !== 0 && i !== Object.keys(categoryArticleSectionInfo).length - 1 ? 
+                <>
+                    <GoogleAd dataAdSlot={"1136657549"}/>
+                </>
+                :
+                <>
+                    {categoryInfo.articlesArray.length > 0 ? 
+                        <>
+                            <div className="sectionSepertor"></div>
+                        </>
+                    :
+                    null
+                    }
+                </>
+                }
+            </>
+        )
+    })
+
+    return (
         <>
             <NavBar/>
             <div>
@@ -64,49 +149,7 @@ const Categories = () => {
                     <img src={tripStylesPageHero} alt="" />
                 </div>
             </div>
-            <div>
-                <h2 className="seperatorTitle">Top City Breaks</h2>
-            </div>
-            <ArticleGridStyle1 articles={cityArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=city-break"} loaded={loaded}/>
-            <div>
-                <h2 className="seperatorTitle">Explore Luxury Trips</h2>
-            </div>
-            <ArticleGridStyle2 articles={luxuryArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=luxury"} loaded={loaded}/>
-            <GoogleAd dataAdSlot={"1136657549"}/>
-            <div>
-                <h2 className="seperatorTitle">Picturesque Nature Trips</h2>
-            </div>
-            <ArticleGridStyle4 articles={natureArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=nature"} loaded={loaded}/>
-            <div>
-                <h2 className="seperatorTitle">Trips for Foodies</h2>
-            </div>
-            <ArticleGridStyle2 articles={foodArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=food"} loaded={loaded}/>
-            <GoogleAd dataAdSlot={"1136657549"}/>
-            <div>
-                <h2 className="seperatorTitle">Rest with Relaxing Trips</h2>
-            </div>
-            <ArticleGridStyle6 articles={relaxingArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=relaxing"} loaded={loaded}/>
-            <div>
-                <h2 className="seperatorTitle">Budget Friendly Trips</h2>
-            </div>
-            <ArticleGridStyle2 articles={budgetArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=budget-friendly"} loaded={loaded}/>
-            <GoogleAd dataAdSlot={"1136657549"}/>
-            <div>
-                <h2 className="seperatorTitle">Discover Art and Cultures</h2>
-            </div>
-            <ArticleGridStyle8 articles={artArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=art"} loaded={loaded}/>
-            <div>
-                <h2 className="seperatorTitle">Adventurous Trips</h2>
-            </div>
-            <ArticleGridStyle2 articles={adventureArticles} loaded={loaded}/>
-            <ViewMoreButton endpoint={"/articles/category=adventure"} loaded={loaded}/>
+            {renderCategoryArticleSection}
             <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>
         </>

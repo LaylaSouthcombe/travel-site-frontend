@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
+
 import {NavBar, BottomMenu} from '../../layout'
 import leftHeroImage from '../../images/HeroImages/leftHeroImage.png'
 import rightHeroImage from '../../images/HeroImages/rightHeroImage.png'
+import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd, ConditionalArticlesGrid} from '../../components'
 
-import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd} from '../../components'
+import { article1 } from '../../utilities/article1'
 //add in random country button
 const Home = () => {
-
-    const [trendingArticles, setTrendingArticles] = useState([])
-    const [cityArticles, setCityArticles] = useState([])
+    let fourLoadingArticles = [article1, article1, article1, article1]
+    const [trendingArticles, setTrendingArticles] = useState([fourLoadingArticles])
+    const [cityArticles, setCityArticles] = useState([fourLoadingArticles])
     const [loaded, setLoaded] = useState(false)
 
     const fetchTrendingArticles = async (url) => {
@@ -25,13 +27,15 @@ const Home = () => {
             setCityArticles(response.data.splice(0,4))
         });
     }  
+    let numberOfArticleSections = 0
 
     const fetchAllHomePageArticles = async () => {
+        numberOfArticleSections = 0
         await fetchTrendingArticles('http://localhost:3000/articles/trending')
         await fetchCityArticles('http://localhost:3000/articles/category/city')
         setLoaded(true)
     }
-
+    
     useEffect(() => {
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
@@ -40,7 +44,49 @@ const Home = () => {
         console.log(loaded)
       }, [])
 
-    return(
+      const categoryArticleSectionInfo = {
+        trending: {
+            articlesArray: trendingArticles,
+            title: "Trending Articles",
+            buttonEndpoint: "/articles/popular",
+            grid: <ArticleGridStyle1 articles={trendingArticles} loaded={loaded}/>
+        },
+        cityBreak: {
+            articlesArray: cityArticles,
+            title: "Top City Breaks",
+            buttonEndpoint: "/articles/category=city-break",
+            grid: <ArticleGridStyle2 articles={cityArticles} loaded={loaded}/>
+        }
+    }
+
+    const renderCategoryArticleSection = Object.keys(categoryArticleSectionInfo).map((category, i) => {
+        let categoryInfo = categoryArticleSectionInfo[category]
+        if(categoryInfo.articlesArray.length > 0){
+            numberOfArticleSections += 1
+        }
+        return (
+            <>
+                <ConditionalArticlesGrid loaded={loaded} articlesArray={categoryInfo.articlesArray} title={categoryInfo.title} buttonEndPoint={categoryInfo.buttonEndPoint} grid={categoryInfo.grid}/>
+                {numberOfArticleSections%2 === 0 && numberOfArticleSections !== 0 && i !== Object.keys(categoryArticleSectionInfo).length - 1 ? 
+                <>
+                    <GoogleAd dataAdSlot={"1136657549"}/>
+                </>
+                :
+                <>
+                    {categoryInfo.articlesArray.length > 0 ? 
+                        <>
+                            <div className="sectionSepertor"></div>
+                        </>
+                    :
+                    null
+                    }
+                </>
+                }
+            </>
+        )
+    })
+
+    return (
         <>
             <NavBar/>
             <div className="heroSection">
@@ -51,43 +97,9 @@ const Home = () => {
                 </div>
                 <div className="heroImage heroImage2"><img src={rightHeroImage} alt=""/></div>
             </div>
-            {loaded ? 
-            <>
-                {trendingArticles.length ? 
-                <>
-                    <div>
-                        <h2 className="seperatorTitle">Trending Articles</h2>
-                    </div>
-                    <ArticleGridStyle1 articles={trendingArticles} loaded={loaded}/>
-                    <GoogleAd dataAdSlot={"1136657549"}/>
-                </>
-                : null}
-            </>
-            :
-            <>
-                <div>
-                    <h2 className="seperatorTitle">Trending Articles</h2>
-                </div>
-                <ArticleGridStyle1 articles={trendingArticles} loaded={loaded}/>
-            </>
-            }
-            {loaded ? 
-            <>
-                {cityArticles.length ? 
-                    <div>
-                        <h2 className="seperatorTitle">City Breaks</h2>
-                    </div>
-                : null}
-            </>
-            :
-            <>
-                <div>
-                    <h2 className="seperatorTitle">City Breaks</h2>
-                </div>
-            </>
-            }
-            <ArticleGridStyle2 articles={cityArticles} loaded={loaded}/>
             <GoogleAd dataAdSlot={"1136657549"}/>
+            {renderCategoryArticleSection}
+            
             <div>
                 <h2 className="seperatorTitle">Explore Trip Styles</h2>
             </div>
