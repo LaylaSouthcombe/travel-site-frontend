@@ -141,8 +141,11 @@ const TripStyles = () => {
     return (
         <>
             <NavBar/>
-            <div>
-                <h2 className="seperatorTitle">Explore Trip Styles</h2>
+            <div className="tripStylesHeroSection">
+                <div className="tripStylesText">
+                    <h2 className="seperatorTitle">Explore Trip Styles</h2>
+                    <p className="tripStylesSummary">Explore 8 unique trip styles and find inspiration for your next travel experience and start planning your dream getaway today!</p>
+                </div>
                 <div className="tripStylesHero">
                     <img src={tripStylesPageHero} alt="" />
                 </div>

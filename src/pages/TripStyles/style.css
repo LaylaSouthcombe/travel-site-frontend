@@ -1,6 +1,23 @@
+.tripStylesHeroSection {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: flex-end;
+    margin: 0px auto;
+}
+
+.tripStylesSummary {
+    margin-bottom: 20px;
+}
+
+.tripStylesText {
+    text-align: center;
+}
+
 .tripStylesHero {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
+    height: fit-content;
 }
 
 .tripStylesHero > img {
@@ -12,8 +29,11 @@
 }
 
 @media (min-width: 768px) {
-    .tripStylesHero {
-        width: 50%;
+    .tripStylesHeroSection {
+        width: 80%;
+        grid-template-columns: 40% 60%;
+        margin: 30px auto;
+        align-items: center;
     }
     
     .sectionSeparator {
