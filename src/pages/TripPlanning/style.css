@@ -1,0 +1,18 @@
+.noArticlesFoundText {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 40px auto 0 auto;
+}
+
+@media (min-width: 768px){
+    .noArticlesFoundText {
+        width: 75%;
+    }
+}
+
+@media (min-width: 900px){
+    .noArticlesFoundText {
+        width: 55%;
+    }
+}

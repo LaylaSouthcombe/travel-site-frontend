@@ -1,0 +1,28 @@
+.noArticlesFoundImg {
+    width: 75%;
+    max-width: 450px;
+    margin: -20px auto 0 auto;
+}
+
+.noArticlesFoundImg > img {
+    width: 100%;
+}
+
+.noArticlesFound {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .noArticlesFoundImg {
+        width: 45%;
+        margin: -30px auto 0 auto;
+    }
+}
+
+@media (min-width: 900px) {
+    .noArticlesFoundImg {
+        width: 40%;
+        margin: -40px auto 0 auto;
+    }
+}

@@ -17,7 +17,7 @@ import { article8 } from '../../utilities/article8'
 
 import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils'
 
-import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu, SkeletonArticleFilterList} from '../../components'
+import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu, SkeletonArticleFilterList, NoArticlesFound, TakeMeHomeButton} from '../../components'
 
 //add in random country button
 const ArticleList = () => {
@@ -44,7 +44,7 @@ const ArticleList = () => {
             setArticles(responseArticles)
         });
         setLoaded(true)
-    }   
+    }
 
 // 'category=budget-friendly&city=london'
 
@@ -55,13 +55,6 @@ const ArticleList = () => {
         window.scrollTo(0, 0)
         if(query === 'popular'){
             fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
-        } else if(query === 'search-results'){
-             const config = {
-                headers: {
-                  query: JSON.stringify(searchQuery)
-                }
-            };
-             fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
          } else {
             let queryParams = generateQueryParam(query)
             const config = {
@@ -100,12 +93,23 @@ const ArticleList = () => {
                 <>
                     {articles.length !== 0 ? 
                     <>
-                        <HeroArticleSection article={articles[0]} loaded={loaded}/>
+                        {query !== 'search-results' ? 
+                            <>
+                                <HeroArticleSection article={articles[0]} loaded={loaded}/>
+                            </>
+                        :
+                            null
+                        }
                     </>
                     : 
                     <>
-                    <div className="noArticlesFound">
-                        <p>No articles found</p>
+                        <div className="noArticlesFound">
+                        <div className="noArticlesFoundText">
+                            <p>Oops!</p>
+                            <p>No articles were found, try the search bar to find what you are looking for, or use the home button to navigate to the home page</p>
+                            <TakeMeHomeButton/>
+                        </div> 
+                        <NoArticlesFound/>
                     </div> 
                     </>
                     }
@@ -115,7 +119,6 @@ const ArticleList = () => {
                     <HeroArticleSection article={articles[0]} loaded={loaded}/>
                 </>
                 }
-
                 {loaded ? 
                     <>
                         {articles.length === 4 ? 

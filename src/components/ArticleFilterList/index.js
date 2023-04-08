@@ -171,7 +171,7 @@ const ArticleFilterList = ({articles}) => {
 
     return (
         <div className="articleListSection">
-            {loaded && listArticles.length > 4 ?
+            {loaded ?
             <div className="articleListFilterSection">
                 <div className="filterCross" onClick={(e) => closeFilterMenu(e)}><FontAwesomeIcon icon={faXmark}/></div>
                 <p>Filter By:</p>
@@ -205,65 +205,61 @@ const ArticleFilterList = ({articles}) => {
                 </ul>
             </div>
             : null}
-            {loaded && listArticles.length > 4 ?
+            {loaded ?
             <>
-            <div className="filterBar" onClick={(e) => openFilterMenu(e)}>
-                <FontAwesomeIcon icon={faList}/>
-                <FontAwesomeIcon icon={faFilter}/> Filters
-            </div>
-            <div className="articleList">
-                {listArticles.map((article, i) => {
-                    if(article.visibility === true){
-                        numberOfArticles += 1
-                    }
-                    return (
+                <div className="filterBar" onClick={(e) => openFilterMenu(e)}>
+                    <FontAwesomeIcon icon={faList}/>
+                    <FontAwesomeIcon icon={faFilter}/> Filters
+                </div>
+                <div className="articleList">
+                    {numberOfArticles !== 0 ? 
                         <>
-                            {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article}  loaded={loaded}/> : null}
+                            {listArticles.map((article, i) => {
+                                if(article.visibility === true){
+                                    numberOfArticles += 1
+                                }
+                                return (
+                                    <>
+                                        {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article}  loaded={loaded}/> : null}
+                                    </>
+                                )
+                            })}
                         </>
-                    )
-                })}
-                {loaded && numberOfArticles === 0 ? 
-                <>
-                    <div className="noArticles">
-                        No articles found
-                    </div>
-                </>
-                : null}
-            </div>
+                    :
+                        <>
+                            <div className="noArticles">
+                                No articles found
+                            </div>
+                        </>
+                    }
+                </div>
             </>
             : null}
             {!loaded ?
             <>
-            <div className="articleList">
-                {loadingArticles.map((article, i) => {
-                    return (
-                        <>
-                            <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article} loaded={false}/>
-                        </>
-                    )
-                })}
-                {loaded && numberOfArticles === 0 ? 
-                <>
-                    <div className="noArticles">
-                        No articles found
-                    </div>
-                </>
-                : null}
-            </div>
+                <div className="articleList">
+                    {loadingArticles.map((article, i) => {
+                        return (
+                            <>
+                                <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article} loaded={false}/>
+                            </>
+                        )
+                    })}
+                </div>
             </>
             : null}
             <div className="sideAds">
-                    <GoogleAd dataAdSlot={"4238599075"}/>
-                        {query !== 'popular' ? 
-                        <>
-                            <p className="popularSideHeading">Popular on Sojo Travels</p>
-                            <div className="popularArticlesSideList">
-                                <ArticleListGridStyle2 articles={[article,article, article, article]} loaded={loaded}/> 
-                            </div>
-                            <GoogleAd dataAdSlot={"9095054520"}/>
-                        </>
-                        : null}
-                    {/* make sticky */}
+                <GoogleAd dataAdSlot={"4238599075"}/>
+                    {query !== 'popular' ? 
+                    <>
+                        <p className="popularSideHeading">Popular on Sojo Travels</p>
+                        <div className="popularArticlesSideList">
+                            <ArticleListGridStyle2 articles={[article,article, article, article]} loaded={loaded}/> 
+                        </div>
+                        <GoogleAd dataAdSlot={"9095054520"}/>
+                    </>
+                    : null}
+                {/* make sticky */}
             </div>
         </div>
     )

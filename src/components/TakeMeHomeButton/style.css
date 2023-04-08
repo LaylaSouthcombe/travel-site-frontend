@@ -1,0 +1,31 @@
+.takeMeBackBtn {
+    background-color: var(--main-purple);
+    color: var(--darker-background-colour);
+    width: 35%;
+    max-width: 130px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7.5px 7.5px 10px 7.5px;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.takeMeBackBtn path {
+    color: var(--darker-background-colour);
+}
+
+.takeMeBackBtn svg {
+    margin-left: 5px;
+    font-size: 0.75rem;
+}
+
+.takeMeBackBtn:hover, .takeMeBackBtn:focus {
+    background-color: var(--darker-background-colour);
+    color: var(--main-purple);
+    border: 3px solid var(--main-purple);
+    padding: 4.5px 4.5px 7px 4.5px;
+}
+
+.takeMeBackBtn:hover path, .takeMeBackBtn:focus path {
+    color: var(--main-purple);
+}

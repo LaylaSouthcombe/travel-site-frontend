@@ -9,9 +9,9 @@ const ArticleListGridStyle2 = ({articles, loaded}) => {
     return (
         <div className="articleListGridStyle2">
             <div className="liststyle2column1">
-                {articles.map(article => {
+                {articles.map((article, i) => {
                     return (
-                        <ArticleListCardStyle4 article={article} loaded={loaded}/>
+                        <ArticleListCardStyle4 article={article} loaded={loaded} keyId={'listCardStyle4' + i}/>
                     )
                 })}
             </div>

@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.sectionSepertor {
+.sectionSeparator {
     height: 15px;
 }
 
@@ -16,7 +16,7 @@
         width: 50%;
     }
     
-    .sectionSepertor {
+    .sectionSeparator {
         height: 30px;
     }
 }

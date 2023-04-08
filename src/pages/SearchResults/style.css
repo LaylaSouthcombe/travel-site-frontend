@@ -1,0 +1,28 @@
+.searchResultsTitle {
+    width: 75%;
+    margin: 0px 0px 20px 20px;
+}
+
+.searchResultsSection {
+    margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+    .searchResultsTitle {
+        margin: 0px 0px 40px 40px;
+    }
+    
+    .searchResultsSection {
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 900px) {
+    .searchResultsTitle {
+        margin: 0px 0px 40px 80px;
+    }
+    
+    .searchResultsSection {
+        margin-top: 60px;
+    }
+}

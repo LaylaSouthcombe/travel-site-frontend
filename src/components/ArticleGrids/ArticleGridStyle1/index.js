@@ -9,7 +9,7 @@ const ArticleGridStyle1 = ({articles, loaded}) => {
     return (
         <div className="articleGridStyle1">
             <div className="style1column1">
-                <ArticleTabCards article={articles[0]} loaded={loaded}/>
+                <ArticleTabCards article={articles[0]} loaded={loaded} keyId={'gridStyle1'}/>
             </div>
             <div className="style1column2">
                 <ArticleListCardStyle1 article={articles[1]} classnames={"articleTabCard"} loaded={loaded}/>

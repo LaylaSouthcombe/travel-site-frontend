@@ -104,24 +104,24 @@ body {
   color: var(--main-purple);
 }
 
-.backToTopBtnMid:hover {
+.backToTopBtnMid:hover, .backToTopBtnMid:focus {
   background-color: var(--darker-background-colour);
   color: var(--main-purple);
   border: 3px solid var(--main-purple);
   padding: 7px 15px;
 }
 
-.backToTopBtnBot:hover {
+.backToTopBtnBot:hover, .backToTopBtnBot:focus {
   background-color: var(--main-purple);
   color: var(--darker-background-colour);
   border: 3px solid var(--darker-background-colour);
   padding: 7px 15px;
 }
 
-.backToTopBtnMid:hover path {
+.backToTopBtnMid:hover path, .backToTopBtnMid:focus path {
   color: var(--main-purple);
 }
 
-.backToTopBtnBot:hover path {
+.backToTopBtnBot:hover path, .backToTopBtnBot:focus path {
   color: var(--darker-background-colour);
 }

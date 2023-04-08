@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning} from './pages'
+import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning, NotFound, SearchResults} from './pages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import './layout/FirstSideNavBar/style.css'
@@ -55,7 +55,9 @@ function App() {
         <Route path="/trip-planning" element={<TripPlanning/>}/>    
         {/* Search results, view all, individual trip styles, popular */}
         <Route path="/articles/:query" element={<ArticleList/>}/>
+        <Route path="/search" element={<SearchResults/>}/>
         <Route path="/article/:articleid" element={<Article/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
       <div className={buttonClassName} onClick={() => topFunction()}>
         <FontAwesomeIcon icon={faAngleUp} />

@@ -10,13 +10,13 @@ const ConditionalArticlesGrid = ({loaded, articlesArray, title, buttonEndPoint, 
             {loaded ? 
                 <>
                     {articlesArray.length  ? 
-                        <>
+                        <div>
                             <div>
                                 <h2 className="seperatorTitle">{title}</h2>
                             </div>
                             {grid}
                             <ViewMoreButton endpoint={buttonEndPoint} loaded={loaded}/>
-                        </>
+                        </div>
                     : null}
                 </>
                 :

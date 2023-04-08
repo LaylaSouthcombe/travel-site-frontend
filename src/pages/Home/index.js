@@ -65,24 +65,22 @@ const Home = () => {
             numberOfArticleSections += 1
         }
         return (
-            <>
+            <div key={'grid' + category + i}>
                 <ConditionalArticlesGrid loaded={loaded} articlesArray={categoryInfo.articlesArray} title={categoryInfo.title} buttonEndPoint={categoryInfo.buttonEndPoint} grid={categoryInfo.grid}/>
                 {numberOfArticleSections%2 === 0 && numberOfArticleSections !== 0 && i !== Object.keys(categoryArticleSectionInfo).length - 1 ? 
-                <>
                     <GoogleAd dataAdSlot={"1136657549"}/>
-                </>
                 :
                 <>
                     {categoryInfo.articlesArray.length > 0 ? 
                         <>
-                            <div className="sectionSepertor"></div>
+                            <div className="sectionSeparator"></div>
                         </>
                     :
                     null
                     }
                 </>
                 }
-            </>
+            </div>
         )
     })
 
