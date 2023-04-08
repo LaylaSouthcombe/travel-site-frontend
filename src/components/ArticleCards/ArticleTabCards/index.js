@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import Skeleton from '@material-ui/lab/Skeleton';
+import Skeleton from '@mui/material/Skeleton';
 import './style.css'
 
 const ArticleTabCards = ({article, classnames, keyId, loaded}) => {

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useParams} from 'react-router-dom';
-import Skeleton from '@material-ui/lab/Skeleton';
+import Skeleton from '@mui/material/Skeleton';
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons'

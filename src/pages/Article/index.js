@@ -3,7 +3,7 @@ import { useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
 import {NavBar, BottomMenu} from '../../layout'
 import parse from 'html-react-parser'
-import Skeleton from '@material-ui/lab/Skeleton';
+import Skeleton from '@mui/material/Skeleton';
 
 import './style.css'
 

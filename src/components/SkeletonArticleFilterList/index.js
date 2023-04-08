@@ -1,5 +1,5 @@
 import React from 'react'
-import Skeleton from '@material-ui/lab/Skeleton';
+import Skeleton from '@mui/material/Skeleton';
 import { useParams} from 'react-router-dom';
 import {article} from '../../utilities/article'
 

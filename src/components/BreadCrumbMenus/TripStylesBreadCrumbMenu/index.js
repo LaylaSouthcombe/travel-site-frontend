@@ -1,6 +1,6 @@
 import React from 'react'
 import {useLocation} from 'react-router-dom';
-import Skeleton from '@material-ui/lab/Skeleton';
+import Skeleton from '@mui/material/Skeleton';
 
 
 import {formatWord} from '../../../utilities/formatWord'
