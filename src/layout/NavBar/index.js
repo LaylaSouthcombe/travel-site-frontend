@@ -405,8 +405,8 @@ const NavBar = () => {
                       <img src={logo} alt="sojo travels logo"/>
                     </a>
                   </div>
-                  <div className="sideMenuButton" style={{position: menuBarPosition}} onClick={() => openCloseSideMenu()}>
-                      <FontAwesomeIcon icon={menuIcon} />
+                  <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
+                      <FontAwesomeIcon icon={faBars}/>
                   </div>
               </div> 
                   {sideMenuOpen ? 
@@ -428,7 +428,7 @@ const NavBar = () => {
                     </a>
                   </div>
                   <div className="sideMenuButton" onClick={() => openCloseSideMenu()}>
-                      <FontAwesomeIcon icon={menuIcon} />
+                      <FontAwesomeIcon icon={faBars} />
                   </div>
               </div> 
                   {sideMenuOpen ? 
