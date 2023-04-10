@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 
-import {continentInfo} from '../../../utilities/continentCountries'
+import {continentCountries} from '../../../utilities/continentCountries'
 import {formatWord} from '../../../utilities/formatWord'
 
 const CountryBreadCrumbMenu = () => {
@@ -33,7 +33,7 @@ const CountryBreadCrumbMenu = () => {
                     }
                 </div>
                 <p className="countryCityName">{city === undefined ? formatWord(country === "england" || country === "wales" || country === "scotland" || country === "northern-ireland" ? "united-kingdom" : country) : formatWord(city)}</p>
-                <p className="countryCitySummary">{continentInfo[continent].countries[country].summary}</p>
+                <p className="countryCitySummary">{continentCountries[continent].countries[country].summary}</p>
                 {/* TODO: add city and city summary data to country data file */}
             </div>
         </>

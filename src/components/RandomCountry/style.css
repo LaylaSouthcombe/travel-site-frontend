@@ -34,3 +34,19 @@
     margin: 3px;
     font-size: 2rem;
 }
+
+
+.randomCountryButton:hover,
+.randomCountryButton:focus {
+    padding: 7px;
+    background-color: var(--darker-background-colour);
+    border: 3px solid var(--main-purple);
+    cursor: pointer;
+}
+
+.randomCountryButton:hover p,
+.randomCountryButton:hover path,
+.randomCountryButton:focus p,
+.randomCountryButton:focus path {
+    color: var(--main-purple);
+}

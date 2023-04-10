@@ -8,7 +8,7 @@ import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, Country
 
 import backgroundWorld from '../../images/HeroImages/backgroundWorld.png'
 
-import {continentInfo} from '../../utilities/continentCountries'
+import {continentCountries} from '../../utilities/continentCountries'
 import {article} from '../../utilities/article'
 import {formatWord} from '../../utilities/formatWord'
 import { generateFetchUrl, generateGeoUrl, generateEndPointStart, formatCountry, defaultStyles, normalHoverColor, normalClickColor } from './continentCountryCityUtils'
@@ -36,7 +36,7 @@ const ContinentCountryCity = () => {
     
     let endPointStart = generateEndPointStart(country, continent)
     
-    const [summaryInfo, setSummaryInfo] = useState({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
+    const [summaryInfo, setSummaryInfo] = useState({name: continentCountries[continent].name, summary: continentCountries[continent].summary})
 
     const handleResize = () => {
         setWindowSize(window.innerWidth)
@@ -71,7 +71,7 @@ const ContinentCountryCity = () => {
     const handleCountryClick = (country) => {
         if (country === "england" || country === "wales" || country === "scotland" || country === "northernireland"){
             navigate("united-kingdom")
-        } else if(continentInfo[continent].countries[country].popularCities.length){
+        } else if(continentCountries[continent].countries[country].popularCities.length){
             navigate(country)
         }
     }
@@ -79,11 +79,11 @@ const ContinentCountryCity = () => {
     const checkAndSetSumamryInfo = (countryName) => {
         setClickColors(defaultStyles)
         setHoverColors(defaultStyles)
-        if(continentInfo[continent].countries[countryName].name !== "Europe"){
+        if(continentCountries[continent].countries[countryName].name !== "Europe"){
            setHoverColors(normalHoverColor) 
            setClickColors(normalClickColor)
         }
-        setSummaryInfo({name: continentInfo[continent].countries[countryName].name, summary: continentInfo[continent].countries[countryName].summary})
+        setSummaryInfo({name: continentCountries[continent].countries[countryName].name, summary: continentCountries[continent].countries[countryName].summary})
     }
 
     return (
@@ -104,7 +104,7 @@ const ContinentCountryCity = () => {
                                 width={600}
                                 height={600}
                                 projection="geoAzimuthalEquidistant"
-                                projectionConfig={continentInfo[continent].geoInfo}
+                                projectionConfig={continentCountries[continent].geoInfo}
                                 >
                                 <Geographies geography={geoUrl}>
                                     {({ geographies }) =>
@@ -116,7 +116,7 @@ const ContinentCountryCity = () => {
                                             checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
                                         }
                                         onMouseLeave={() => {
-                                            setSummaryInfo({name: continentInfo[continent].name, summary: continentInfo[continent].summary})
+                                            setSummaryInfo({name: continentCountries[continent].name, summary: continentCountries[continent].summary})
                                         }}
                                         onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}
                                         style={{
