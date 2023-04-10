@@ -4,7 +4,7 @@ import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 
 import {NavBar, BottomMenu} from '../../layout'
-import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, CountryBreadCrumbMenu} from '../../components'
+import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, CountryBreadCrumbMenu, TakeMeHomeButton, NoArticlesFound} from '../../components'
 
 import backgroundWorld from '../../images/HeroImages/backgroundWorld.png'
 
@@ -169,7 +169,17 @@ const ContinentCountryCity = () => {
                         <>
                             <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart} page={"countryCity"}/>
                         </>
-                    : null}
+                    : 
+                    <>
+                        <div className="noArticlesFound">
+                            <div className="noArticlesFoundText">
+                                <p>Oops!</p>
+                                <p>No articles were found, try the search bar to find what you are looking for, or use the home button to navigate to the home page</p>
+                                <TakeMeHomeButton/>
+                            </div> 
+                            <NoArticlesFound/>
+                        </div> 
+                    </>}
                 </>
                 :
                 <>

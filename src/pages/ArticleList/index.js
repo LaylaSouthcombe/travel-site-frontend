@@ -103,13 +103,13 @@ const ArticleList = () => {
                     : 
                     <>
                         <div className="noArticlesFound">
-                        <div className="noArticlesFoundText">
-                            <p>Oops!</p>
-                            <p>No articles were found, try the search bar to find what you are looking for, or use the home button to navigate to the home page</p>
-                            <TakeMeHomeButton/>
+                            <div className="noArticlesFoundText">
+                                <p>Oops!</p>
+                                <p>No articles were found, try the search bar to find what you are looking for, or use the home button to navigate to the home page</p>
+                                <TakeMeHomeButton/>
+                            </div> 
+                            <NoArticlesFound/>
                         </div> 
-                        <NoArticlesFound/>
-                    </div> 
                     </>
                     }
                 </>
