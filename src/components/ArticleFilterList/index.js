@@ -251,13 +251,13 @@ const ArticleFilterList = ({articles}) => {
             <div className="sideAds">
                 <GoogleAd dataAdSlot={"4238599075"}/>
                     {query !== 'popular' ? 
-                    <>
+                    <div className="popularSideHeadingSection">
                         <p className="popularSideHeading">Popular on Sojo Travels</p>
                         <div className="popularArticlesSideList">
-                            <ArticleListGridStyle2 articles={[article,article, article, article]} loaded={loaded}/> 
+                            <ArticleListGridStyle2 articles={[article,article, article, article]} loaded={true}/> 
                         </div>
                         <GoogleAd dataAdSlot={"9095054520"}/>
-                    </>
+                    </div>
                     : null}
                 {/* make sticky */}
             </div>

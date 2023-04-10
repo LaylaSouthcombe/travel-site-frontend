@@ -15,13 +15,12 @@ import { article8 } from '../../utilities/article8'
 
 import tripStylesPageHero from '../../images/HeroImages/tripStylesPageHero.png'
 
-//add in random country button
 const TripStyles = () => {
 
     let fourLoadingArticles = [article1, article1, article1, article1]
     let fiveLoadingArticles = [article1, article1, article1, article1, article1]
 
-    
+    const [loaded, setLoaded] = useState(false)
     const [cityArticles, setCityArticles] = useState(fourLoadingArticles)
     const [luxuryArticles, setLuxuryArticles] = useState(fourLoadingArticles)
     const [natureArticles, setNatureArticles] = useState(fourLoadingArticles)
@@ -52,14 +51,14 @@ const TripStyles = () => {
         });
     }
 
-    // useEffect(() => {
-    //     const body = document.querySelector('body')
-    //     body.classList.remove("fixedBody")
-    //     window.scrollTo(0, 0)
-    //     fetchArticles('http://localhost:3000/articles/categories/')
-    // }, [])
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.remove("fixedBody")
+        window.scrollTo(0, 0)
+        fetchArticles('http://localhost:3000/articles/categories/')
+    }, [])
 
-    const [loaded, setLoaded] = useState(false)
+    
 //add in undefined controls
     
     const categoryArticleSectionInfo = {

@@ -19,7 +19,6 @@ import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils
 
 import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu, SkeletonArticleFilterList, NoArticlesFound, TakeMeHomeButton} from '../../components'
 
-//add in random country button
 const ArticleList = () => {
     const {query} = useParams();
 
@@ -53,21 +52,21 @@ const ArticleList = () => {
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
-        if(query === 'popular'){
-            fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
-         } else {
-            let queryParams = generateQueryParam(query)
-            const config = {
-                headers: {
-                  query: JSON.stringify(queryParams)
-                }
-            };
-            try {
-                fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
-            } catch(error) {
-                console.error(error.message)
-            }
-         }
+        // if(query === 'popular'){
+        //     fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
+        //  } else {
+        //     let queryParams = generateQueryParam(query)
+        //     const config = {
+        //         headers: {
+        //           query: JSON.stringify(queryParams)
+        //         }
+        //     };
+        //     try {
+        //         fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
+        //     } catch(error) {
+        //         console.error(error.message)
+        //     }
+        //  }
         //  setLoaded(true)
     }, [query, queryParams, searchQuery])
     // useEffect(() => {

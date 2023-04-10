@@ -1,0 +1,36 @@
+.randomCountrySection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background-color: var(--even-darker-background-colour);
+}
+
+.randomCountryText {
+    width: 35%;
+    text-align: center;
+    margin: 20px 60px 20px 20px;
+    font-size: 1.5rem;
+}
+
+.randomCountryButton {
+    padding: 10px;
+    background-color: var(--main-purple);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.randomCountryButton p,
+.randomCountryButton path {
+    color: var(--darker-background-colour);
+    margin: 3px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.randomCountryButton svg {
+    margin: 3px;
+    font-size: 2rem;
+}

@@ -5,10 +5,9 @@ import './style.css'
 
 import {PageNotFound, GoogleAd} from '../../components'
 
-//add in random country button
 const NotFound = () => {
 
-    return(
+    return (
         <>
             <NavBar/>
             <PageNotFound/>

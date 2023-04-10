@@ -5,10 +5,9 @@ import './style.css'
 
 import {ArticleGridStyle1, ArticleGridStyle2, GoogleAd} from '../../components'
 
-//add in random country button
 const Template = () => {
 
-    return(
+    return (
         <>
             <NavBar/>
             <GoogleAd dataAdSlot={"1136657549"}/>

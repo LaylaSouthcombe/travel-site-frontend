@@ -19,7 +19,6 @@ import {setArticleVisibilityToTrue} from '../ArticleList/articleListUtils'
 
 import {GoogleAd, TripStylesGrid, ArticleFilterList, SkeletonArticleFilterList, NoArticlesFound, TakeMeHomeButton} from '../../components'
 
-//add in random country button
 const SearchResults = () => {
 
     const searchQuery = useSelector(state => state.searchQuery)
