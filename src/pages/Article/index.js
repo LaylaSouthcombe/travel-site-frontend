@@ -48,8 +48,6 @@ const Article = () => {
         // });
     }, [articleid, loaded])
 
-    console.log(articleid)
-    console.log(article)
     return(
         <>
             <NavBar/>
@@ -63,7 +61,7 @@ const Article = () => {
                         </div>
                         <div className="articleSideAds">
                             <GoogleAd dataAdSlot={"4238599075"}/>
-                            {popularArticles.length > 0 ? 
+                            {popularArticles.length === 4 ? 
                             <>
                                 <p className="popularSideHeading">Popular on Sojo Travels</p>
                                 <div className="popularArticlesSideList">

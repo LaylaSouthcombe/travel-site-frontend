@@ -34,71 +34,58 @@ const ArticleList = () => {
             let responseArticles = setArticleVisibilityToTrue(response.data)
             setArticles(responseArticles)
         });
-        setLoaded(true)
     }
     
     const fetchArticlesWithoutConfig = async (url) => {
         await axios.get(url).then((response) => {
             let responseArticles = setArticleVisibilityToTrue(response.data)
+            console.log(responseArticles)
             setArticles(responseArticles)
         });
-        setLoaded(true)
     }
 
-// 'category=budget-friendly&city=london'
-
     useEffect(() => {
-        console.log(query)
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
-        // if(query === 'popular'){
-        //     fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
-        //  } else {
-        //     let queryParams = generateQueryParam(query)
-        //     const config = {
-        //         headers: {
-        //           query: JSON.stringify(queryParams)
-        //         }
-        //     };
-        //     try {
-        //         fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
-        //     } catch(error) {
-        //         console.error(error.message)
-        //     }
-        //  }
-        //  setLoaded(true)
-    }, [query, queryParams, searchQuery])
-    // useEffect(() => {
-    //     const body = document.querySelector('body')
-    //     body.classList.remove("fixedBody")
-    //     window.scrollTo(0, 0)
-    // }, [])
-    
-    console.log(query)
-    console.log(articles)
 
-    console.log(query.split("&").length)
+        console.log(query)
+        if(query === 'popular'){
+            fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
+        } else {
+            if(query.includes('continent') || query.includes('country') || query.includes('city') || query.includes('category')){
+                console.log(loaded)
+                let queryParams = generateQueryParam(query)
+                const config = {
+                    headers: {
+                        query: JSON.stringify(queryParams)
+                    }
+                };
+                try {
+                    fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
+                } catch(error) {
+                    console.error(error.message)
+                }
+            } else {
+                setArticles([])
+            }
+        }
+        setLoaded(true)
+    }, [query, queryParams, searchQuery])
 
     return (
         <>
             <NavBar/>
             <div className="mainArticleListSection">
                 {query.split("&").length === 1 && query.split("=")[0] === "category" ? 
-                <TripStylesBreadCrumbMenu/>
+                    <TripStylesBreadCrumbMenu/>
                 : null}
 
                 {loaded ? 
                 <>
                     {articles.length !== 0 ? 
                     <>
-                        {query !== 'search-results' ? 
-                            <>
-                                <HeroArticleSection article={articles[0]} loaded={loaded}/>
-                            </>
-                        :
-                            null
-                        }
+                        <HeroArticleSection article={articles[0]} loaded={loaded}/>
                     </>
                     : 
                     <>
@@ -115,7 +102,7 @@ const ArticleList = () => {
                 </>
                 : 
                 <>
-                    <HeroArticleSection article={articles[0]} loaded={loaded}/>
+                    <HeroArticleSection article={undefined} loaded={loaded}/>
                 </>
                 }
                 {loaded ? 

@@ -32,13 +32,12 @@ const SearchResults = () => {
             let responseArticles = setArticleVisibilityToTrue(response.data)
             setArticles(responseArticles)
         });
-        setLoaded(true)
     }
 
     useEffect(() => {
-        console.log(searchQuery)
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
+        console.log('hi')
         window.scrollTo(0, 0)
         const config = {
             headers: {
@@ -46,11 +45,8 @@ const SearchResults = () => {
             }
         };
         fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
-        
-        //  setLoaded(true)
+        setLoaded(true)
     }, [searchQuery])
-    
-    console.log(articles)
 
     return (
         <>

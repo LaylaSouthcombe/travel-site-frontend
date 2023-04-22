@@ -10,7 +10,7 @@
 
 .noArticlesFound {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 20px auto 50px auto;
 }
 
 @media (min-width: 768px) {

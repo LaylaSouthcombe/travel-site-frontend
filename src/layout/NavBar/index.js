@@ -386,12 +386,12 @@ const NavBar = () => {
         if(e.key === 'Enter'){
           dispatch({ type: "UPDATE_SEARCH_QUERY", payload: inputArea.value})
           inputArea.value = ""
-          navigate('/articles/search-results')
+          navigate('/search')
         }
       } else if(location === 'icon' && inputArea.value !== ""){
         dispatch({ type: "UPDATE_SEARCH_QUERY", payload: inputArea.value})
         inputArea.value = ""
-        navigate('/articles/search-results')
+        navigate('/search')
       }
     }
 

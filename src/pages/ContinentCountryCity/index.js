@@ -47,7 +47,6 @@ const ContinentCountryCity = () => {
 
     const fetchArticles = async (url) => {
         await axios.get(url).then((response) => {
-            console.log(response)
             setTabArticles(response.data)
             if(response.data.length > 4){
                 setTopSectionArticles(response.data.splice(0,4))

@@ -63,7 +63,7 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
                     <p onClick={() => clickOpenCloseMenu(item.name, i)} className="itemName">{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
                     {dropdownMenuOpen && dropdownMenuName === item.name ? renderSubMenu(item.name) : null}
                 </div> : 
-                <div className="menuItem">
+                <div className="menuItem" key={i}>
                     <p className="itemName">{item.name}<FontAwesomeIcon icon={faCaretDown}/></p>
                     {renderSubMenu(item.name)}
                 </div>
@@ -83,7 +83,7 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
         }
     })
 
-    return(
+    return (
         <>
             <div className="menuItems">
                 <a className="menuFav" href="/">

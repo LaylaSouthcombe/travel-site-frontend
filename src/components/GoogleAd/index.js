@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import './style.css'
 
 const GoogleAd = ({dataAdSlot}) => {
 
@@ -15,7 +16,7 @@ const GoogleAd = ({dataAdSlot}) => {
     },[]);
 
     return (
-        <>
+        <div className="googleAd">
             <ins className="adsbygoogle"
                 style={{ display: "block" }}
                 data-ad-client="ca-pub-5563364373682926"
@@ -26,7 +27,7 @@ const GoogleAd = ({dataAdSlot}) => {
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>                    
-        </>
+        </div>
     );
   }
 

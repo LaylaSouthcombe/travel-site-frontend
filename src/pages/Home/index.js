@@ -16,14 +16,12 @@ const Home = () => {
 
     const fetchTrendingArticles = async (url) => {
         await axios.get(url).then((response) => {
-            console.log(response)
             setTrendingArticles(response.data)
         });
     }  
 
     const fetchCityArticles = async (url) => {
         await axios.get(url).then((response) => {
-            console.log(response)
             setCityArticles(response.data.splice(0,4))
         });
     }  
@@ -41,7 +39,6 @@ const Home = () => {
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
         fetchAllHomePageArticles()
-        console.log(loaded)
       }, [])
 
     //   const categoryArticleSectionInfo = {
