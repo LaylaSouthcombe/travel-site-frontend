@@ -1,0 +1,33 @@
+.legalContent {
+    width: 70%;
+    margin: 100px auto;
+}
+
+.legalContent > h1 {
+    margin-bottom: 30px;
+}
+
+.legalContent > h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.legalContent > p {
+    margin-bottom: 20px;
+}
+
+.legalContent > ol,
+.legalContent > ul {
+    width: 95%;
+    margin: 0px 0px 20px auto;
+}
+
+.legalContent > ul > li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.legalContent > ol > li {
+    margin-bottom: 5px;
+}
+

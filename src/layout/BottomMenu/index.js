@@ -37,6 +37,11 @@ const BottomMenu = () => {
                 </div>
             </div>
             <div className="bottomMenuDivider"></div>
+            <div className="legalLinks">
+                <a href="/legal/privacy-policy">Privacy Policy</a>
+                <a href="/legal/terms-and-conditions">Terms and Conditions</a>
+                <a href="/legal/disclaimer">Disclaimer</a>
+            </div>
             <p className="copyrightPara">Copyright &#169; 2023 Sojo Travels</p>
         </div>
     )

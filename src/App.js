@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning, NotFound, SearchResults} from './pages'
+import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning, NotFound, SearchResults, TermsAndConditions, PrivacyPolicy, Disclaimer} from './pages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import './layout/FirstSideNavBar/style.css'
@@ -57,6 +57,9 @@ function App() {
         <Route path="/articles/:query" element={<ArticleList/>}/>
         <Route path="/search" element={<SearchResults/>}/>
         <Route path="/article/:articleid" element={<Article/>}/>
+        <Route path="/legal/terms-and-conditions" element={<TermsAndConditions/>}/>
+        <Route path="/legal/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/legal/disclaimer" element={<Disclaimer/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
       <div className={buttonClassName} onClick={() => topFunction()}>
