@@ -41,46 +41,6 @@ const Home = () => {
         fetchAllHomePageArticles()
       }, [])
 
-    //   const categoryArticleSectionInfo = {
-    //     trending: {
-    //         articlesArray: trendingArticles,
-    //         title: "Trending Articles",
-    //         buttonEndpoint: "/articles/popular",
-    //         grid: <ArticleGridStyle1 articles={trendingArticles} loaded={loaded}/>
-    //     },
-    //     cityBreak: {
-    //         articlesArray: cityArticles,
-    //         title: "Top City Breaks",
-    //         buttonEndpoint: "/articles/category=city-break",
-    //         grid: <ArticleGridStyle2 articles={cityArticles} loaded={loaded}/>
-    //     }
-    // }
-
-    // const renderCategoryArticleSection = Object.keys(categoryArticleSectionInfo).map((category, i) => {
-    //     let categoryInfo = categoryArticleSectionInfo[category]
-    //     if(categoryInfo.articlesArray.length > 0){
-    //         numberOfArticleSections += 1
-    //     }
-    //     return (
-    //         <div key={'grid' + category + i}>
-    //             <ConditionalArticlesGrid loaded={loaded} articlesArray={categoryInfo.articlesArray} title={categoryInfo.title} buttonEndPoint={categoryInfo.buttonEndPoint} grid={categoryInfo.grid}/>
-    //             {numberOfArticleSections%2 === 0 && numberOfArticleSections !== 0 && i !== Object.keys(categoryArticleSectionInfo).length - 1 ? 
-    //                 <GoogleAd dataAdSlot={"1136657549"}/>
-    //             :
-    //             <>
-    //                 {categoryInfo.articlesArray.length > 0 ? 
-    //                     <>
-    //                         <div className="sectionSeparator"></div>
-    //                     </>
-    //                 :
-    //                 null
-    //                 }
-    //             </>
-    //             }
-    //         </div>
-    //     )
-    // })
-
     return (
         <>
             <NavBar/>

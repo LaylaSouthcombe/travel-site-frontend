@@ -157,7 +157,7 @@ const ContinentCountryCity = () => {
                 </>
                 :
                 <>
-                    <ThreeCardsRow articles={topSectionArticles.splice(1,4)} loaded={loaded}/>
+                    <ThreeCardsRow articles={topSectionArticles.splice(1,4)} loaded={false}/>
                 </>
                 }
             </>
@@ -182,7 +182,7 @@ const ContinentCountryCity = () => {
                 </>
                 :
                 <>
-                    <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={endPointStart} page={"countryCity"}/>
+                    <ArticlesTabSection tabArticles={tabArticles} tabHeadings={tabHeadings} loaded={false} endPointStart={endPointStart} page={"countryCity"}/>
                 </>
                 }
             </>

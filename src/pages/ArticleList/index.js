@@ -27,15 +27,19 @@ const ArticleList = () => {
 
     const [loaded, setLoaded] = useState(false)
 
-    const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
+    const [articles, setArticles] = useState([])
 
     
     useEffect(() => {
         const fetchArticlesWithConfig = async (url, config) => {
             await axios.get(url, config)
                 .then((response) => {
-                let responseArticles = setArticleVisibilityToTrue(response.data)
-                setArticles(responseArticles)
+                    if(response.data !== ''){
+                       let responseArticles = setArticleVisibilityToTrue(response.data)
+                        setArticles(responseArticles) 
+                    } else {
+                        setArticles([])
+                    }
                 })
                 .catch(console.error)
         }
@@ -43,9 +47,13 @@ const ArticleList = () => {
         const fetchArticlesWithoutConfig = async (url) => {
             await axios.get(url)
                 .then((response) => {
-                let responseArticles = setArticleVisibilityToTrue(response.data)
-                console.log(responseArticles)
-                setArticles(responseArticles)
+                if(response.data !== ''){
+                    let responseArticles = setArticleVisibilityToTrue(response.data)
+                    console.log(responseArticles)
+                    setArticles(responseArticles)
+                } else {
+                    setArticles([])
+                }
                 })
                 .catch(console.error)
         }
@@ -53,18 +61,16 @@ const ArticleList = () => {
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
 
-        console.log(query)
         if(query === 'popular'){
             fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
         } else {
             if(query.includes('continent') || query.includes('country') || query.includes('city') || query.includes('category')){
-                console.log(loaded)
                 let queryParams = generateQueryParam(query)
                 const config = {
                     headers: {
                         query: JSON.stringify(queryParams)
                     }
-                };
+                }
                 try {
                     fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
                 } catch(error) {
@@ -84,7 +90,6 @@ const ArticleList = () => {
                 {query.split("&").length === 1 && query.split("=")[0] === "category" ? 
                     <TripStylesBreadCrumbMenu/>
                 : null}
-
                 {loaded ? 
                 <>
                     {articles.length !== 0 ? 
@@ -106,7 +111,7 @@ const ArticleList = () => {
                 </>
                 : 
                 <>
-                    <HeroArticleSection article={undefined} loaded={loaded}/>
+                    <HeroArticleSection article={articles[0]} loaded={false}/>
                 </>
                 }
                 {loaded ? 
@@ -118,9 +123,9 @@ const ArticleList = () => {
                         </>
                         : null}
                     </>
-                    :
+                :
                     <>
-                        <ThreeCardsRow articles={articles.splice(1,4)} loaded={loaded}/>
+                        <ThreeCardsRow articles={articles.splice(1,4)} loaded={false}/>
                     </>
                 }
                 {loaded ?

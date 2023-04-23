@@ -15,7 +15,7 @@ const TripPlanning = () => {
 
     const tabHeadings = ["All", "Tips & Tricks", "Packing", "Gear", "Tech"]
     
-    const [loaded, setLoaded] = useState(true)
+    const [loaded, setLoaded] = useState(false)
 
     const [articles, setArticles ] = useState([article, article1, article, article1, article, article1, article, article, article, article])
 
@@ -33,43 +33,63 @@ const TripPlanning = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
         fetchArticlesWithoutConfig('http://localhost:3000/articles/trip-planning')
-      }, [])
+    }, [])
 
     return (
         <>
             <NavBar/>
             <BreadCrumbMenu/>
-            {articles.length !== 0 && loaded ? <HeroArticleSection article={articles[0]} loaded={loaded}/> : 
-                    <div className="noArticlesFound">
-                        <div className="noArticlesFoundText">
-                            <p>Oops!</p>
-                            <p>No articles were found, try the search bar to find what you are looking for, or use the home button to navigate to the home page</p>
-                            <TakeMeHomeButton/>
+            {loaded ? 
+                <>
+                    {articles.length !== 0 ? 
+                    <>
+                        <HeroArticleSection article={articles[0]} loaded={loaded}/>
+                    </>
+                    : 
+                    <>
+                        <div className="noArticlesFound">
+                            <div className="noArticlesFoundText">
+                                <p>Oops!</p>
+                                <p>No articles were found, try the search bar to find what you are looking for, or use the home button to navigate to the home page</p>
+                                <TakeMeHomeButton/>
+                            </div> 
+                            <NoArticlesFound/>
                         </div> 
-                        <NoArticlesFound/>
-                    </div> 
-            }
-            {articles.length >= 4  && loaded ? 
-                <>
-                    <ThreeCardsRow articles={articles.slice(1,4)} loaded={loaded}/> 
-                    <GoogleAd dataAdSlot={"1136657549"}/>
+                    </>
+                    }
                 </>
-                : null}
-            <>
-                {loaded ? 
+            : 
                 <>
-                    {articles.length  ? 
-                        <>
-                            <ArticlesTabSection tabArticles={articles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={"/articles/"} pageName={"trip-planning"}/>
-                        </>
+                    <HeroArticleSection article={articles[0]} loaded={false}/>
+                </>
+            }
+            {loaded ? 
+                <>
+                    {articles.length >= 4 ? 
+                    <>
+                        <ThreeCardsRow articles={articles.splice(1,4)} loaded={loaded}/>
+                        <GoogleAd dataAdSlot={"1136657549"}/>
+                    </>
                     : null}
                 </>
                 :
                 <>
-                    <ArticlesTabSection tabArticles={articles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={"/articles/"} pageName={"trip-planning"}/>
+                    <ThreeCardsRow articles={articles.splice(1,4)} loaded={false}/>
                 </>
-                }
+            }
+            {loaded ? 
+            <>
+                {articles.length  ? 
+                    <>
+                        <ArticlesTabSection tabArticles={articles} tabHeadings={tabHeadings} loaded={loaded} endPointStart={"/articles/"} pageName={"trip-planning"}/>
+                    </>
+                : null}
             </>
+            :
+            <>
+                <ArticlesTabSection tabArticles={articles} tabHeadings={tabHeadings} loaded={false} endPointStart={"/articles/"} pageName={"trip-planning"}/>
+            </>
+            }
             <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>
         </>
