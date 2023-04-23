@@ -31,7 +31,10 @@ const RandomCountry = () => {
     return (
         <>
             <div className="randomCountrySection">
-                <p className="randomCountryText">Not sure where to go? Click this button and let fate take you on a wild ride to a random destination!</p>
+                <div className="randomCountryText">
+                    <p>Not sure where to go?</p>
+                    <p>Click this button and let fate take you on a wild ride to a random destination!</p>
+                </div>
                 <div className="randomCountryButton" onClick={(() => takeToRandomCountry())}>
                         <FontAwesomeIcon icon={faCircleQuestion}/>
                         <div>
