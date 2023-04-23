@@ -57,62 +57,103 @@ const Article = () => {
         fetchFullArticle()
         fetchPopularArticles()
 
-        // const similarURL = `http://localhost:3000/articles/suggested`
-        // axios.get(similarURL).then((response) => {
-        //     setSimilarArticles(response.data)
-        //     console.log(response.data.body)
-        // });
     }, [articleid, loaded])
+    // const similarURL = `http://localhost:3000/articles/suggested`
+    // axios.get(similarURL).then((response) => {
+    //     setSimilarArticles(response.data)
+    //     console.log(response.data.body)
+    // });
 
     return (
         <>
             <NavBar/>
-            {article !== undefined && loaded ? 
-                <>  
-                    <div className="articleMainPage">
-                        <div className="articleSection">
-                            {parse(article.feature_img_html)}
-                            <h1>{article.title}</h1>
-                            {parse(article.body)}
+            {loaded ? 
+                <>
+                {article !== undefined ? 
+                    <>  
+                        <div className="articleMainPage">
+                            <div className="articleSection">
+                                {parse(article.feature_img_html)}
+                                <h1>{article.title}</h1>
+                                {parse(article.body)}
+                            </div>
+                            <div className="articleSideAds">
+                                <GoogleAd dataAdSlot={"4238599075"}/>
+                                {popularArticles.length === 4 ? 
+                                <>
+                                    <p className="popularSideHeading">Popular on Sojo Travels</p>
+                                    <div className="popularArticlesSideList">
+                                        <ArticleListGridStyle2 articles={popularArticles} loaded={loaded}/>
+                                    </div>
+                                </>
+                                : null}
+                                <GoogleAd dataAdSlot={"9095054520"}/>
+                            </div>
                         </div>
-                        <div className="articleSideAds">
-                            <GoogleAd dataAdSlot={"4238599075"}/>
-                            {popularArticles.length === 4 ? 
+                        <GoogleAd dataAdSlot={"1136657549"}/>
+                        {similarArticles.length === 4 ? 
                             <>
-                                <p className="popularSideHeading">Popular on Sojo Travels</p>
-                                <div className="popularArticlesSideList">
-                                    <ArticleListGridStyle2 articles={popularArticles} loaded={loaded}/>
-                                </div>
+                                <h2 className="seperatorTitle">Similar Articles</h2>
+                                <ArticleGridStyle2 articles={similarArticles} loaded={loaded}/> 
+                                <ViewMoreButton endpoint={"/articles"}/>
                             </>
-                            : null}
-                            <GoogleAd dataAdSlot={"9095054520"}/>
-                        </div>
-                    </div>
-                    <GoogleAd dataAdSlot={"1136657549"}/>
-                    {similarArticles.length === 4 ? 
-                        <>
-                            <h2 className="seperatorTitle">Similar Articles</h2>
-                            <ArticleGridStyle2 articles={similarArticles} loaded={loaded}/> 
-                            <ViewMoreButton endpoint={"/articles"}/>
-                        </>
-                    : null
-                    }
-                    {popularArticles.length === 4 ? 
-                        <>
-                            <h2 className="seperatorTitle">Must Reads</h2>
-                            <ArticleGridStyle2 articles={popularArticles.slice(4)} loaded={loaded}/>
-                            <GoogleAd dataAdSlot={"1136657549"}/>
-                        </>
-                    : null
-                    }
-                </>
-            : 
-            null
-            }
-            {article === undefined && loaded ? 
+                        : null
+                        }
+                        {popularArticles.length === 4 ? 
+                            <>
+                                <h2 className="seperatorTitle">Must Reads</h2>
+                                <ArticleGridStyle2 articles={popularArticles.slice(4)} loaded={loaded}/>
+                                <GoogleAd dataAdSlot={"1136657549"}/>
+                            </>
+                        : null
+                        }
+                    </>
+                : 
                 <PageNotFound/>
+                }
+                </>
             :
-            null}
+            <>
+                <div className="articleMainPage">
+                    <div className="articleSection">
+                       <div className="articleHeroImage">
+                            <Skeleton variant="rounded" width={"100%"} height={280}/>
+                        </div>
+                        <h1><Skeleton variant="rounded" width={"100%"} height={40}/></h1>
+                        <div className="introPara">
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                        </div>
+                       <div className="articlePara">
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                       </div>
+                       <div className="articlePara">
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                       </div>
+                       <div className="articlePara">
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                       </div>
+                       <div className="articlePara">
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                            <Skeleton variant="rounded" width={"100%"} height={30}/>
+                       </div>
+                    </div>
+                </div>
+            </>
+            }
             <GoogleAd dataAdSlot={"1136657549"}/>
             <BottomMenu/>
         </>

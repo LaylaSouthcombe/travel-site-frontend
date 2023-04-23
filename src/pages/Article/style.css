@@ -71,6 +71,10 @@
     margin-bottom: 30px;
 }
 
+.articleSection .MuiSkeleton-root {
+    margin-bottom: 10px;
+}
+
 @media (min-width: 648px) {
     .articleSection > h1 {
         font-size: 32px;
