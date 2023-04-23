@@ -1,4 +1,4 @@
-#firstSideNavMenu {
+.firstNavBar {
     position: fixed;
     width: 100%;
     right: 0;
@@ -55,7 +55,7 @@
     transform-origin: top center;
 }
 
-.hiddenSecondNavBar {
+.hiddenNavBar {
     animation: hideSide 300ms ease-in-out forwards;
     transform-origin: top center;
 }

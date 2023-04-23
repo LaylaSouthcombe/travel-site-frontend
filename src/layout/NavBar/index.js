@@ -30,6 +30,7 @@ const NavBar = () => {
     const [listData, setListData] = useState([])
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
     const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
+    const [firstNavClassName, setFirstNavClassName] = useState("firstNavBar")
     const [secondNavClassName, setSecondNavClassName] = useState("secondNavBar")
 
     const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -329,15 +330,26 @@ const NavBar = () => {
         }
     }
     window.addEventListener('resize', handleResize)
+    
+    function wait(ms) {
+      return new Promise(
+          resolve => setTimeout(resolve, ms)
+      );
+    }
 
-    const openCloseSideMenu = () => {
+    const openCloseSideMenu = async () => {
       const body = document.querySelector('body')
       if(sideMenuOpen){
           body.classList.remove("fixedBody")
-          setSideMenuOpen(false)
+          setFirstNavClassName('firstNavBar hiddenNavBar')
+          setSecondNavClassName('secondNavBar hiddenNavBar')
+          await wait(300)
           setListData([])
+          setSideMenuOpen(false)
       } else if(!sideMenuOpen){
           body.classList.add("fixedBody")
+          setFirstNavClassName('firstNavBar')
+          setSecondNavClassName('secondNavBar')
           setSideMenuOpen(true)
       }
     }
@@ -403,9 +415,9 @@ const NavBar = () => {
               </div> 
                   {sideMenuOpen ? 
                     <div>
-                      {<FirstSideNavBar fullListData={fullListData} listData={listData} setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} openCloseSideMenu={openCloseSideMenu} getAndSetSearchQuery={getAndSetSearchQuery} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/>}
+                      {<FirstSideNavBar fullListData={fullListData} listData={listData} setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} openCloseSideMenu={openCloseSideMenu} getAndSetSearchQuery={getAndSetSearchQuery} firstNavClassName={firstNavClassName} setFirstNavClassName ={setFirstNavClassName} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/>}
                       {listData.length ?
-                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/> 
+                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu} firstNavClassName={firstNavClassName} setFirstNavClassName ={setFirstNavClassName} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/> 
                       : null}
                     </div> 
                   : null}
@@ -425,9 +437,9 @@ const NavBar = () => {
               </div> 
                   {sideMenuOpen ? 
                     <div>
-                      {<FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize} openCloseSideMenu={openCloseSideMenu} getAndSetSearchQuery={getAndSetSearchQuery} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/>}
+                      {<FirstSideNavBar fullListData={fullListData} listData={listData}setListData={setListData} titleListData={titleListData} setSelectedListTitle={setSelectedListTitle} windowSize={windowSize} openCloseSideMenu={openCloseSideMenu} getAndSetSearchQuery={getAndSetSearchQuery} firstNavClassName={firstNavClassName} setFirstNavClassName ={setFirstNavClassName} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/>}
                       {listData.length ?
-                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/> 
+                        <SecondSideNavBar listData={listData} setListData={setListData} selectedListTitle={selectedListTitle} openCloseSideMenu={openCloseSideMenu} firstNavClassName={firstNavClassName} setFirstNavClassName ={setFirstNavClassName} secondNavClassName={secondNavClassName} setSecondNavClassName ={setSecondNavClassName}/> 
                       : null}
                     </div> 
                   : null}

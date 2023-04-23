@@ -30,8 +30,8 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
         setListData(listData)
     };
 
-    const closeSideNavBar = () => {
-        setSecondNavClassName("secondNavBar hiddenSecondNavBar")
+    const closeSecondSideNavBar = () => {
+        setSecondNavClassName("secondNavBar hiddenNavBar")
     }
 
     const closeSideMenuAndNavigate = (url) => {
@@ -89,7 +89,7 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
     return (
         <div className={secondNavClassName}>
             <div className="sideMenuButtons">
-                <div className="backArrow" onClick={() => closeSideNavBar()}>
+                <div className="backArrow" onClick={() => closeSecondSideNavBar()}>
                     <FontAwesomeIcon icon={faArrowLeft} />
                 </div>
                 <div className="closeSideMenu" onClick={() => openCloseSideMenu()}>

@@ -11,7 +11,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 
-const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery, secondNavClassName, setSecondNavClassName}) => {
+const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery, firstNavClassName, setFirstNavClassName, secondNavClassName, setSecondNavClassName}) => {
     let navigate = useNavigate();
 
     const openSecondNavBar = (name) => {
@@ -58,9 +58,14 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
         borderColor: 'yellow'
     });
 
+    const closeFirstSideMenu = () => {
+        setFirstNavClassName("firstNavBar hiddenNavBar")
+        openCloseSideMenu()
+    }
+
     return (
-        <div id="firstSideNavMenu">
-            <div className="closeSideMenu" onClick={() => openCloseSideMenu()}>
+        <div className={firstNavClassName}>
+            <div className="closeSideMenu" onClick={() => closeFirstSideMenu()}>
                 <FontAwesomeIcon icon={faXmark} />
             </div>
             <div className="navSearchIconSideNav">
