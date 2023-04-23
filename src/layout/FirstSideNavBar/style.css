@@ -1,6 +1,6 @@
 #firstSideNavMenu {
     position: fixed;
-    width: 86%;
+    width: 100%;
     right: 0;
     top: 0;
     height:100vh;
@@ -44,12 +44,12 @@
 
 .secondNavBar {
     position: fixed;
-    width: 86%;
+    width: 100%;
     right: 0;
     top: 0;
     height: 150%;
     background-color: var(--background-colour);
-    border-left: 20px solid var(--main-purple);
+    border-left: 10px solid var(--main-purple);
     z-index: 900;
     animation: growSide 300ms ease-in-out forwards;
     transform-origin: top center;

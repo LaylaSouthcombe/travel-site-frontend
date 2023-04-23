@@ -84,10 +84,6 @@ body {
   font-size: 18px;
 }
 
-.backToTopBtnMobBtn {
-  /* bottom: 380px; */
-}
-
 .backToTopBtnMid {
   background-color: var(--main-purple);
   color: var(--darker-background-colour);
@@ -130,10 +126,4 @@ body {
 
 .backToTopBtnBot:hover path, .backToTopBtnBot:focus path {
   color: var(--darker-background-colour);
-}
-
-@media (min-width: 768px){
-  .backToTopBtnMid, .backToTopBtnBot {
-    /* bottom: 20px; */
-  }
 }

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams} from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { NavBar, BottomMenu } from '../../layout'
 import './style.css'
@@ -41,7 +40,6 @@ const SearchResults = () => {
     useEffect(() => {
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
-        console.log('hi')
         window.scrollTo(0, 0)
         const config = {
             headers: {

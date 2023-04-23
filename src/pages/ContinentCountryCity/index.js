@@ -65,7 +65,7 @@ const ContinentCountryCity = () => {
         window.scrollTo(0, 0)
         let url = generateFetchUrl(country, continent)
         fetchArticles(url)
-    }, [])
+    }, [country, continent])
     
     const handleCountryClick = (country) => {
         if (country === "england" || country === "wales" || country === "scotland" || country === "northernireland"){

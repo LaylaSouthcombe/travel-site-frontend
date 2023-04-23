@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { useNavigate, useParams} from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import axios from 'axios';
 import {NavBar, BottomMenu} from '../../layout'
 import parse from 'html-react-parser'
@@ -12,7 +12,6 @@ import {ArticleGridStyle2, ArticleListGridStyle2, ViewMoreButton,  GoogleAd, Pag
 const Article = () => {
     
     const {articleid} = useParams();
-    let navigate = useNavigate();
 
     const [article, setArticle] = useState()
     const [popularArticles, setPopularArticles] = useState([])
@@ -24,7 +23,7 @@ const Article = () => {
         window.scrollTo(0, 0)
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
-        console.log(articleid)
+
         const URL = `http://localhost:3000/articles/article/${articleid}`
         const fetchFullArticle = async () => {
             try {
@@ -61,7 +60,6 @@ const Article = () => {
     // const similarURL = `http://localhost:3000/articles/suggested`
     // axios.get(similarURL).then((response) => {
     //     setSimilarArticles(response.data)
-    //     console.log(response.data.body)
     // });
 
     return (

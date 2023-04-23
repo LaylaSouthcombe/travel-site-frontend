@@ -20,7 +20,6 @@ const TripPlanning = () => {
     const [articles, setArticles ] = useState([article, article1, article, article1, article, article1, article, article, article, article])
 
     const fetchArticlesWithoutConfig = async (url) => {
-        console.log(url)
         await axios.get(url).then((response) => {
             if(response.data !== ''){
                 let responseArticles = setArticleVisibilityToTrue(response.data)

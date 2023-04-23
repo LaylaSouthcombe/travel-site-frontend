@@ -7,7 +7,6 @@ import TextField from '@mui/material/TextField';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
 import { faGem } from '@fortawesome/free-solid-svg-icons'
 import { faUmbrellaBeach } from '@fortawesome/free-solid-svg-icons'
@@ -30,9 +29,7 @@ const NavBar = () => {
     const [selectedListTitle, setSelectedListTitle] = useState();
     const [listData, setListData] = useState([])
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
-    const [menuIcon, setMenuIcon] = useState(faBars)
     const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
-    const [menuBarPosition, setMenuBarPosition] = useState('static')
     const [secondNavClassName, setSecondNavClassName] = useState("secondNavBar")
 
     const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -329,7 +326,6 @@ const NavBar = () => {
         setWindowSize(window.innerWidth)
         if(window.innerWidth > 768){
             setSideMenuOpen(false)
-            setMenuIcon(faBars)
         }
     }
     window.addEventListener('resize', handleResize)
@@ -340,13 +336,9 @@ const NavBar = () => {
           body.classList.remove("fixedBody")
           setSideMenuOpen(false)
           setListData([])
-          setMenuIcon(faBars)
-          setMenuBarPosition('static')
       } else if(!sideMenuOpen){
           body.classList.add("fixedBody")
           setSideMenuOpen(true)
-          setMenuIcon(faXmark)
-          setMenuBarPosition('fixed')
       }
     }
 

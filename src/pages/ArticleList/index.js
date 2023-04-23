@@ -5,16 +5,6 @@ import { NavBar, BottomMenu } from '../../layout'
 import './style.css'
 import axios from 'axios';
 
-import { article } from '../../utilities/article'
-import { article1 } from '../../utilities/article1'
-import { article2 } from '../../utilities/article2'
-import { article3 } from '../../utilities/article3'
-import { article4 } from '../../utilities/article4'
-import { article5 } from '../../utilities/article5'
-import { article6 } from '../../utilities/article6'
-import { article7 } from '../../utilities/article7'
-import { article8 } from '../../utilities/article8'
-
 import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils'
 
 import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu, SkeletonArticleFilterList, NoArticlesFound, TakeMeHomeButton} from '../../components'
@@ -49,7 +39,6 @@ const ArticleList = () => {
                 .then((response) => {
                 if(response.data !== ''){
                     let responseArticles = setArticleVisibilityToTrue(response.data)
-                    console.log(responseArticles)
                     setArticles(responseArticles)
                 } else {
                     setArticles([])

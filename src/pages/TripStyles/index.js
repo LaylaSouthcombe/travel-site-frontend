@@ -3,15 +3,9 @@ import axios from 'axios';
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 
-import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle6, ArticleGridStyle8, ViewMoreButton, GoogleAd, ConditionalArticlesGrid} from '../../components'
+import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle6, ArticleGridStyle8, GoogleAd, ConditionalArticlesGrid} from '../../components'
 
 import { article1 } from '../../utilities/article1'
-import { article2 } from '../../utilities/article2'
-import { article3 } from '../../utilities/article3'
-import { article5 } from '../../utilities/article5'
-import { article6 } from '../../utilities/article6'
-import { article7 } from '../../utilities/article7'
-import { article8 } from '../../utilities/article8'
 
 import tripStylesPageHero from '../../images/HeroImages/tripStylesPageHero.png'
 

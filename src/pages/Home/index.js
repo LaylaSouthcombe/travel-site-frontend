@@ -33,10 +33,8 @@ const Home = () => {
             }
         });
     }  
-    let numberOfArticleSections = 0
 
     const fetchAllHomePageArticles = async () => {
-        numberOfArticleSections = 0
         await fetchTrendingArticles('http://localhost:3000/articles/trending')
         await fetchCityArticles('http://localhost:3000/articles/category/city')
         setLoaded(true)

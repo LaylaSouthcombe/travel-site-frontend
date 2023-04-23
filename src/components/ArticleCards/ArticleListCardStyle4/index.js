@@ -3,7 +3,7 @@ import './style.css'
 import Skeleton from '@mui/material/Skeleton';
 
 const ArticleListCardStyle4 = ({article, loaded, keyId}) => {
-    console.log(keyId)
+
     return (
         <>
         {loaded ? 

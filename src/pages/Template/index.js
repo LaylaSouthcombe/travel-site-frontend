@@ -3,7 +3,7 @@ import React from 'react'
 import {NavBar, BottomMenu} from '../../layout'
 import './style.css'
 
-import {ArticleGridStyle1, ArticleGridStyle2, GoogleAd} from '../../components'
+import {GoogleAd} from '../../components'
 
 const Template = () => {
 

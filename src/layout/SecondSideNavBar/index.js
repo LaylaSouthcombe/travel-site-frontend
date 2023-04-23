@@ -6,7 +6,6 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import Drawer from '@mui/material/Drawer';
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -32,7 +31,6 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
     };
 
     const closeSideNavBar = () => {
-        // setListData([])
         setSecondNavClassName("secondNavBar hiddenSecondNavBar")
     }
 
