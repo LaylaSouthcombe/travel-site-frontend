@@ -22,9 +22,12 @@ const TripPlanning = () => {
     const fetchArticlesWithoutConfig = async (url) => {
         console.log(url)
         await axios.get(url).then((response) => {
-            console.log(response)
-            let responseArticles = setArticleVisibilityToTrue(response.data)
-            setArticles(responseArticles)
+            if(response.data !== ''){
+                let responseArticles = setArticleVisibilityToTrue(response.data)
+                setArticles(responseArticles)
+            } else {
+                setArticles([])
+            }
         });
         setLoaded(true)
     } 

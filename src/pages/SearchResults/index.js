@@ -29,8 +29,12 @@ const SearchResults = () => {
 
     const fetchArticlesWithConfig = async (url, config) => {
         await axios.get(url, config).then((response) => {
-            let responseArticles = setArticleVisibilityToTrue(response.data)
-            setArticles(responseArticles)
+            if(response.data !== ''){
+                let responseArticles = setArticleVisibilityToTrue(response.data)
+                setArticles(responseArticles)
+            } else {
+                setArticles([])
+            }
         });
     }
 

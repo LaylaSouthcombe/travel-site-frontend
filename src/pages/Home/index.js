@@ -16,13 +16,21 @@ const Home = () => {
 
     const fetchTrendingArticles = async (url) => {
         await axios.get(url).then((response) => {
-            setTrendingArticles(response.data)
+            if(response.data !== ''){
+                setTrendingArticles(response.data)
+            } else {
+                setTrendingArticles([])
+            }
         });
     }  
 
     const fetchCityArticles = async (url) => {
         await axios.get(url).then((response) => {
-            setCityArticles(response.data.splice(0,4))
+            if(response.data !== ''){
+                setCityArticles(response.data.splice(0,4))
+            } else {
+                setCityArticles([])
+            }
         });
     }  
     let numberOfArticleSections = 0

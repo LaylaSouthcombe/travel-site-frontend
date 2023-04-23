@@ -45,8 +45,11 @@ const TripStyles = () => {
     const fetchArticles = async (url) => {
         numberOfArticleSections = 0
         await axios.get(url).then((response) => {
-            console.log(response)
-            setAllArticles(response.data)
+            if(response.data !== ''){
+                setAllArticles(response.data)
+            } else {
+                setAllArticles([])
+            }
             setLoaded(true)
         });
     }
