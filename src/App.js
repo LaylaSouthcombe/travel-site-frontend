@@ -19,18 +19,18 @@ function App() {
 
   
   function scrollFunction() {
+    const bottomMenuHeight = document.querySelector('.bottomMenu').clientHeight
+    let bottomScrollValue = window.screen.height + bottomMenuHeight
+    const scrollAtBottom = document.body.scrollHeight - document.body.scrollTop <= bottomScrollValue || document.documentElement.scrollHeight - document.documentElement.scrollTop <= bottomScrollValue
+    
     if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-      if(document.body.scrollHeight - document.body.scrollTop <= 1290 || document.documentElement.scrollHeight - document.documentElement.scrollTop <= 1290){
-        setButtonClassName("backToTopBtnBot visibleToTopBtn")
+      if(scrollAtBottom){
+        setButtonClassName("backToTopBtnBot hiddenToTopBtn")
       } else {
         setButtonClassName("backToTopBtnMid visibleToTopBtn")
       }
     } else {
-      if(document.body.scrollHeight - document.body.scrollTop <= 1290 || document.documentElement.scrollHeight - document.documentElement.scrollTop <= 1290){
         setButtonClassName("backToTopBtnBot hiddenToTopBtn")
-      } else {
-        setButtonClassName("backToTopBtnMid hiddenToTopBtn")
-      }
     }
   }
   

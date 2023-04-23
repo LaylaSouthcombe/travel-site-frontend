@@ -103,7 +103,7 @@ const PrivacyPolicy = () => {
                 <p>By using this website, you agree to hold us harmless for any security breach and for any unauthorized use of your personal information by third parties. You also agree that we cannot be held responsible for any disclosure of your information through our website without our knowledge and consent.</p>
                 
                 <h2>PRIVACY POLICY UPDATES</h2>
-                <p>This privacy policy is effective as of 10 June 2020, and will be updated and modified as needed. You are responsible for visiting this page periodically to check for future updates to this policy. Any modifications to this privacy policy will be effective upon our publishing of the new terms, and your continued use of our website after the posting of any updates constitutes your acceptance of our modified privacy policy.</p>
+                <p>This privacy policy is effective as of 21 January 2023, and will be updated and modified as needed. You are responsible for visiting this page periodically to check for future updates to this policy. Any modifications to this privacy policy will be effective upon our publishing of the new terms, and your continued use of our website after the posting of any updates constitutes your acceptance of our modified privacy policy.</p>
                 
                 <h2>CONTACT</h2>
                 <p>For any questions or comments regarding the privacy policy, please contact us at help@sojotravels.com.</p>
