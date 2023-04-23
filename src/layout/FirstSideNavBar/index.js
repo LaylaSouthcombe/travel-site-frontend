@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import List from '@mui/material/List';
+import { alpha, styled } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
@@ -31,6 +32,7 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
   
     const renderedMenuItems = titleListData.map((item,i ) => {
         return (
+            <>
                 <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
                     {item.name !== "Popular" && item.name !== "Trip Planning" ? 
                     <ListItemButton onClick={() => handleNestedItemClick(item.name)}>
@@ -43,6 +45,8 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
                     </ListItemButton>
                 }
                 </div>
+                <div className="sideMenuDivider"></div>
+            </>
             )
         }
     )
@@ -52,6 +56,7 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
             main: '#3F3D56',
           },
         },
+        borderColor: 'yellow'
     });
 
     return (

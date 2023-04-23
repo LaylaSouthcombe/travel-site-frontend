@@ -14,9 +14,7 @@ import './components/ArticleGrids/ArticleGridStyle1/style.css'
 
 
 function App() {
-  const [buttonDisplay, setButtonDisplay] = useState("none")
   const [buttonClassName, setButtonClassName] = useState("backToTopBtnMid")
-
   
   function scrollFunction() {
     const bottomMenuHeight = document.querySelector('.bottomMenu').clientHeight

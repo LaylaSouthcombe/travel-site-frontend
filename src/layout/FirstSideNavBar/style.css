@@ -4,8 +4,8 @@
     right: 0;
     top: 0;
     height:100vh;
-    background-color: var(--darker-background-colour);
-    border-left: 20px solid var(--main-purple);
+    background-color: var(--background-colour);
+    border-left: 10px solid var(--main-purple);
     z-index: 200;
     animation: growSide 300ms ease-in-out forwards;
     transform-origin: top center;
@@ -48,7 +48,7 @@
     right: 0;
     top: 0;
     height: 150%;
-    background-color: var(--darker-background-colour);
+    background-color: var(--background-colour);
     border-left: 20px solid var(--main-purple);
     z-index: 900;
     animation: growSide 300ms ease-in-out forwards;
@@ -73,7 +73,7 @@
 }
 
 .secondNavBar > .MuiList-subheader > .MuiListSubheader-root{
-    background-color: var(--darker-background-colour);
+    background-color: var(--background-colour);
     font-size: 1.75rem;
     color: var(--main-purple);
     margin-left: 15px;
@@ -109,12 +109,12 @@
 }
 
 .MuiList-root {
-    background-color: var(--darker-background-colour) !important;
+    background-color: var(--background-colour) !important;
 }
 
 .sideNavMenuMainItem {
     padding-left: 30px;
-    background-color: var(--darker-background-colour);
+    background-color: var(--background-colour);
     width: 90%;
 }
 
@@ -123,9 +123,19 @@
     border-radius: 10px;
 }
 
+.sideMenuDivider {
+    width: 85%;
+    margin: 10px auto 20px auto;
+    border-bottom: 3px solid var(--even-darker-background-colour);
+}
+
 .sideNavMenuMainItem > .MuiButtonBase-root:hover {
     background-color: var(--main-purple);
     color: var(--darker-background-colour);
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border: 2px solid var(--main-purple) !important;
 }
 
 .sideNavMenuMainItem > .MuiButtonBase-root:hover > div > span {
