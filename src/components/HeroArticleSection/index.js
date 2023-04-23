@@ -1,11 +1,9 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 import Skeleton from '@mui/material/Skeleton';
 
 import './style.css'
 
 const HeroArticleSection = ({article, loaded}) => {
-    let navigate = useNavigate();
     console.log(loaded)
     console.log(article)
     return (

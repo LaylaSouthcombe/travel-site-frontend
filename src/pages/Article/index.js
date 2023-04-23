@@ -24,23 +24,39 @@ const Article = () => {
         window.scrollTo(0, 0)
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
+        console.log(articleid)
         const URL = `http://localhost:3000/articles/article/${articleid}`
         const fetchFullArticle = async () => {
-            axios.get(URL).then((response) => {
-                let fetchedArticle = response.data
-                setArticle(fetchedArticle)
+            try {
+                axios.get(URL).then((response) => {
+                    if(response.data === ''){
+                       setArticle(undefined) 
+                    } else {
+                        setArticle(response.data) 
+                    }
+                    setLoaded(true)
+                });
+            } catch(error){
+                setArticle(undefined)
                 setLoaded(true)
-            });
+            }
         }
-        fetchFullArticle()
-
         const popularURL = `http://localhost:3000/articles/trending`
         const fetchPopularArticles = async () => {
-            axios.get(popularURL).then((response) => {
-                setPopularArticles(response.data)
-            });
+            try {
+                axios.get(popularURL).then((response) => {
+                    if(response.data !== ''){
+                        setPopularArticles(response.data)
+                    }
+                });
+            } catch(error) {
+                setPopularArticles([])
+            }
         }
+        
+        fetchFullArticle()
         fetchPopularArticles()
+
         // const similarURL = `http://localhost:3000/articles/suggested`
         // axios.get(similarURL).then((response) => {
         //     setSimilarArticles(response.data)
@@ -48,7 +64,7 @@ const Article = () => {
         // });
     }, [articleid, loaded])
 
-    return(
+    return (
         <>
             <NavBar/>
             {article !== undefined && loaded ? 
@@ -70,7 +86,6 @@ const Article = () => {
                             </>
                             : null}
                             <GoogleAd dataAdSlot={"9095054520"}/>
-                            {/* make sticky */}
                         </div>
                     </div>
                     <GoogleAd dataAdSlot={"1136657549"}/>

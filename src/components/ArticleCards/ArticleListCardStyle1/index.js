@@ -1,10 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 import Skeleton from '@mui/material/Skeleton';
 import './style.css'
 
 const ArticleListCardStyle1 = ({article, loaded}) => {
-    let navigate = useNavigate();
 
     return (
         <>

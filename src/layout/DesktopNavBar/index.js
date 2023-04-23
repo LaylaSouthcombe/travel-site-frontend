@@ -48,10 +48,6 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
             return (
                 <NoNestDropMenu fullListData={fullListData} itemTitle={item}/>
             )
-        } else if (item === 'Climates'){
-            return (
-                <NoNestDropMenu fullListData={fullListData} itemTitle={item}/>
-            )
         }
     }
     
@@ -76,9 +72,7 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
             )
         } else {
             return (
-                <>
-                    <div>Error 404</div>
-                </>
+                <div></div>
             )
         }
     })

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 
 import noArticlesFound from '../../images/HeroImages/noArticlesFound.png'
 

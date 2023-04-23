@@ -29,22 +29,26 @@ const ArticleList = () => {
 
     const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
 
-    const fetchArticlesWithConfig = async (url, config) => {
-        await axios.get(url, config).then((response) => {
-            let responseArticles = setArticleVisibilityToTrue(response.data)
-            setArticles(responseArticles)
-        });
-    }
     
-    const fetchArticlesWithoutConfig = async (url) => {
-        await axios.get(url).then((response) => {
-            let responseArticles = setArticleVisibilityToTrue(response.data)
-            console.log(responseArticles)
-            setArticles(responseArticles)
-        });
-    }
-
     useEffect(() => {
+        const fetchArticlesWithConfig = async (url, config) => {
+            await axios.get(url, config)
+                .then((response) => {
+                let responseArticles = setArticleVisibilityToTrue(response.data)
+                setArticles(responseArticles)
+                })
+                .catch(console.error)
+        }
+        
+        const fetchArticlesWithoutConfig = async (url) => {
+            await axios.get(url)
+                .then((response) => {
+                let responseArticles = setArticleVisibilityToTrue(response.data)
+                console.log(responseArticles)
+                setArticles(responseArticles)
+                })
+                .catch(console.error)
+        }
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)

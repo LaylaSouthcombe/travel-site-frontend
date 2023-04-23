@@ -1,7 +1,12 @@
 #TripDropdown {
     left: 0px;
     border-radius: 0px 5px 5px 5px;
-    grid-template-columns: 47.5% 47.5%;
+    grid-template-areas: 
+    "one two"
+    "three four"
+    "five six"
+    "seven eight"
+    "nine ten";
     width: 150%;
     column-gap: 5%;
     padding: 10px;
@@ -9,6 +14,10 @@
     max-width: 450px;
     animation: growDown 300ms ease-in-out forwards;
     transform-origin: top center;
+}
+
+.navDropDownItemPlaceholder {
+    grid-area: two;
 }
 
 .dropDownItem {
@@ -19,11 +28,22 @@
     border-radius: 5px;
     padding: 10px 20px;
     width: fit-content;
+    text-decoration: none;
+}
+
+.dropDownItem:first-child {
+    font-weight: bold;
 }
 
 .dropDownItem:hover {
     cursor: pointer;
     background-color: var(--main-purple);
+}
+
+.dropDownItem:hover > p {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
 }
 
 .dropDownItem:hover > p, .dropDownItem:hover > svg > path{
