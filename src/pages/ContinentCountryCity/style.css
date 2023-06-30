@@ -28,6 +28,7 @@
 
 .countryName {
     font-size: 1.25rem;
+    min-height: 1.75rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -35,7 +36,7 @@
 .continentSummary > p {
     margin-left: 40px;
     font-size: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 10px;
 }
 
 .backgroundWorld > img{
@@ -63,15 +64,15 @@
     }
 
     .continentSummary > h2 {
-        margin: 20px 0px 60px 0px;
+        margin: 20px 0px 30px 0px;
         font-size: 40px;
     }
 }
 
 @media (min-width: 900px) {
     .continentSummary > h2 {
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-top: 80px;
+        margin-bottom: 40px;
         font-size: 48px;
     }
 }

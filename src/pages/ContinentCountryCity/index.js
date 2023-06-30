@@ -32,7 +32,7 @@ const ContinentCountryCity = () => {
     const continent = location.pathname.split("/")[1]
     
     let {country} = useParams();
-    country = formatCountry(country)
+    // country = formatCountry(country)
     
     let endPointStart = generateEndPointStart(country, continent)
     
@@ -93,7 +93,7 @@ const ContinentCountryCity = () => {
                 <div className="continentSummarySection">
                     <div className="continentSummary">
                         <h2>{formatWord(continent)}</h2>
-                        {summaryInfo.name !== 'Europe' ? <p className="countryName">{summaryInfo.name}</p> : null}
+                        <p className="countryName">{summaryInfo.name !== 'Europe' ? summaryInfo.name : null}</p>
                         <p>{summaryInfo.summary}</p>
                     </div>
                     {windowSize >= 768 ?
@@ -115,6 +115,12 @@ const ContinentCountryCity = () => {
                                             checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
                                         }
                                         onMouseLeave={() => {
+                                            setSummaryInfo({name: continentCountries[continent].name, summary: continentCountries[continent].summary})
+                                        }}
+                                        onTouchStart={() => 
+                                            checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
+                                        }
+                                        onTouchEnd={() => {
                                             setSummaryInfo({name: continentCountries[continent].name, summary: continentCountries[continent].summary})
                                         }}
                                         onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}

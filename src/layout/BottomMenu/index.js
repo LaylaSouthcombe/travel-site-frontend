@@ -19,7 +19,7 @@ const BottomMenu = () => {
                             "Home"
                             : null}</p>
                         <p onClick={() => navigate('/europe')}>Europe</p>
-                        <p onClick={() => navigate('/europe/unitedkingdom/london')}>London</p>
+                        <p onClick={() => navigate('/europe/united-kingdom/london')}>London</p>
                         <p onClick={() => navigate('/europe/france/paris')}>Paris</p>
                         <p onClick={() => navigate('/europe/netherlands/amsterdam')}>Amsterdam</p>
                         <p onClick={() => navigate('/europe/spain/barcelona')}>Barcelona</p>

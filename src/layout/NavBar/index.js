@@ -116,15 +116,15 @@ const NavBar = () => {
                         },
                         {
                           "name": "United Kingdom",
-                          "url": "/europe/unitedkingdom",
+                          "url": "/europe/united-kingdom",
                           "cities": [
                             {
                               "name": "London",
-                              "url": "/europe/unitedkingdom/london"
+                              "url": "/europe/united-kingdom/london"
                             },
                             {
                               "name": "Edinburgh",
-                              "url": "/europe/unitedkingdom/edinburgh"
+                              "url": "/europe/united-kingdom/edinburgh"
                             }
                           ]
                         }
