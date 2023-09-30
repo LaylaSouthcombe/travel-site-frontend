@@ -27,6 +27,7 @@ const ArticleList = () => {
                     if(response.data !== ''){
                        let responseArticles = setArticleVisibilityToTrue(response.data)
                         setArticles(responseArticles) 
+                        setLoaded(true)
                     } else {
                         setArticles([])
                     }
@@ -40,6 +41,7 @@ const ArticleList = () => {
                 if(response.data !== ''){
                     let responseArticles = setArticleVisibilityToTrue(response.data)
                     setArticles(responseArticles)
+                    setLoaded(true)
                 } else {
                     setArticles([])
                 }
@@ -70,7 +72,7 @@ const ArticleList = () => {
                 setArticles([])
             }
         }
-        setLoaded(true)
+        
     }, [query, queryParams, searchQuery])
 
     return (
