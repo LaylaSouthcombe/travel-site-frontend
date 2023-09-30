@@ -17,7 +17,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSideMenu, secondNavClassName, setSecondNavClassName}) => {
     let navigate = useNavigate();
-    const [openList, setOpenList] = useState([]);
+    const [openList, setOpenList] = useState([])
 
     const handleWithChildClick = (i) => {
         setOpenList([])
@@ -108,4 +108,4 @@ const SecondSideNavBar = ({listData, setListData, selectedListTitle, openCloseSi
     )
 }
 
-export default SecondSideNavBar;
+export default SecondSideNavBar

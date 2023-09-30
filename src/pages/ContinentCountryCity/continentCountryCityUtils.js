@@ -22,14 +22,6 @@ const generateEndPointStart = (country, continent) => {
     }
 }
 
-const formatCountry = (country) => {
-    if (country === "united-kingdom" || country === "wales" || country === "scotland" || country === "northern-ireland"){
-        return "england"
-    } else {
-        return country
-    }
-}
-
 const defaultStyles = {
     fill: "var(--main-light-purple)",
     stroke: "var(--main-purple)",
@@ -48,4 +40,4 @@ const normalClickColor = {
     strokeWidth: 1.5
 }
 
-module.exports = { generateFetchUrl, generateGeoUrl, generateEndPointStart, formatCountry, defaultStyles, normalHoverColor, normalClickColor }
+module.exports = { generateFetchUrl, generateGeoUrl, generateEndPointStart, defaultStyles, normalHoverColor, normalClickColor }

@@ -18,16 +18,13 @@
     display: grid;
 }
 
-@media(min-width: 768px){
-
-}
-
 @media(min-width: 900px){
     .articleGridStyle8 {
         grid-template-columns: 29% 38% 29%;
         align-items: center;
         column-gap: 3%;
     }
+
     .style8column1, .style8column3 {
         width: 100%;
         display: flex;
@@ -40,6 +37,7 @@
     .style8column2 {
         width: 100%;
     }
+
     .style8column3 {
         width: 100%;
     }

@@ -1,7 +1,7 @@
 import React from 'react'
-import './style.css'
-
 import {ArticleTabCards} from '../../'
+
+import './style.css'
 
 const ThreeCardsRow = ({articles, loaded}) => {
     

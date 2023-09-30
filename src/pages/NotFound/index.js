@@ -1,8 +1,6 @@
 import React from 'react'
 
 import {NavBar, BottomMenu} from '../../layout'
-import './style.css'
-
 import {PageNotFound, GoogleAd} from '../../components'
 
 const NotFound = () => {
@@ -17,4 +15,4 @@ const NotFound = () => {
     )
 }
 
-export default NotFound;
+export default NotFound

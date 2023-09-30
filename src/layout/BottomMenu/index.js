@@ -1,16 +1,19 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 import logoImg from '../../images/bottomLogo.png'
+
 import './style.css'
 
 const BottomMenu = () => {
-    let navigate = useNavigate();
-    return(
+
+    let navigate = useNavigate()
+    
+    return (
         <div className="bottomMenu">
             <div className="bottomMenuMainSegment">
                 <div className="bottomMenuLogo">
-                    <img src={logoImg} alt="" />
+                    <img src={logoImg} alt=""/>
                     <p>Your next adventure starts here!</p>
                 </div>
                 <div className="bottomMenuLeft">
@@ -24,7 +27,6 @@ const BottomMenu = () => {
                         <p onClick={() => navigate('/europe/netherlands/amsterdam')}>Amsterdam</p>
                         <p onClick={() => navigate('/europe/spain/barcelona')}>Barcelona</p>
                         <p onClick={() => navigate('/europe/germany/berlin')}>Berlin</p>
-                        {/* {window.innerWidth < 440 ? <p onClick={() => navigate('/australiaoceania')}>Australia/ Oceania</p> : <p onClick={() => navigate('/australiaoceania')}>Australia/Oceania</p>} */}
                     </div>
                     <div className="bottomMenuSegment2">
                         <p onClick={() => navigate('/articles/category=relaxing')}>Relaxing</p>
@@ -47,4 +49,4 @@ const BottomMenu = () => {
     )
 }
 
-export default BottomMenu;
+export default BottomMenu

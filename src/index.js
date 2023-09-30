@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducers/reducer.js'
 
-import './index.css';
-import App from './App.js';
+import './index.css'
+import App from './App.js'
 
 const store = createStore(reducer)
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render (
   <Provider store={store}>
@@ -19,4 +18,4 @@ root.render (
       <App />
     </BrowserRouter>
   </Provider>
-);
+)

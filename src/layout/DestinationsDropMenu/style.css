@@ -6,7 +6,6 @@
     transform-origin: top center;
 }
 
-
 @keyframes growDown {
     0% {
         transform: scaleY(0)
@@ -15,14 +14,6 @@
         transform: scaleY(1)
     }
 }
-
-/* #destinationsDropdown {
-    width: 160%;
-    max-width: 900px;
-    grid-template-columns: 30% 30% 30%;
-    column-gap: 5%;
-    left: 0px;
-} */
 
 .dropDownContinent {
     font-weight: bold;
@@ -77,4 +68,3 @@
     color: var(--main-button-color);
     font-weight: bold;
 }
-

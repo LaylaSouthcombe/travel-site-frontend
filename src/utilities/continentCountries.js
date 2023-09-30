@@ -503,78 +503,8 @@ const continentCountries = {
                 summary: "The largest country in the world, Russia is a land of contrasts, from the bustling cities of Moscow and St. Petersburg to the remote wilderness of Siberia. It's recommended to check the travel advice of the government before planning a trip to Russia.",
                 popularCities: ["Vladivostok", "Irkutsk", "Khabarovsk", "Yakutsk"]
             }
-// :{
-//     name: "",
-//     summary: "",
-//     popularCities: ["", "", "", ""]
-// }
-        }
-    },
-    'africa': {
-        geoInfo: {
-            rotate: [-10.0, -53.0, 0],
-            center: [20, -65],
-            scale: 300
-        },
-        summary: "",
-        topCountries: ['Morocco', 'Egypt', 'Tunisia'],
-        countries: {
-            // :{
-//     name: "",
-//     summary: "",
-//     popularCities: ["", "", "", ""]
-// }
-        }
-    },
-    'north-america': {
-        geoInfo: {
-            rotate: [100, 0, 0],
-            center: [-5, 40],
-            scale: 325
-        },
-        summary: "",
-        topCountries: ['USA', 'Mexico', 'Canada'],
-        countries: {
-// :{
-//     name: "",
-//     summary: "",
-//     popularCities: ["", "", "", ""]
-// }
-        }
-    },
-    'south-america': {
-        geoInfo: {
-            rotate: [60, 0, 0],
-            center: [-10, -25],
-            scale: 400
-        },
-        summary: "",
-        topCountries: ['Argentina', 'Brazil', 'Chile'],
-        countries: {
-            // :{
-//     name: "",
-//     summary: "",
-//     popularCities: ["", "", "", ""]
-// }
-        }
-    },
-    'australia-oceania': {
-        geoInfo: {
-            rotate: [-20, 140, 150],
-            center: [-40, 15],
-            scale: 350
-        },
-        summary: "",
-        topCountries: ['Australia', 'New Zealand', 'Fiji'],
-        countries: {
-            // :{
-//     name: "",
-//     summary: "",
-//     popularCities: ["", "", "", ""]
-// }
         }
     }
 }
-
 
 module.exports = {continentCountries}

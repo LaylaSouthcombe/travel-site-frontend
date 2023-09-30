@@ -1,19 +1,16 @@
-import React, {useEffect} from 'react';
-import './style.css'
+import React, {useEffect} from 'react'
 
 const GoogleAd = ({dataAdSlot}) => {
 
     useEffect(() => {
-
         try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            (window.adsbygoogle = window.adsbygoogle || []).push({})
         }
-
         catch (e) {
-
+            console.log(e)
         }
 
-    },[]);
+    },[])
 
     return (
         <div className="googleAd">
@@ -25,10 +22,10 @@ const GoogleAd = ({dataAdSlot}) => {
                 data-full-width-responsive="true">
             </ins>
             <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                (adsbygoogle = window.adsbygoogle || []).push({})
             </script>                    
         </div>
     );
   }
 
-export default GoogleAd;
+export default GoogleAd

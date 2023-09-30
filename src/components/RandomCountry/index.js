@@ -1,11 +1,11 @@
 import React from 'react'
-import './style.css'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRoute } from '@fortawesome/free-solid-svg-icons'
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
 import {continentCountries} from '../../utilities/continentCountries'
+
+import './style.css'
 
 const RandomCountryText = () => {
     return (
@@ -58,4 +58,4 @@ const RandomCountry = () => {
     )
 }
 
-export default RandomCountry;
+export default RandomCountry

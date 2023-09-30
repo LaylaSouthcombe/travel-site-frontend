@@ -6,7 +6,8 @@ import {article} from '../../utilities/article'
 import {ArticleTabCards, GoogleAd, ArticleListGridStyle2} from '../../components'
 
 const SkeletonArticleFilterList = () => {
-    const {query} = useParams();
+
+    const {query} = useParams()
     let loadingArticles = [article, article, article, article, article, article]
 
     return (
@@ -44,7 +45,6 @@ const SkeletonArticleFilterList = () => {
                         <GoogleAd dataAdSlot={"9095054520"}/>
                     </div>
                     : null}
-                {/* make sticky */}
             </div>
         </div>
     )

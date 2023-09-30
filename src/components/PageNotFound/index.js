@@ -2,6 +2,7 @@ import React from 'react'
 
 import pageNotFound from '../../images/HeroImages/pageNotFound.png'
 import {TakeMeHomeButton} from '../'
+
 import './style.css'
 
 const PageNotFound = () => {
@@ -20,4 +21,4 @@ const PageNotFound = () => {
     )
 }
 
-export default PageNotFound;
+export default PageNotFound

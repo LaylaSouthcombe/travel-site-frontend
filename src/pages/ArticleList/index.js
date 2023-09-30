@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useParams} from 'react-router-dom';
 import { useSelector } from 'react-redux'
-import { NavBar, BottomMenu } from '../../layout'
-import './style.css'
 import axios from 'axios';
 
 import {generateQueryParam, setArticleVisibilityToTrue} from './articleListUtils'
 
+import { NavBar, BottomMenu } from '../../layout'
 import {GoogleAd, HeroArticleSection, ThreeCardsRow, TripStylesGrid, ArticleFilterList, TripStylesBreadCrumbMenu, SkeletonArticleFilterList, NoArticlesFound, TakeMeHomeButton} from '../../components'
 
+import './style.css'
+
 const ArticleList = () => {
-    const {query} = useParams();
+
+    const {query} = useParams()
 
     const queryParams = useSelector(state => state.queryParams)
     const searchQuery = useSelector(state => state.searchQuery)
@@ -152,4 +154,4 @@ const ArticleList = () => {
     )
 }
 
-export default ArticleList;
+export default ArticleList

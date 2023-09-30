@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios';
+import axios from 'axios'
 
 import {NavBar, BottomMenu} from '../../layout'
 import leftHeroImage from '../../images/HeroImages/leftHeroImage.png'
 import rightHeroImage from '../../images/HeroImages/rightHeroImage.png'
 import {ArticleGridStyle1, ArticleGridStyle2, TripStylesGrid, GoogleAd, ConditionalArticlesGrid, RandomCountry} from '../../components'
 
-import { article1 } from '../../utilities/article1'
-//add in random country button
+import { article } from '../../utilities/article'
+
 const Home = () => {
-    let fourLoadingArticles = [article1, article1, article1, article1]
+    let fourLoadingArticles = [article, article, article, article]
+
     const [trendingArticles, setTrendingArticles] = useState([fourLoadingArticles])
     const [cityArticles, setCityArticles] = useState([fourLoadingArticles])
     const [loaded, setLoaded] = useState(false)
@@ -63,7 +64,6 @@ const Home = () => {
                 </div>
             </div>
             <GoogleAd dataAdSlot={"1136657549"}/>
-            {/* {renderCategoryArticleSection} */}
 
             <ConditionalArticlesGrid loaded={loaded} articlesArray={trendingArticles} title={"Trending Articles"} buttonEndPoint={"/articles/popular"} grid={<ArticleGridStyle1 articles={trendingArticles} loaded={loaded}/>}/>
 
@@ -93,4 +93,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Home

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './style.css'
 
 const ViewMoreButton = ({endpoint, loaded}) => {
@@ -10,9 +11,10 @@ const ViewMoreButton = ({endpoint, loaded}) => {
                 <div>View more</div>
             </a>
         : 
-        null}
+        null
+        }
         </>
     )
 }
 
-export default ViewMoreButton;
+export default ViewMoreButton

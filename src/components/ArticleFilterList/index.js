@@ -90,7 +90,7 @@ const ArticleFilterList = ({articles}) => {
         setFilters(filters)
     }
 
-    const filterArticles = (e,filterLabel, type) => {
+    const filterArticles = (e, filterLabel, type) => {
         uncheckOrCheckCheckBox(e)
         addFilterToFiltersList(filterLabel, type)
         let updatedList = [...articles]
@@ -111,7 +111,7 @@ const ArticleFilterList = ({articles}) => {
                 <>
                     <li key={"tripFilter " + i} className={Object.values(x)[0] > 0 ? null : "hiddenFilter"}>
                         <label className={numberOfTripFiltersShowing <= 3 ? "filterLabel" : tripFilterClassName} onClick={(e) => {
-                                filterArticles(e,Object.keys(x)[0], "tripStyles")}}>{Object.keys(x)} ({Object.values(x)})
+                                filterArticles(e, Object.keys(x)[0], "tripStyles")}}>{Object.keys(x)} ({Object.values(x)})
                             <span className="checkmark"></span>
                         </label>
                     </li>
@@ -152,8 +152,6 @@ const ArticleFilterList = ({articles}) => {
                 </>
             )
         }
-
-    let numberOfArticles = 0
 
     const articleListFilterSection = document.getElementsByClassName("articleListFilterSection")
     const body = document.querySelector('body')
@@ -215,9 +213,6 @@ const ArticleFilterList = ({articles}) => {
                     {listArticles.length > 0 ? 
                         <>
                             {listArticles.map((article, i) => {
-                                if(article.visibility === true){
-                                    numberOfArticles += 1
-                                }
                                 return (
                                     <>
                                         {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article} loaded={loaded}/> : null}

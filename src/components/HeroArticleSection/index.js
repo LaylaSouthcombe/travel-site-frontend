@@ -1,5 +1,5 @@
 import React from 'react'
-import Skeleton from '@mui/material/Skeleton';
+import Skeleton from '@mui/material/Skeleton'
 
 import './style.css'
 
@@ -39,4 +39,4 @@ const HeroArticleSection = ({article, loaded}) => {
     )
 }
 
-export default HeroArticleSection;
+export default HeroArticleSection

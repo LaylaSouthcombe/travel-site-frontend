@@ -11,13 +11,14 @@ import backgroundWorld from '../../images/HeroImages/backgroundWorld.png'
 import {continentCountries} from '../../utilities/continentCountries'
 import {article} from '../../utilities/article'
 import {formatWord} from '../../utilities/formatWord'
-import { generateFetchUrl, generateGeoUrl, generateEndPointStart, formatCountry, defaultStyles, normalHoverColor, normalClickColor } from './continentCountryCityUtils'
+import { generateFetchUrl, generateGeoUrl, generateEndPointStart, defaultStyles, normalHoverColor, normalClickColor } from './continentCountryCityUtils'
 
 import './style.css'
 
 const ContinentCountryCity = () => {
-    const location = useLocation();
-    let navigate = useNavigate();
+
+    const location = useLocation()
+    let navigate = useNavigate()
 
     const [topSectionArticles, setTopSectionArticles] = useState([])
     const tabHeadings = ["All", "Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
@@ -31,8 +32,7 @@ const ContinentCountryCity = () => {
 
     const continent = location.pathname.split("/")[1]
     
-    let {country} = useParams();
-    // country = formatCountry(country)
+    let {country} = useParams()
     
     let endPointStart = generateEndPointStart(country, continent)
     
@@ -198,4 +198,4 @@ const ContinentCountryCity = () => {
     )
 }
 
-export default ContinentCountryCity;
+export default ContinentCountryCity

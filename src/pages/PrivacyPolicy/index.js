@@ -1,9 +1,11 @@
 import React from 'react'
 
-import {NavBar, BottomMenu} from '../../layout'
+import { NavBar, BottomMenu } from '../../layout'
+
 import './style.css'
 
 const PrivacyPolicy = () => {
+
     return (
         <>
             <NavBar/>
@@ -113,4 +115,4 @@ const PrivacyPolicy = () => {
     )
 }
 
-export default PrivacyPolicy;
+export default PrivacyPolicy

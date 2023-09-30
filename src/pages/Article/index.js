@@ -1,24 +1,23 @@
 import React, {useEffect, useState} from 'react'
-import { useParams} from 'react-router-dom';
-import axios from 'axios';
+import { useParams} from 'react-router-dom'
+import axios from 'axios'
 import {NavBar, BottomMenu} from '../../layout'
 import parse from 'html-react-parser'
-import Skeleton from '@mui/material/Skeleton';
+import Skeleton from '@mui/material/Skeleton'
 
 import './style.css'
 
-import {ArticleGridStyle2, ArticleListGridStyle2, ViewMoreButton,  GoogleAd, PageNotFound} from '../../components'
+import {ArticleGridStyle2, ArticleListGridStyle2, GoogleAd, PageNotFound} from '../../components'
 
 const Article = () => {
     
-    const {articleid} = useParams();
+    const {articleid} = useParams()
 
     const [article, setArticle] = useState()
     const [popularArticles, setPopularArticles] = useState([])
     const [mostReadArticles, setMostReadArticles] = useState([])
-    const [similarArticles, setSimilarArticles] = useState([])
-    const [loaded, setLoaded] = useState(false)
 
+    const [loaded, setLoaded] = useState(false)
     
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -100,14 +99,6 @@ const Article = () => {
                             </div>
                         </div>
                         <GoogleAd dataAdSlot={"1136657549"}/>
-                        {similarArticles.length === 4 ? 
-                            <>
-                                <h2 className="seperatorTitle">Similar Articles</h2>
-                                <ArticleGridStyle2 articles={similarArticles} loaded={loaded}/> 
-                                <ViewMoreButton endpoint={"/articles"}/>
-                            </>
-                        : null
-                        }
                         {mostReadArticles.length ? 
                             <>
                                 <h2 className="seperatorTitle">Must Reads</h2>
@@ -169,4 +160,4 @@ const Article = () => {
     )
 }
 
-export default Article;
+export default Article

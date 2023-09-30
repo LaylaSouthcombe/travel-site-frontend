@@ -9,6 +9,7 @@
 .liststyle1column1{
     display: flex;
 }
+
 .liststyle1column1, .liststyle1column2 {
     flex-direction: column;
     row-gap: 15px;

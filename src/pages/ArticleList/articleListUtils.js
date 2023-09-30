@@ -29,11 +29,4 @@ const setArticleVisibilityToTrue = (articles) => {
     return articles
 }
 
-const generateArticleListPageTitle = (query) => {
-    let title = ""
-    let splitQuery = query.replace(/-/g, " ").split("&")
-    return title
-}
-
-
 module.exports = {setArticleVisibilityToTrue, generateQueryParam}

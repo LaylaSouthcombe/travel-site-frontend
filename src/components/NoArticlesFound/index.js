@@ -1,5 +1,4 @@
 import React from 'react'
-
 import noArticlesFound from '../../images/HeroImages/noArticlesFound.png'
 
 import './style.css'
@@ -15,4 +14,4 @@ const NoArticlesFound = () => {
     )
 }
 
-export default NoArticlesFound;
+export default NoArticlesFound

@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import axios from 'axios'
+
 import {NavBar, BottomMenu} from '../../layout'
-import './style.css'
 
 import {ArticleGridStyle1, ArticleGridStyle2, ArticleGridStyle4,ArticleGridStyle6, ArticleGridStyle8, GoogleAd, ConditionalArticlesGrid} from '../../components'
 
-import { article1 } from '../../utilities/article1'
+import { article } from '../../utilities/article'
 
 import tripStylesPageHero from '../../images/HeroImages/tripStylesPageHero.png'
 
+import './style.css'
+
 const TripStyles = () => {
 
-    let fourLoadingArticles = [article1, article1, article1, article1]
-    let fiveLoadingArticles = [article1, article1, article1, article1, article1]
+    let fourLoadingArticles = [article, article, article, article]
+    let fiveLoadingArticles = [article, article, article, article, article]
 
     const [loaded, setLoaded] = useState(false)
     const [cityArticles, setCityArticles] = useState(fourLoadingArticles)
@@ -153,4 +155,4 @@ const TripStyles = () => {
     )
 }
 
-export default TripStyles;
+export default TripStyles

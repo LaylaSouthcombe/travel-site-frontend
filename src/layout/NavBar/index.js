@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import TextField from '@mui/material/TextField'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
@@ -25,8 +25,8 @@ import logo from '../../images/logo.png'
 
 const NavBar = () => {
     const dispatch = useDispatch()
-    let navigate = useNavigate();
-    const [selectedListTitle, setSelectedListTitle] = useState();
+    let navigate = useNavigate()
+    const [selectedListTitle, setSelectedListTitle] = useState()
     const [listData, setListData] = useState([])
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
     const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
@@ -36,213 +36,94 @@ const NavBar = () => {
     const [windowSize, setWindowSize] = useState(window.innerWidth)
     const fullListData = {
         "Destinations": [
-                // {
-                //     "name": "Europe",
-                //     "icon": "SendIcon",
-                //     "children": [
-                        {
-                          "name": "Explore Europe",
-                          "url": "/europe"
-                        },
-                        {
-                          "name": "Denmark",
-                          "url": "/europe/denmark",
-                          "cities": [
-                            {
-                              "name": "Copenhagen",
-                              "url": "/europe/denmark/copenhagen"
-                            },
-                            {
-                              "name": "Aarhus",
-                              "url": "/europe/denmark/aarhus"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "France",
-                          "url": "/europe/france",
-                          "cities": [
-                            {
-                              "name": "Paris",
-                              "url": "/europe/france/paris"
-                            },
-                            {
-                              "name": "Lille",
-                              "url": "/europe/france/lille"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "Germany",
-                          "url": "/europe/germany",
-                          "cities": [
-                            {
-                              "name": "Berlin",
-                              "url": "/europe/germany/berlin"
-                            },
-                            {
-                              "name": "Hamburg",
-                              "url": "/europe/germany/hamburg"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "Greece",
-                          "url": "/europe/greece",
-                          "cities": [
-                            {
-                              "name": "Athens",
-                              "url": "/europe/greece/athens"
-                            },
-                            {
-                              "name": "Corfu",
-                              "url": "/europe/greece/corfu"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "Spain",
-                          "url": "/europe/spain",
-                          "cities": [
-                            {
-                              "name": "Madrid",
-                              "url": "/europe/spain/madrid"
-                            },
-                            {
-                              "name": "Barcelona",
-                              "url": "/europe/spain/barcelona"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "United Kingdom",
-                          "url": "/europe/united-kingdom",
-                          "cities": [
-                            {
-                              "name": "London",
-                              "url": "/europe/united-kingdom/london"
-                            },
-                            {
-                              "name": "Edinburgh",
-                              "url": "/europe/united-kingdom/edinburgh"
-                            }
-                          ]
-                        }
-                      // ]
-                // }
-                // {
-                //     "name": "Asia",
-                //     "children": [
-                //       {
-                //         "name": "Explore Asia",
-                //         "url": "/asia"
-                //       },
-                //       {
-                //           "name": "China",
-                //           "url": "/china"
-                //       },
-                //       {
-                //           "name": "Cambodia",
-                //           "url": "/cambodia"
-                //       },
-                //       {
-                //           "name": "Thailand",
-                //           "url": "/thailand"
-                //       },
-                //       {
-                //           "name": "Vietnam",
-                //           "url": "/vietnam"
-                //       }
-                //   ]
-                //   },
-                // {
-                //   "name": "Africa",
-                //   "children": [
-                //     {
-                //       "name": "Explore Africa",
-                //       "url": "/africa"
-                //     },
-                //     {
-                //         "name": "Zimbabwe",
-                //         "url": "/zimbabwe"
-                //     },
-                //     {
-                //         "name": "Kenya",
-                //         "url": "/kenya"
-                //     },
-                //     {
-                //         "name": "Morocco",
-                //         "url": "/morocco"
-                //     },
-                //     {
-                //         "name": "Uganda",
-                //         "url": "/uganda"
-                //     }
-                // ]
-                // },             
-                  // {
-                  //   "name": "North America",
-                  //   "children": [
-                  //     {
-                  //       "name": "Explore North America",
-                  //       "url": "/africa"
-                  //     },
-                  //     {
-                  //         "name": "USA",
-                  //         "url": "/usa"
-                  //     },
-                  //     {
-                  //         "name": "Bahamas",
-                  //         "url": "/bahamas"
-                  //     },
-                  //     {
-                  //         "name": "Costa Rica",
-                  //         "url": "/costarica"
-                  //     }
-                  // ]
-                  // },
-                  // {
-                  //   "name": "South America",
-                  //   "children": [
-                  //     {
-                  //       "name": "Explore South America",
-                  //       "url": "/africa"
-                  //     },
-                  //     {
-                  //         "name": "Colombia",
-                  //         "url": "/colombia"
-                  //     },
-                  //     {
-                  //         "name": "Argentina",
-                  //         "url": "/argentina"
-                  //     },
-                  //     {
-                  //         "name": "Chile",
-                  //         "url": "/chile"
-                  //     }
-                  // ]
-                  // },
-                  // {
-                  //   "name": "Australia/Oceania",
-                  //   "children": [
-                  //     {
-                  //       "name": "Explore Australia/Oceania",
-                  //       "url": "/africa"
-                  //     },
-                  //     {
-                  //         "name": "Australia",
-                  //         "url": "/australia"
-                  //     },
-                  //     {
-                  //         "name": "New Zealand",
-                  //         "url": "/newzealand"
-                  //     },
-                  //     {
-                  //         "name": "Fiji",
-                  //         "url": "/fiji"
-                  //     }
-                  // ]
-                  // },
+              {
+                "name": "Explore Europe",
+                "url": "/europe"
+              },
+              {
+                "name": "Denmark",
+                "url": "/europe/denmark",
+                "cities": [
+                  {
+                    "name": "Copenhagen",
+                    "url": "/europe/denmark/copenhagen"
+                  },
+                  {
+                    "name": "Aarhus",
+                    "url": "/europe/denmark/aarhus"
+                  }
+                ]
+              },
+              {
+                "name": "France",
+                "url": "/europe/france",
+                "cities": [
+                  {
+                    "name": "Paris",
+                    "url": "/europe/france/paris"
+                  },
+                  {
+                    "name": "Lille",
+                    "url": "/europe/france/lille"
+                  }
+                ]
+              },
+              {
+                "name": "Germany",
+                "url": "/europe/germany",
+                "cities": [
+                  {
+                    "name": "Berlin",
+                    "url": "/europe/germany/berlin"
+                  },
+                  {
+                    "name": "Hamburg",
+                    "url": "/europe/germany/hamburg"
+                  }
+                ]
+              },
+              {
+                "name": "Greece",
+                "url": "/europe/greece",
+                "cities": [
+                  {
+                    "name": "Athens",
+                    "url": "/europe/greece/athens"
+                  },
+                  {
+                    "name": "Corfu",
+                    "url": "/europe/greece/corfu"
+                  }
+                ]
+              },
+              {
+                "name": "Spain",
+                "url": "/europe/spain",
+                "cities": [
+                  {
+                    "name": "Madrid",
+                    "url": "/europe/spain/madrid"
+                  },
+                  {
+                    "name": "Barcelona",
+                    "url": "/europe/spain/barcelona"
+                  }
+                ]
+              },
+              {
+                "name": "United Kingdom",
+                "url": "/europe/united-kingdom",
+                "cities": [
+                  {
+                    "name": "London",
+                    "url": "/europe/united-kingdom/london"
+                  },
+                  {
+                    "name": "Edinburgh",
+                    "url": "/europe/united-kingdom/edinburgh"
+                  }
+                ]
+              }
             ],
             "Trip Styles": [
                 {
@@ -334,7 +215,7 @@ const NavBar = () => {
     function wait(ms) {
       return new Promise(
           resolve => setTimeout(resolve, ms)
-      );
+      )
     }
 
     const openCloseSideMenu = async () => {
@@ -360,29 +241,29 @@ const NavBar = () => {
           main: '#3F3D56',
         },
       },
-    });
+    })
 
-    let oldScrollY = window.scrollY;
+    let oldScrollY = window.scrollY
     const stickynavbar = () => {
       if(windowSize >= 768){
-        const navbar = document.querySelector('.mainDesktopNavBarContainer');
-        const menuBuffer = document.querySelector('.menuBuffer');
-        let top = navbar.offsetTop;
+        const navbar = document.querySelector('.mainDesktopNavBarContainer')
+        const menuBuffer = document.querySelector('.menuBuffer')
+        let top = navbar.offsetTop
         if(oldScrollY < window.scrollY){
           if (window.scrollY > top) {    
-            navbar.classList.add('stickyNav');
-            menuBuffer.classList.add('stickyBuffer');
+            navbar.classList.add('stickyNav')
+            menuBuffer.classList.add('stickyBuffer')
           }
         } else {
           if (window.scrollY < top + 75) { 
-            navbar.classList.remove('stickyNav');
-            menuBuffer.classList.remove('stickyBuffer');
+            navbar.classList.remove('stickyNav')
+            menuBuffer.classList.remove('stickyBuffer')
           }
         }
-        oldScrollY = window.scrollY;
+        oldScrollY = window.scrollY
       }
     }
-    window.addEventListener('scroll', stickynavbar);
+    window.addEventListener('scroll', stickynavbar)
 
     const getAndSetSearchQuery = (e, location) => {
       let inputArea = document.querySelector('.MuiInputBase-input')
@@ -470,4 +351,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar;
+export default NavBar

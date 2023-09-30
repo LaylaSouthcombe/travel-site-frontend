@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
-import "react-placeholder/lib/reactPlaceholder.css";
+import axios from 'axios'
+import "react-placeholder/lib/reactPlaceholder.css"
+
 import {NavBar, BottomMenu} from '../../layout'
+
 import './style.css'
 
 import {ThreeCardsRow, GoogleAd, ArticlesTabSection, HeroArticleSection, BreadCrumbMenu, NoArticlesFound, TakeMeHomeButton} from '../../components'
 
 import {setArticleVisibilityToTrue} from '../ArticleList/articleListUtils.js'
-import {article} from '../../utilities/article'
-import {article1} from '../../utilities/article1'
-
 
 const TripPlanning = () => {
 
@@ -17,7 +16,7 @@ const TripPlanning = () => {
     
     const [loaded, setLoaded] = useState(false)
 
-    const [articles, setArticles ] = useState([article, article1, article, article1, article, article1, article, article, article, article])
+    const [articles, setArticles ] = useState([])
 
     const fetchArticlesWithoutConfig = async (url) => {
         await axios.get(url).then((response) => {
@@ -98,4 +97,4 @@ const TripPlanning = () => {
     )
 }
 
-export default TripPlanning;
+export default TripPlanning

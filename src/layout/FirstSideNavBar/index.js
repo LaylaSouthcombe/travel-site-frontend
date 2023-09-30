@@ -1,17 +1,17 @@
 import React from 'react'
-import List from '@mui/material/List';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import List from '@mui/material/List'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
+import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
-const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery, firstNavClassName, setFirstNavClassName, secondNavClassName, setSecondNavClassName}) => {
+const FirstSideNavBar = ({fullListData, setListData, titleListData, setSelectedListTitle, openCloseSideMenu, getAndSetSearchQuery, firstNavClassName, setFirstNavClassName, setSecondNavClassName}) => {
     let navigate = useNavigate();
 
     const openSecondNavBar = (name) => {
@@ -35,12 +35,12 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
                 <div className="sideNavMenuMainItem" key={"sideNavMenuMainItem"+i}>
                     {item.name !== "Popular" && item.name !== "Trip Planning" ? 
                     <ListItemButton onClick={() => handleNestedItemClick(item.name)}>
-                        <FontAwesomeIcon icon={item.icon} />
-                        <ListItemText primary={item.name} />
+                        <FontAwesomeIcon icon={item.icon}/>
+                        <ListItemText primary={item.name}/>
                     </ListItemButton>
                     : <ListItemButton onClick={() => handleNonNestedItemClick(item.url)}>
-                        <FontAwesomeIcon icon={item.icon} />
-                        <ListItemText primary={item.name} />
+                        <FontAwesomeIcon icon={item.icon}/>
+                        <ListItemText primary={item.name}/>
                     </ListItemButton>
                 }
                 </div>
@@ -86,4 +86,4 @@ const FirstSideNavBar = ({fullListData, listData, setListData, titleListData, se
     )
 }
 
-export default FirstSideNavBar;
+export default FirstSideNavBar

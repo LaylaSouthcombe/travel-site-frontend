@@ -12,6 +12,7 @@
         column-gap: 5%;
     }
 }
+
 @media(min-width: 900px){
     .articleGridStyle2 {
         grid-template-columns: 23.125% 23.125% 23.125% 23.125%;

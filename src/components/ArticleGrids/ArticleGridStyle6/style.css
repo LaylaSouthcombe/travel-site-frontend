@@ -6,6 +6,7 @@
     margin: 0 auto;
     max-width: 850px;
 }
+
 .style6column2 {
     display: flex;
     flex-wrap: wrap;

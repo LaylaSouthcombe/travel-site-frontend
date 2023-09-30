@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning, NotFound, SearchResults, TermsAndConditions, PrivacyPolicy, Disclaimer} from './pages/index.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+
+import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning, NotFound, SearchResults, TermsAndConditions, PrivacyPolicy, Disclaimer} from './pages/index.js'
+
 import './layout/FirstSideNavBar/style.css'
 import './layout/DesktopNavBar/style.css'
 import './layout/DestinationsDropMenu/style.css'
 import './layout/NavBar/style.css'
 import './pages/Home/style.css'
-
 import './components/ArticleGrids/ArticleGridStyle1/style.css'
 
-
-
 function App() {
+
   const [buttonClassName, setButtonClassName] = useState("backToTopBtnMid")
   
   function scrollFunction() {
@@ -34,10 +34,10 @@ function App() {
   
   function topFunction() {
     document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    document.documentElement.scrollTop = 0
   }
 
-  window.onscroll = () => {scrollFunction()};
+  window.onscroll = () => {scrollFunction()}
   
   return (
     <>
@@ -68,4 +68,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

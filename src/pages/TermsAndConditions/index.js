@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {NavBar, BottomMenu} from '../../layout'
+import { NavBar, BottomMenu } from '../../layout'
 
 const TermsAndConditions = () => {
 
@@ -84,4 +84,4 @@ const TermsAndConditions = () => {
     )
 }
 
-export default TermsAndConditions;
+export default TermsAndConditions

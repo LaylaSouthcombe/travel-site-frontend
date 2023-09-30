@@ -1,7 +1,8 @@
 import React from 'react'
-import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
+
+import './style.css'
 
 const TakeMeHomeButton = () => {
 
@@ -12,4 +13,4 @@ const TakeMeHomeButton = () => {
     )
 }
 
-export default TakeMeHomeButton;
+export default TakeMeHomeButton

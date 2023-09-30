@@ -4,16 +4,17 @@ import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
-import './style.css'
 import {ArticleTabCards, ViewMoreButton} from '../index'
+
+import './style.css'
 
 const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart, pageName}) => {
 
-    const [value, setValue] = React.useState('1');
+    const [value, setValue] = React.useState('1')
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-    };
+    }
 
     const addKeysToSortedArticlesArray = (tabHeadings) => {
         let sortedArticlesArray = {}
@@ -50,6 +51,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart, pa
     tabHeadings.forEach(heading => {
         sortArticles(sortedArticlesArray, heading)
     })
+    
     sortedArticlesArray = removeTabsWithNoArticles(sortedArticlesArray)  
 
     const formatHeadingForEndPoint = (heading) => {
@@ -110,8 +112,8 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart, pa
             </TabContext>
         </Box>
       </div>
-    );
-};
+    )
+}
 
 
-export default ArticlesTabSection;
+export default ArticlesTabSection

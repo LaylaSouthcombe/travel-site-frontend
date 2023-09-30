@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import {DestinationsDropMenu, NoNestDropMenu} from '../../layout'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,9 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import favicon from '../../images/favicon.png'
 
 const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdownMenuOpen}) => {
-    let navigate = useNavigate();
+    
+    let navigate = useNavigate()
+
     const [windowSize, setWindowSize] = useState(window.innerWidth)
     const [dropdownMenuName, setDropdownMenuName] = useState('Destinations')
     const [menuItemClassName, setMenuItemClassName] = useState(['menuItem', 'menuItem', 'menuItem'])
@@ -89,4 +91,4 @@ const DesktopNavBar = ({titleListData, fullListData, dropdownMenuOpen, setDropdo
     )
 }
 
-export default DesktopNavBar;
+export default DesktopNavBar

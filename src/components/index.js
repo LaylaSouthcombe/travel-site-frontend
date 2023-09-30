@@ -23,5 +23,3 @@ export {default as SkeletonArticleFilterList} from './SkeletonArticleFilterList'
 export {default as TakeMeHomeButton} from './TakeMeHomeButton'
 export {default as TripStylesGrid} from './TripStylesGrid'
 export {default as ViewMoreButton} from './ViewMoreButton'
-
-

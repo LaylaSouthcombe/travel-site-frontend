@@ -1,16 +1,12 @@
 import React from 'react'
 import {useLocation} from 'react-router-dom';
-import Skeleton from '@mui/material/Skeleton';
-
 
 import {formatWord} from '../../../utilities/formatWord'
 
 const TripStylesBreadCrumbMenu = () => {
 
-    const location = useLocation();
+    const location = useLocation()
     const pageLocation = location.pathname.split("=")[1]
-
-    // let summaryInfo = pageLocation === "trip-planning" ? "plan your trip summary" : "popular articles summary"
 
     let summaryInfo = {
         "adventure": "Trips for those who love the thrill of an adventure",
@@ -28,11 +24,11 @@ const TripStylesBreadCrumbMenu = () => {
          {summaryInfo[pageLocation] !== undefined ? 
          <>
             <div className="breadcrumbMenu">
-                    <div className="breadcrumb">
-                        <a href="/trip-styles">Trip Styles</a>
-                    </div>
-                    <p className="countryCityName">{formatWord(pageLocation)}</p>
-                    <p className="countryCitySummary">{summaryInfo[pageLocation]}</p>
+                <div className="breadcrumb">
+                    <a href="/trip-styles">Trip Styles</a>
+                </div>
+                <p className="countryCityName">{formatWord(pageLocation)}</p>
+                <p className="countryCitySummary">{summaryInfo[pageLocation]}</p>
             </div>
          </>
          : null}
@@ -41,4 +37,4 @@ const TripStylesBreadCrumbMenu = () => {
 
 }
 
-export default TripStylesBreadCrumbMenu;
+export default TripStylesBreadCrumbMenu

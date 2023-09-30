@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-
 import {ArticleListCardStyle1 , ArticleTabCards} from '../../'
 
 import './style.css'

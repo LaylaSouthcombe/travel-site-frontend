@@ -69,7 +69,7 @@ const TripStylesGrid = () => {
             {tripStyles.map(style => (
                 <a href={style.url} target="_blank" rel="noreferrer" key={style.text}>
                     <div>
-                    <img src={style.image} alt={style.alt} />  
+                    <img src={style.image} alt={style.alt}/>  
                     </div>
                     <p>{style.text}</p>
                 </a>
@@ -78,4 +78,4 @@ const TripStylesGrid = () => {
     )
 }
 
-export default TripStylesGrid;
+export default TripStylesGrid

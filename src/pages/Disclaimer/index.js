@@ -1,8 +1,9 @@
 import React from 'react'
 
-import {NavBar, BottomMenu} from '../../layout'
+import { NavBar, BottomMenu } from '../../layout'
 
 const Disclaimer = () => {
+
     return (
         <>
             <NavBar/>
@@ -57,4 +58,4 @@ const Disclaimer = () => {
     )
 }
 
-export default Disclaimer;
+export default Disclaimer
