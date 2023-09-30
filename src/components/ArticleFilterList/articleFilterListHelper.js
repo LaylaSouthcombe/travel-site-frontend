@@ -22,7 +22,7 @@ const checkIfLabelAlreadyInLabelsArray = (labelsArray, labelToCheck) => {
     const result = labelsArray.filter((filter) => {
         let filterLabel = Object.keys(filter)[0]
         return filterLabel === labelToCheck
-    });
+    })
     return result.length ? true : false
 }
 
