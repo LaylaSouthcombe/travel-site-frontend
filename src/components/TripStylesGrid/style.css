@@ -8,7 +8,7 @@
     max-width: 1000px;
 }
 
-.tripStyles > div {
+.tripStyles > a {
     width: 35%;
     margin: 20px;
     display: flex;
@@ -17,42 +17,42 @@
     justify-content: end;
 }
 
-.tripStyles > div:hover {
+.tripStyles > a:hover {
     cursor: pointer;
 }
 
-.tripStyles > div:hover > p {
+.tripStyles > a:hover > p {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 2px;
 }
 
-.tripStyles > div:focus > p {
+.tripStyles > a:focus > p {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 2px;
 }
 
-.tripStyles > div:focus {
+.tripStyles > a:focus {
     cursor: pointer;
 }
 
-.tripStyles > div > p {
+.tripStyles > a > p {
     text-align: center;
     padding: 10px;
 }
 
-.tripStyles > div > div {
+.tripStyles > a > div {
     width: 80%;
     margin: 0 auto;
 }
 
-.tripStyles > div > div > img {
+.tripStyles > a > div > img {
     width: 100%;
 }
 
 @media(min-width: 768px){
-    .tripStyles > div {
+    .tripStyles > a {
         width: 20%;
     }
 
