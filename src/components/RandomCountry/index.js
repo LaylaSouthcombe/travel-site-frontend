@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 import './style.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,8 +7,29 @@ import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
 import {continentCountries} from '../../utilities/continentCountries'
 
+const RandomCountryText = () => {
+    return (
+        <div className="randomCountryText">
+            <p>Not sure where to go?</p>
+            <p>Click this button and let fate take you on a wild ride to a random destination!</p>
+        </div>
+    )
+}
+
+const RandomCountryButton = ({takeToRandomCountry}) => {
+    return (
+        <div className="randomCountryButton" onClick={(() => takeToRandomCountry())}>
+            <FontAwesomeIcon icon={faCircleQuestion}/>
+            <div>
+                <p>I'm feeling</p>
+                <p>adventurous</p>
+            </div>
+            <FontAwesomeIcon icon={faRoute}/>
+        </div>
+    )
+}
+
 const RandomCountry = () => {
-    let navigate = useNavigate();
 
     const generateRandomNumber = () => {
         let maxNumber = Object.keys(continentCountries.europe.countries).length
@@ -31,18 +51,8 @@ const RandomCountry = () => {
     return (
         <>
             <div className="randomCountrySection">
-                <div className="randomCountryText">
-                    <p>Not sure where to go?</p>
-                    <p>Click this button and let fate take you on a wild ride to a random destination!</p>
-                </div>
-                <div className="randomCountryButton" onClick={(() => takeToRandomCountry())}>
-                        <FontAwesomeIcon icon={faCircleQuestion}/>
-                        <div>
-                            <p>I'm feeling</p>
-                            <p>adventurous</p>
-                        </div>
-                        <FontAwesomeIcon icon={faRoute}/>
-                </div>
+                <RandomCountryText/>
+                <RandomCountryButton takeToRandomCountry={takeToRandomCountry}/>
             </div>
         </>
     )
