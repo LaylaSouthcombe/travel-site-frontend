@@ -15,6 +15,7 @@ const Article = () => {
 
     const [article, setArticle] = useState()
     const [popularArticles, setPopularArticles] = useState([])
+    const [mostReadArticles, setMostReadArticles] = useState([])
     const [similarArticles, setSimilarArticles] = useState([])
     const [loaded, setLoaded] = useState(false)
 
@@ -52,15 +53,23 @@ const Article = () => {
                 setPopularArticles([])
             }
         }
-        
+        const mostRead = `http://localhost:3000/articles/most-read`
+        const fetchMostReadArticles = async () => {
+            try {
+                axios.get(mostRead).then((response) => {
+                    if(response.data !== ''){
+                        setMostReadArticles(response.data)
+                    }
+                });
+            } catch(error) {
+                setMostReadArticles([])
+            }
+        }
         fetchFullArticle()
         fetchPopularArticles()
+        fetchMostReadArticles()
 
     }, [articleid, loaded])
-    // const similarURL = `http://localhost:3000/articles/suggested`
-    // axios.get(similarURL).then((response) => {
-    //     setSimilarArticles(response.data)
-    // });
 
     return (
         <>
@@ -97,10 +106,10 @@ const Article = () => {
                             </>
                         : null
                         }
-                        {popularArticles.length === 4 ? 
+                        {mostReadArticles.length ? 
                             <>
                                 <h2 className="seperatorTitle">Must Reads</h2>
-                                <ArticleGridStyle2 articles={popularArticles.slice(4)} loaded={loaded}/>
+                                <ArticleGridStyle2 articles={popularArticles} loaded={loaded}/>
                                 <GoogleAd dataAdSlot={"1136657549"}/>
                             </>
                         : null
