@@ -17,7 +17,7 @@ import {tripStylesShowing} from '../../utilities/tripStylesShowing'
 import {countriesInfo} from '../../utilities/countriesInfo'
 
 const ArticleFilterList = ({articles}) => {
-  
+    console.log("filter list ", articles)
     const {query} = useParams();
     const [filters, setFilters] = useState({countries: [], tripStyles: []})
     const [listArticles, setListArticles] = useState([])
@@ -212,15 +212,16 @@ const ArticleFilterList = ({articles}) => {
                     <FontAwesomeIcon icon={faFilter}/> Filters
                 </div>
                 <div className="articleList">
-                    {numberOfArticles !== 0 ? 
+                    {listArticles.length > 0 ? 
                         <>
                             {listArticles.map((article, i) => {
+                                console.log(article)
                                 if(article.visibility === true){
                                     numberOfArticles += 1
                                 }
                                 return (
                                     <>
-                                        {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article}  loaded={loaded}/> : null}
+                                        {article.visibility === true ? <ArticleTabCards keyId={"articleListLong " + i} key={"articleListLong " + i} article={article} loaded={loaded}/> : null}
                                     </>
                                 )
                             })}
@@ -259,7 +260,6 @@ const ArticleFilterList = ({articles}) => {
                         <GoogleAd dataAdSlot={"9095054520"}/>
                     </div>
                     : null}
-                {/* make sticky */}
             </div>
         </div>
     )

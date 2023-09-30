@@ -3,7 +3,7 @@ import Skeleton from '@mui/material/Skeleton';
 import './style.css'
 
 const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
-    
+
     return (
         <Fragment key={keyId}>
             {loaded ?
@@ -26,14 +26,14 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
             </Fragment>
             :
                 <div className={classnames + " skeletonArticleCard"} key={keyId}>
-                    <div className="cardImg">
+                    <div className="cardImg" data-testid="skeleton-image">
                         <Skeleton variant="rounded" width={"100%"} height={160}/>
                     </div>
                     <div className="threeCardInfo">
-                        <p className="skeletonArticleTag">
+                        <p className="skeletonArticleTag" data-testid="skeleton-category">
                             <Skeleton variant="rounded" width={"100%"} height={20}/>
                         </p>
-                        <p className="articleCardTitle skeletonArticleCardTitle" maxLength="4">
+                        <p className="articleCardTitle skeletonArticleCardTitle" maxLength="4" data-testid="skeleton-title">
                             <Skeleton variant="rounded" width={"100%"} height={20}/>
                             <Skeleton variant="rounded" width={"100%"} height={20}/>
                         </p>

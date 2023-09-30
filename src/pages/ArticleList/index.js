@@ -27,6 +27,7 @@ const ArticleList = () => {
                     if(response.data !== ''){
                        let responseArticles = setArticleVisibilityToTrue(response.data)
                         setArticles(responseArticles) 
+                        console.log(responseArticles)
                     } else {
                         setArticles([])
                     }
@@ -40,12 +41,14 @@ const ArticleList = () => {
                 if(response.data !== ''){
                     let responseArticles = setArticleVisibilityToTrue(response.data)
                     setArticles(responseArticles)
+                    console.log(responseArticles)
                 } else {
                     setArticles([])
                 }
                 })
                 .catch(console.error)
         }
+
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
@@ -107,14 +110,14 @@ const ArticleList = () => {
                     <>
                         {articles.length === 4 ? 
                         <>
-                            <ThreeCardsRow articles={articles.splice(1,4)} loaded={loaded}/>
+                            <ThreeCardsRow articles={[articles[1], articles[2], articles[3]]} loaded={loaded}/>
                             <GoogleAd dataAdSlot={"1136657549"}/>
                         </>
                         : null}
                     </>
                 :
                     <>
-                        <ThreeCardsRow articles={articles.splice(1,4)} loaded={false}/>
+                        <ThreeCardsRow articles={[articles[1], articles[2], articles[3]]} loaded={false}/>
                     </>
                 }
                 {loaded ?

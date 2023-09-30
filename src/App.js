@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Routes, Route} from 'react-router-dom'
-import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning, NotFound, SearchResults, TermsAndConditions, PrivacyPolicy, Disclaimer} from './pages'
+import {Home, ContinentCountryCity, TripStyles, Article, ArticleList, TripPlanning, NotFound, SearchResults, TermsAndConditions, PrivacyPolicy, Disclaimer} from './pages/index.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import './layout/FirstSideNavBar/style.css'
