@@ -24,7 +24,7 @@ const SearchResults = () => {
 
     const [loaded, setLoaded] = useState(false)
 
-    const [articles, setArticles] = useState([article, article1, article2, article3,article4, article5, article6, article7, article8])
+    const [articles, setArticles] = useState([])
 
     const fetchArticlesWithConfig = async (url, config) => {
         await axios.get(url, config).then((response) => {

@@ -27,7 +27,6 @@ const ArticleList = () => {
                     if(response.data !== ''){
                        let responseArticles = setArticleVisibilityToTrue(response.data)
                         setArticles(responseArticles) 
-                        console.log(responseArticles)
                     } else {
                         setArticles([])
                     }
@@ -41,7 +40,6 @@ const ArticleList = () => {
                 if(response.data !== ''){
                     let responseArticles = setArticleVisibilityToTrue(response.data)
                     setArticles(responseArticles)
-                    console.log(responseArticles)
                 } else {
                     setArticles([])
                 }

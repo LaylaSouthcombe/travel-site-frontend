@@ -17,7 +17,7 @@ import {tripStylesShowing} from '../../utilities/tripStylesShowing'
 import {countriesInfo} from '../../utilities/countriesInfo'
 
 const ArticleFilterList = ({articles}) => {
-    console.log("filter list ", articles)
+
     const {query} = useParams();
     const [filters, setFilters] = useState({countries: [], tripStyles: []})
     const [listArticles, setListArticles] = useState([])
@@ -215,7 +215,6 @@ const ArticleFilterList = ({articles}) => {
                     {listArticles.length > 0 ? 
                         <>
                             {listArticles.map((article, i) => {
-                                console.log(article)
                                 if(article.visibility === true){
                                     numberOfArticles += 1
                                 }
