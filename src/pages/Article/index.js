@@ -46,7 +46,8 @@ const Article = () => {
             try {
                 axios.get(popularURL).then((response) => {
                     if(response.data !== ''){
-                        setPopularArticles(response.data)
+                        let filteredArticles = response.data.filter(respArt => (respArt.id !== article.id))
+                        setPopularArticles(filteredArticles)
                     }
                 });
             } catch(error) {
@@ -58,7 +59,8 @@ const Article = () => {
             try {
                 axios.get(mostRead).then((response) => {
                     if(response.data !== ''){
-                        setMostReadArticles(response.data)
+                        let filteredArticles = response.data.filter(respArt => (respArt.id !== article.id))
+                        setMostReadArticles(filteredArticles)
                     }
                 });
             } catch(error) {
@@ -86,7 +88,7 @@ const Article = () => {
                             </div>
                             <div className="articleSideAds">
                                 <GoogleAd dataAdSlot={"4238599075"}/>
-                                {popularArticles.length === 4 ? 
+                                {popularArticles.length ? 
                                 <>
                                     <p className="popularSideHeading">Popular on Sojo Travels</p>
                                     <div className="popularArticlesSideList">
