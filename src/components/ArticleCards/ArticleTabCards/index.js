@@ -1,8 +1,10 @@
 import React, {Fragment} from 'react'
-import Skeleton from '@mui/material/Skeleton';
+import Skeleton from '@mui/material/Skeleton'
+
 import './style.css'
 
 const SkeletonArticleCard = ({classnames, keyId}) => {
+
     return (
         <div className={classnames + " skeletonArticleCard"} key={keyId}>
             <div className="cardImg" data-testid="skeleton-image">
@@ -62,4 +64,4 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
     )
 }
 
-export default ArticleTabCards;
+export default ArticleTabCards

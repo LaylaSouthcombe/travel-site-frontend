@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {ArticleTabCards} from '../../'
 
 import './style.css'
@@ -14,4 +15,4 @@ const ThreeCardsRow = ({articles, loaded}) => {
     )
 }
 
-export default ThreeCardsRow;
+export default ThreeCardsRow

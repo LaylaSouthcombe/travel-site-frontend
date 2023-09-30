@@ -1,6 +1,7 @@
 import React from 'react'
+import Skeleton from '@mui/material/Skeleton'
+
 import './style.css'
-import Skeleton from '@mui/material/Skeleton';
 
 const ArticleListCardStyle4 = ({article, loaded, keyId}) => {
 
@@ -25,4 +26,4 @@ const ArticleListCardStyle4 = ({article, loaded, keyId}) => {
     )
 }
 
-export default ArticleListCardStyle4;
+export default ArticleListCardStyle4

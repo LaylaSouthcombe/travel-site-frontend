@@ -1,12 +1,12 @@
 import React from 'react'
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 
-import './style.css'
-
 import {continentCountries} from '../../../utilities/continentCountries'
 import {formatWord} from '../../../utilities/formatWord'
+
+import './style.css'
 
 const CountryBreadCrumbMenu = () => {
     let {country, city} = useParams()
@@ -41,4 +41,4 @@ const CountryBreadCrumbMenu = () => {
 
 }
 
-export default CountryBreadCrumbMenu;
+export default CountryBreadCrumbMenu

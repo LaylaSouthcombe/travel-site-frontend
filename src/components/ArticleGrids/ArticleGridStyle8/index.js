@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {ArticleTabCards} from '../../'
 
 import './style.css'
@@ -22,4 +23,4 @@ const ArticleGridStyle8 = ({articles, loaded}) => {
     )
 }
 
-export default ArticleGridStyle8;
+export default ArticleGridStyle8

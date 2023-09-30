@@ -1,5 +1,6 @@
 import React from 'react'
-import Skeleton from '@mui/material/Skeleton';
+import Skeleton from '@mui/material/Skeleton'
+
 import {ViewMoreButton} from '../'
 
 import './style.css'
@@ -34,7 +35,3 @@ const ConditionalArticlesGrid = ({loaded, articlesArray, title, buttonEndPoint, 
 }
 
 export default ConditionalArticlesGrid
-
-
-
-

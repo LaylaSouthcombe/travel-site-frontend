@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {ArticleListCardStyle4} from '../../'
 
 import './style.css'
@@ -17,4 +18,4 @@ const ArticleListGridStyle2 = ({articles, loaded}) => {
     )
 }
 
-export default ArticleListGridStyle2;
+export default ArticleListGridStyle2

@@ -1,9 +1,9 @@
 import React from 'react'
-import {useLocation} from 'react-router-dom';
-
-import './style.css'
+import {useLocation} from 'react-router-dom'
 
 import {formatWord} from '../../../utilities/formatWord'
+
+import './style.css'
 
 const BreadCrumbMenu = () => {
 

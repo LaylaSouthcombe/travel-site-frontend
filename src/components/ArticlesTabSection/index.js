@@ -1,9 +1,10 @@
 import React, {Fragment} from 'react'
-import Box from '@mui/material/Box';
-import Tab from '@material-ui/core/Tab';
-import TabContext from '@material-ui/lab/TabContext';
-import TabList from '@material-ui/lab/TabList';
-import TabPanel from '@material-ui/lab/TabPanel';
+import Box from '@mui/material/Box'
+import Tab from '@material-ui/core/Tab'
+import TabContext from '@material-ui/lab/TabContext'
+import TabList from '@material-ui/lab/TabList'
+import TabPanel from '@material-ui/lab/TabPanel'
+
 import {ArticleTabCards, ViewMoreButton} from '../index'
 
 import './style.css'
@@ -13,7 +14,7 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart, pa
     const [value, setValue] = React.useState('1')
 
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        setValue(newValue)
     }
 
     const addKeysToSortedArticlesArray = (tabHeadings) => {
@@ -114,6 +115,5 @@ const ArticlesTabSection = ({tabArticles, tabHeadings, loaded, endPointStart, pa
       </div>
     )
 }
-
 
 export default ArticlesTabSection

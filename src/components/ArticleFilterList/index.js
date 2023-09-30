@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import { useParams} from 'react-router-dom';
-import Skeleton from '@mui/material/Skeleton';
-import './style.css'
+import { useParams} from 'react-router-dom'
+import Skeleton from '@mui/material/Skeleton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 import {article} from '../../utilities/article'
-
 import {ArticleListGridStyle2, GoogleAd, ArticleTabCards} from '../../components'
 
 import {setArticleVisibility, increaseNumberOfArticlesForFilter, addNewOrIncreaseExistingFilterToFilterArray, resetFilterLabelNumbers, uncheckOrCheckCheckBox} from './articleFilterListHelper'
@@ -16,9 +14,11 @@ import {setArticleVisibility, increaseNumberOfArticlesForFilter, addNewOrIncreas
 import {tripStylesShowing} from '../../utilities/tripStylesShowing'
 import {countriesInfo} from '../../utilities/countriesInfo'
 
+import './style.css'
+
 const ArticleFilterList = ({articles}) => {
 
-    const {query} = useParams();
+    const {query} = useParams()
     const [filters, setFilters] = useState({countries: [], tripStyles: []})
     const [listArticles, setListArticles] = useState([])
     const [tripFilterLabels, setTripFilterLabels] = useState([])
@@ -259,4 +259,4 @@ const ArticleFilterList = ({articles}) => {
     )
 }
 
-export default ArticleFilterList;
+export default ArticleFilterList
