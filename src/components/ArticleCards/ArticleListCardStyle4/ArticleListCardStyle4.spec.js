@@ -3,7 +3,7 @@ import React from 'react';
 import ArticleListCardStyle4 from './index';
 import '@testing-library/jest-dom'
 
-describe('ArticleListCardStyle1', () => {
+describe('ArticleListCardStyle4', () => {
   test('renders when loaded is true', () => {
     const article = {
       id: 1,

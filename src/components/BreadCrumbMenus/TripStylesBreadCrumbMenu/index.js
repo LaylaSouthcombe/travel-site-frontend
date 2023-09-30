@@ -14,7 +14,7 @@ const TripStylesBreadCrumbMenu = () => {
 
     let summaryInfo = {
         "adventure": "Trips for those who love the thrill of an adventure",
-        "art&culture": "Explore the array of art and culture that destinations around the world offer",
+        "art-culture": "Explore the array of art and culture that destinations around the world offer",
         "budget-friendly": "Budget-friendly trips for those who want to explore the world without breaking the bank",
         "city-break": "Take a city break to experience the atomosphere of some of the most exciting cities in the world",
         "food": "Eat your way around the world by taking a trip to food-famous destinations",
