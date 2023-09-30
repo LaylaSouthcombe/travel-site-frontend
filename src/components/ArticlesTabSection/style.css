@@ -41,7 +41,7 @@
 }
 
 .MuiButtonBase-root.MuiTab-root.Mui-selected {
-    background-color: var(--main-button-color);
+    background-color: var(--main-purple);
     border-style: solid;
     border-width: 3px 3px 0px 3px;
     border-color: var(--main-purple);
