@@ -14,7 +14,6 @@ const ArticleGridStyle1 = ({articles, loaded}) => {
             <div className="style1column2">
                 <ArticleListCardStyle1 article={articles[1]} classnames={"articleTabCard"} loaded={loaded}/>
                 <ArticleListCardStyle1 article={articles[2]} classnames={"articleTabCard"} loaded={loaded}/>
-                <ArticleListCardStyle1 article={articles[3]} classnames={"articleTabCard"} loaded={loaded}/>
             </div>
         </div>
     )

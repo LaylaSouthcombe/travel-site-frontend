@@ -5,7 +5,7 @@
 .viewMoreButton > div {
     background-color: var(--main-purple);
     width: 35%;
-    margin: 0 auto;
+    margin: 1rem auto;
     border-radius: 5px;
     color: var(--darker-background-colour);
     padding: 10px 5px;
