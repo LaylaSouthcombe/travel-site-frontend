@@ -23,10 +23,17 @@
     margin-bottom: 10px;
     font-size: 20px;
     width: 90%;
+    --max-lines: 3;
+    overflow: hidden;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-lines);
 }
 
 .articleCard {
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .articleCard:hover .articleCardTitle, .articleCard:focus .articleCardTitle {

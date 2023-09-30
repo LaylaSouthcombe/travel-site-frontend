@@ -1,5 +1,6 @@
 .bottomMenu {
     background-color: var(--main-purple);
+    margin-top: 2rem;
 }
 
 .bottomMenu > div > p {

@@ -16,7 +16,7 @@ const ArticleTabCards = ({article, classnames, keyId, loaded}) => {
                         </div>
                         <div className="threeCardInfo">
                             <p className="articleCardCategoryArea articleCardCategory">{article.article_category}</p>
-                            <p className="articleCardTitle articleTabCardTitle" maxLength="4">
+                            <p className="articleCardTitle articleTabCardTitle">
                                 {article.title}
                             </p>
                         </div>
