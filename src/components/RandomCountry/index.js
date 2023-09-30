@@ -25,7 +25,7 @@ const RandomCountry = () => {
 
     const takeToRandomCountry = () => {
         let endpoint = generateRandomCountryUrl()
-        navigate(`/europe/${endpoint}`)
+        window.open(`/europe/${endpoint}`,'_blank')
     }
 
     return (

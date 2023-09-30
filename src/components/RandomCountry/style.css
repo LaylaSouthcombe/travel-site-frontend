@@ -55,6 +55,7 @@
     .randomCountrySection {
         flex-direction: row;
         height: 40vh;
+        margin: 4rem auto;
     }
 
     .randomCountryText {

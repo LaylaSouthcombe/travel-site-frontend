@@ -113,6 +113,10 @@
         width: 85%;
     }
 
+    .seperatorTitle {
+        margin-top: 8rem;
+    }
+
     .popularDestinationsSection {
         grid-template-columns: 50% 50%;
     }
