@@ -25,9 +25,9 @@ const ArticleFilterList = ({articles}) => {
     const [countryFilterLabels, setCountryFilterLabels] = useState([])
     const [loaded, setLoaded] = useState(false)
     const [tripFilterClassName, setTripFilterClassName] = useState("hiddenLabel")
-    const [tripShowAllClassName, setTripShowAllClassName] = useState("filterLabel")
+    const [tripShowAllClassName, setTripShowAllClassName] = useState("showAllLabel filterLabel")
     const [countryFilterClassName, setCountryFilterClassName] = useState("hiddenLabel")
-    const [countryShowAllClassName, setCountryShowAllClassName] = useState("filterLabel")
+    const [countryShowAllClassName, setCountryShowAllClassName] = useState("showAllLabel filterLabel")
 
     let loadingArticles = [article, article, article, article, article, article]
 

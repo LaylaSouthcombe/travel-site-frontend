@@ -91,6 +91,10 @@ p.showResults {
     display: none;
 }
 
+.showAllLabel {
+    font-weight: bold;
+}
+
 .filterLabel {
     display: block;
     position: relative;
