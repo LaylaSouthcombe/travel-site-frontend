@@ -9,6 +9,10 @@
     max-width: 1000px;
 }
 
+.heroArticle .articleCardCategoryArea {
+    font-size: 18px;
+}
+
 .heroArticleImg {
     width: 100%;
     height: 100%;
