@@ -23,21 +23,7 @@ const continentCountries = {
                 visitable: true,
                 url: 'germany'
             },
-            england: {
-                name: "United Kingdom",
-                summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
-                popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"],
-                visitable: true,
-                url: 'united-kingdom'
-            },
-            scotland: {
-                name: "United Kingdom",
-                summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
-                popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"],
-                visitable: true,
-                url: 'united-kingdom'
-            },
-            wales: {
+            "united kingdom": {
                 name: "United Kingdom",
                 summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
                 popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"],
@@ -50,13 +36,6 @@ const continentCountries = {
                 popularCities: ["Reykjavik", "Akureyri", "Vatnajökull", "Skaftafell"],
                 visitable: true,
                 url: 'iceland'
-            },
-            svalbard: {
-                name: "Europe",
-                summary: "A diverse continent with a rich history and culture, offering an array of attractions from the Eiffel Tower in Paris to the canals of Venice. Visitors can explore ancient ruins, sample local cuisines, and take in stunning natural landscapes.",
-                popularCities: [],
-                visitable: false,
-                url: ''
             },
             russia: {
                 name: "Russia",
@@ -71,13 +50,6 @@ const continentCountries = {
                 popularCities: ["Dublin", "Cork", "Galway", "Killarney"],
                 visitable: true,
                 url: 'ireland'
-            },
-            northernireland: {
-                name: "United Kingdom",
-                summary: "Each of the countries of the United Kingdom - England, Scotland, Wales, and Northern Ireland - offer its own distinct history, culture, and attractions, from the bustling cities of London and Edinburgh, to the stunning landscapes of Snowdonia and the Highlands.",
-                popularCities: ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"],
-                visitable: true,
-                url: 'united-kingdom'
             },
             portugal: {
                 name: "Portugal",
@@ -114,14 +86,7 @@ const continentCountries = {
                 visitable: true,
                 url: 'luxembourg'
             },
-            walloonregion: {
-                name: "Belgium",
-                summary: "Known for its history, culture, and delicious chocolate and beer, Belgium is a great destination for foodies and history buffs alike. Cities like Brussels, Bruges, and Antwerp offer a mix of medieval architecture and modern amenities, while the picturesque countryside is perfect for cycling or hiking.",
-                popularCities: ["Brussels", "Bruges", "Antwerp", "Ghent"],
-                visitable: true,
-                url: 'belgium'
-            },
-            flemishregion: {
+            belgium: {
                 name: "Belgium",
                 summary: "Known for its history, culture, and delicious chocolate and beer, Belgium is a great destination for foodies and history buffs alike. Cities like Brussels, Bruges, and Antwerp offer a mix of medieval architecture and modern amenities, while the picturesque countryside is perfect for cycling or hiking.",
                 popularCities: ["Brussels", "Bruges", "Antwerp", "Ghent"],
@@ -149,8 +114,8 @@ const continentCountries = {
                 visitable: true,
                 url: 'albania'
             },
-            macedonia:{
-                name: "Macedonia",
+            "north macedonia":{
+                name: "North Macedonia",
                 summary: "Known for its natural beauty, history, and culture, Macedonia is a small country that has a lot to offer. The capital, Skopje, is a bustling city with a mix of Ottoman and communist-era architecture.",
                 popularCities: ["Skopje", "Ohrid", "Bitola", "Kumanovo"],
                 visitable: true,
@@ -191,14 +156,7 @@ const continentCountries = {
                 visitable: true,
                 url: 'montenegro'
             },
-            republicsrpska:{
-                name: "Europe",
-                summary: "A diverse continent with a rich history and culture, offering an array of attractions from the Eiffel Tower in Paris to the canals of Venice. Visitors can explore ancient ruins, sample local cuisines, and take in stunning natural landscapes.",
-                popularCities: [],
-                visitable: false,
-                url: ''
-            },
-            bosniaandherzegovina:{
+            "bosnia and herzegovina":{
                 name: "Bosnia and Herzegovina",
                 summary: "Known for its history, culture, and natural beauty, Bosnia and Herzegovina is a country that is still relatively undiscovered by tourists. It's recommended to check the travel advice of the government before planning a trip to Bosnia and Herzegovina.",
                 popularCities: ["Sarajevo", "Mostar", "Banja Luka", "Tuzla"],
@@ -211,13 +169,6 @@ const continentCountries = {
                 popularCities: ["Zagreb", "Dubrovnik", "Split", "Rijeka"],
                 visitable: true,
                 url: 'croatia'
-            },
-            vojvodina:{
-                name: "Vojvodina",
-                summary: "Known for its rich cultural heritage, Vojvodina is a province in Serbia that is home to a diverse mix of ethnic groups. It's recommended to check the travel advice of the government before planning a trip to Vojvodina.",
-                popularCities: ["Novi Sad", "Subotica", "Zrenjanin", "Kikinda"],
-                visitable: false,
-                url: ''
             },
             hungary:{
                 name: "Hungary",
@@ -240,7 +191,7 @@ const continentCountries = {
                 visitable: true,
                 url: 'austria'
             },
-            czechrepublic:{
+            czechia:{
                 name: "Czech Republic",
                 summary: "Known for its rich culture, history, and picturesque landscapes, the Czech Republic is a popular destination for tourists. The capital, Prague, is a bustling city with a mix of Gothic, Baroque, and Art Nouveau architecture.",
                 popularCities: ["Prague", "Brno", "Ostrava", "Plzen"],
@@ -330,178 +281,6 @@ const continentCountries = {
                 popularCities: ["Copenhagen", "Aarhus", "Odense", "Aalborg"],
                 visitable: true,
                 url: 'denmark'
-            }
-        }
-    },
-    'asia': {
-        geoInfo: {
-            rotate: [-80.0, -53.0, 0],
-            center: [14, -8],
-            scale: 300
-        },
-        name: "Asia",
-        summary: "",
-        topCountries: ['China', 'Thailand', 'Japan'],
-        countries: {
-            yemen:{
-                name: "Yemen",
-                summary: "Yemen is a country with a rich history and culture, but is currently facing a humanitarian crisis. It is not safe for tourists to visit at this time.",
-                popularCities: []
-            },
-            oman:{
-                name: "Oman",
-                summary: "Oman offers a unique blend of traditional and modern culture, with beautiful beaches, deserts, and mountains to explore. It's recommended to check the travel advice of the government before planning a trip to Oman.",
-                popularCities: ["Muscat", "Salalah", "Sur", "Nizwa"]
-            },
-            "united arab emirates":{
-                name: "United Arab Emirates",
-                summary: "The United Arab Emirates is known for its luxury shopping, modern architecture, and man-made islands. Cities like Dubai and Abu Dhabi offer a mix of cultures and experiences, from desert safaris to indoor skiing.",
-                popularCities: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"]
-            },
-            qatar:{
-                name: "Qatar",
-                summary: "Qatar is a small but wealthy country, known for its modern architecture, museums, and shopping. Visitors can also explore the desert and see traditional Bedouin life.",
-                popularCities: ["Doha", "Al Wakrah", "Al Khor", "Al-Daayen"]
-            },
-            "saudi arabia":{
-                name: "Saudi Arabia",
-                summary: "Saudi Arabia is the birthplace of Islam and home to Islam's holiest sites, including Mecca and Medina. It is a country with a rich history and culture, but is not currently open to tourists.",
-                popularCities: ["Mecca", "Medina", "Jeddah", "Riyadh"]
-            },
-            kuwait:{
-                name: "Kuwait",
-                summary: "Kuwait is a small country with a rich history and culture, known for its traditional souks and modern skyscrapers. Visitors can also explore the desert and see traditional Bedouin life.",
-                popularCities: ["Kuwait City", "Salmiya", "Jahra", "Al Ahmadi"]
-            },
-            iraq:{
-                name: "Iraq",
-                summary: "Iraq is a country with a rich history, but is currently facing a humanitarian crisis. It is not safe for tourists to visit at this time.",
-                popularCities: []
-            },
-            jordan:{
-                name: "Jordan",
-                summary: "Jordan is a small country with a rich history, known for its ancient ruins, such as Petra, and its natural beauty, including the Dead Sea and Wadi Rum. Visitors can also experience Bedouin culture.",
-                popularCities: ["Amman", "Petra", "Wadi Rum", "Aqaba"]
-            },
-            "west bank":{
-                name: "West Bank",
-                summary: "The West Bank is a territory in the Middle East that is currently under Israeli occupation. It is not safe for tourists to visit at this time.",
-                popularCities: []
-            },
-            israel:{
-                name: "Israel",
-                summary: "Israel is a small country with a rich history, known for its religious sites, such as the Western Wall and the Church of the Holy Sepulchre, as well as its beaches and modern cities like Tel Aviv.",
-                popularCities: ["Jerusalem", "Tel Aviv", "Eilat", "Haifa"]
-            },
-            UNDOF:{
-                name: "UNDOF",
-                summary: "",
-                popularCities: []
-            },
-            syria:{
-                name: "Syria",
-                summary: "Syria is a country with a rich history, but is currently facing a humanitarian crisis. It is not safe for tourists to visit at this time.",
-                popularCities: []
-            },
-            lebanon:{
-                name: "Lebanon",
-                summary: "Lebanon is a small country with a rich history and culture, known for its delicious food, historic ruins, and beautiful beaches. It's recommended to check the travel advice of the government before planning a trip to Lebanon.",
-                popularCities: []
-            },
-            turkey:{
-                name: "Turkey",
-                summary: "Turkey is a large country with a rich history, known for its ancient ruins, such as Ephesus, and its natural beauty, including the Blue Mosque and the hot springs of Pamukkale.",
-                popularCities: ["Istanbul", "Antalya", "Kapadokya", "Bodrum "]
-            },
-            "northern cyprus":{
-                name: "Northern Cyprus",
-                summary: "",
-                popularCities: []
-            },
-            cyprus:{
-                name: "Cyprus",
-                summary: "Cyprus is an island country in the Eastern Mediterranean known for its beaches, ancient ruins, and delicious cuisine. Visitors can explore the Greek and Turkish cultures on the island.",
-                popularCities: ["Limassol", "Paphos", "Ayia Napa", "Larnaca"]
-            },
-            "dhekelia sovereign":{
-                name: "Dhekelia Sovereign",
-                summary: "",
-                popularCities: []
-            },
-            "akrotiri sovereign":{
-                name: "Akrotiri Sovereign",
-                summary: "",
-                popularCities: []
-            },
-            georgia:{
-                name: "Georgia",
-                summary: "A country with a unique blend of ancient history, stunning landscapes, and delicious cuisine. Visitors can explore the medieval Old Town of Tbilisi, discover the wine region of Kakheti, and hike in the Caucasus Mountains.",
-                popularCities: ["Tbilisi", "Batumi", "Mtskheta", "Kazbegi"]
-            },
-            azerbaijan:{
-                name: "Azerbaijan",
-                summary: "Known for its rich culture and diverse landscapes, Azerbaijan offers visitors a chance to explore the Old City of Baku, the Gobustan National Park, and the natural wonders of the Absheron Peninsula.",
-                popularCities: ["Baku", "Sheki", "Quba", "Ganja"]
-            },
-            iran:{
-                name: "Iran",
-                summary: "A destination steeped in history and culture, Iran offers visitors the chance to explore the ancient city of Persepolis and the natural beauty of the Alborz Mountains. It's recommended to check the travel advice of the government before planning a trip to Iran.",
-                popularCities: ["Tehran", "Esfahan", "Shiraz", "Yazd"]
-            },
-            armenia:{
-                name: "Armenia",
-                summary: "A small country with a rich history and culture, Armenia offers visitors the chance to explore the ancient city of Erevan, the medieval monasteries of Noravank and Geghard, and the stunning landscapes of Lake Sevan.",
-                popularCities: ["Yerevan", "Gyumri", "Dilijan", "Lake Sevan"]
-            },
-            "sri lanka":{
-                name: "Sri Lanka",
-                summary: "Known for its stunning beaches, lush rainforests and ancient cities, Sri Lanka offers visitors the chance to explore the ancient city of Sigiriya, the sacred city of Kandy and the diverse wildlife in national parks like Yala and Udawalawe.",
-                popularCities: ["Colombo", "Kandy", "Sigiriya", "Galle"]
-            },
-            india:{
-                name: "India",
-                summary: "A land of vibrant culture, history and cuisine, India offers visitors the chance to explore the iconic Taj Mahal, the bustling streets of Mumbai, and the serene backwaters of Kerala.",
-                popularCities: ["Agra", "Jaipur", "Mumbai", "Goa"]
-            },
-            pakistan:{
-                name: "Pakistan",
-                summary: "A land of stunning natural beauty and rich culture, Pakistan offers visitors the chance to explore the ancient city of Lahore, the Himalayan Mountains, and the diverse cultures of the northern regions.",
-                popularCities: ["Karachi", "Lahore", "Islamabad", "Rawalpindi"]
-            },
-            afghanistan:{
-                name: "Afghanistan",
-                summary: "A country with a rich history and culture, Afghanistan offers visitors the chance to explore the ancient city of Bamiyan, the Minaret of Jam and the stunning Wakhan Corridor. It's recommended to check the travel advice of the government before planning a trip to Afghanistan.",
-                popularCities: []
-            },
-            tajikistan:{
-                name: "Tajikistan",
-                summary: "Known for its rugged mountains, ancient architecture, and vibrant culture, Tajikistan offers a unique blend of adventure and history for travelers. It's recommended to check the travel advice of the government before planning a trip to Tajikistan.",
-                popularCities: []
-            },
-            kyrgyzstan:{
-                name: "Kyrgyzstan",
-                summary: "A land of stunning natural beauty, Kyrgyzstan is home to snow-capped peaks, alpine lakes, and traditional nomadic culture.",
-                popularCities: ["Bishkek", "Issyk-Kul", "Karakol", "Osh"]
-            },
-            uzbekistan:{
-                name: "Uzbekistan",
-                summary: "Boasting a rich history and a unique blend of Islamic and Central Asian cultures, Uzbekistan is home to some of the world's most iconic architecture and monuments.",
-                popularCities: ["Samarkand", "Bukhara", "Tashkent", "Khiva"]
-            },
-            turkmenistan:{
-                name: "Turkmenistan",
-                summary: "Turkmenistan is a secretive and little-visited country with a unique culture and a landscape of deserts and ancient ruins. It's recommended to check the travel advice of the government before planning a trip to Turkmenistan.",
-                popularCities: []
-            },
-            kazakhstan:{
-                name: "Kazakhstan",
-                summary: "The largest country in Central Asia, Kazakhstan offers a diverse array of landscapes, from snowy mountains to steppe grasslands, and a rich cultural heritage.",
-                popularCities: ["Almaty", "Nur-Sultan", "Shymkent", "Aktau"]
-            },
-            russia:{
-                name: "Russia",
-                summary: "The largest country in the world, Russia is a land of contrasts, from the bustling cities of Moscow and St. Petersburg to the remote wilderness of Siberia. It's recommended to check the travel advice of the government before planning a trip to Russia.",
-                popularCities: ["Vladivostok", "Irkutsk", "Khabarovsk", "Yakutsk"]
             }
         }
     }

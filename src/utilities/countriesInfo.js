@@ -132,7 +132,7 @@ const countriesInfo = {
                         visitable: true,
                         numberOfArticles: 0
                     },
-                    "Czech Republic": {
+                    "Czechia": {
                         filterShowing: false,
                         visitable: true,
                         numberOfArticles: 0

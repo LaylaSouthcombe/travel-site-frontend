@@ -84,9 +84,9 @@ const ArticleList = () => {
                 {query.split("&").length === 1 && query.split("=")[0] === "category" ? 
                     <TripStylesBreadCrumbMenu/>
                 : null}
-                {loaded ? 
+                {true ? 
                 <>
-                    {articles.length !== 0 ? 
+                    {true ? 
                     <>
                         <HeroArticleSection article={articles[0]} loaded={loaded}/>
                     </>

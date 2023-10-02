@@ -11,7 +11,7 @@ import backgroundWorld from '../../images/HeroImages/backgroundWorld.png'
 import {continentCountries} from '../../utilities/continentCountries'
 import {article} from '../../utilities/article'
 import {formatWord} from '../../utilities/formatWord'
-import { generateFetchUrl, generateGeoUrl, generateEndPointStart, defaultStyles, normalHoverColor, normalClickColor } from './continentCountryCityUtils'
+import { generateFetchUrl, generateEndPointStart, defaultStyles, normalHoverColor, normalClickColor } from './continentCountryCityUtils'
 
 import './style.css'
 
@@ -56,8 +56,6 @@ const ContinentCountryCity = () => {
             setLoaded(true)
         });
     }
-    
-    let geoUrl = generateGeoUrl(continent)
 
     useEffect(() => {
         const body = document.querySelector('body')
@@ -71,11 +69,12 @@ const ContinentCountryCity = () => {
         if (country === "england" || country === "wales" || country === "scotland" || country === "northernireland"){
             navigate("united-kingdom")
         } else if(continentCountries[continent].countries[country].popularCities.length){
-            navigate(country)
+            navigate(continentCountries[continent].countries[country].url)
         }
     }
 
-    const checkAndSetSumamryInfo = (countryName) => {
+    const checkAndSetSummaryInfo = (countryName) => {
+        console.log(countryName)
         setClickColors(defaultStyles)
         setHoverColors(defaultStyles)
         if(continentCountries[continent].countries[countryName].name !== "Europe"){
@@ -105,25 +104,25 @@ const ContinentCountryCity = () => {
                                 projection="geoAzimuthalEquidistant"
                                 projectionConfig={continentCountries[continent].geoInfo}
                                 >
-                                <Geographies geography={geoUrl}>
+                                <Geographies geography='/europeTopo.json'>
                                     {({ geographies }) =>
                                     geographies.map((geo) => (
                                         <Geography
                                         key={geo.rsmKey}
                                         geography={geo}
                                         onMouseEnter={() => 
-                                            checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
+                                            checkAndSetSummaryInfo(geo.properties.name.toLowerCase())
                                         }
                                         onMouseLeave={() => {
                                             setSummaryInfo({name: continentCountries[continent].name, summary: continentCountries[continent].summary})
                                         }}
                                         onTouchStart={() => 
-                                            checkAndSetSumamryInfo(geo.properties.geounit.toLowerCase())
+                                            checkAndSetSummaryInfo(geo.properties.name.toLowerCase())
                                         }
                                         onTouchEnd={() => {
                                             setSummaryInfo({name: continentCountries[continent].name, summary: continentCountries[continent].summary})
                                         }}
-                                        onClick={() => handleCountryClick(geo.properties.geounit.toLowerCase())}
+                                        onClick={() => handleCountryClick(geo.properties.name.toLowerCase())}
                                         style={{
                                             default: defaultStyles,
                                             hover: hoverColors,

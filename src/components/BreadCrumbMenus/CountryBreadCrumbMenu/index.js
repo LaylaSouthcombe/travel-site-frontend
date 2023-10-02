@@ -34,7 +34,7 @@ const CountryBreadCrumbMenu = () => {
                     }
                 </div>
                 <p className="countryCityName">{city === undefined ? formatWord(country === "england" || country === "wales" || country === "scotland" || country === "northern-ireland" ? "united-kingdom" : country) : formatWord(city)}</p>
-                <p className="countryCitySummary">{continentCountries[continent].countries[country].summary}</p>
+                <p className="countryCitySummary">{continentCountries[continent].countries[country]?.summary}</p>
             </div>
         </>
     )

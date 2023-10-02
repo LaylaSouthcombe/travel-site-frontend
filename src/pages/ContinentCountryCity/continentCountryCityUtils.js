@@ -6,14 +6,6 @@ const generateFetchUrl = (country, continent) => {
     }
 }
 
-const generateGeoUrl = (continent) => {
-    if(continent === 'australia-oceania'){
-        return `https://raw.githubusercontent.com/deldersveld/topojson/master/continents/oceania.json`
-    } else {
-        return `https://raw.githubusercontent.com/deldersveld/topojson/master/continents/${continent}.json`
-    }
-}
-
 const generateEndPointStart = (country, continent) => {
     if(continent !== undefined && country === undefined){
         return `/articles/continent=${continent}`
@@ -40,4 +32,4 @@ const normalClickColor = {
     strokeWidth: 1.5
 }
 
-module.exports = { generateFetchUrl, generateGeoUrl, generateEndPointStart, defaultStyles, normalHoverColor, normalClickColor }
+module.exports = { generateFetchUrl, generateEndPointStart, defaultStyles, normalHoverColor, normalClickColor }
