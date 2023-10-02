@@ -74,7 +74,6 @@ const ContinentCountryCity = () => {
     }
 
     const checkAndSetSummaryInfo = (countryName) => {
-        console.log(countryName)
         setClickColors(defaultStyles)
         setHoverColors(defaultStyles)
         if(continentCountries[continent].countries[countryName].name !== "Europe"){
