@@ -4,7 +4,7 @@ import Skeleton from '@mui/material/Skeleton'
 import './style.css'
 
 const HeroArticleSection = ({article, loaded}) => {
-
+    console.log(article)
     return (
         <>
             {loaded ? 

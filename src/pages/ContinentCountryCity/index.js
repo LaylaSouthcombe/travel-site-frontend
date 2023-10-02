@@ -20,7 +20,6 @@ const ContinentCountryCity = () => {
     const location = useLocation()
     let navigate = useNavigate()
 
-    const [topSectionArticles, setTopSectionArticles] = useState([])
     const tabHeadings = ["All", "Relaxation", "Luxury", "Nature", "Food", "City Break", "Budget Friendly", "Art & Culture", "Adventure"]
     const [tabArticles, setTabArticles] = useState([article, article, article, article, article, article, article, article, article, article, article, article])
 
@@ -48,11 +47,6 @@ const ContinentCountryCity = () => {
     const fetchArticles = async (url) => {
         await axios.get(url).then((response) => {
             setTabArticles(response.data)
-            if(response.data.length > 4){
-                setTopSectionArticles(response.data.splice(0,4))
-            } else {
-                setTopSectionArticles(response.data)
-            }
             setLoaded(true)
         });
     }
@@ -145,23 +139,27 @@ const ContinentCountryCity = () => {
             </>
             :
             <>
-                <CountryBreadCrumbMenu/>
-                <HeroArticleSection articles={topSectionArticles[0]} loaded={loaded}/>
+            {loaded ? 
+                <>
+                    <CountryBreadCrumbMenu/>
+                    <HeroArticleSection article={tabArticles[0]} loaded={loaded}/>
+                </>
+                : null}
             </>
             }
             <>
                 {loaded ? 
                 <>
-                    {topSectionArticles.length === 4 ? 
+                    {tabArticles.length ? 
                     <>
-                        <ThreeCardsRow articles={topSectionArticles.splice(1,4)} loaded={loaded}/>
+                        <ThreeCardsRow articles={[tabArticles[1], tabArticles[2], tabArticles[3]]} loaded={loaded}/>
                         <GoogleAd dataAdSlot={"1136657549"}/>
                     </>
                     : null}
                 </>
                 :
                 <>
-                    <ThreeCardsRow articles={topSectionArticles.splice(1,4)} loaded={false}/>
+                    <ThreeCardsRow articles={[tabArticles[1], tabArticles[2], tabArticles[3]]} loaded={false}/>
                 </>
                 }
             </>
