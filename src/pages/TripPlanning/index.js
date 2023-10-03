@@ -68,14 +68,14 @@ const TripPlanning = () => {
                 <>
                     {articles.length >= 4 ? 
                     <>
-                        <ThreeCardsRow articles={articles.splice(1,4)} loaded={loaded}/>
+                        <ThreeCardsRow articles={[articles[1], articles[2], articles[3]]} loaded={loaded}/>
                         <GoogleAd dataAdSlot={"1136657549"}/>
                     </>
                     : null}
                 </>
                 :
                 <>
-                    <ThreeCardsRow articles={articles.splice(1,4)} loaded={false}/>
+                    <ThreeCardsRow articles={[articles[1], articles[2], articles[3]]} loaded={false}/>
                 </>
             }
             {loaded ? 

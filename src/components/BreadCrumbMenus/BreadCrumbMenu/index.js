@@ -10,7 +10,7 @@ const BreadCrumbMenu = () => {
     const location = useLocation()
     const pageLocation = location.pathname.split("/")[1]
 
-    let summaryInfo = pageLocation === "trip-planning" ? "plan your trip summary" : "popular articles summary"
+    let summaryInfo = pageLocation === "trip-planning" ? "Get ready to elevate your travel game with expert insights and savvy advice. From packing tips to budget-friendly hacks, we've got you covered. " : "Explore a world of wanderlust as we curate the finest travel tales for your inspiration. Discover your next adventure, and let your wanderlust take flight."
 
     return (
          <>
