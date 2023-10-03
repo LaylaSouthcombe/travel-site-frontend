@@ -36,8 +36,8 @@ const Home = () => {
     }  
 
     const fetchAllHomePageArticles = async () => {
-        await fetchTrendingArticles('http://localhost:3000/articles/trending')
-        await fetchCityArticles('http://localhost:3000/articles/category/city')
+        await fetchTrendingArticles(`${process.env.REACT_APP_BACKEND_URL}/articles/trending`)
+        await fetchCityArticles(`${process.env.REACT_APP_BACKEND_URL}/articles/category/city`)
         setLoaded(true)
     }
     

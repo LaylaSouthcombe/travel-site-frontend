@@ -56,7 +56,7 @@ const ArticleList = () => {
         window.scrollTo(0, 0)
 
         if(query === 'popular'){
-            fetchArticlesWithoutConfig('http://localhost:3000/articles/trending')
+            fetchArticlesWithoutConfig(`${process.env.REACT_APP_BACKEND_URL}/articles/trending`)
         } else {
             if(query.includes('continent') || query.includes('country') || query.includes('city') || query.includes('category')){
                 let queryParams = generateQueryParam(query)
@@ -66,7 +66,7 @@ const ArticleList = () => {
                     }
                 }
                 try {
-                    fetchArticlesWithConfig('http://localhost:3000/articles/queryterm', config)
+                    fetchArticlesWithConfig(`${process.env.REACT_APP_BACKEND_URL}/articles/queryterm`, config)
                 } catch(error) {
                     console.error(error.message)
                 }

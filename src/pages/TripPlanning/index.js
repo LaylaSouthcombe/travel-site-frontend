@@ -33,7 +33,7 @@ const TripPlanning = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        fetchArticlesWithoutConfig('http://localhost:3000/articles/trip-planning')
+        fetchArticlesWithoutConfig(`${process.env.REACT_APP_BACKEND_URL}/articles/trip-planning`)
     }, [])
 
     return (

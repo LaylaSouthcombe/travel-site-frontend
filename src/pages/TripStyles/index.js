@@ -54,7 +54,7 @@ const TripStyles = () => {
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
         window.scrollTo(0, 0)
-        fetchArticles('http://localhost:3000/articles/categories/')
+        fetchArticles(`${process.env.REACT_APP_BACKEND_URL}/articles/categories/`)
     }, [])
 
     

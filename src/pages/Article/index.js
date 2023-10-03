@@ -10,7 +10,8 @@ import './style.css'
 import {ArticleGridStyle2, ArticleListGridStyle2, GoogleAd, PageNotFound} from '../../components'
 
 const Article = () => {
-    
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+
     const {articleid} = useParams()
 
     const [article, setArticle] = useState()
@@ -23,8 +24,9 @@ const Article = () => {
         window.scrollTo(0, 0)
         const body = document.querySelector('body')
         body.classList.remove("fixedBody")
+        
+        const URL = `${BACKEND_URL}/articles/article/${articleid}`
 
-        const URL = `http://localhost:3000/articles/article/${articleid}`
         const fetchFullArticle = async () => {
             try {
                 axios.get(URL).then((response) => {
@@ -40,7 +42,7 @@ const Article = () => {
                 setLoaded(true)
             }
         }
-        const popularURL = `http://localhost:3000/articles/trending`
+        const popularURL = `${BACKEND_URL}/articles/trending`
         const fetchPopularArticles = async () => {
             try {
                 axios.get(popularURL).then((response) => {
@@ -53,7 +55,7 @@ const Article = () => {
                 setPopularArticles([])
             }
         }
-        const mostRead = `http://localhost:3000/articles/most-read`
+        const mostRead = `${BACKEND_URL}/articles/most-read`
         const fetchMostReadArticles = async () => {
             try {
                 axios.get(mostRead).then((response) => {

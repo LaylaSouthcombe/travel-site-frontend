@@ -37,7 +37,7 @@ const SearchResults = () => {
                 query: JSON.stringify(searchQuery)
             }
         };
-        fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
+        fetchArticlesWithConfig(`${process.env.REACT_APP_BACKEND_URL}/articles/search`, config)
     }, [searchQuery])
 
     return (

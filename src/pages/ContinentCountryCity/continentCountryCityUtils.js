@@ -1,8 +1,8 @@
 const generateFetchUrl = (country, continent) => {
     if(country === undefined && continent !== undefined){
-        return `http://localhost:3000/articles/continent/${continent}`
+        return `${process.env.REACT_APP_BACKEND_URL}/articles/continent/${continent}`
     } else if(country !== undefined && continent !== undefined){
-        return `http://localhost:3000/articles/country/${country}`
+        return `${process.env.REACT_APP_BACKEND_URL}/articles/country/${country}`
     }
 }
 
