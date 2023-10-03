@@ -6,7 +6,7 @@ Sojo Travels is a full-stack web application that offers a curated collection of
 
 - **Frontend:** The frontend of Sojo Travels is built using React and hosted on Netlify.
 
-- **Backend:** The backend server is hosted on Glitch and serves as the API to retrieve the articles from a PostgreSQL database.
+- **Backend:** The backend server is hosted on Railway and serves as the API to retrieve the articles from a PostgreSQL database.
 
 - **Article generator:** The articles were created using the Openai API (model gpt 3.5 turbo), formatted, and then automatically sent to the PostgreSQL database.
 
