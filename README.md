@@ -1,71 +1,56 @@
-# Getting Started with Create React App
+# Sojo Travels
+Welcome to Sojo Travels, your passport to European destinations! Discover captivating travel articles about European cities, landscapes, and hidden gems.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
+Sojo Travels is a full-stack web application that offers a curated collection of travel articles focusing on destinations across Europe. Whether you're planning your next adventure or simply looking for inspiration, our site is your go-to resource for exploring the beauty and diversity of Europe.
 
-## Available Scripts
+- **Frontend:** The frontend of Sojo Travels is built using React and hosted on Netlify.
 
-In the project directory, you can run:
+- **Backend:** The backend server is hosted on Glitch and serves as the API to retrieve the articles from a PostgreSQL database.
 
-### `npm start`
+- **Article generator:** The articles were created using the Openai API (model gpt 3.5 turbo), formatted, and then automatically sent to the PostgreSQL database.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+**Interactive Map:** Explore European destinations visually on an interactive map. Click on a country to discover related travel articles.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Filterable Article List:** Browse our extensive list of articles, filtering by country or category to find the perfect travel inspiration.
 
-### `npm test`
+**Search Functionality:** Looking for something specific? Use our search bar to find articles by keywords, destinations, or topics.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
+**Home Page:** Explore the beauty of Europe through captivating travel articles.
+![Sojo Travels home page](/src/images/ReadmeImages/homePage.png)
 
-### `npm run build`
+**Interactive Map:** Navigate Europe and discover articles by clicking on countries and cities.
+![Sojo Travels interactive map](/src/images/ReadmeImages/interactiveMap.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Single Article Page:** Dive deep into each destination with detailed travel articles.
+![Sojo Travels article page](/src/images/ReadmeImages/articlePage.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
+To get started with Sojo Travels, follow these simple steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the repository to your local machine.
 
-### `npm run eject`
+`git clone https://github.com/your-username/sojo-travels.git`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install the required dependencies for the frontend.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm install`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the development server for the frontend.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`npm start`
 
-## Learn More
+Open your web browser and navigate to http://localhost:3000 to access the Sojo Travels website.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For the backend code hosted on GitHub:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Visit the project the [repo](https://github.com/LaylaSouthcombe/travel-site-backend) for the backend code.
 
-### Code Splitting
+Follow the instructions in the project README to set up and deploy the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+License
+This project is licensed under the MIT License.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# travel-site-frontend
+Thank you for using Sojo Travels to fuel your wanderlust! Safe travels! 🌍✈️
