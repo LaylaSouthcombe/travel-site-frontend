@@ -24,6 +24,7 @@ const SearchResults = () => {
             } else {
                 setArticles([])
             }
+            setLoaded(true)
         })
     }
 
@@ -37,7 +38,6 @@ const SearchResults = () => {
             }
         };
         fetchArticlesWithConfig('http://localhost:3000/articles/search', config)
-        setLoaded(true)
     }, [searchQuery])
 
     return (
